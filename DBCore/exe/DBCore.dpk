@@ -1,0 +1,50 @@
+package DBCore;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'Application DataBase Interface Core'}
+{$DESIGNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vcl,
+  dbrtl,
+  designide,
+  vclx,
+  vcldb,
+  dsnap,
+  vclactnband,
+  dac70,
+  odac70,
+  rbRCL77;
+
+contains
+  DBCoreReg in '..\src\DBCoreReg.pas',
+  udmDBRoot in '..\src\udmDBRoot.pas' {dmRoot: TdmCore},
+  udmDBCore in '..\src\udmDBCore.pas',
+  uCore in '..\src\uCore.pas',
+  uRoot in '..\src\uRoot.pas' {fmRoot},
+  uSupportLib in '..\..\SharedUnit\uSupportLib.pas';
+
+end.
