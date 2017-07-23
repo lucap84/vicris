@@ -6,18 +6,18 @@ object dmSearch: TdmSearch
   Height = 405
   Width = 298
   object OraSearch: TOraSession
-    ConnectPrompt = False
     Options.Charset = 'WE8ISO8859P15'
     Options.DateFormat = 'DD-MON-RR'
     Options.DateLanguage = 'ITALIAN'
-    Options.NeverConnect = True
-    Username = 'PCAL'
-    Password = 'PCAL'
-    Server = 'XE'
+    Options.KeepDesignConnected = False
+    Username = 'VICRIS'
+    Server = 'VICRIS'
     AutoCommit = False
-    Schema = 'PCAL'
+    LoginPrompt = False
+    Schema = 'VICRIS'
     Left = 16
     Top = 16
+    EncryptedPassword = 'A9FFB6FFBCFFADFFB6FFACFF'
   end
   object qyAut: TOraQuery
     Session = OraSearch
