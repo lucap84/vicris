@@ -341,5 +341,6 @@ object dmChkUsr: TdmChkUsr
         Name = 'IDAT_AGG_REC'
         ParamType = ptInput
       end>
+    CommandStoredProcName = 'SP_IRTUSRAPLTRZ'
   end
 end

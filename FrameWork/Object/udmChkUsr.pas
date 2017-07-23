@@ -141,16 +141,6 @@ begin
     except
       OraChkUsr.Rollback;
     end;
-
-//    OraChkUsr.StartTransaction;
-//    try
-//      try
-//      finally
-//        OraChkUsr.Commit;
-//      end;
-//    except
-//      OraChkUsr.Rollback;
-//    end;
   end;
 end;
 
