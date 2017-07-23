@@ -1,5 +1,5 @@
-inherited fmBrAutore: TfmBrAutore
-  Caption = 'Autori'
+inherited fmBrCliente: TfmBrCliente
+  Caption = 'Clienti'
   OldCreateOrder = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -7,39 +7,62 @@ inherited fmBrAutore: TfmBrAutore
   PixelsPerInch = 96
   TextHeight = 13
   inherited grBrowse: TDBGridAux
-    DataSource = dmBrAutore.dsAutore
+    DataSource = dmBrCliente.dsCliente
     Columns = <
       item
         Expanded = False
-        FieldName = 'COD_AUT'
-        Title.Alignment = taCenter
-        Width = 162
+        FieldName = 'ID_CLIENTE'
+        Width = 94
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'DES_NOM'
-        Title.Alignment = taCenter
-        Width = 154
+        FieldName = 'NOME'
+        Width = 4504
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'DES_COG'
-        Title.Alignment = taCenter
-        Width = 154
+        FieldName = 'REFERENTE'
+        Width = 904
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'DES_NTE'
-        Title.Alignment = taCenter
-        Width = 256
+        FieldName = 'INDIRIZZO'
+        Width = 18004
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CITTA'
+        Width = 904
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CAP'
+        Width = 49
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PROVINCIA'
+        Width = 44
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PARTITA_IVA'
+        Width = 184
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CODICE_FISCALE'
+        Width = 184
         Visible = True
       end>
-  end
-  inherited plBrowse: TppBDEPipeline
-    DataSource = dmBrAutore.dsAutore
   end
   inherited rpBrowse: TppReport
     DataPipelineName = 'plBrowse'

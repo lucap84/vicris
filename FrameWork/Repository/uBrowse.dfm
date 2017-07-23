@@ -1,6 +1,6 @@
 object fmBrowse: TfmBrowse
-  Left = 381
-  Top = 236
+  Left = 255
+  Top = 225
   Width = 743
   Height = 600
   Caption = 'fmBrowse'
@@ -21,8 +21,8 @@ object fmBrowse: TfmBrowse
   TextHeight = 13
   object pnTools: TPanel
     Left = 0
-    Top = 513
-    Width = 735
+    Top = 501
+    Width = 727
     Height = 60
     Align = alBottom
     BevelOuter = bvNone
@@ -3203,8 +3203,8 @@ object fmBrowse: TfmBrowse
   object grBrowse: TDBGridAux
     Left = 0
     Top = 0
-    Width = 735
-    Height = 513
+    Width = 727
+    Height = 501
     OptionsEx = [dgeEnableSort, dgeLocalFilter, dgeLocalSorting, dgeRecordCount, dgeStretch]
     OnGetCellParams = grBrowseGetCellParams
     Align = alClient

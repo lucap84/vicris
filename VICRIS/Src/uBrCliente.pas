@@ -1,4 +1,4 @@
-unit uBrAutore;
+unit uBrCliente;
 
 interface
 
@@ -6,13 +6,13 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uBrowse, ActnList, DB, Grids, DBGrids, CRGrid, StdCtrls,
   Buttons, ExtCtrls,
-  udmBrAutore,
+  udmBrCliente,
   udmEdAutore, uEdAutore, ppCtrls, ppDB, ppVar, ppBands, ppPrnabl, ppClass,
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDBPipe, ppDBBDE, TXComp,
   DBGridAux;
 
 type
-  TfmBrAutore = class(TfmBrowse)
+  TfmBrCliente = class(TfmBrowse)
     ppShape1: TppShape;
     ppLabel1: TppLabel;
     ppLabel3: TppLabel;
@@ -34,24 +34,24 @@ type
   end;
 
 var
-  fmBrAutore: TfmBrAutore;
+  fmBrCliente: TfmBrCliente;
 
 implementation
 
 {$R *.dfm}
 
-procedure TfmBrAutore.FormCreate(Sender: TObject);
+procedure TfmBrCliente.FormCreate(Sender: TObject);
 begin
   inherited;
-  hDataModuleClass     := TdmBrAutore;
+  hDataModuleClass     := TdmBrCliente;
   hEditDataModuleClass := TdmEdAutore;
   hEditFormClass       := TfmEdAutore;
 end;
 
-procedure TfmBrAutore.FormDestroy(Sender: TObject);
+procedure TfmBrCliente.FormDestroy(Sender: TObject);
 begin
   inherited;
-  fmBrAutore := nil;
+  fmBrCliente := nil;
 end;
 
 end.

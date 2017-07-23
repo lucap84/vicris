@@ -1,6 +1,6 @@
 object fmMenu: TfmMenu
   Left = 325
-  Top = 179
+  Top = 333
   Width = 640
   Height = 480
   Caption = ' - VICRIS'
@@ -350,64 +350,8 @@ object fmMenu: TfmMenu
       object miGenerale: TMenuItem
         Caption = '&Generale'
         Hint = 'Dati Generali'
-        object miNaz: TMenuItem
-          Action = acNaz
-        end
-        object miCta: TMenuItem
-          Action = acCta
-        end
-        object miPmr: TMenuItem
-          Action = acPmr
-        end
-        object miUbi: TMenuItem
-          Action = acUbi
-        end
-        object N3: TMenuItem
-          Caption = '-'
-        end
-        object miEvt: TMenuItem
-          Action = acEvt
-        end
-        object miSkd: TMenuItem
-          Action = acSkd
-        end
-      end
-      object N1: TMenuItem
-        Caption = '-'
-      end
-      object miBiblioteca: TMenuItem
-        Caption = '&Biblioteca'
-        Hint = 'Entra nel DB Biblioteca'
-        object miAut: TMenuItem
-          Action = acAut
-        end
-        object miClz: TMenuItem
-          Action = acClz
-        end
-        object miOgg: TMenuItem
-          Action = acOgg
-        end
-        object miCed: TMenuItem
-          Action = acCed
-        end
-        object miPub: TMenuItem
-          Action = acPub
-        end
-      end
-      object miProtocollo: TMenuItem
-        Caption = '&Protocollo'
-        Hint = 'Entra nel DB Biblioteca'
-        object miInc: TMenuItem
-          Action = acInc
-        end
-        object miPer: TMenuItem
-          Action = acPer
-        end
-        object miRol: TMenuItem
-          Action = acRol
-        end
-        object miPtc: TMenuItem
-          Action = acPtc
+        object miCli: TMenuItem
+          Action = acCli
         end
       end
     end
@@ -447,62 +391,6 @@ object fmMenu: TfmMenu
       OnExecute = acExitExecute
       OnUpdate = acCommonUpdate
     end
-    object acAut: TAction
-      Category = 'DB_Biblioteca'
-      Caption = '&Autori'
-      Hint = 'Apre l'#39'elenco degli autori'
-      OnExecute = acAutExecute
-      OnUpdate = acCommonUpdate
-    end
-    object acClz: TAction
-      Category = 'DB_Biblioteca'
-      Caption = '&Collezioni'
-      Hint = 'Apre l'#39'elenco delle collezioni'
-      OnExecute = acClzExecute
-      OnUpdate = acCommonUpdate
-    end
-    object acPmr: TAction
-      Category = 'DB_Biblioteca'
-      Caption = '&Istituzioni'
-      Hint = 'Apre l'#39'elenco delle istituzioni'
-      OnExecute = acPmrExecute
-      OnUpdate = acCommonUpdate
-    end
-    object acOgg: TAction
-      Category = 'DB_Biblioteca'
-      Caption = 'C.&D.U.'
-      Hint = 'Apre l'#39'elenco dei C.D.U.'
-      OnExecute = acOggExecute
-      OnUpdate = acCommonUpdate
-    end
-    object acNaz: TAction
-      Category = 'DB_Generale'
-      Caption = '&Nazioni'
-      Hint = 'Apre l'#39'elenco delle Nazioni'
-      OnExecute = acNazExecute
-      OnUpdate = acCommonUpdate
-    end
-    object acCta: TAction
-      Category = 'DB_Generale'
-      Caption = '&Citt'#224
-      Hint = 'Apre l'#39'elenco delle Citt'#224
-      OnExecute = acCtaExecute
-      OnUpdate = acCommonUpdate
-    end
-    object acCed: TAction
-      Category = 'DB_Biblioteca'
-      Caption = 'Case &Editrici'
-      Hint = 'Apre l'#39'elenco delle Case Editrici'
-      OnExecute = acCedExecute
-      OnUpdate = acCommonUpdate
-    end
-    object acPub: TAction
-      Category = 'DB_Biblioteca'
-      Caption = '&Pubblicazioni'
-      Hint = 'Apre l'#39'elenco delle pubblicazioni'
-      OnExecute = acPubExecute
-      OnUpdate = acCommonUpdate
-    end
     object acTileHor: TAction
       Tag = 1
       Category = 'Visualizza'
@@ -538,53 +426,11 @@ object fmMenu: TfmMenu
       Hint = 'Informazioni sul programma'
       OnExecute = acAboutExecute
     end
-    object acInc: TAction
-      Category = 'DB_Protocollo'
-      Caption = '&Incarichi'
-      Hint = 'Apre l'#39'elenco degli Incarichi'
-      OnExecute = acIncExecute
-      OnUpdate = acCommonUpdate
-    end
-    object acPer: TAction
-      Category = 'DB_Protocollo'
-      Caption = '&Persone'
-      Hint = 'Apre l'#39'elenco delle Persone'
-      OnExecute = acPerExecute
-      OnUpdate = acCommonUpdate
-    end
-    object acRol: TAction
-      Category = 'DB_Protocollo'
-      Caption = '&Ruoli'
-      Hint = 'Apre l'#39'elenco dei Ruoli'
-      OnExecute = acRolExecute
-      OnUpdate = acCommonUpdate
-    end
-    object acPtc: TAction
-      Category = 'DB_Protocollo'
-      Caption = 'Proto&collo'
-      Hint = 'Apre l'#39'elenco del Protocollo'
-      OnExecute = acPtcExecute
-      OnUpdate = acCommonUpdate
-    end
-    object acUbi: TAction
+    object acCli: TAction
       Category = 'DB_Generale'
-      Caption = '&Ubicazioni'
-      Hint = 'Apre l'#39'elenco delle Ubicazioni'
-      OnExecute = acUbiExecute
-      OnUpdate = acCommonUpdate
-    end
-    object acEvt: TAction
-      Category = 'DB_Generale'
-      Caption = '&Eventi'
-      Hint = 'Apre l'#39'elenco degli Eventi'
-      OnExecute = acEvtExecute
-      OnUpdate = acCommonUpdate
-    end
-    object acSkd: TAction
-      Category = 'DB_Generale'
-      Caption = 'Schedulatore'
-      Hint = 'Apre l'#39'elenco degli Allarmi configurati'
-      OnExecute = acSkdExecute
+      Caption = '&Clienti'
+      Hint = 'Apre l'#39'elenco dei Clienti'
+      OnExecute = acCliExecute
       OnUpdate = acCommonUpdate
     end
   end
