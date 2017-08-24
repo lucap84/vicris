@@ -6,13 +6,9 @@ inherited dmEdAutore: TdmEdAutore
   Top = 157
   Height = 604
   Width = 393
-  inherited OraSession: TOraSession
-    Connected = False
-  end
   object qyAutore: TOraQuery
     Session = OraSession
-    SQL.Strings = (
-      'SELECT *'
+    SQL.Strings = (      'SELECT *'
       '  FROM AUTORE'
       ' WHERE COD_AUT = :COD_AUT')
     Left = 40

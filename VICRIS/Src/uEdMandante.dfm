@@ -1,10 +1,10 @@
-inherited fmEdCliente: TfmEdCliente
+inherited fmEdMandante: TfmEdMandante
   Left = 589
   Top = 229
   Width = 760
-  Height = 610
-  Caption = 'Cliente'
-  Constraints.MinHeight = 610
+  Height = 520
+  Caption = 'Mandante'
+  Constraints.MinHeight = 520
   Constraints.MinWidth = 760
   OldCreateOrder = True
   OnCreate = FormCreate
@@ -14,7 +14,7 @@ inherited fmEdCliente: TfmEdCliente
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnTools: TPanel
-    Top = 514
+    Top = 424
     Width = 744
     inherited bbCommit: TBitBtn
       Left = 250
@@ -32,38 +32,25 @@ inherited fmEdCliente: TfmEdCliente
       Left = 564
     end
   end
-  object pcCliente: TPageControl [1]
+  object pcMandante: TPageControl [1]
     Left = 0
     Top = 0
     Width = 744
-    Height = 514
-    ActivePage = teCliente
+    Height = 424
+    ActivePage = teMandante
     Align = alClient
     TabOrder = 1
-    object teCliente: TTabSheet
-      Caption = 'Cliente'
+    object teMandante: TTabSheet
+      Caption = 'Mandante'
       DesignSize = (
         736
-        486)
+        396)
       object laNome: TLabel
         Left = 8
         Top = 10
-        Width = 57
+        Width = 103
         Height = 20
-        Caption = 'NOME:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object laReferente: TLabel
-        Left = 8
-        Top = 40
-        Width = 113
-        Height = 20
-        Caption = 'REFERENTE:'
+        Caption = 'MANDANTE:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -73,7 +60,7 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laIndirizzo: TLabel
         Left = 8
-        Top = 70
+        Top = 40
         Width = 97
         Height = 20
         Caption = 'INDIRIZZO:'
@@ -84,22 +71,9 @@ inherited fmEdCliente: TfmEdCliente
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object laSpedizione: TLabel
-        Left = 8
-        Top = 130
-        Width = 114
-        Height = 20
-        Caption = 'SPEDIZIONE:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
       object laCitta: TLabel
         Left = 8
-        Top = 190
+        Top = 100
         Width = 60
         Height = 20
         Caption = 'CITTA'#39':'
@@ -112,7 +86,7 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laCap: TLabel
         Left = 413
-        Top = 190
+        Top = 100
         Width = 56
         Height = 20
         Anchors = [akTop]
@@ -126,7 +100,7 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laProvincia: TLabel
         Left = 584
-        Top = 190
+        Top = 100
         Width = 60
         Height = 20
         Anchors = [akTop]
@@ -140,7 +114,7 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laTelefono: TLabel
         Left = 8
-        Top = 220
+        Top = 130
         Width = 99
         Height = 20
         Caption = 'TELEFONO:'
@@ -153,7 +127,7 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laCellulare: TLabel
         Left = 423
-        Top = 220
+        Top = 160
         Width = 110
         Height = 20
         Anchors = [akTop]
@@ -167,7 +141,7 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laFax: TLabel
         Left = 8
-        Top = 250
+        Top = 160
         Width = 41
         Height = 20
         Caption = 'FAX:'
@@ -180,7 +154,7 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laMail: TLabel
         Left = 8
-        Top = 280
+        Top = 190
         Width = 48
         Height = 20
         Caption = 'MAIL:'
@@ -193,7 +167,7 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laSito: TLabel
         Left = 413
-        Top = 280
+        Top = 190
         Width = 47
         Height = 20
         Anchors = [akTop]
@@ -207,7 +181,7 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laPartitaIva: TLabel
         Left = 8
-        Top = 310
+        Top = 220
         Width = 52
         Height = 20
         Caption = 'P.IVA:'
@@ -220,7 +194,7 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laCodiceFiscale: TLabel
         Left = 421
-        Top = 310
+        Top = 220
         Width = 39
         Height = 20
         Anchors = [akTop]
@@ -234,7 +208,7 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laBanca: TLabel
         Left = 8
-        Top = 340
+        Top = 250
         Width = 66
         Height = 20
         Caption = 'BANCA:'
@@ -247,7 +221,7 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laAbi: TLabel
         Left = 8
-        Top = 370
+        Top = 280
         Width = 36
         Height = 20
         Caption = 'ABI:'
@@ -260,10 +234,9 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laCab: TLabel
         Left = 267
-        Top = 370
+        Top = 280
         Width = 42
         Height = 20
-        Anchors = [akTop]
         Caption = 'CAB:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -274,10 +247,9 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laIban: TLabel
         Left = 412
-        Top = 370
+        Top = 280
         Width = 48
         Height = 20
-        Anchors = [akTop]
         Caption = 'IBAN:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -288,10 +260,24 @@ inherited fmEdCliente: TfmEdCliente
       end
       object laNote: TLabel
         Left = 8
-        Top = 400
+        Top = 310
         Width = 53
         Height = 20
         Caption = 'NOTE:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label1: TLabel
+        Left = 434
+        Top = 130
+        Width = 99
+        Height = 20
+        Anchors = [akTop]
+        Caption = 'TELEFONO:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -305,8 +291,8 @@ inherited fmEdCliente: TfmEdCliente
         Width = 608
         Height = 28
         Anchors = [akLeft, akTop, akRight]
-        DataField = 'NOME'
-        DataSource = dmEdCliente.dsCliente
+        DataField = 'MANDANTE'
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -315,14 +301,14 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
         TabOrder = 0
       end
-      object deReferente: TDBEdit
+      object deIndirizzo: TDBMemo
         Left = 128
         Top = 38
         Width = 608
-        Height = 28
+        Height = 58
         Anchors = [akLeft, akTop, akRight]
-        DataField = 'REFERENTE'
-        DataSource = dmEdCliente.dsCliente
+        DataField = 'INDIRIZZO'
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -331,14 +317,45 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
         TabOrder = 1
       end
-      object deIndirizzo: TDBMemo
+      object deBanca: TDBEdit
         Left = 128
-        Top = 68
+        Top = 248
         Width = 608
-        Height = 58
+        Height = 28
         Anchors = [akLeft, akTop, akRight]
-        DataField = 'INDIRIZZO'
-        DataSource = dmEdCliente.dsCliente
+        DataField = 'BANCA'
+        DataSource = dmEdMandante.dsMandante
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 13
+      end
+      object deNote: TDBMemo
+        Left = 128
+        Top = 308
+        Width = 608
+        Height = 88
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        DataField = 'NOTE'
+        DataSource = dmEdMandante.dsMandante
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 17
+      end
+      object DBEdit1: TDBEdit
+        Left = 128
+        Top = 98
+        Width = 273
+        Height = 28
+        DataField = 'CITTA'
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -347,14 +364,14 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
         TabOrder = 2
       end
-      object deSpedizione: TDBMemo
-        Left = 128
-        Top = 128
-        Width = 608
-        Height = 58
-        Anchors = [akLeft, akTop, akRight]
-        DataField = 'INDIRIZZO_SPEDIZIONE'
-        DataSource = dmEdCliente.dsCliente
+      object DBEdit2: TDBEdit
+        Left = 472
+        Top = 98
+        Width = 89
+        Height = 28
+        Anchors = [akTop]
+        DataField = 'CAP'
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -363,45 +380,14 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
         TabOrder = 3
       end
-      object deBanca: TDBEdit
-        Left = 128
-        Top = 338
-        Width = 608
+      object DBEdit3: TDBEdit
+        Left = 647
+        Top = 98
+        Width = 89
         Height = 28
-        Anchors = [akLeft, akTop, akRight]
-        DataField = 'BANCA'
-        DataSource = dmEdCliente.dsCliente
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 14
-      end
-      object deNote: TDBMemo
-        Left = 128
-        Top = 398
-        Width = 608
-        Height = 88
-        Anchors = [akLeft, akTop, akRight, akBottom]
-        DataField = 'NOTE'
-        DataSource = dmEdCliente.dsCliente
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 18
-      end
-      object DBEdit1: TDBEdit
-        Left = 128
-        Top = 188
-        Width = 273
-        Height = 28
-        DataField = 'CITTA'
-        DataSource = dmEdCliente.dsCliente
+        Anchors = [akTop]
+        DataField = 'PROVINCIA'
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -410,14 +396,13 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
         TabOrder = 4
       end
-      object DBEdit2: TDBEdit
-        Left = 472
-        Top = 188
-        Width = 89
+      object DBEdit4: TDBEdit
+        Left = 128
+        Top = 128
+        Width = 200
         Height = 28
-        Anchors = [akTop]
-        DataField = 'CAP'
-        DataSource = dmEdCliente.dsCliente
+        DataField = 'TELEFONO_1'
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -426,45 +411,14 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
         TabOrder = 5
       end
-      object DBEdit3: TDBEdit
-        Left = 647
-        Top = 188
-        Width = 89
-        Height = 28
-        Anchors = [akTop]
-        DataField = 'PROVINCIA'
-        DataSource = dmEdCliente.dsCliente
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 6
-      end
-      object DBEdit4: TDBEdit
-        Left = 128
-        Top = 218
-        Width = 200
-        Height = 28
-        DataField = 'TELEFONO'
-        DataSource = dmEdCliente.dsCliente
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 7
-      end
       object DBEdit5: TDBEdit
         Left = 536
-        Top = 218
+        Top = 158
         Width = 200
         Height = 28
         Anchors = [akTop]
         DataField = 'CELLULARE'
-        DataSource = dmEdCliente.dsCliente
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -475,11 +429,26 @@ inherited fmEdCliente: TfmEdCliente
       end
       object DBEdit6: TDBEdit
         Left = 128
-        Top = 248
+        Top = 158
         Width = 200
         Height = 28
         DataField = 'FAX'
-        DataSource = dmEdCliente.dsCliente
+        DataSource = dmEdMandante.dsMandante
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+      end
+      object DBEdit7: TDBEdit
+        Left = 128
+        Top = 188
+        Width = 273
+        Height = 28
+        DataField = 'MAIL'
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -488,13 +457,14 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
         TabOrder = 9
       end
-      object DBEdit7: TDBEdit
-        Left = 128
-        Top = 278
+      object DBEdit8: TDBEdit
+        Left = 463
+        Top = 188
         Width = 273
         Height = 28
-        DataField = 'MAIL'
-        DataSource = dmEdCliente.dsCliente
+        Anchors = [akTop]
+        DataField = 'SITO'
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -503,14 +473,13 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
         TabOrder = 10
       end
-      object DBEdit8: TDBEdit
-        Left = 463
-        Top = 278
+      object DBEdit9: TDBEdit
+        Left = 128
+        Top = 218
         Width = 273
         Height = 28
-        Anchors = [akTop]
-        DataField = 'SITO'
-        DataSource = dmEdCliente.dsCliente
+        DataField = 'PARTITA_IVA'
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -519,13 +488,14 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
         TabOrder = 11
       end
-      object DBEdit9: TDBEdit
-        Left = 128
-        Top = 308
+      object DBEdit10: TDBEdit
+        Left = 463
+        Top = 218
         Width = 273
         Height = 28
-        DataField = 'PARTITA_IVA'
-        DataSource = dmEdCliente.dsCliente
+        Anchors = [akTop]
+        DataField = 'CODICE_FISCALE'
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -534,29 +504,28 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
         TabOrder = 12
       end
-      object DBEdit10: TDBEdit
-        Left = 463
-        Top = 308
-        Width = 273
+      object DBEdit11: TDBEdit
+        Left = 128
+        Top = 278
+        Width = 89
         Height = 28
-        Anchors = [akTop]
-        DataField = 'CODICE_FISCALE'
-        DataSource = dmEdCliente.dsCliente
+        DataField = 'CODICE_ABI'
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 13
+        TabOrder = 14
       end
-      object DBEdit11: TDBEdit
-        Left = 128
-        Top = 368
+      object DBEdit12: TDBEdit
+        Left = 312
+        Top = 278
         Width = 89
         Height = 28
-        DataField = 'CODICE_ABI'
-        DataSource = dmEdCliente.dsCliente
+        DataField = 'CODICE_CAB'
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -565,14 +534,14 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
         TabOrder = 15
       end
-      object DBEdit12: TDBEdit
-        Left = 312
-        Top = 368
-        Width = 89
+      object DBEdit13: TDBEdit
+        Left = 463
+        Top = 278
+        Width = 273
         Height = 28
-        Anchors = [akTop]
-        DataField = 'CODICE_CAB'
-        DataSource = dmEdCliente.dsCliente
+        Anchors = [akLeft, akTop, akRight]
+        DataField = 'IBAN'
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -581,21 +550,21 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
         TabOrder = 16
       end
-      object DBEdit13: TDBEdit
-        Left = 463
-        Top = 368
-        Width = 273
+      object DBEdit14: TDBEdit
+        Left = 536
+        Top = 128
+        Width = 200
         Height = 28
         Anchors = [akTop]
-        DataField = 'IBAN'
-        DataSource = dmEdCliente.dsCliente
+        DataField = 'TELEFONO_2'
+        DataSource = dmEdMandante.dsMandante
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 17
+        TabOrder = 6
       end
     end
   end
@@ -608,13 +577,12 @@ inherited fmEdCliente: TfmEdCliente
     Top = 440
   end
   inherited plEdit: TppBDEPipeline
-    DataSource = dmEdCliente.dsCliente
     Left = 592
     Top = 440
     object plEditppField1: TppField
       Alignment = taRightJustify
-      FieldAlias = 'ID_CLIENTE'
-      FieldName = 'ID_CLIENTE'
+      FieldAlias = 'ID_MANDANTE'
+      FieldName = 'ID_MANDANTE'
       FieldLength = 0
       DataType = dtDouble
       DisplayWidth = 0
@@ -622,8 +590,8 @@ inherited fmEdCliente: TfmEdCliente
     end
     object plEditppField2: TppField
       Alignment = taRightJustify
-      FieldAlias = 'ID_CLIENTE_OLD'
-      FieldName = 'ID_CLIENTE_OLD'
+      FieldAlias = 'ID_MANDANTE_OLD'
+      FieldName = 'ID_MANDANTE_OLD'
       FieldLength = 0
       DataType = dtDouble
       DisplayWidth = 10

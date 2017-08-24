@@ -72,7 +72,7 @@ implementation
 
 uses
   //Generale
-  uBrCliente, uBrEvento, uAbout;
+  uBrCliente, uBrMandante, uBrEvento, uAbout;
 {$R *.dfm}
 
 procedure TfmMenu.acCatProExecute(Sender: TObject);
@@ -93,7 +93,8 @@ end;
 
 procedure TfmMenu.acManExecute(Sender: TObject);
 begin
-//
+  if not Assigned(fmBrMandante) then
+    fmBrMandante := TfmBrMandante.Create(Self);
 end;
 
 procedure TfmMenu.acProExecute(Sender: TObject);

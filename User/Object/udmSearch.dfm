@@ -11,11 +11,11 @@ object dmSearch: TdmSearch
     Options.DateFormat = 'DD-MON-RR'
     Options.DateLanguage = 'ITALIAN'
     Options.NeverConnect = True
-    Username = 'PCAL'
-    Password = 'PCAL'
-    Server = 'XE'
+    Username = 'VICRIS'
+    Password = 'VICRIS'
+    Server = 'VICRIS'
     AutoCommit = False
-    Schema = 'PCAL'
+    Schema = 'VICRIS'
     Left = 16
     Top = 16
   end
