@@ -35,6 +35,15 @@ type
     sbMenu: TStatusBar;
     acCli: TAction;
     miCli: TMenuItem;
+    acMan: TAction;
+    acLoc: TAction;
+    acCatPro: TAction;
+    acPro: TAction;
+    miMagazzino: TMenuItem;
+    miCatPro: TMenuItem;
+    miPro: TMenuItem;
+    miMan: TMenuItem;
+    miLoc: TMenuItem;
     procedure acCommonUpdate(Sender: TObject);
     procedure acExitExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -46,6 +55,10 @@ type
     procedure acAboutExecute(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure acCliExecute(Sender: TObject);
+    procedure acManExecute(Sender: TObject);
+    procedure acLocExecute(Sender: TObject);
+    procedure acProExecute(Sender: TObject);
+    procedure acCatProExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -62,10 +75,30 @@ uses
   uBrCliente, uBrEvento, uAbout;
 {$R *.dfm}
 
+procedure TfmMenu.acCatProExecute(Sender: TObject);
+begin
+//
+end;
+
 procedure TfmMenu.acCliExecute(Sender: TObject);
 begin
   if not Assigned(fmBrCliente) then
     fmBrCliente := TfmBrCliente.Create(Self);
+end;
+
+procedure TfmMenu.acLocExecute(Sender: TObject);
+begin
+//
+end;
+
+procedure TfmMenu.acManExecute(Sender: TObject);
+begin
+//
+end;
+
+procedure TfmMenu.acProExecute(Sender: TObject);
+begin
+//
 end;
 
 procedure TfmMenu.acCommonUpdate(Sender: TObject);

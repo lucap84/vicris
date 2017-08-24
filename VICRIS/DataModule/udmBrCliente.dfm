@@ -1,6 +1,5 @@
 inherited dmBrCliente: TdmBrCliente
   hDataSet = qyCliente
-  hdmType = hdmReadWrite
   hKeyFields.Strings = (
     'id_cliente')
   Left = 301

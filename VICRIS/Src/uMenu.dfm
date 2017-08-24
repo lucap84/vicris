@@ -353,6 +353,21 @@ object fmMenu: TfmMenu
         object miCli: TMenuItem
           Action = acCli
         end
+        object miMan: TMenuItem
+          Action = acMan
+        end
+        object miLoc: TMenuItem
+          Action = acLoc
+        end
+      end
+      object miMagazzino: TMenuItem
+        Caption = '&Magazzino'
+        object miCatPro: TMenuItem
+          Action = acCatPro
+        end
+        object miPro: TMenuItem
+          Action = acPro
+        end
       end
     end
     object miView: TMenuItem
@@ -431,6 +446,34 @@ object fmMenu: TfmMenu
       Caption = '&Clienti'
       Hint = 'Apre l'#39'elenco dei Clienti'
       OnExecute = acCliExecute
+      OnUpdate = acCommonUpdate
+    end
+    object acMan: TAction
+      Category = 'DB_Generale'
+      Caption = '&Mandanti'
+      Hint = 'Apre l'#39'elenco dei Mandanti'
+      OnExecute = acManExecute
+      OnUpdate = acCommonUpdate
+    end
+    object acLoc: TAction
+      Category = 'DB_Generale'
+      Caption = '&Localit'#224
+      Hint = 'Apre l'#39'elenco delle Localit'#224
+      OnExecute = acLocExecute
+      OnUpdate = acCommonUpdate
+    end
+    object acCatPro: TAction
+      Category = 'DB_Magazzino'
+      Caption = '&Categorie Prodotto'
+      Hint = 'Apre l'#39'elenco delle Categorie Prodotto'
+      OnExecute = acCatProExecute
+      OnUpdate = acCommonUpdate
+    end
+    object acPro: TAction
+      Category = 'DB_Magazzino'
+      Caption = '&Prodotti'
+      Hint = 'Apre l'#39'elenco dei Prodotti'
+      OnExecute = acProExecute
       OnUpdate = acCommonUpdate
     end
   end
