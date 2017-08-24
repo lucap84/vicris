@@ -19,53 +19,52 @@ object dmSearch: TdmSearch
     Top = 16
     EncryptedPassword = 'A9FFB6FFBCFFADFFB6FFACFF'
   end
-  object qyAut: TOraQuery
+  object qyCli: TOraQuery
     Session = OraSearch
     SQL.Strings = (
       
-        'SELECT COD_AUT, DES_NOM, DES_COG, DES_NTE, DES_NOM||'#39' '#39'||DES_COG' +
-        ' DESCRIZIONE'
-      '  FROM AUTORE'
+        'SELECT ID_CLIENTE, NOME, REFERENTE, INDIRIZZO, CITTA, NOME DESCR' +
+        'IZIONE'
+      '  FROM TB_CLIENTI'
       
-        ' WHERE COD_AUT BETWEEN NVL(:COD_AUT, '#39' '#39') AND NVL(:COD_AUT, '#39'zzz' +
-        'zzz'#39')'
-      ' ORDER BY DES_COG, DES_NOM')
+        ' WHERE ID_CLIENTE BETWEEN NVL(:ID_CLIENTE, '#39' '#39') AND NVL(:ID_CLIE' +
+        'NTE, '#39'zzzzzz'#39')'
+      ' ORDER BY NOME')
     FetchAll = True
     Left = 64
     Top = 104
     ParamData = <
       item
         DataType = ftUnknown
-        Name = 'COD_AUT'
+        Name = 'ID_CLIENTE'
       end>
-    object qyAutCOD_AUT: TStringField
+    object qyCliID_CLIENTE: TFloatField
       DisplayLabel = 'Codice'
-      FieldName = 'COD_AUT'
-      Required = True
-      Size = 6
+      FieldName = 'ID_CLIENTE'
     end
-    object qyAutDES_NOM: TStringField
-      DisplayLabel = 'Nome'
-      DisplayWidth = 20
-      FieldName = 'DES_NOM'
-      Size = 120
+    object qyCliNOME: TStringField
+      DisplayLabel = 'Ragione Sociale'
+      FieldName = 'NOME'
+      Size = 500
     end
-    object qyAutDES_COG: TStringField
-      DisplayLabel = 'Cognome'
-      DisplayWidth = 30
-      FieldName = 'DES_COG'
-      Size = 120
+    object qyCliREFERENTE: TStringField
+      DisplayLabel = 'Referente'
+      FieldName = 'REFERENTE'
+      Size = 100
     end
-    object qyAutDES_NTE: TStringField
-      DisplayLabel = 'Note'
-      DisplayWidth = 50
-      FieldName = 'DES_NTE'
-      Size = 1000
+    object qyCliINDIRIZZO: TStringField
+      DisplayLabel = 'Indirizzo'
+      FieldName = 'INDIRIZZO'
+      Size = 2000
     end
-    object qyAutDESCRIZIONE: TStringField
+    object qyCliCITTA: TStringField
+      DisplayLabel = 'Citt'#224
+      FieldName = 'CITTA'
+      Size = 100
+    end
+    object qyCliDESCRIZIONE: TStringField
       FieldName = 'DESCRIZIONE'
-      Visible = False
-      Size = 241
+      Size = 500
     end
   end
   object qyNaz: TOraQuery

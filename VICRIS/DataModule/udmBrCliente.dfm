@@ -1,7 +1,10 @@
 inherited dmBrCliente: TdmBrCliente
   hDataSet = qyCliente
+  hdmType = hdmReadWrite
   hKeyFields.Strings = (
     'id_cliente')
+  Left = 301
+  Top = 306
   Height = 179
   Width = 213
   object qyCliente: TOraQuery

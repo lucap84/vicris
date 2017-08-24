@@ -19,7 +19,7 @@ resourcestring
 
 type
   TdmState = (hdmInsert, hdmEdit, hdmView, hdmDelete);
-  TdmType = (hdmRead, hdmWrite);
+  TdmType = (hdmRead, hdmWrite, hdmReadWrite);
   TdmTipAttNum = (hPrgAut, hPrgMan, hPrgAutAaa);
 
   TdmDBCore = class;
@@ -137,6 +137,7 @@ begin
     DataSet.FieldByName('Dat_Agg_Rec').AsDateTime := Now;
 end;
 
+{$Hints Off}
 function TdmDBCore.dmDsApplyUpdates(DataSet: TClientDataSet): boolean;
 begin
   try
@@ -147,22 +148,6 @@ begin
     end;
   finally
     Result := True;
-  end;
-end;
-
-procedure TdmDBCore.dmDsCancel(DataSet: TDataSet);
-begin
-  try
-    DataSet.Cancel;
-  except
-  end;
-end;
-
-procedure TdmDBCore.dmDsClose(DataSet: TDataSet);
-begin
-  try
-    DataSet.Close;
-  except
   end;
 end;
 
@@ -236,6 +221,23 @@ begin
     end;
   finally
     Result := True;
+  end;
+end;
+{$Hints On}
+
+procedure TdmDBCore.dmDsCancel(DataSet: TDataSet);
+begin
+  try
+    DataSet.Cancel;
+  except
+  end;
+end;
+
+procedure TdmDBCore.dmDsClose(DataSet: TDataSet);
+begin
+  try
+    DataSet.Close;
+  except
   end;
 end;
 

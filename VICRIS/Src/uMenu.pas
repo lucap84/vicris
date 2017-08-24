@@ -59,13 +59,7 @@ implementation
 
 uses
   //Generale
-  uBrAlarma, uBrNazione, uBrCitta, uBrEvento, uBrPromotore, uBrUbi, uAbout,
-  //Biblioteca
-  uBrCliente, uBrCollezione, uBrOggetto,
-  uBrEditrice, uBrPubblicazione,
-  //Protocollo
-  uBrIncarico, uBrPersona, uBrRuolo, uBrProtocollo;
-
+  uBrCliente, uBrEvento, uAbout;
 {$R *.dfm}
 
 procedure TfmMenu.acCliExecute(Sender: TObject);

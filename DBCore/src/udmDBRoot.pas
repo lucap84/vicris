@@ -82,9 +82,9 @@ begin
   for i := 0 to Self.ComponentCount - 1 do
   begin
     if Self.Components[i] is TOraQuery then
-      TOraQuery(Self.Components[i]).ReadOnly := (hdmType = hdmRead) or (hdmState = hdmView);
+      TOraQuery(Self.Components[i]).ReadOnly := (hdmType in [hdmRead,hdmReadWrite]) or (hdmState = hdmView);
     if Self.Components[i] is TClientDataSet then
-      TClientDataSet(Self.Components[i]).ReadOnly := (hdmType = hdmRead)  or (hdmState = hdmView);
+      TClientDataSet(Self.Components[i]).ReadOnly := (hdmType in [hdmRead,hdmReadWrite])  or (hdmState = hdmView);
   end;
 end;
 

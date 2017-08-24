@@ -7,7 +7,7 @@ uses
   Dialogs, uBrowse, ActnList, DB, Grids, DBGrids, CRGrid, StdCtrls,
   Buttons, ExtCtrls,
   udmBrCliente,
-  udmEdAutore, uEdAutore, ppCtrls, ppDB, ppVar, ppBands, ppPrnabl, ppClass,
+  ppCtrls, ppDB, ppVar, ppBands, ppPrnabl, ppClass,
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDBPipe, ppDBBDE, TXComp,
   DBGridAux;
 
@@ -44,8 +44,8 @@ procedure TfmBrCliente.FormCreate(Sender: TObject);
 begin
   inherited;
   hDataModuleClass     := TdmBrCliente;
-  hEditDataModuleClass := TdmEdAutore;
-  hEditFormClass       := TfmEdAutore;
+  //hEditDataModuleClass := TdmEdAutore;
+  //hEditFormClass       := TfmEdAutore;
 end;
 
 procedure TfmBrCliente.FormDestroy(Sender: TObject);

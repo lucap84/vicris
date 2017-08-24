@@ -9,10 +9,7 @@ uses
 type
   TdmSearch = class(TDataModule)
     OraSearch: TOraSession;
-    qyAut: TOraQuery;
-    qyAutCOD_AUT: TStringField;
-    qyAutDES_COG: TStringField;
-    qyAutDES_NTE: TStringField;
+    qyCli: TOraQuery;
     qyNaz: TOraQuery;
     qyNazCOD_NAZ: TStringField;
     qyCta: TOraQuery;
@@ -21,8 +18,6 @@ type
     qyCtaCOD_NAZ: TStringField;
     qyCtaDESCRIZIONE: TStringField;
     qyNazDESCRIZIONE: TStringField;
-    qyAutDES_NOM: TStringField;
-    qyAutDESCRIZIONE: TStringField;
     qyCed: TOraQuery;
     qyCedCOD_CED: TStringField;
     qyCedDESCRIZIONE: TStringField;
@@ -68,6 +63,12 @@ type
     qyEvt: TOraQuery;
     qyEvtCOD_EVT: TStringField;
     qyEvtDESCRIZIONE: TStringField;
+    qyCliID_CLIENTE: TFloatField;
+    qyCliNOME: TStringField;
+    qyCliREFERENTE: TStringField;
+    qyCliINDIRIZZO: TStringField;
+    qyCliCITTA: TStringField;
+    qyCliDESCRIZIONE: TStringField;
     procedure dmSearchCreate(Sender: TObject);
   private
     { Private declarations }
@@ -94,13 +95,9 @@ var
 implementation
 
 uses
-  udmEdit, uEdit,
+  udmEdit, uEdit;
   //Generale
-  uEdNazione, uEdCitta, uEdPromotore, uEdUbi,
-  //Biblioteca
-  uEdEditrice, uEdAutore, uEdCollezione, uEdOggetto,
-  //Protocollo
-  uEdIncarico, uEdPersona, uEdRuolo;
+  //uEdCliente;
 
 {$R *.dfm}
 
@@ -166,17 +163,18 @@ begin
         if ModalResult = mrIgnore then
         begin
           case ATag of
-            1000 : FhEditFormClass := TfmEdAutore;
-            1001 : FhEditFormClass := TfmEdNazione;
-            1002 : FhEditFormClass := TfmEdCitta;
-            1003 : FhEditFormClass := TfmEdEditrice;
-            1004 : FhEditFormClass := TfmEdCollezione;
-            1005 : FhEditFormClass := TfmEdOggetto;
-            1006 : FhEditFormClass := TfmEdPromotore;
-            1007 : FhEditFormClass := TfmEdIncarico;
-            1008 : FhEditFormClass := TfmEdPersona;
-            1009 : FhEditFormClass := TfmEdRuolo;
-            1010 : FhEditFormClass := TfmEdUbi;
+            0:;
+//            1000 : FhEditFormClass := TfmEdCliente;
+//            1001 : FhEditFormClass := TfmEdNazione;
+//            1002 : FhEditFormClass := TfmEdCitta;
+//            1003 : FhEditFormClass := TfmEdEditrice;
+//            1004 : FhEditFormClass := TfmEdCollezione;
+//            1005 : FhEditFormClass := TfmEdOggetto;
+//            1006 : FhEditFormClass := TfmEdPromotore;
+//            1007 : FhEditFormClass := TfmEdIncarico;
+//            1008 : FhEditFormClass := TfmEdPersona;
+//            1009 : FhEditFormClass := TfmEdRuolo;
+//            1010 : FhEditFormClass := TfmEdUbi;
           end;
           if (not Assigned(FhEditForm)) and
               Assigned(FhEditFormClass) then
@@ -204,18 +202,19 @@ function TdmSearch.dmSearchValue(ATag: integer; AOp: String = 'S'): Variant;
 begin
   Result := Null;
   case ATag of
-    1000 : Result := dmSearch('Autori',        qyAut, 'cod_aut', AOp, ATag);
-    1001 : Result := dmSearch('Nazioni',       qyNaz, 'cod_naz', AOp, ATag);
-    1002 : Result := dmSearch('Città',         qyCta, 'cod_cta;cod_naz', AOp, ATag);
-    1003 : Result := dmSearch('Case Editrici', qyCed, 'cod_ced;cod_naz;cod_cta', AOp, ATag);
-    1004 : Result := dmSearch('Collezioni',    qyClz, 'cod_clz', AOp, ATag);
-    1005 : Result := dmSearch('C.D.U.',        qyOgg, 'cod_ogg;cod_ubi', AOp, ATag);
-    1006 : Result := dmSearch('Istituzioni',   qyPmr, 'cod_pmr', AOp, ATag);
-    1007 : Result := dmSearch('Incarichi',     qyInc, 'cod_inc', AOp, ATag);
-    1008 : Result := dmSearch('Persone',       qyPer, 'cod_aut', AOp, ATag);
-    1009 : Result := dmSearch('Ruoli',         qyRol, 'cod_rol;cod_pmr;cod_inc;cod_aut', AOp, ATag);
-    1010 : Result := dmSearch('Ubicazioni',    qyUbi, 'cod_ubi', AOp, ATag);
-    1011 : Result := dmSearch('Eventi',        qyEvt, 'cod_evt', AOp, ATag);
+    0:;
+//    1000 : Result := dmSearch('Clienti',        qyCli, 'id_cliente', AOp, ATag);
+//    1001 : Result := dmSearch('Nazioni',       qyNaz, 'cod_naz', AOp, ATag);
+//    1002 : Result := dmSearch('Città',         qyCta, 'cod_cta;cod_naz', AOp, ATag);
+//    1003 : Result := dmSearch('Case Editrici', qyCed, 'cod_ced;cod_naz;cod_cta', AOp, ATag);
+//    1004 : Result := dmSearch('Collezioni',    qyClz, 'cod_clz', AOp, ATag);
+//    1005 : Result := dmSearch('C.D.U.',        qyOgg, 'cod_ogg;cod_ubi', AOp, ATag);
+//    1006 : Result := dmSearch('Istituzioni',   qyPmr, 'cod_pmr', AOp, ATag);
+//    1007 : Result := dmSearch('Incarichi',     qyInc, 'cod_inc', AOp, ATag);
+//    1008 : Result := dmSearch('Persone',       qyPer, 'cod_aut', AOp, ATag);
+//    1009 : Result := dmSearch('Ruoli',         qyRol, 'cod_rol;cod_pmr;cod_inc;cod_aut', AOp, ATag);
+//    1010 : Result := dmSearch('Ubicazioni',    qyUbi, 'cod_ubi', AOp, ATag);
+//    1011 : Result := dmSearch('Eventi',        qyEvt, 'cod_evt', AOp, ATag);
   end;
   if AOp = 'S' then
     hSearchResult := Result

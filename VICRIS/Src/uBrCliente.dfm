@@ -1,4 +1,6 @@
 inherited fmBrCliente: TfmBrCliente
+  Left = 505
+  Top = 268
   Caption = 'Clienti'
   OldCreateOrder = True
   OnCreate = FormCreate
