@@ -4,15 +4,15 @@ inherited dmBrCliente: TdmBrCliente
     'id_cliente')
   Left = 301
   Top = 306
-  Height = 179
-  Width = 213
+  Height = 128
+  Width = 194
   object qyCliente: TOraQuery
     SQL.Strings = (
       'SELECT *'
       '  FROM TB_CLIENTI'
       ' ORDER BY NOME')
-    Left = 64
-    Top = 72
+    Left = 32
+    Top = 16
     object qyClienteID_CLIENTE: TFloatField
       DisplayLabel = 'Id'
       FieldName = 'ID_CLIENTE'
@@ -48,6 +48,7 @@ inherited dmBrCliente: TdmBrCliente
       Size = 100
     end
     object qyClienteCAP: TStringField
+      DisplayLabel = 'C.A.P.'
       FieldName = 'CAP'
       Size = 5
     end
@@ -135,7 +136,7 @@ inherited dmBrCliente: TdmBrCliente
   end
   object dsCliente: TDataSource
     DataSet = qyCliente
-    Left = 120
-    Top = 72
+    Left = 88
+    Top = 16
   end
 end

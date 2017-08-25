@@ -1,6 +1,6 @@
 inherited fmBrCliente: TfmBrCliente
-  Left = 936
-  Top = 349
+  Left = 514
+  Top = 263
   Width = 785
   Caption = 'Clienti'
   Constraints.MinHeight = 0
@@ -8,7 +8,6 @@ inherited fmBrCliente: TfmBrCliente
   OldCreateOrder = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  hReport = rpBrowse
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnTools: TPanel
@@ -21,55 +20,55 @@ inherited fmBrCliente: TfmBrCliente
       item
         Expanded = False
         FieldName = 'ID_CLIENTE'
-        Width = 2
+        Width = 0
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'NOME'
-        Width = 137
+        Width = 4522
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'REFERENTE'
-        Width = 27
+        Width = 907
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'INDIRIZZO'
-        Width = 547
+        Width = 18076
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CITTA'
-        Width = 27
+        Width = 907
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CAP'
-        Width = 1
+        Width = 54
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'PROVINCIA'
-        Width = 1
+        Width = 44
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'PARTITA_IVA'
-        Width = 5
+        Width = 184
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CODICE_FISCALE'
-        Width = 5
+        Width = 184
         Visible = True
       end>
   end

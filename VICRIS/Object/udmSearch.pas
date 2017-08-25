@@ -10,65 +10,26 @@ type
   TdmSearch = class(TDataModule)
     OraSearch: TOraSession;
     qyCli: TOraQuery;
-    qyNaz: TOraQuery;
-    qyNazCOD_NAZ: TStringField;
-    qyCta: TOraQuery;
-    qyCtaCOD_CTA: TStringField;
-    qyCtaDES_NAZ: TStringField;
-    qyCtaCOD_NAZ: TStringField;
-    qyCtaDESCRIZIONE: TStringField;
-    qyNazDESCRIZIONE: TStringField;
-    qyCed: TOraQuery;
-    qyCedCOD_CED: TStringField;
-    qyCedDESCRIZIONE: TStringField;
-    qyCedCOD_NAZ: TStringField;
-    qyCedDES_NAZ: TStringField;
-    qyCedCOD_CTA: TStringField;
-    qyCedDES_CTA: TStringField;
-    qyClz: TOraQuery;
-    qyClzCOD_CLZ: TStringField;
-    qyClzDESCRIZIONE: TStringField;
-    qyOgg: TOraQuery;
-    qyOggCOD_OGG: TStringField;
-    qyOggCOD_CDU: TStringField;
-    qyOggDES_OGG: TStringField;
-    qyOggDESCRIZIONE: TStringField;
-    qyPmr: TOraQuery;
-    qyPmrCOD_PMR: TStringField;
-    qyPmrDESCRIZIONE: TStringField;
-    qyInc: TOraQuery;
-    qyIncCOD_INC: TStringField;
-    qyIncDESCRIZIONE: TStringField;
-    qyPer: TOraQuery;
-    qyPerDES_NOM: TStringField;
-    qyPerDES_COG: TStringField;
-    qyPerDESCRIZIONE: TStringField;
-    qyRol: TOraQuery;
-    qyRolNPA_ROL: TFloatField;
-    qyRolDES_PMR: TStringField;
-    qyRolDES_INC: TStringField;
-    qyRolDES_PER: TStringField;
-    qyRolDAT_INI: TDateTimeField;
-    qyRolDAT_FIN: TDateTimeField;
-    qyRolDESCRIZIONE: TStringField;
-    qyRolCOD_PMR: TStringField;
-    qyRolCOD_INC: TStringField;
-    qyPerCOD_AUT: TStringField;
-    qyRolCOD_AUT: TStringField;
-    qyUbi: TOraQuery;
-    qyUbiCOD_UBI: TStringField;
-    qyUbiDESCRIZIONE: TStringField;
-    qyOggCOD_UBI: TStringField;
-    qyOggDES_UBI: TStringField;
-    qyEvt: TOraQuery;
-    qyEvtCOD_EVT: TStringField;
-    qyEvtDESCRIZIONE: TStringField;
     qyCliID_CLIENTE: TFloatField;
     qyCliNOME: TStringField;
     qyCliREFERENTE: TStringField;
     qyCliINDIRIZZO: TStringField;
     qyCliCITTA: TStringField;
     qyCliDESCRIZIONE: TStringField;
+    qyMan: TOraQuery;
+    qyManID_MANDANTE: TFloatField;
+    qyManMANDANTE: TStringField;
+    qyManINDIRIZZO: TStringField;
+    qyManCITTA: TStringField;
+    qyManDESCRIZIONE: TStringField;
+    qyLoc: TOraQuery;
+    qyLocID_LOCALITA: TFloatField;
+    qyLocLOCALITA: TStringField;
+    qyLocDESCRIZIONE: TStringField;
+    qyCatPro: TOraQuery;
+    qyCatProID_CATEGORIA: TFloatField;
+    qyCatProCATEGORIA: TStringField;
+    qyCatProDESCRIZIONE: TStringField;
     procedure dmSearchCreate(Sender: TObject);
   private
     { Private declarations }
@@ -95,9 +56,9 @@ var
 implementation
 
 uses
-  udmEdit, uEdit;
+  udmEdit, uEdit,
   //Generale
-  //uEdCliente;
+  uEdCliente, uEdMandante, uEdLocalita, uEdCatProdotto;
 
 {$R *.dfm}
 
@@ -164,10 +125,10 @@ begin
         begin
           case ATag of
             0:;
-//            1000 : FhEditFormClass := TfmEdCliente;
-//            1001 : FhEditFormClass := TfmEdNazione;
-//            1002 : FhEditFormClass := TfmEdCitta;
-//            1003 : FhEditFormClass := TfmEdEditrice;
+            1000 : FhEditFormClass := TfmEdCliente;
+            1001 : FhEditFormClass := TfmEdMandante;
+            1002 : FhEditFormClass := TfmEdLocalita;
+            1003 : FhEditFormClass := TfmEdCatProdotto;
 //            1004 : FhEditFormClass := TfmEdCollezione;
 //            1005 : FhEditFormClass := TfmEdOggetto;
 //            1006 : FhEditFormClass := TfmEdPromotore;
@@ -203,10 +164,10 @@ begin
   Result := Null;
   case ATag of
     0:;
-//    1000 : Result := dmSearch('Clienti',        qyCli, 'id_cliente', AOp, ATag);
-//    1001 : Result := dmSearch('Nazioni',       qyNaz, 'cod_naz', AOp, ATag);
-//    1002 : Result := dmSearch('Città',         qyCta, 'cod_cta;cod_naz', AOp, ATag);
-//    1003 : Result := dmSearch('Case Editrici', qyCed, 'cod_ced;cod_naz;cod_cta', AOp, ATag);
+    1000 : Result := dmSearch('Clienti',            qyCli, 'id_cliente', AOp, ATag);
+    1001 : Result := dmSearch('Mandanti',           qyMan, 'id_mandante', AOp, ATag);
+    1002 : Result := dmSearch('Località',           qyLoc, 'localita', AOp, ATag);
+    1003 : Result := dmSearch('Categorie Prodotto', qyCatPro, 'id_categoria', AOp, ATag);
 //    1004 : Result := dmSearch('Collezioni',    qyClz, 'cod_clz', AOp, ATag);
 //    1005 : Result := dmSearch('C.D.U.',        qyOgg, 'cod_ogg;cod_ubi', AOp, ATag);
 //    1006 : Result := dmSearch('Istituzioni',   qyPmr, 'cod_pmr', AOp, ATag);

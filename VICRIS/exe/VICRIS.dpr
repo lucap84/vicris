@@ -22,7 +22,7 @@ uses
   uEdCliente in '..\Src\uEdCliente.pas' {fmEdCliente: TfmRoot},
   udmBrMandante in '..\DataModule\udmBrMandante.pas' {dmBrMandante: TdmDBRoot},
   uBrMandante in '..\Src\uBrMandante.pas' {fmBrMandante: TfmRoot},
-  udmEdMandante in '..\DataModule\udmEdMandante.pas' {dmEdCliente: TdmDBRoot},
+  udmEdMandante in '..\DataModule\udmEdMandante.pas' {dmEdMandante: TdmDBRoot},
   uEdMandante in '..\Src\uEdMandante.pas' {fmEdMandante: TfmRoot},
   udmBrEvento in '..\DataModule\udmBrEvento.pas' {dmBrEvento: TdmDBRoot},
   udmEdEvento in '..\DataModule\udmEdEvento.pas' {dmEdEvento: TdmDBRoot},
@@ -31,7 +31,15 @@ uses
   udmBrAlarma in '..\DataModule\udmBrAlarma.pas' {dmBrAlarma: TdmDBRoot},
   uBrAlarma in '..\Src\uBrAlarma.pas' {fmBrAlarma: TfmRoot},
   udmEdAlarma in '..\DataModule\udmEdAlarma.pas' {dmEdAlarma: TdmDBRoot},
-  uEdAlarma in '..\Src\uEdAlarma.pas' {fmEdAlarma: TfmRoot};
+  uEdAlarma in '..\Src\uEdAlarma.pas' {fmEdAlarma: TfmRoot},
+  udmBrLocalita in '..\DataModule\udmBrLocalita.pas' {dmBrLocalita: TdmDBRoot},
+  uBrLocalita in '..\Src\uBrLocalita.pas' {fmBrLocalita: TfmRoot},
+  udmEdLocalita in '..\DataModule\udmEdLocalita.pas' {dmEdLocalita: TdmDBRoot},
+  uEdLocalita in '..\Src\uEdLocalita.pas' {fmEdLocalita: TfmRoot},
+  udmBrCatProdotto in '..\DataModule\udmBrCatProdotto.pas' {dmBrCatProdotto: TdmDBRoot},
+  uBrCatProdotto in '..\Src\uBrCatProdotto.pas' {fmBrCatProdotto: TfmRoot},
+  udmEdCatProdotto in '..\DataModule\udmEdCatProdotto.pas' {dmEdCatProdotto: TdmDBRoot},
+  uEdCatProdotto in '..\Src\uEdCatProdotto.pas' {fmEdCatProdotto: TfmRoot};
 
 {$R *.res}
 

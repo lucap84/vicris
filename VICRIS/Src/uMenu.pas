@@ -72,12 +72,13 @@ implementation
 
 uses
   //Generale
-  uBrCliente, uBrMandante, uBrEvento, uAbout;
+  uBrCliente, uBrMandante, uBrLocalita, uBrCatProdotto, uBrEvento, uAbout;
 {$R *.dfm}
 
 procedure TfmMenu.acCatProExecute(Sender: TObject);
 begin
-//
+  if not Assigned(fmBrCatProdotto) then
+    fmBrCatProdotto := TfmBrCatProdotto.Create(Self);
 end;
 
 procedure TfmMenu.acCliExecute(Sender: TObject);
@@ -88,7 +89,8 @@ end;
 
 procedure TfmMenu.acLocExecute(Sender: TObject);
 begin
-//
+  if not Assigned(fmBrLocalita) then
+    fmBrLocalita := TfmBrLocalita.Create(Self);
 end;
 
 procedure TfmMenu.acManExecute(Sender: TObject);

@@ -8,7 +8,7 @@ uses
   udmEdCliente, udmSearch, ppVar, ppBands, ppCtrls, ppPrnabl, ppClass,
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
   Menus, ComCtrls, Grids, DBGrids, ppModule, raCodMod, ppSubRpt,
-  ppStrtch, ppMemo, DBGridAux;
+  ppStrtch, ppMemo, DBGridAux, DBSearch;
 
 type
   TfmEdCliente = class(TfmEdit)
@@ -62,6 +62,8 @@ type
     DBEdit11: TDBEdit;
     DBEdit12: TDBEdit;
     DBEdit13: TDBEdit;
+    laLocalita: TLabel;
+    deLocalita: TDBSearch;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private

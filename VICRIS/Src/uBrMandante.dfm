@@ -1,165 +1,86 @@
 inherited fmBrMandante: TfmBrMandante
   Left = 624
   Top = 262
-  Width = 785
+  Width = 1132
   Caption = 'Mandanti'
   Constraints.MinHeight = 0
   Constraints.MinWidth = 0
   OldCreateOrder = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  hReport = rpBrowse
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnTools: TPanel
-    Width = 769
+    Width = 1116
   end
   inherited grBrowse: TDBGridAux
-    Width = 769
+    Width = 1116
     DataSource = dmBrMandante.dsMandante
     Columns = <
       item
         Expanded = False
         FieldName = 'ID_MANDANTE'
-        Width = 130
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'ID_MANDANTE_OLD'
-        Width = 176
+        Width = 48
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'MANDANTE'
-        Width = 4504
+        Width = 195
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'INDIRIZZO'
-        Width = 18004
+        Width = 778
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CITTA'
-        Width = 904
+        Width = 39
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CAP'
-        Width = 49
+        Width = 2
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'PROVINCIA'
-        Width = 101
+        Width = 2
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CELLULARE'
-        Width = 184
+        Width = 8
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'TELEFONO_1'
-        Width = 184
+        Width = 8
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'TELEFONO_2'
-        Width = 184
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'FAX'
-        Width = 184
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'MAIL'
-        Width = 2704
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'SITO'
-        Width = 1804
+        Width = 8
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'PARTITA_IVA'
-        Width = 184
+        Width = 8
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CODICE_FISCALE'
-        Width = 184
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'NOTE'
-        Width = 36004
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'BANCA'
-        Width = 9004
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'IBAN'
-        Width = 364
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'CODICE_ABI'
-        Width = 112
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'CODICE_CAB'
-        Width = 118
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'CONTO_CORRENTE'
-        Width = 184
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'COD_USR'
-        Width = 112
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'DES_PDL'
-        Width = 544
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'DAT_AGG_REC'
-        Width = 166
+        Width = 4
         Visible = True
       end>
   end

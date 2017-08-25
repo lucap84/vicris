@@ -3,6 +3,7 @@ inherited fmEdMandante: TfmEdMandante
   Top = 229
   Width = 760
   Height = 520
+  ActiveControl = deNome
   Caption = 'Mandante'
   Constraints.MinHeight = 520
   Constraints.MinWidth = 760
