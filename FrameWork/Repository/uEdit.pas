@@ -7,7 +7,7 @@ uses
   Dialogs, uRoot, ActnList, StdCtrls, Buttons, ExtCtrls, udmDBCore, udmSearch, DBCtrls,
   Mask, DBSearch, udmGlobal, Ora, udmEdit, Menus, CRGrid, DBClient, ppVar, DBGridAux,
   ppBands, ppCtrls, ppPrnabl, ppClass, ppCache, ppProd, ppReport, ppComm,
-  ppRelatv, ppDB, ppDBPipe, ppDBBDE, DBEditDateTimePicker;
+  ppRelatv, ppDB, ppDBPipe, ppDBBDE, DBEditDateTimePicker, TXComp;
 
 type
   TfmEditClass = class of TfmEdit;
@@ -41,6 +41,7 @@ type
     laPag: TppLabel;
     ppLine2: TppLine;
     acNumMan: TAction;
+    rbExtraOptions: TExtraOptions;
     procedure acRollBackExecute(Sender: TObject);
     procedure acRollBackUpdate(Sender: TObject);
     procedure acCommitExecute(Sender: TObject);

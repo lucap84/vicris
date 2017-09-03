@@ -1,6 +1,6 @@
 object fmBrowse: TfmBrowse
-  Left = 255
-  Top = 225
+  Left = 347
+  Top = 204
   Width = 743
   Height = 600
   Caption = 'fmBrowse'
@@ -3461,7 +3461,7 @@ object fmBrowse: TfmBrowse
     XHTML.PixelFormat = pf8bit
     XHTML.SingleFileOutput = False
     RTF.ItemsToExport = [reText, reImage, reLine, reShape, reRTF, reBarCode, reCheckBox]
-    RTF.Visible = False
+    RTF.Visible = True
     RTF.RichTextAsImage = False
     RTF.UseTextBox = True
     RTF.PixelFormat = pf8bit
@@ -3487,7 +3487,7 @@ object fmBrowse: TfmBrowse
     PDF.FastCompression = False
     PDF.CompressImages = False
     PDF.ScaleImages = False
-    PDF.Visible = False
+    PDF.Visible = True
     PDF.RichTextAsImage = True
     PDF.RichEditPixelFormat = pf1bit
     PDF.PixelFormat = pf24bit

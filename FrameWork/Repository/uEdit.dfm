@@ -21,14 +21,14 @@ object fmEdit: TfmEdit
   TextHeight = 13
   object pnTools: TPanel
     Left = 0
-    Top = 216
-    Width = 312
+    Top = 204
+    Width = 304
     Height = 57
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
     DesignSize = (
-      312
+      304
       57)
     object bbCommit: TBitBtn
       Left = 57
@@ -2559,5 +2559,69 @@ object fmEdit: TfmEdit
         BandType = 8
       end
     end
+  end
+  object rbExtraOptions: TExtraOptions
+    About = 'TExtraDevices 2.66'
+    HTML.ItemsToExport = [reText, reImage, reLine, reShape, reRTF, reBarCode, reCheckBox]
+    HTML.BackLink = '&lt&lt'
+    HTML.ForwardLink = '&gt&gt'
+    HTML.ShowLinks = True
+    HTML.UseTextFileName = False
+    HTML.ZoomableImages = False
+    HTML.Visible = False
+    HTML.PixelFormat = pf8bit
+    HTML.SingleFileOutput = False
+    XHTML.ItemsToExport = [reText, reImage, reLine, reShape, reRTF, reBarCode, reCheckBox]
+    XHTML.BackLink = '&lt&lt'
+    XHTML.ForwardLink = '&gt&gt'
+    XHTML.ShowLinks = True
+    XHTML.UseTextFileName = False
+    XHTML.ZoomableImages = False
+    XHTML.Visible = False
+    XHTML.PixelFormat = pf8bit
+    XHTML.SingleFileOutput = False
+    RTF.ItemsToExport = [reText, reImage, reLine, reShape, reRTF, reBarCode, reCheckBox]
+    RTF.Visible = True
+    RTF.RichTextAsImage = False
+    RTF.UseTextBox = True
+    RTF.PixelFormat = pf8bit
+    RTF.PixelsPerInch = 96
+    Lotus.ItemsToExport = [reText, reImage, reLine, reShape, reRTF, reBarCode, reCheckBox]
+    Lotus.Visible = False
+    Lotus.ColSpacing = 16934
+    Quattro.ItemsToExport = [reText, reImage, reLine, reShape, reRTF, reBarCode, reCheckBox]
+    Quattro.Visible = False
+    Quattro.ColSpacing = 16934
+    Excel.ItemsToExport = [reText, reImage, reLine, reShape, reRTF, reBarCode, reCheckBox]
+    Excel.Visible = True
+    Excel.ColSpacing = 50000
+    Excel.RowSizing = True
+    Excel.AutoConvertToNumber = False
+    Graphic.ItemsToExport = [reText, reImage, reLine, reShape, reRTF, reBarCode, reCheckBox]
+    Graphic.PixelFormat = pf8bit
+    Graphic.UseTextFileName = False
+    Graphic.Visible = False
+    Graphic.PixelsPerInch = 96
+    Graphic.GrayScale = False
+    PDF.ItemsToExport = [reText, reImage, reLine, reShape, reRTF, reBarCode, reCheckBox]
+    PDF.FastCompression = False
+    PDF.CompressImages = False
+    PDF.ScaleImages = False
+    PDF.Visible = True
+    PDF.RichTextAsImage = True
+    PDF.RichEditPixelFormat = pf1bit
+    PDF.PixelFormat = pf24bit
+    PDF.PixelsPerInch = 96
+    PDF.Permissions = [ppPrint, ppModify, ppCopy, ppModifyAnnot]
+    PDF.AutoEmbedFonts = True
+    DotMatrix.ItemsToExport = [reText, reImage, reLine, reShape, reRTF, reBarCode, reCheckBox]
+    DotMatrix.Visible = False
+    DotMatrix.CharsPerInch = cs10CPI
+    DotMatrix.LinesPerInch = ls6LPI
+    DotMatrix.Port = 'LPT1'
+    DotMatrix.ContinousPaper = False
+    DotMatrix.PrinterType = ptEpson
+    Left = 144
+    Top = 8
   end
 end
