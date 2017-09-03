@@ -170,4 +170,51 @@ object dmSearch: TdmSearch
       Size = 300
     end
   end
+  object qyPro: TOraQuery
+    Session = OraSearch
+    SQL.Strings = (
+      'SELECT P.ID_PRODOTTO, P.PRODOTTO, P.UNITA_MISURA, P.NOTE,'
+      '       M.MANDANTE, C.CATEGORIA, S.CATEGORIA SUB_CATEGORIA,'
+      '       P.PRODOTTO DESCRIZIONE'
+      
+        '  FROM TB_PRODOTTI P, TB_MANDANTI M, TB_CATEGORIA_PRODOTTO C, TB' +
+        '_CATEGORIA_PRODOTTO S'
+      ' WHERE P.ID_MANDANTE     = M.ID_MANDANTE  (+)'
+      '   AND P.ID_CATEGORIA    = C.ID_CATEGORIA (+)'
+      '   AND P.ID_SUBCATEGORIA = S.ID_CATEGORIA (+)'
+      ' ORDER BY P.PRODOTTO')
+    Left = 128
+    Top = 160
+    object qyProID_PRODOTTO: TFloatField
+      FieldName = 'ID_PRODOTTO'
+    end
+    object qyProPRODOTTO: TStringField
+      FieldName = 'PRODOTTO'
+      Size = 200
+    end
+    object qyProUNITA_MISURA: TStringField
+      FieldName = 'UNITA_MISURA'
+    end
+    object qyProNOTE: TStringField
+      FieldName = 'NOTE'
+      Size = 2000
+    end
+    object qyProMANDANTE: TStringField
+      FieldName = 'MANDANTE'
+      Size = 500
+    end
+    object qyProCATEGORIA: TStringField
+      FieldName = 'CATEGORIA'
+      Size = 300
+    end
+    object qyProSUB_CATEGORIA: TStringField
+      FieldName = 'SUB_CATEGORIA'
+      Size = 300
+    end
+    object qyProDESCRIZIONE: TStringField
+      FieldName = 'DESCRIZIONE'
+      Visible = False
+      Size = 200
+    end
+  end
 end

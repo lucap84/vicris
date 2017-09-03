@@ -2,7 +2,7 @@ object dmGlobal: TdmGlobal
   OldCreateOrder = False
   Left = 420
   Top = 326
-  Height = 240
+  Height = 261
   Width = 385
   object OraGlobal: TOraSession
     Options.Charset = 'WE8ISO8859P15'

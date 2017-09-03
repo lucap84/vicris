@@ -1,6 +1,6 @@
 inherited fmEdPubblicazione: TfmEdPubblicazione
-  Left = 303
-  Top = 0
+  Left = 495
+  Top = 72
   Width = 670
   Height = 730
   Caption = 'Pubblicazione'
@@ -18,8 +18,8 @@ inherited fmEdPubblicazione: TfmEdPubblicazione
   object pcPub: TPageControl [0]
     Left = 0
     Top = 0
-    Width = 662
-    Height = 646
+    Width = 654
+    Height = 634
     ActivePage = tePub
     Align = alClient
     MultiLine = True
@@ -27,8 +27,8 @@ inherited fmEdPubblicazione: TfmEdPubblicazione
     object tePub: TTabSheet
       Caption = 'Pubblicazione'
       DesignSize = (
-        654
-        618)
+        646
+        606)
       object laDesPub: TLabel
         Left = 8
         Top = 40
@@ -586,8 +586,8 @@ inherited fmEdPubblicazione: TfmEdPubblicazione
       object grDetAutPub: TDBGridAux
         Left = 0
         Top = 0
-        Width = 654
-        Height = 618
+        Width = 646
+        Height = 606
         OptionsEx = [dgeStretch]
         Align = alClient
         DataSource = dmEdPubblicazione.dsDetAutPub
@@ -626,8 +626,8 @@ inherited fmEdPubblicazione: TfmEdPubblicazione
       object deDesTag: TDBMemo
         Left = 0
         Top = 0
-        Width = 654
-        Height = 618
+        Width = 646
+        Height = 606
         Align = alClient
         DataField = 'DES_TAG'
         DataSource = dmEdPubblicazione.dsPubblicazione
@@ -638,8 +638,8 @@ inherited fmEdPubblicazione: TfmEdPubblicazione
     end
   end
   inherited pnTools: TPanel
-    Top = 646
-    Width = 662
+    Top = 634
+    Width = 654
     inherited bbCommit: TBitBtn
       Left = 258
     end
@@ -663,9 +663,6 @@ inherited fmEdPubblicazione: TfmEdPubblicazione
       OnExecute = acAddAutExecute
       OnUpdate = acAddAutUpdate
     end
-  end
-  inherited plEdit: TppBDEPipeline
-    DataSource = dmEdPubblicazione.dsPubblicazione
   end
   inherited rpEdit: TppReport
     DataPipelineName = 'plEdit'

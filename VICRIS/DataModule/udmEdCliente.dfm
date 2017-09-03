@@ -2,10 +2,10 @@ inherited dmEdCliente: TdmEdCliente
   hDataSet = cdsCliente
   hKeyFields.Strings = (
     'id_cliente')
-  Left = 947
-  Top = 368
-  Height = 222
-  Width = 317
+  Left = 406
+  Top = 278
+  Height = 411
+  Width = 394
   inherited OraSession: TOraSession
     EncryptedPassword = 'A9FFB6FFBCFFADFFB6FFACFF'
   end
@@ -21,6 +21,7 @@ inherited dmEdCliente: TdmEdCliente
       item
         DataType = ftInteger
         Name = 'ID_CLIENTE'
+        Value = Null
       end>
   end
   object poCliente: TDataSetProvider
@@ -133,5 +134,79 @@ inherited dmEdCliente: TdmEdCliente
     DataSet = cdsCliente
     Left = 232
     Top = 88
+  end
+  object qyCommenti: TOraQuery
+    Session = OraSession
+    SQL.Strings = (
+      'SELECT *'
+      '  FROM COMMENTI_CLIENTI'
+      ' WHERE ID_CLIENTE = :ID_CLIENTE'
+      ' ORDER BY DATA_COMMENTO')
+    MasterSource = dsCliente
+    Left = 56
+    Top = 152
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_CLIENTE'
+      end>
+  end
+  object poCommenti: TDataSetProvider
+    DataSet = qyCommenti
+    Left = 136
+    Top = 152
+  end
+  object cdsCommenti: TClientDataSet
+    Aggregates = <>
+    IndexFieldNames = 'ID_CLIENTE'
+    MasterFields = 'ID_CLIENTE'
+    MasterSource = dsCliente
+    PacketRecords = 0
+    Params = <>
+    ProviderName = 'poCommenti'
+    Left = 216
+    Top = 152
+    object cdsCommentiID_COMMENTO: TFloatField
+      FieldName = 'ID_COMMENTO'
+      Visible = False
+    end
+    object cdsCommentiID_COMMENTO_OLD: TFloatField
+      FieldName = 'ID_COMMENTO_OLD'
+      Visible = False
+    end
+    object cdsCommentiID_CLIENTE_OLD: TFloatField
+      FieldName = 'ID_CLIENTE_OLD'
+      Visible = False
+    end
+    object cdsCommentiID_CLIENTE: TFloatField
+      FieldName = 'ID_CLIENTE'
+      Visible = False
+    end
+    object cdsCommentiDATA_COMMENTO: TDateTimeField
+      FieldName = 'DATA_COMMENTO'
+    end
+    object cdsCommentiCOMMENTO: TStringField
+      FieldName = 'COMMENTO'
+      Size = 4000
+    end
+    object cdsCommentiCOD_USR: TStringField
+      FieldName = 'COD_USR'
+      Visible = False
+      Size = 12
+    end
+    object cdsCommentiDES_PDL: TStringField
+      FieldName = 'DES_PDL'
+      Visible = False
+      Size = 60
+    end
+    object cdsCommentiDAT_AGG_REC: TDateTimeField
+      FieldName = 'DAT_AGG_REC'
+      Visible = False
+    end
+  end
+  object dsCommenti: TDataSource
+    DataSet = cdsCommenti
+    Left = 280
+    Top = 152
   end
 end

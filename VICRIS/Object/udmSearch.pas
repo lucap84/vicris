@@ -30,6 +30,15 @@ type
     qyCatProID_CATEGORIA: TFloatField;
     qyCatProCATEGORIA: TStringField;
     qyCatProDESCRIZIONE: TStringField;
+    qyPro: TOraQuery;
+    qyProID_PRODOTTO: TFloatField;
+    qyProPRODOTTO: TStringField;
+    qyProUNITA_MISURA: TStringField;
+    qyProNOTE: TStringField;
+    qyProMANDANTE: TStringField;
+    qyProCATEGORIA: TStringField;
+    qyProSUB_CATEGORIA: TStringField;
+    qyProDESCRIZIONE: TStringField;
     procedure dmSearchCreate(Sender: TObject);
   private
     { Private declarations }
@@ -58,7 +67,9 @@ implementation
 uses
   udmEdit, uEdit,
   //Generale
-  uEdCliente, uEdMandante, uEdLocalita, uEdCatProdotto;
+  uEdCliente, uEdMandante, uEdLocalita,
+  //Magazzino
+  uEdCatProdotto, uEdProdotto;
 
 {$R *.dfm}
 
@@ -129,7 +140,7 @@ begin
             1001 : FhEditFormClass := TfmEdMandante;
             1002 : FhEditFormClass := TfmEdLocalita;
             1003 : FhEditFormClass := TfmEdCatProdotto;
-//            1004 : FhEditFormClass := TfmEdCollezione;
+            1004 : FhEditFormClass := TfmEdProdotto;
 //            1005 : FhEditFormClass := TfmEdOggetto;
 //            1006 : FhEditFormClass := TfmEdPromotore;
 //            1007 : FhEditFormClass := TfmEdIncarico;
@@ -164,11 +175,11 @@ begin
   Result := Null;
   case ATag of
     0:;
-    1000 : Result := dmSearch('Clienti',            qyCli, 'id_cliente', AOp, ATag);
-    1001 : Result := dmSearch('Mandanti',           qyMan, 'id_mandante', AOp, ATag);
-    1002 : Result := dmSearch('Località',           qyLoc, 'localita', AOp, ATag);
+    1000 : Result := dmSearch('Clienti',            qyCli,    'id_cliente',   AOp, ATag);
+    1001 : Result := dmSearch('Mandanti',           qyMan,    'id_mandante',  AOp, ATag);
+    1002 : Result := dmSearch('Località',           qyLoc,    'localita',     AOp, ATag);
     1003 : Result := dmSearch('Categorie Prodotto', qyCatPro, 'id_categoria', AOp, ATag);
-//    1004 : Result := dmSearch('Collezioni',    qyClz, 'cod_clz', AOp, ATag);
+    1004 : Result := dmSearch('Prodotti',           qyPro,    'id_prodotto',  AOp, ATag);
 //    1005 : Result := dmSearch('C.D.U.',        qyOgg, 'cod_ogg;cod_ubi', AOp, ATag);
 //    1006 : Result := dmSearch('Istituzioni',   qyPmr, 'cod_pmr', AOp, ATag);
 //    1007 : Result := dmSearch('Incarichi',     qyInc, 'cod_inc', AOp, ATag);

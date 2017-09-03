@@ -8,7 +8,7 @@ uses
   udmEdCliente, udmSearch, ppVar, ppBands, ppCtrls, ppPrnabl, ppClass,
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
   Menus, ComCtrls, Grids, DBGrids, ppModule, raCodMod, ppSubRpt,
-  ppStrtch, ppMemo, DBGridAux, DBSearch;
+  ppStrtch, ppMemo, DBGridAux, DBSearch, DBEditDateTimePicker;
 
 type
   TfmEdCliente = class(TfmEdit)
@@ -64,6 +64,9 @@ type
     DBEdit13: TDBEdit;
     laLocalita: TLabel;
     deLocalita: TDBSearch;
+    teCommenti: TTabSheet;
+    DBGridAux1: TDBGridAux;
+    dtDataCommento: TDBEditDateTimePicker;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private

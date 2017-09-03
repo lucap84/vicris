@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ActnList, Menus, udmGlobal, udmSearch, jpeg, ExtCtrls, udmChkUsr,
-  uChkUsr, uGlobals, ComCtrls;
+  uChkUsr, uGlobals, ComCtrls, Buttons, GIFImage;
 
 resourcestring
   stCreateError  = 'Errore nell''accesso al DataBase! Riavviare il programma!';
@@ -29,7 +29,6 @@ type
     miTileHor: TMenuItem;
     miTileVer: TMenuItem;
     miCascade: TMenuItem;
-    N2: TMenuItem;
     acAbout: TAction;
     miAbout: TMenuItem;
     sbMenu: TStatusBar;
@@ -44,6 +43,7 @@ type
     miPro: TMenuItem;
     miMan: TMenuItem;
     miLoc: TMenuItem;
+    imgBackMenu: TImage;
     procedure acCommonUpdate(Sender: TObject);
     procedure acExitExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -72,7 +72,10 @@ implementation
 
 uses
   //Generale
-  uBrCliente, uBrMandante, uBrLocalita, uBrCatProdotto, uBrEvento, uAbout;
+  uBrCliente, uBrMandante, uBrLocalita,
+  //Magazzino
+  uBrCatProdotto, uBrProdotto,
+  uAbout;
 {$R *.dfm}
 
 procedure TfmMenu.acCatProExecute(Sender: TObject);
@@ -101,7 +104,8 @@ end;
 
 procedure TfmMenu.acProExecute(Sender: TObject);
 begin
-//
+  if not Assigned(fmBrProdotto) then
+    fmBrProdotto := TfmBrProdotto.Create(Self);
 end;
 
 procedure TfmMenu.acCommonUpdate(Sender: TObject);

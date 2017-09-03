@@ -1,6 +1,6 @@
 inherited fmEdCliente: TfmEdCliente
-  Left = 582
-  Top = 188
+  Left = 371
+  Top = 210
   Width = 760
   Height = 610
   ActiveControl = deNome
@@ -627,6 +627,65 @@ inherited fmEdCliente: TfmEdCliente
         Font.Style = []
         ParentFont = False
         TabOrder = 4
+      end
+    end
+    object teCommenti: TTabSheet
+      Caption = 'Commenti'
+      ImageIndex = 1
+      object DBGridAux1: TDBGridAux
+        Left = 0
+        Top = 0
+        Width = 736
+        Height = 486
+        Align = alClient
+        DataSource = dmEdCliente.dsCommenti
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = []
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'DATA_COMMENTO'
+            Width = 112
+            Visible = True
+            CustomControl = dtDataCommento
+          end
+          item
+            Expanded = False
+            FieldName = 'COMMENTO'
+            Width = 24004
+            Visible = True
+          end>
+      end
+      object dtDataCommento: TDBEditDateTimePicker
+        Left = 16
+        Top = 64
+        Width = 186
+        Height = 28
+        Date = 42981.665399293980000000
+        Time = 42981.665399293980000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        Visible = False
+        DataField = 'DATA_COMMENTO'
+        DataSource = dmEdCliente.dsCommenti
+        ReadOnly = False
+        DefaultEditMask = '!99/99/9999;1;_'
+        AutoApplyEditMask = True
       end
     end
   end
