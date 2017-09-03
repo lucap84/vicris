@@ -5,8 +5,10 @@ inherited fmEdCatProdotto: TfmEdCatProdotto
   Caption = 'Categoria Prodotto'
   Constraints.MinHeight = 140
   Constraints.MinWidth = 760
+  OldCreateOrder = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  hFirstActiveControl = deCategoria
   PixelsPerInch = 96
   TextHeight = 13
   object laCategoria: TLabel [0]

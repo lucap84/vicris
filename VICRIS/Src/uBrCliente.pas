@@ -21,11 +21,8 @@ type
     ppDBText1: TppDBText;
     ppDBText2: TppDBText;
     ppDBText3: TppDBText;
-    ppPageStyle1: TppPageStyle;
-    ppLine3: TppLine;
-    ppLine4: TppLine;
-    ppLine5: TppLine;
-    ppLine6: TppLine;
+    ppLabel2: TppLabel;
+    ppDBText4: TppDBText;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private

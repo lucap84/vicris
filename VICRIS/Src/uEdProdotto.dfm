@@ -10,6 +10,7 @@ inherited fmEdProdotto: TfmEdProdotto
   OldCreateOrder = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  hFirstActiveControl = deProdotto
   PixelsPerInch = 96
   TextHeight = 13
   object laNote: TLabel [0]

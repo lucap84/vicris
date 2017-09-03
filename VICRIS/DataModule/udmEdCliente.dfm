@@ -4,7 +4,7 @@ inherited dmEdCliente: TdmEdCliente
     'id_cliente')
   Left = 406
   Top = 278
-  Height = 411
+  Height = 253
   Width = 394
   inherited OraSession: TOraSession
     EncryptedPassword = 'A9FFB6FFBCFFADFFB6FFACFF'

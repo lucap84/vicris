@@ -7,8 +7,10 @@ inherited fmEdSubMandante: TfmEdSubMandante
   Caption = 'Submandante'
   Constraints.MinHeight = 150
   Constraints.MinWidth = 760
+  OldCreateOrder = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  hFirstActiveControl = deDescrizione
   PixelsPerInch = 96
   TextHeight = 13
   object laDescrizione: TLabel [0]

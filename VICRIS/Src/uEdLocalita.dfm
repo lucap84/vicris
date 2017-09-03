@@ -10,6 +10,7 @@ inherited fmEdLocalita: TfmEdLocalita
   OldCreateOrder = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  hFirstActiveControl = deLocalita
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnTools: TPanel
