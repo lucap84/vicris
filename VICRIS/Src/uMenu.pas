@@ -44,6 +44,8 @@ type
     miMan: TMenuItem;
     miLoc: TMenuItem;
     imgBackMenu: TImage;
+    miSubMan: TMenuItem;
+    acSubMan: TAction;
     procedure acCommonUpdate(Sender: TObject);
     procedure acExitExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -59,6 +61,7 @@ type
     procedure acLocExecute(Sender: TObject);
     procedure acProExecute(Sender: TObject);
     procedure acCatProExecute(Sender: TObject);
+    procedure acSubManExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -72,7 +75,7 @@ implementation
 
 uses
   //Generale
-  uBrCliente, uBrMandante, uBrLocalita,
+  uBrCliente, uBrMandante, uBrSubMandante, uBrLocalita,
   //Magazzino
   uBrCatProdotto, uBrProdotto,
   uAbout;
@@ -100,6 +103,12 @@ procedure TfmMenu.acManExecute(Sender: TObject);
 begin
   if not Assigned(fmBrMandante) then
     fmBrMandante := TfmBrMandante.Create(Self);
+end;
+
+procedure TfmMenu.acSubManExecute(Sender: TObject);
+begin
+  if not Assigned(fmBrSubMandante) then
+    fmBrSubMandante := TfmBrSubMandante.Create(Self);
 end;
 
 procedure TfmMenu.acProExecute(Sender: TObject);

@@ -35,7 +35,11 @@ uses
   udmBrProdotto in '..\DataModule\udmBrProdotto.pas' {dmBrProdotto: TdmDBRoot},
   uBrProdotto in '..\Src\uBrProdotto.pas' {fmBrProdotto: TfmRoot},
   udmEdProdotto in '..\DataModule\udmEdProdotto.pas' {dmEdProdotto: TdmDBRoot},
-  uEdProdotto in '..\Src\uEdProdotto.pas' {fmEdProdotto: TfmRoot};
+  uEdProdotto in '..\Src\uEdProdotto.pas' {fmEdProdotto: TfmRoot},
+  udmBrSubMandante in '..\DataModule\udmBrSubMandante.pas' {dmBrSubMandante: TdmDBRoot},
+  uBrSubMandante in '..\Src\uBrSubMandante.pas' {fmBrSubMandante: TfmRoot},
+  udmEdSubMandante in '..\DataModule\udmEdSubMandante.pas' {dmEdSubMandante: TdmDBRoot},
+  uEdSubMandante in '..\Src\uEdSubMandante.pas' {fmEdSubMandante: TfmRoot};
 
 {$R *.res}
 

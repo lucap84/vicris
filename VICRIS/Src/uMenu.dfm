@@ -3751,6 +3751,9 @@ object fmMenu: TfmMenu
         object miMan: TMenuItem
           Action = acMan
         end
+        object miSubMan: TMenuItem
+          Action = acSubMan
+        end
         object miLoc: TMenuItem
           Action = acLoc
         end
@@ -3866,6 +3869,13 @@ object fmMenu: TfmMenu
       Caption = '&Prodotti'
       Hint = 'Apre l'#39'elenco dei Prodotti'
       OnExecute = acProExecute
+      OnUpdate = acCommonUpdate
+    end
+    object acSubMan: TAction
+      Category = 'DB_Generale'
+      Caption = '&SubMandanti'
+      Hint = 'Apre l'#39'elenco dei SubMandanti'
+      OnExecute = acSubManExecute
       OnUpdate = acCommonUpdate
     end
   end

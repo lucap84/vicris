@@ -39,7 +39,7 @@ object dmSearch: TdmSearch
         Name = 'ID_CLIENTE'
       end>
     object qyCliID_CLIENTE: TFloatField
-      DisplayLabel = 'Codice'
+      DisplayLabel = 'Id'
       FieldName = 'ID_CLIENTE'
     end
     object qyCliNOME: TStringField
@@ -87,17 +87,21 @@ object dmSearch: TdmSearch
         Name = 'ID_MANDANTE'
       end>
     object qyManID_MANDANTE: TFloatField
+      DisplayLabel = 'Id'
       FieldName = 'ID_MANDANTE'
     end
     object qyManMANDANTE: TStringField
+      DisplayLabel = 'Ragione Sociale'
       FieldName = 'MANDANTE'
       Size = 500
     end
     object qyManINDIRIZZO: TStringField
+      DisplayLabel = 'Indirizzo'
       FieldName = 'INDIRIZZO'
       Size = 2000
     end
     object qyManCITTA: TStringField
+      DisplayLabel = 'Citt'#224
       FieldName = 'CITTA'
       Size = 100
     end
@@ -186,28 +190,35 @@ object dmSearch: TdmSearch
     Left = 128
     Top = 160
     object qyProID_PRODOTTO: TFloatField
+      DisplayLabel = 'Id'
       FieldName = 'ID_PRODOTTO'
     end
     object qyProPRODOTTO: TStringField
+      DisplayLabel = 'Descrizione'
       FieldName = 'PRODOTTO'
       Size = 200
     end
     object qyProUNITA_MISURA: TStringField
+      DisplayLabel = 'Unit'#224' di Misura'
       FieldName = 'UNITA_MISURA'
     end
     object qyProNOTE: TStringField
+      DisplayLabel = 'Note'
       FieldName = 'NOTE'
       Size = 2000
     end
     object qyProMANDANTE: TStringField
+      DisplayLabel = 'Mandante'
       FieldName = 'MANDANTE'
       Size = 500
     end
     object qyProCATEGORIA: TStringField
+      DisplayLabel = 'Categoria'
       FieldName = 'CATEGORIA'
       Size = 300
     end
     object qyProSUB_CATEGORIA: TStringField
+      DisplayLabel = 'Sotto Categoria'
       FieldName = 'SUB_CATEGORIA'
       Size = 300
     end
@@ -215,6 +226,29 @@ object dmSearch: TdmSearch
       FieldName = 'DESCRIZIONE'
       Visible = False
       Size = 200
+    end
+  end
+  object qySubMan: TOraQuery
+    Session = OraSearch
+    SQL.Strings = (
+      'SELECT ID_SUBMANDANTE, SUBMANDANTE, SUBMANDANTE DESCRIZIONE'
+      '  FROM TB_SUBMANDANTE'
+      ' ORDER BY SUBMANDANTE')
+    Left = 192
+    Top = 160
+    object qySubManID_SUBMANDANTE: TFloatField
+      DisplayLabel = 'Id'
+      FieldName = 'ID_SUBMANDANTE'
+    end
+    object qySubManSUBMANDANTE: TStringField
+      DisplayLabel = 'Descrizione'
+      FieldName = 'SUBMANDANTE'
+      Size = 500
+    end
+    object qySubManDESCRIZIONE: TStringField
+      FieldName = 'DESCRIZIONE'
+      Visible = False
+      Size = 500
     end
   end
 end

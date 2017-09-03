@@ -39,6 +39,10 @@ type
     qyProCATEGORIA: TStringField;
     qyProSUB_CATEGORIA: TStringField;
     qyProDESCRIZIONE: TStringField;
+    qySubMan: TOraQuery;
+    qySubManID_SUBMANDANTE: TFloatField;
+    qySubManSUBMANDANTE: TStringField;
+    qySubManDESCRIZIONE: TStringField;
     procedure dmSearchCreate(Sender: TObject);
   private
     { Private declarations }
