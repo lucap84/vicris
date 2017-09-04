@@ -46,6 +46,11 @@ type
     imgBackMenu: TImage;
     miSubMan: TMenuItem;
     acSubMan: TAction;
+    acVen: TAction;
+    miVen: TMenuItem;
+    sbCli: TSpeedButton;
+    sbMan: TSpeedButton;
+    sbVen: TSpeedButton;
     procedure acCommonUpdate(Sender: TObject);
     procedure acExitExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -62,6 +67,7 @@ type
     procedure acProExecute(Sender: TObject);
     procedure acCatProExecute(Sender: TObject);
     procedure acSubManExecute(Sender: TObject);
+    procedure acVenExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -105,16 +111,21 @@ begin
     fmBrMandante := TfmBrMandante.Create(Self);
 end;
 
+procedure TfmMenu.acProExecute(Sender: TObject);
+begin
+  if not Assigned(fmBrProdotto) then
+    fmBrProdotto := TfmBrProdotto.Create(Self);
+end;
+
 procedure TfmMenu.acSubManExecute(Sender: TObject);
 begin
   if not Assigned(fmBrSubMandante) then
     fmBrSubMandante := TfmBrSubMandante.Create(Self);
 end;
 
-procedure TfmMenu.acProExecute(Sender: TObject);
+procedure TfmMenu.acVenExecute(Sender: TObject);
 begin
-  if not Assigned(fmBrProdotto) then
-    fmBrProdotto := TfmBrProdotto.Create(Self);
+  //
 end;
 
 procedure TfmMenu.acCommonUpdate(Sender: TObject);
