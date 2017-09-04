@@ -39,7 +39,11 @@ uses
   udmBrSubMandante in '..\DataModule\udmBrSubMandante.pas' {dmBrSubMandante: TdmDBRoot},
   uBrSubMandante in '..\Src\uBrSubMandante.pas' {fmBrSubMandante: TfmRoot},
   udmEdSubMandante in '..\DataModule\udmEdSubMandante.pas' {dmEdSubMandante: TdmDBRoot},
-  uEdSubMandante in '..\Src\uEdSubMandante.pas' {fmEdSubMandante: TfmRoot};
+  uEdSubMandante in '..\Src\uEdSubMandante.pas' {fmEdSubMandante: TfmRoot},
+  udmBrVendita in '..\DataModule\udmBrVendita.pas' {dmBrVendita: TdmDBRoot},
+  uBrVendita in '..\Src\uBrVendita.pas' {fmBrVendita: TfmRoot},
+  udmEdVendita in '..\DataModule\udmEdVendita.pas' {dmEdVendita: TdmDBRoot},
+  uEdVendita in '..\Src\uEdVendita.pas' {fmEdVendita: TfmRoot};
 
 {$R *.res}
 

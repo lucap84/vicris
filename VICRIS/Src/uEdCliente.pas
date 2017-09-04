@@ -8,7 +8,7 @@ uses
   udmEdCliente, udmSearch, ppVar, ppBands, ppCtrls, ppPrnabl, ppClass,
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
   Menus, ComCtrls, Grids, DBGrids, ppModule, raCodMod, ppSubRpt,
-  ppStrtch, ppMemo, DBGridAux, DBSearch, DBEditDateTimePicker;
+  ppStrtch, ppMemo, DBGridAux, DBSearch, DBEditDateTimePicker, TXComp;
 
 type
   TfmEdCliente = class(TfmEdit)

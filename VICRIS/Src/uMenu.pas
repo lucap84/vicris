@@ -83,7 +83,7 @@ uses
   //Generale
   uBrCliente, uBrMandante, uBrSubMandante, uBrLocalita,
   //Magazzino
-  uBrCatProdotto, uBrProdotto,
+  uBrCatProdotto, uBrProdotto, uBrVendita,
   uAbout;
 {$R *.dfm}
 
@@ -125,7 +125,8 @@ end;
 
 procedure TfmMenu.acVenExecute(Sender: TObject);
 begin
-  //
+  if not Assigned(fmBrVendita) then
+    fmBrVendita := TfmBrVendita.Create(Self);
 end;
 
 procedure TfmMenu.acCommonUpdate(Sender: TObject);

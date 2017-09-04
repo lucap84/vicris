@@ -183,12 +183,20 @@ object dmSearch: TdmSearch
       
         '  FROM TB_PRODOTTI P, TB_MANDANTI M, TB_CATEGORIA_PRODOTTO C, TB' +
         '_CATEGORIA_PRODOTTO S'
-      ' WHERE P.ID_MANDANTE     = M.ID_MANDANTE  (+)'
+      
+        ' WHERE P.ID_PRODOTTO BETWEEN NVL(:ID_PRODOTTO, 0) AND NVL(:ID_PR' +
+        'ODOTTO, 999999999999)'
+      '   AND P.ID_MANDANTE     = M.ID_MANDANTE  (+)'
       '   AND P.ID_CATEGORIA    = C.ID_CATEGORIA (+)'
       '   AND P.ID_SUBCATEGORIA = S.ID_CATEGORIA (+)'
       ' ORDER BY P.PRODOTTO')
     Left = 128
     Top = 160
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_PRODOTTO'
+      end>
     object qyProID_PRODOTTO: TFloatField
       DisplayLabel = 'Id'
       FieldName = 'ID_PRODOTTO'
@@ -233,9 +241,17 @@ object dmSearch: TdmSearch
     SQL.Strings = (
       'SELECT ID_SUBMANDANTE, SUBMANDANTE, SUBMANDANTE DESCRIZIONE'
       '  FROM TB_SUBMANDANTE'
+      
+        ' WHERE ID_SUBMANDANTE BETWEEN NVL(:ID_SUBMANDANTE, 0) AND NVL(:I' +
+        'D_SUBMANDANTE, 999999999999)'
       ' ORDER BY SUBMANDANTE')
     Left = 192
     Top = 160
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_SUBMANDANTE'
+      end>
     object qySubManID_SUBMANDANTE: TFloatField
       DisplayLabel = 'Id'
       FieldName = 'ID_SUBMANDANTE'
