@@ -2,6 +2,8 @@ inherited dmEdVendita: TdmEdVendita
   hDataSet = cdsVendita
   hKeyFields.Strings = (
     'ID_VENDITA')
+  Height = 234
+  Width = 366
   inherited OraSession: TOraSession
     EncryptedPassword = 'A9FFB6FFBCFFADFFB6FFACFF'
   end
@@ -74,11 +76,13 @@ inherited dmEdVendita: TdmEdVendita
   object qyMovimenti: TOraQuery
     Session = OraSession
     SQL.Strings = (
-      'SELECT *'
-      '  FROM TB_MOVIMENTI'
-      ' WHERE ID_VENDITA = :ID_VENDITA'
-      ' ORDER BY ID_MOVIMENTI')
+      'SELECT M.*, P.PRODOTTO'
+      '  FROM TB_MOVIMENTI M, TB_PRODOTTI P'
+      ' WHERE M.ID_VENDITA = :ID_VENDITA'
+      '   AND M.ID_PRODOTTO = P.ID_PRODOTTO (+)'
+      ' ORDER BY M.ID_MOVIMENTI')
     MasterSource = dsVendita
+    Options.FieldsOrigin = True
     Left = 72
     Top = 120
     ParamData = <
@@ -87,9 +91,81 @@ inherited dmEdVendita: TdmEdVendita
         Name = 'ID_VENDITA'
         Value = Null
       end>
+    object qyMovimentiID_MOVIMENTI: TFloatField
+      FieldName = 'ID_MOVIMENTI'
+      Origin = 'TB_MOVIMENTI.ID_MOVIMENTI'
+    end
+    object qyMovimentiID_VENDITA: TFloatField
+      FieldName = 'ID_VENDITA'
+      Origin = 'TB_MOVIMENTI.ID_VENDITA'
+    end
+    object qyMovimentiID_PRODOTTO: TFloatField
+      FieldName = 'ID_PRODOTTO'
+      Origin = 'TB_MOVIMENTI.ID_PRODOTTO'
+    end
+    object qyMovimentiPREZZO: TFloatField
+      FieldName = 'PREZZO'
+      Origin = 'TB_MOVIMENTI.PREZZO'
+    end
+    object qyMovimentiPREZZO_LIRA: TStringField
+      FieldName = 'PREZZO_LIRA'
+      Origin = 'TB_MOVIMENTI.PREZZO_LIRA'
+    end
+    object qyMovimentiQUANTITA: TFloatField
+      FieldName = 'QUANTITA'
+      Origin = 'TB_MOVIMENTI.QUANTITA'
+    end
+    object qyMovimentiSCONTO: TFloatField
+      FieldName = 'SCONTO'
+      Origin = 'TB_MOVIMENTI.SCONTO'
+    end
+    object qyMovimentiIMPORTO: TFloatField
+      FieldName = 'IMPORTO'
+      Origin = 'TB_MOVIMENTI.IMPORTO'
+    end
+    object qyMovimentiIMPORTO_LIRA: TStringField
+      FieldName = 'IMPORTO_LIRA'
+      Origin = 'TB_MOVIMENTI.IMPORTO_LIRA'
+      Size = 30
+    end
+    object qyMovimentiDATA_FATTURA: TDateTimeField
+      FieldName = 'DATA_FATTURA'
+      Origin = 'TB_MOVIMENTI.DATA_FATTURA'
+    end
+    object qyMovimentiNUMERO_FATTURA: TStringField
+      FieldName = 'NUMERO_FATTURA'
+      Origin = 'TB_MOVIMENTI.NUMERO_FATTURA'
+      Size = 10
+    end
+    object qyMovimentiPREZZO_ACQUISTO: TFloatField
+      FieldName = 'PREZZO_ACQUISTO'
+      Origin = 'TB_MOVIMENTI.PREZZO_ACQUISTO'
+    end
+    object qyMovimentiCOD_USR: TStringField
+      FieldName = 'COD_USR'
+      Origin = 'TB_MOVIMENTI.COD_USR'
+      Size = 12
+    end
+    object qyMovimentiDES_PDL: TStringField
+      FieldName = 'DES_PDL'
+      Origin = 'TB_MOVIMENTI.DES_PDL'
+      Size = 60
+    end
+    object qyMovimentiDAT_AGG_REC: TDateTimeField
+      FieldName = 'DAT_AGG_REC'
+      Origin = 'TB_MOVIMENTI.DAT_AGG_REC'
+    end
+    object qyMovimentiPRODOTTO: TStringField
+      FieldName = 'PRODOTTO'
+      Origin = 'TB_PRODOTTI.PRODOTTO'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 200
+    end
   end
   object poMovimenti: TDataSetProvider
     DataSet = qyMovimenti
+    OnGetTableName = poMovimentiGetTableName
     Left = 144
     Top = 120
   end
@@ -105,30 +181,36 @@ inherited dmEdVendita: TdmEdVendita
     Top = 120
     object cdsMovimentiID_MOVIMENTI: TFloatField
       FieldName = 'ID_MOVIMENTI'
+      Origin = 'TB_MOVIMENTI.ID_MOVIMENTI'
       Visible = False
     end
     object cdsMovimentiID_VENDITA: TFloatField
       FieldName = 'ID_VENDITA'
+      Origin = 'TB_MOVIMENTI.ID_VENDITA'
       Visible = False
     end
     object cdsMovimentiID_PRODOTTO: TFloatField
       DisplayLabel = 'Id'
       FieldName = 'ID_PRODOTTO'
+      Origin = 'TB_MOVIMENTI.ID_PRODOTTO'
     end
     object cdsMovimentiPREZZO: TFloatField
       DisplayLabel = 'Prezzo'
       FieldName = 'PREZZO'
+      Origin = 'TB_MOVIMENTI.PREZZO'
       OnChange = cdsMovimentiPREZZOChange
       DisplayFormat = '#,##0.00'
       EditFormat = '###0.00'
     end
     object cdsMovimentiPREZZO_LIRA: TStringField
       FieldName = 'PREZZO_LIRA'
+      Origin = 'TB_MOVIMENTI.PREZZO_LIRA'
       Visible = False
     end
     object cdsMovimentiQUANTITA: TFloatField
       DisplayLabel = 'Qt'#224
       FieldName = 'QUANTITA'
+      Origin = 'TB_MOVIMENTI.QUANTITA'
       OnChange = cdsMovimentiQUANTITAChange
       DisplayFormat = '#,##0.00'
       EditFormat = '###0.00'
@@ -136,6 +218,7 @@ inherited dmEdVendita: TdmEdVendita
     object cdsMovimentiSCONTO: TFloatField
       DisplayLabel = '% Sconto'
       FieldName = 'SCONTO'
+      Origin = 'TB_MOVIMENTI.SCONTO'
       OnChange = cdsMovimentiSCONTOChange
       DisplayFormat = '#,##0.00'
       EditFormat = '###0.00'
@@ -143,42 +226,58 @@ inherited dmEdVendita: TdmEdVendita
     object cdsMovimentiIMPORTO: TFloatField
       DisplayLabel = 'Totale'
       FieldName = 'IMPORTO'
+      Origin = 'TB_MOVIMENTI.IMPORTO'
       DisplayFormat = '#,##0.00'
       EditFormat = '###0.00'
     end
     object cdsMovimentiIMPORTO_LIRA: TStringField
       FieldName = 'IMPORTO_LIRA'
+      Origin = 'TB_MOVIMENTI.IMPORTO_LIRA'
       Visible = False
       Size = 30
     end
     object cdsMovimentiDATA_FATTURA: TDateTimeField
       FieldName = 'DATA_FATTURA'
+      Origin = 'TB_MOVIMENTI.DATA_FATTURA'
       Visible = False
     end
     object cdsMovimentiNUMERO_FATTURA: TStringField
       FieldName = 'NUMERO_FATTURA'
+      Origin = 'TB_MOVIMENTI.NUMERO_FATTURA'
       Visible = False
       Size = 10
     end
     object cdsMovimentiPREZZO_ACQUISTO: TFloatField
       DisplayLabel = 'Costo Acquisto'
       FieldName = 'PREZZO_ACQUISTO'
+      Origin = 'TB_MOVIMENTI.PREZZO_ACQUISTO'
       DisplayFormat = '#,##0.00'
       EditFormat = '###0.00'
     end
     object cdsMovimentiCOD_USR: TStringField
       FieldName = 'COD_USR'
+      Origin = 'TB_MOVIMENTI.COD_USR'
       Visible = False
       Size = 12
     end
     object cdsMovimentiDES_PDL: TStringField
       FieldName = 'DES_PDL'
+      Origin = 'TB_MOVIMENTI.DES_PDL'
       Visible = False
       Size = 60
     end
     object cdsMovimentiDAT_AGG_REC: TDateTimeField
       FieldName = 'DAT_AGG_REC'
+      Origin = 'TB_MOVIMENTI.DAT_AGG_REC'
       Visible = False
+    end
+    object cdsMovimentiPRODOTTO: TStringField
+      DisplayLabel = 'Descrizione'
+      FieldName = 'PRODOTTO'
+      Origin = 'TB_PRODOTTI.PRODOTTO'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 200
     end
   end
   object dsMovimenti: TDataSource

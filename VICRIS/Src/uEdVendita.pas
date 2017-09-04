@@ -42,6 +42,7 @@ type
     nvMovimenti: TDBNavigator;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure nvMovimentiClick(Sender: TObject; Button: TNavigateBtn);
   private
     { Private declarations }
   public
@@ -65,6 +66,21 @@ procedure TfmEdVendita.FormDestroy(Sender: TObject);
 begin
   inherited;
   fmEdVendita := nil;
+end;
+
+procedure TfmEdVendita.nvMovimentiClick(Sender: TObject;
+  Button: TNavigateBtn);
+begin
+  inherited;
+  if (Button = nbPost)   or
+     (Button = nbDelete) then
+  begin
+    with TdmEdVendita(hDataModule) do
+    begin
+      dmDsApplyUpdates(cdsMovimenti);
+      dmDsRefresh(cdsMovimenti);
+    end;
+  end
 end;
 
 end.

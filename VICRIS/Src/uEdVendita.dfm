@@ -361,7 +361,7 @@ inherited fmEdVendita: TfmEdVendita
     object deSconto: TDBEdit
       Left = 576
       Top = 38
-      Width = 49
+      Width = 73
       Height = 28
       DataField = 'SCONTO'
       DataSource = dmEdVendita.dsMovimenti
@@ -444,37 +444,43 @@ inherited fmEdVendita: TfmEdVendita
       item
         Expanded = False
         FieldName = 'ID_PRODOTTO'
-        Width = 64
+        Width = 42
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PRODOTTO'
+        Width = 122
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'PREZZO'
-        Width = 64
+        Width = 94
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'QUANTITA'
-        Width = 64
+        Width = 94
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'SCONTO'
-        Width = 64
+        Width = 94
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'IMPORTO'
-        Width = 64
+        Width = 94
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'PREZZO_ACQUISTO'
-        Width = 75
+        Width = 94
         Visible = True
       end>
   end
@@ -488,6 +494,7 @@ inherited fmEdVendita: TfmEdVendita
     Align = alTop
     Flat = True
     TabOrder = 5
+    OnClick = nvMovimentiClick
   end
   inherited alEdit: TActionList
     Left = 560

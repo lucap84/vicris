@@ -41,9 +41,28 @@ type
     cdsMovimentiCOD_USR: TStringField;
     cdsMovimentiDES_PDL: TStringField;
     cdsMovimentiDAT_AGG_REC: TDateTimeField;
+    qyMovimentiID_MOVIMENTI: TFloatField;
+    qyMovimentiID_VENDITA: TFloatField;
+    qyMovimentiID_PRODOTTO: TFloatField;
+    qyMovimentiPREZZO: TFloatField;
+    qyMovimentiPREZZO_LIRA: TStringField;
+    qyMovimentiQUANTITA: TFloatField;
+    qyMovimentiSCONTO: TFloatField;
+    qyMovimentiIMPORTO: TFloatField;
+    qyMovimentiIMPORTO_LIRA: TStringField;
+    qyMovimentiDATA_FATTURA: TDateTimeField;
+    qyMovimentiNUMERO_FATTURA: TStringField;
+    qyMovimentiPREZZO_ACQUISTO: TFloatField;
+    qyMovimentiCOD_USR: TStringField;
+    qyMovimentiDES_PDL: TStringField;
+    qyMovimentiDAT_AGG_REC: TDateTimeField;
+    qyMovimentiPRODOTTO: TStringField;
+    cdsMovimentiPRODOTTO: TStringField;
     procedure cdsMovimentiPREZZOChange(Sender: TField);
     procedure cdsMovimentiQUANTITAChange(Sender: TField);
     procedure cdsMovimentiSCONTOChange(Sender: TField);
+    procedure poMovimentiGetTableName(Sender: TObject; DataSet: TDataSet;
+      var TableName: String);
   private
     { Private declarations }
   protected
@@ -98,6 +117,13 @@ procedure TdmEdVendita.cdsMovimentiSCONTOChange(Sender: TField);
 begin
   inherited;
   dmCalcTot;
+end;
+
+procedure TdmEdVendita.poMovimentiGetTableName(Sender: TObject;
+  DataSet: TDataSet; var TableName: String);
+begin
+  inherited;
+  TableName := 'TB_MOVIMENTI';
 end;
 
 end.
