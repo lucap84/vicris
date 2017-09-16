@@ -7,7 +7,7 @@ uses
   Dialogs, uEdit, ppVar, ppBands, ppCtrls, ppPrnabl, ppClass, ppCache,
   ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE, Menus,
   ActnList, StdCtrls, Buttons, ExtCtrls,
-  udmEdLocalita, Mask, DBCtrls, ComCtrls;
+  udmEdLocalita, Mask, DBCtrls, ComCtrls, TXComp;
 
 type
   TfmEdLocalita = class(TfmEdit)

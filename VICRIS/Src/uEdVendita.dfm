@@ -186,14 +186,12 @@ inherited fmEdVendita: TfmEdVendita
       TabOrder = 0
       hCmpDes = deCliente
     end
-    object deCliente: TDBEdit
+    object deCliente: TEdit
       Left = 226
       Top = 8
       Width = 510
       Height = 28
       Anchors = [akLeft, akTop, akRight]
-      DataField = 'CLIENTE'
-      DataSource = dmEdVendita.dsVendita
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16

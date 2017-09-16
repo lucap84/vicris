@@ -17,6 +17,10 @@ type
     cdsLocalitaCOD_USR: TStringField;
     cdsLocalitaDES_PDL: TStringField;
     cdsLocalitaDAT_AGG_REC: TDateTimeField;
+    qyProvincia: TOraQuery;
+    poProvincia: TDataSetProvider;
+    cdsProvincia: TClientDataSet;
+    dsProvincia: TDataSource;
   private
     { Private declarations }
   public

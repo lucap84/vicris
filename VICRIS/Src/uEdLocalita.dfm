@@ -1,6 +1,6 @@
 inherited fmEdLocalita: TfmEdLocalita
-  Left = 636
-  Top = 353
+  Left = 538
+  Top = 589
   Width = 760
   Height = 170
   ActiveControl = deLocalita

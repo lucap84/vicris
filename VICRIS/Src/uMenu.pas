@@ -51,6 +51,8 @@ type
     sbCli: TSpeedButton;
     sbMan: TSpeedButton;
     sbVen: TSpeedButton;
+    sbClose: TSpeedButton;
+    sbProdotti: TSpeedButton;
     procedure acCommonUpdate(Sender: TObject);
     procedure acExitExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -182,6 +184,16 @@ begin
   fmChkUsr := nil;
 end;
 
+procedure TfmMenu.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+  CanClose := False;
+  if (MessageDlg('Sei sicuro di voler uscire?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  begin
+    CanClose := True;
+    dmChkUsr.SetUsrAtv(hUsr, hApl, '0');
+  end;
+end;
+
 procedure TfmMenu.acViewUpdate(Sender: TObject);
 begin
   TAction(Sender).Enabled := MDIChildCount > 0;
@@ -216,11 +228,6 @@ begin
   fmAbout.ShowModal;
   fmAbout.Free;
   fmAbout := nil;
-end;
-
-procedure TfmMenu.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-begin
-  dmChkUsr.SetUsrAtv(hUsr, hApl, '0');
 end;
 
 end.

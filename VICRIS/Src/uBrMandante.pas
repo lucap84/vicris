@@ -10,22 +10,27 @@ uses
   udmEdMandante, uEdMandante,
   ppCtrls, ppDB, ppVar, ppBands, ppPrnabl, ppClass,
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDBPipe, ppDBBDE, TXComp,
-  DBGridAux;
+  DBGridAux, GIFImage, jpeg;
 
 type
   TfmBrMandante = class(TfmBrowse)
     ppShape1: TppShape;
-    ppLabel1: TppLabel;
     ppLabel3: TppLabel;
+    ppLabel2: TppLabel;
     ppLabel4: TppLabel;
-    ppDBText1: TppDBText;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
     ppDBText2: TppDBText;
+    ppDBText1: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppDBText8: TppDBText;
     ppDBText3: TppDBText;
-    ppPageStyle1: TppPageStyle;
-    ppLine3: TppLine;
-    ppLine4: TppLine;
-    ppLine5: TppLine;
-    ppLine6: TppLine;
+    ppLabel1: TppLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private

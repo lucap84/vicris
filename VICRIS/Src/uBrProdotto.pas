@@ -8,10 +8,19 @@ uses
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
   ActnList, Grids, DBGrids, DBGridAux, StdCtrls, Buttons, ExtCtrls,
   udmBrProdotto,
-  udmEdProdotto, uEdProdotto;
+  udmEdProdotto, uEdProdotto, GIFImage, jpeg;
 
 type
   TfmBrProdotto = class(TfmBrowse)
+    ppShape1: TppShape;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private

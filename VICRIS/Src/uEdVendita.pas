@@ -14,7 +14,7 @@ type
   TfmEdVendita = class(TfmEdit)
     laCliente: TLabel;
     deIdCliente: TDBSearch;
-    deCliente: TDBEdit;
+    deCliente: TEdit;
     laData: TLabel;
     dtData: TDBEditDateTimePicker;
     deNote: TDBMemo;

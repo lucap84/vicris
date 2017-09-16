@@ -3336,6 +3336,16 @@ object fmBrowse: TfmBrowse
         mmWidth = 189177
         BandType = 0
       end
+      object imgTitle: TppImage
+        UserName = 'imgTitle'
+        MaintainAspectRatio = True
+        Stretch = True
+        mmHeight = 8996
+        mmLeft = 146579
+        mmTop = 1588
+        mmWidth = 42598
+        BandType = 0
+      end
     end
     object ppDetailBand1: TppDetailBand
       mmBottomOffset = 0

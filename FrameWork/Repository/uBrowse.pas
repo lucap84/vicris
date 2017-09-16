@@ -42,6 +42,7 @@ type
     sbSearch: TSpeedButton;
     sbFilter: TSpeedButton;
     rbExtraOptions: TExtraOptions;
+    imgTitle: TppImage;
     procedure acInsertUpdate(Sender: TObject);
     procedure acEditUpdate(Sender: TObject);
     procedure acViewUpdate(Sender: TObject);
