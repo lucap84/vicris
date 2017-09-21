@@ -12,6 +12,16 @@ type
     cdsProdotto: TClientDataSet;
     dsProdotto: TDataSource;
     qyProdotto: TOraQuery;
+    cdsProdottoID_PRODOTTO: TFloatField;
+    cdsProdottoPRODOTTO: TStringField;
+    cdsProdottoID_MANDANTE: TFloatField;
+    cdsProdottoID_CATEGORIA: TFloatField;
+    cdsProdottoUNITA_MISURA: TStringField;
+    cdsProdottoNOTE: TStringField;
+    cdsProdottoCOD_USR: TStringField;
+    cdsProdottoDES_PDL: TStringField;
+    cdsProdottoDAT_AGG_REC: TDateTimeField;
+    cdsProdottoID_SUBMANDANTE: TFloatField;
   private
     { Private declarations }
   public

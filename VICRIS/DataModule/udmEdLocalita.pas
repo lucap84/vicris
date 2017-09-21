@@ -13,14 +13,10 @@ type
     dsLocalita: TDataSource;
     qyLocalita: TOraQuery;
     cdsLocalitaID_LOCALITA: TFloatField;
-    cdsLocalitaLOCALITA: TStringField;
     cdsLocalitaCOD_USR: TStringField;
     cdsLocalitaDES_PDL: TStringField;
     cdsLocalitaDAT_AGG_REC: TDateTimeField;
-    qyProvincia: TOraQuery;
-    poProvincia: TDataSetProvider;
-    cdsProvincia: TClientDataSet;
-    dsProvincia: TDataSource;
+    cdsLocalitaLOCALITA: TStringField;
   private
     { Private declarations }
   public

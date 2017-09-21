@@ -7,7 +7,7 @@ inherited dmBrSubMandante: TdmBrSubMandante
   object qySubMandante: TOraQuery
     SQL.Strings = (
       'SELECT *'
-      '  FROM TB_SUBMANDANTE'
+      '  FROM TB_SUBMANDANTI'
       ' ORDER BY ID_SUBMANDANTE')
     Left = 24
     Top = 16
@@ -18,7 +18,7 @@ inherited dmBrSubMandante: TdmBrSubMandante
     object qySubMandanteSUBMANDANTE: TStringField
       DisplayLabel = 'Ragione Sociale'
       FieldName = 'SUBMANDANTE'
-      Size = 500
+      Size = 200
     end
     object qySubMandanteCOD_USR: TStringField
       FieldName = 'COD_USR'

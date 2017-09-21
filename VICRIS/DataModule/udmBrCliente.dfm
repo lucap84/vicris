@@ -8,18 +8,16 @@ inherited dmBrCliente: TdmBrCliente
   Width = 194
   object qyCliente: TOraQuery
     SQL.Strings = (
-      'SELECT *'
-      '  FROM TB_CLIENTI'
-      ' ORDER BY NOME')
+      'SELECT C.*, L.LOCALITA, P.PROVINCIA'
+      '  FROM TB_CLIENTI C, TB_LOCALITA L, TB_PROVINCE P'
+      ' WHERE C.ID_LOCALITA  = L.ID_LOCALITA  (+)'
+      '   AND C.ID_PROVINCIA = P.ID_PROVINCIA (+)'
+      ' ORDER BY C.NOME')
     Left = 32
     Top = 16
     object qyClienteID_CLIENTE: TFloatField
       DisplayLabel = 'Id'
       FieldName = 'ID_CLIENTE'
-    end
-    object qyClienteID_CLIENTE_OLD: TFloatField
-      FieldName = 'ID_CLIENTE_OLD'
-      Visible = False
     end
     object qyClienteNOME: TStringField
       DisplayLabel = 'Ragione Sociale'
@@ -52,11 +50,6 @@ inherited dmBrCliente: TdmBrCliente
       FieldName = 'CAP'
       Size = 5
     end
-    object qyClientePROVINCIA: TStringField
-      DisplayLabel = 'Prov.'
-      FieldName = 'PROVINCIA'
-      Size = 3
-    end
     object qyClienteTELEFONO: TStringField
       FieldName = 'TELEFONO'
       Visible = False
@@ -71,29 +64,6 @@ inherited dmBrCliente: TdmBrCliente
       FieldName = 'FAX'
       Visible = False
     end
-    object qyClienteMAIL: TStringField
-      FieldName = 'MAIL'
-      Visible = False
-      Size = 200
-    end
-    object qyClienteSITO: TStringField
-      FieldName = 'SITO'
-      Visible = False
-      Size = 2000
-    end
-    object qyClientePARTITA_IVA: TStringField
-      DisplayLabel = 'P.IVA'
-      FieldName = 'PARTITA_IVA'
-    end
-    object qyClienteCODICE_FISCALE: TStringField
-      DisplayLabel = 'Codice Fiscale'
-      FieldName = 'CODICE_FISCALE'
-    end
-    object qyClienteLOCALITA: TStringField
-      FieldName = 'LOCALITA'
-      Visible = False
-      Size = 50
-    end
     object qyClienteBANCA: TStringField
       FieldName = 'BANCA'
       Visible = False
@@ -103,16 +73,6 @@ inherited dmBrCliente: TdmBrCliente
       FieldName = 'IBAN'
       Visible = False
       Size = 40
-    end
-    object qyClienteCODICE_ABI: TStringField
-      FieldName = 'CODICE_ABI'
-      Visible = False
-      Size = 7
-    end
-    object qyClienteCODICE_CAB: TStringField
-      FieldName = 'CODICE_CAB'
-      Visible = False
-      Size = 7
     end
     object qyClienteNOTE: TStringField
       FieldName = 'NOTE'
@@ -132,6 +92,44 @@ inherited dmBrCliente: TdmBrCliente
     object qyClienteDAT_AGG_REC: TDateTimeField
       FieldName = 'DAT_AGG_REC'
       Visible = False
+    end
+    object qyClienteMAIL: TStringField
+      FieldName = 'MAIL'
+      Size = 200
+    end
+    object qyClienteSITO: TStringField
+      FieldName = 'SITO'
+      Size = 200
+    end
+    object qyClientePARTITA_IVA: TStringField
+      FieldName = 'PARTITA_IVA'
+      Size = 16
+    end
+    object qyClienteCODICE_FISCALE: TStringField
+      FieldName = 'CODICE_FISCALE'
+      Size = 16
+    end
+    object qyClienteCODICE_ABI: TStringField
+      FieldName = 'CODICE_ABI'
+      Size = 5
+    end
+    object qyClienteCODICE_CAB: TStringField
+      FieldName = 'CODICE_CAB'
+      Size = 5
+    end
+    object qyClienteID_PROVINCIA: TFloatField
+      FieldName = 'ID_PROVINCIA'
+    end
+    object qyClienteID_LOCALITA: TFloatField
+      FieldName = 'ID_LOCALITA'
+    end
+    object qyClienteLOCALITA: TStringField
+      FieldName = 'LOCALITA'
+      Size = 100
+    end
+    object qyClientePROVINCIA: TStringField
+      FieldName = 'PROVINCIA'
+      Size = 2
     end
   end
   object dsCliente: TDataSource

@@ -72,6 +72,19 @@ procedure TfmEdVendita.nvMovimentiClick(Sender: TObject;
   Button: TNavigateBtn);
 begin
   inherited;
+  if (Button = nbEdit)   or
+     (Button = nbInsert) then
+  begin
+    with TdmEdVendita(hDataModule) do
+    begin
+      dmDsPost(cdsVendita);
+      dmDsApplyUpdates(cdsVendita);
+      dmDsRefresh(cdsVendita);
+      dmDsEdit(cdsVendita);
+    end;
+  end;
+
+
   if (Button = nbPost)   or
      (Button = nbDelete) then
   begin

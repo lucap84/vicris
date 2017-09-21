@@ -11,7 +11,6 @@ type
     qyVendita: TOraQuery;
     dsVendita: TDataSource;
     qyVenditaID_VENDITA: TFloatField;
-    qyVenditaDATA: TDateTimeField;
     qyVenditaID_CLIENTE: TFloatField;
     qyVenditaDATA_FATTURA: TDateTimeField;
     qyVenditaNUMERO_FATTURA: TStringField;
@@ -19,6 +18,7 @@ type
     qyVenditaNOME: TStringField;
     qyVenditaNUM_ART: TFloatField;
     qyVenditaTOT_VEN: TFloatField;
+    qyVenditaDATA_VENDITA: TDateTimeField;
   private
     { Private declarations }
   public

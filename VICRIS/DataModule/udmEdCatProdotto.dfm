@@ -36,12 +36,9 @@ inherited dmEdCatProdotto: TdmEdCatProdotto
     object cdsCatProdottoID_CATEGORIA: TFloatField
       FieldName = 'ID_CATEGORIA'
     end
-    object cdsCatProdottoID_CATEGORIA_OLD: TFloatField
-      FieldName = 'ID_CATEGORIA_OLD'
-    end
     object cdsCatProdottoCATEGORIA: TStringField
       FieldName = 'CATEGORIA'
-      Size = 300
+      Size = 150
     end
     object cdsCatProdottoCOD_USR: TStringField
       FieldName = 'COD_USR'

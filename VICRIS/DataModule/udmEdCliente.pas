@@ -14,26 +14,16 @@ type
     cdsCliente: TClientDataSet;
     dsCliente: TDataSource;
     cdsClienteID_CLIENTE: TFloatField;
-    cdsClienteID_CLIENTE_OLD: TFloatField;
     cdsClienteNOME: TStringField;
     cdsClienteREFERENTE: TStringField;
     cdsClienteINDIRIZZO: TStringField;
     cdsClienteINDIRIZZO_SPEDIZIONE: TStringField;
     cdsClienteCITTA: TStringField;
     cdsClienteCAP: TStringField;
-    cdsClientePROVINCIA: TStringField;
     cdsClienteTELEFONO: TStringField;
     cdsClienteCELLULARE: TStringField;
     cdsClienteFAX: TStringField;
-    cdsClienteMAIL: TStringField;
-    cdsClienteSITO: TStringField;
-    cdsClientePARTITA_IVA: TStringField;
-    cdsClienteCODICE_FISCALE: TStringField;
-    cdsClienteLOCALITA: TStringField;
-    cdsClienteBANCA: TStringField;
     cdsClienteIBAN: TStringField;
-    cdsClienteCODICE_ABI: TStringField;
-    cdsClienteCODICE_CAB: TStringField;
     cdsClienteNOTE: TStringField;
     cdsClienteCOD_USR: TStringField;
     cdsClienteDES_PDL: TStringField;
@@ -43,14 +33,21 @@ type
     cdsCommenti: TClientDataSet;
     dsCommenti: TDataSource;
     cdsCommentiID_COMMENTO: TFloatField;
-    cdsCommentiID_COMMENTO_OLD: TFloatField;
-    cdsCommentiID_CLIENTE_OLD: TFloatField;
     cdsCommentiID_CLIENTE: TFloatField;
     cdsCommentiDATA_COMMENTO: TDateTimeField;
     cdsCommentiCOMMENTO: TStringField;
     cdsCommentiCOD_USR: TStringField;
     cdsCommentiDES_PDL: TStringField;
     cdsCommentiDAT_AGG_REC: TDateTimeField;
+    cdsClienteMAIL: TStringField;
+    cdsClienteSITO: TStringField;
+    cdsClientePARTITA_IVA: TStringField;
+    cdsClienteCODICE_FISCALE: TStringField;
+    cdsClienteBANCA: TStringField;
+    cdsClienteCODICE_ABI: TStringField;
+    cdsClienteCODICE_CAB: TStringField;
+    cdsClienteID_PROVINCIA: TFloatField;
+    cdsClienteID_LOCALITA: TFloatField;
   private
     { Private declarations }
   protected

@@ -11,19 +11,18 @@ type
     qyProdotto: TOraQuery;
     dsProdotto: TDataSource;
     qyProdottoID_PRODOTTO: TFloatField;
-    qyProdottoID_PRODOTTO_OLD: TFloatField;
     qyProdottoPRODOTTO: TStringField;
     qyProdottoID_MANDANTE: TFloatField;
     qyProdottoID_CATEGORIA: TFloatField;
-    qyProdottoID_SUBCATEGORIA: TFloatField;
-    qyProdottoUNITA_MISURA: TStringField;
     qyProdottoNOTE: TStringField;
     qyProdottoCOD_USR: TStringField;
     qyProdottoDES_PDL: TStringField;
     qyProdottoDAT_AGG_REC: TDateTimeField;
     qyProdottoMANDANTE: TStringField;
     qyProdottoCATEGORIA: TStringField;
-    qyProdottoSUB_CATEGORIA: TStringField;
+    qyProdottoUNITA_MISURA: TStringField;
+    qyProdottoID_SUBMANDANTE: TFloatField;
+    qyProdottoSUBMANDANTE: TStringField;
   private
     { Private declarations }
   public

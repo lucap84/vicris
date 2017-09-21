@@ -198,6 +198,7 @@ inherited fmEdVendita: TfmEdVendita
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
+      ReadOnly = True
       TabOrder = 1
     end
   end

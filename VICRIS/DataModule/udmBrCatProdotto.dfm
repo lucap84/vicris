@@ -20,14 +20,10 @@ inherited dmBrCatProdotto: TdmBrCatProdotto
       DisplayLabel = 'Id'
       FieldName = 'ID_CATEGORIA'
     end
-    object qyCatProdottoID_CATEGORIA_OLD: TFloatField
-      FieldName = 'ID_CATEGORIA_OLD'
-      Visible = False
-    end
     object qyCatProdottoCATEGORIA: TStringField
       DisplayLabel = 'Descrizione'
       FieldName = 'CATEGORIA'
-      Size = 300
+      Size = 150
     end
     object qyCatProdottoCOD_USR: TStringField
       FieldName = 'COD_USR'

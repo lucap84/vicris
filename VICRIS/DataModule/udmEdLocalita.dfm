@@ -26,7 +26,7 @@ inherited dmEdLocalita: TdmEdLocalita
     end
     object cdsLocalitaLOCALITA: TStringField
       FieldName = 'LOCALITA'
-      Size = 300
+      Size = 100
     end
     object cdsLocalitaCOD_USR: TStringField
       FieldName = 'COD_USR'
@@ -59,37 +59,5 @@ inherited dmEdLocalita: TdmEdLocalita
         Name = 'ID_LOCALITA'
         Value = Null
       end>
-  end
-  object qyProvincia: TOraQuery
-    Session = OraSession
-    SQL.Strings = (
-      'SELECT *'
-      '  FROM TB_PROVINCIA'
-      ' WHERE ID_LOCALITA = :ID_LOCALITA'
-      ' ORDER BY PROVINCIA')
-    Left = 104
-    Top = 160
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'ID_LOCALITA'
-      end>
-  end
-  object poProvincia: TDataSetProvider
-    DataSet = qyProvincia
-    Left = 192
-    Top = 160
-  end
-  object cdsProvincia: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'poProvincia'
-    Left = 280
-    Top = 160
-  end
-  object dsProvincia: TDataSource
-    DataSet = cdsProvincia
-    Left = 376
-    Top = 160
   end
 end

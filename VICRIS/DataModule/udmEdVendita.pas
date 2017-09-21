@@ -13,9 +13,7 @@ type
     cdsVendita: TClientDataSet;
     dsVendita: TDataSource;
     cdsVenditaID_VENDITA: TFloatField;
-    cdsVenditaDATA: TDateTimeField;
     cdsVenditaID_CLIENTE: TFloatField;
-    cdsVenditaCLIENTE: TStringField;
     cdsVenditaDATA_FATTURA: TDateTimeField;
     cdsVenditaNUMERO_FATTURA: TStringField;
     cdsVenditaNOTE: TStringField;
@@ -26,38 +24,31 @@ type
     poMovimenti: TDataSetProvider;
     cdsMovimenti: TClientDataSet;
     dsMovimenti: TDataSource;
-    cdsMovimentiID_MOVIMENTI: TFloatField;
     cdsMovimentiID_VENDITA: TFloatField;
     cdsMovimentiID_PRODOTTO: TFloatField;
-    cdsMovimentiPREZZO: TFloatField;
-    cdsMovimentiPREZZO_LIRA: TStringField;
     cdsMovimentiQUANTITA: TFloatField;
     cdsMovimentiSCONTO: TFloatField;
-    cdsMovimentiIMPORTO: TFloatField;
-    cdsMovimentiIMPORTO_LIRA: TStringField;
-    cdsMovimentiDATA_FATTURA: TDateTimeField;
-    cdsMovimentiNUMERO_FATTURA: TStringField;
     cdsMovimentiPREZZO_ACQUISTO: TFloatField;
     cdsMovimentiCOD_USR: TStringField;
     cdsMovimentiDES_PDL: TStringField;
     cdsMovimentiDAT_AGG_REC: TDateTimeField;
-    qyMovimentiID_MOVIMENTI: TFloatField;
     qyMovimentiID_VENDITA: TFloatField;
     qyMovimentiID_PRODOTTO: TFloatField;
-    qyMovimentiPREZZO: TFloatField;
-    qyMovimentiPREZZO_LIRA: TStringField;
     qyMovimentiQUANTITA: TFloatField;
     qyMovimentiSCONTO: TFloatField;
-    qyMovimentiIMPORTO: TFloatField;
-    qyMovimentiIMPORTO_LIRA: TStringField;
-    qyMovimentiDATA_FATTURA: TDateTimeField;
-    qyMovimentiNUMERO_FATTURA: TStringField;
     qyMovimentiPREZZO_ACQUISTO: TFloatField;
     qyMovimentiCOD_USR: TStringField;
     qyMovimentiDES_PDL: TStringField;
     qyMovimentiDAT_AGG_REC: TDateTimeField;
     qyMovimentiPRODOTTO: TStringField;
     cdsMovimentiPRODOTTO: TStringField;
+    cdsVenditaDATA_VENDITA: TDateTimeField;
+    qyMovimentiID_MOVIMENTO: TFloatField;
+    qyMovimentiPREZZO_VENDITA: TFloatField;
+    qyMovimentiIMPORTO_TOTALE: TFloatField;
+    cdsMovimentiID_MOVIMENTO: TFloatField;
+    cdsMovimentiPREZZO_VENDITA: TFloatField;
+    cdsMovimentiIMPORTO_TOTALE: TFloatField;
     procedure cdsMovimentiPREZZOChange(Sender: TField);
     procedure cdsMovimentiQUANTITAChange(Sender: TField);
     procedure cdsMovimentiSCONTOChange(Sender: TField);
@@ -84,10 +75,11 @@ implementation
 procedure TdmEdVendita.dmAfterInsert(DataSet: TDataSet);
 begin
   inherited;
+  if DataSet = cdsVendita then
+    cdsVenditaID_VENDITA.AsInteger := dmGlobal.GetNpaDet;
+
   if DataSet = cdsMovimenti then
-  begin
     cdsMovimentiID_MOVIMENTI.AsInteger := dmGlobal.GetNpaDet;
-  end;
 end;
 
 procedure TdmEdVendita.dmCalcTot;

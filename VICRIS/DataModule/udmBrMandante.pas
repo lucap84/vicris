@@ -11,22 +11,14 @@ type
     qyMandante: TOraQuery;
     dsMandante: TDataSource;
     qyMandanteID_MANDANTE: TFloatField;
-    qyMandanteID_MANDANTE_OLD: TFloatField;
-    qyMandanteMANDANTE: TStringField;
     qyMandanteINDIRIZZO: TStringField;
     qyMandanteCITTA: TStringField;
     qyMandanteCAP: TStringField;
-    qyMandantePROVINCIA: TStringField;
     qyMandanteCELLULARE: TStringField;
     qyMandanteTELEFONO_1: TStringField;
     qyMandanteTELEFONO_2: TStringField;
     qyMandanteFAX: TStringField;
-    qyMandanteMAIL: TStringField;
-    qyMandanteSITO: TStringField;
-    qyMandantePARTITA_IVA: TStringField;
-    qyMandanteCODICE_FISCALE: TStringField;
     qyMandanteNOTE: TStringField;
-    qyMandanteBANCA: TStringField;
     qyMandanteIBAN: TStringField;
     qyMandanteCODICE_ABI: TStringField;
     qyMandanteCODICE_CAB: TStringField;
@@ -34,6 +26,13 @@ type
     qyMandanteCOD_USR: TStringField;
     qyMandanteDES_PDL: TStringField;
     qyMandanteDAT_AGG_REC: TDateTimeField;
+    qyMandanteMANDANTE: TStringField;
+    qyMandanteMAIL: TStringField;
+    qyMandanteSITO: TStringField;
+    qyMandantePARTITA_IVA: TStringField;
+    qyMandanteCODICE_FISCALE: TStringField;
+    qyMandanteBANCA: TStringField;
+    qyMandanteID_PROVINCIA: TFloatField;
   private
     { Private declarations }
   public

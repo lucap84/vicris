@@ -11,10 +11,10 @@ type
     qyLocalita: TOraQuery;
     dsLocalita: TDataSource;
     qyLocalitaID_LOCALITA: TFloatField;
-    qyLocalitaLOCALITA: TStringField;
     qyLocalitaCOD_USR: TStringField;
     qyLocalitaDES_PDL: TStringField;
     qyLocalitaDAT_AGG_REC: TDateTimeField;
+    qyLocalitaLOCALITA: TStringField;
   private
     { Private declarations }
   public

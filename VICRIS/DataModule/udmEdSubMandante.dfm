@@ -11,7 +11,7 @@ inherited dmEdSubMandante: TdmEdSubMandante
     Session = OraSession
     SQL.Strings = (
       'SELECT *'
-      '  FROM TB_SUBMANDANTE'
+      '  FROM TB_SUBMANDANTI'
       ' WHERE ID_SUBMANDANTE = :ID_SUBMANDANTE')
     Left = 40
     Top = 72
@@ -38,7 +38,7 @@ inherited dmEdSubMandante: TdmEdSubMandante
     end
     object cdsSubMandanteSUBMANDANTE: TStringField
       FieldName = 'SUBMANDANTE'
-      Size = 500
+      Size = 200
     end
     object cdsSubMandanteCOD_USR: TStringField
       FieldName = 'COD_USR'

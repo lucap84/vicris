@@ -5,7 +5,6 @@ inherited dmEdProdotto: TdmEdProdotto
   Height = 218
   Width = 320
   inherited OraSession: TOraSession
-    Connected = True
     EncryptedPassword = 'A9FFB6FFBCFFADFFB6FFACFF'
   end
   object poProdotto: TDataSetProvider
@@ -19,6 +18,41 @@ inherited dmEdProdotto: TdmEdProdotto
     ProviderName = 'poProdotto'
     Left = 176
     Top = 80
+    object cdsProdottoID_PRODOTTO: TFloatField
+      FieldName = 'ID_PRODOTTO'
+    end
+    object cdsProdottoPRODOTTO: TStringField
+      FieldName = 'PRODOTTO'
+      Size = 200
+    end
+    object cdsProdottoID_MANDANTE: TFloatField
+      FieldName = 'ID_MANDANTE'
+    end
+    object cdsProdottoID_SUBMANDANTE: TFloatField
+      FieldName = 'ID_SUBMANDANTE'
+    end
+    object cdsProdottoID_CATEGORIA: TFloatField
+      FieldName = 'ID_CATEGORIA'
+    end
+    object cdsProdottoUNITA_MISURA: TStringField
+      FieldName = 'UNITA_MISURA'
+      Size = 10
+    end
+    object cdsProdottoNOTE: TStringField
+      FieldName = 'NOTE'
+      Size = 2000
+    end
+    object cdsProdottoCOD_USR: TStringField
+      FieldName = 'COD_USR'
+      Size = 12
+    end
+    object cdsProdottoDES_PDL: TStringField
+      FieldName = 'DES_PDL'
+      Size = 60
+    end
+    object cdsProdottoDAT_AGG_REC: TDateTimeField
+      FieldName = 'DAT_AGG_REC'
+    end
   end
   object dsProdotto: TDataSource
     DataSet = cdsProdotto
@@ -37,6 +71,7 @@ inherited dmEdProdotto: TdmEdProdotto
       item
         DataType = ftUnknown
         Name = 'ID_PRODOTTO'
+        Value = Null
       end>
   end
 end

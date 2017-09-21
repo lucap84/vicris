@@ -43,7 +43,9 @@ uses
   udmBrVendita in '..\DataModule\udmBrVendita.pas' {dmBrVendita: TdmDBRoot},
   uBrVendita in '..\Src\uBrVendita.pas' {fmBrVendita: TfmRoot},
   udmEdVendita in '..\DataModule\udmEdVendita.pas' {dmEdVendita: TdmDBRoot},
-  uEdVendita in '..\Src\uEdVendita.pas' {fmEdVendita: TfmRoot};
+  uEdVendita in '..\Src\uEdVendita.pas' {fmEdVendita: TfmRoot},
+  udmBrAnalisi in '..\DataModule\udmBrAnalisi.pas' {dmBrAnalisi: TdmDBRoot},
+  uBrAnalisi in '..\Src\uBrAnalisi.pas' {fmBrAnalisi: TfmRoot};
 
 {$R *.res}
 

@@ -13,10 +13,10 @@ type
     cdsSubMandante: TClientDataSet;
     dsSubMandante: TDataSource;
     cdsSubMandanteID_SUBMANDANTE: TFloatField;
-    cdsSubMandanteSUBMANDANTE: TStringField;
     cdsSubMandanteCOD_USR: TStringField;
     cdsSubMandanteDES_PDL: TStringField;
     cdsSubMandanteDAT_AGG_REC: TDateTimeField;
+    cdsSubMandanteSUBMANDANTE: TStringField;
   private
     { Private declarations }
   public

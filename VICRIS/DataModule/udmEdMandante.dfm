@@ -2,8 +2,8 @@ inherited dmEdMandante: TdmEdMandante
   hDataSet = cdsMandante
   hKeyFields.Strings = (
     'id_mandante')
-  Left = 947
-  Top = 368
+  Left = 504
+  Top = 360
   Height = 222
   Width = 317
   inherited OraSession: TOraSession
@@ -38,13 +38,6 @@ inherited dmEdMandante: TdmEdMandante
     object cdsMandanteID_MANDANTE: TFloatField
       FieldName = 'ID_MANDANTE'
     end
-    object cdsMandanteID_MANDANTE_OLD: TFloatField
-      FieldName = 'ID_MANDANTE_OLD'
-    end
-    object cdsMandanteMANDANTE: TStringField
-      FieldName = 'MANDANTE'
-      Size = 500
-    end
     object cdsMandanteINDIRIZZO: TStringField
       FieldName = 'INDIRIZZO'
       Size = 2000
@@ -56,10 +49,6 @@ inherited dmEdMandante: TdmEdMandante
     object cdsMandanteCAP: TStringField
       FieldName = 'CAP'
       Size = 5
-    end
-    object cdsMandantePROVINCIA: TStringField
-      FieldName = 'PROVINCIA'
-      Size = 3
     end
     object cdsMandanteCELLULARE: TStringField
       FieldName = 'CELLULARE'
@@ -73,27 +62,9 @@ inherited dmEdMandante: TdmEdMandante
     object cdsMandanteFAX: TStringField
       FieldName = 'FAX'
     end
-    object cdsMandanteMAIL: TStringField
-      FieldName = 'MAIL'
-      Size = 300
-    end
-    object cdsMandanteSITO: TStringField
-      FieldName = 'SITO'
-      Size = 200
-    end
-    object cdsMandantePARTITA_IVA: TStringField
-      FieldName = 'PARTITA_IVA'
-    end
-    object cdsMandanteCODICE_FISCALE: TStringField
-      FieldName = 'CODICE_FISCALE'
-    end
     object cdsMandanteNOTE: TStringField
       FieldName = 'NOTE'
       Size = 4000
-    end
-    object cdsMandanteBANCA: TStringField
-      FieldName = 'BANCA'
-      Size = 1000
     end
     object cdsMandanteIBAN: TStringField
       FieldName = 'IBAN'
@@ -110,16 +81,43 @@ inherited dmEdMandante: TdmEdMandante
     object cdsMandanteCONTO_CORRENTE: TStringField
       FieldName = 'CONTO_CORRENTE'
     end
-    object cdsMandanteCOD_USR: TStringField
-      FieldName = 'COD_USR'
-      Size = 12
+    object cdsMandanteMANDANTE: TStringField
+      FieldName = 'MANDANTE'
+      Size = 200
+    end
+    object cdsMandanteMAIL: TStringField
+      FieldName = 'MAIL'
+      Size = 100
+    end
+    object cdsMandanteSITO: TStringField
+      FieldName = 'SITO'
+      Size = 100
+    end
+    object cdsMandantePARTITA_IVA: TStringField
+      FieldName = 'PARTITA_IVA'
+      Size = 16
+    end
+    object cdsMandanteCODICE_FISCALE: TStringField
+      FieldName = 'CODICE_FISCALE'
+      Size = 16
+    end
+    object cdsMandanteBANCA: TStringField
+      FieldName = 'BANCA'
+      Size = 250
+    end
+    object cdsMandanteID_PROVINCIA: TFloatField
+      FieldName = 'ID_PROVINCIA'
+    end
+    object cdsMandanteDAT_AGG_REC: TDateTimeField
+      FieldName = 'DAT_AGG_REC'
     end
     object cdsMandanteDES_PDL: TStringField
       FieldName = 'DES_PDL'
       Size = 60
     end
-    object cdsMandanteDAT_AGG_REC: TDateTimeField
-      FieldName = 'DAT_AGG_REC'
+    object cdsMandanteCOD_USR: TStringField
+      FieldName = 'COD_USR'
+      Size = 12
     end
   end
   object dsMandante: TDataSource

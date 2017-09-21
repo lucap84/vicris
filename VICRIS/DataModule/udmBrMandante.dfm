@@ -18,15 +18,10 @@ inherited dmBrMandante: TdmBrMandante
       FieldName = 'ID_MANDANTE'
       Visible = False
     end
-    object qyMandanteID_MANDANTE_OLD: TFloatField
-      FieldName = 'ID_MANDANTE_OLD'
-      Visible = False
-    end
     object qyMandanteMANDANTE: TStringField
       DisplayLabel = 'Ragione Sociale'
-      DisplayWidth = 811
       FieldName = 'MANDANTE'
-      Size = 500
+      Size = 200
     end
     object qyMandanteINDIRIZZO: TStringField
       DisplayLabel = 'Indirizzo'
@@ -45,12 +40,6 @@ inherited dmBrMandante: TdmBrMandante
       DisplayWidth = 9
       FieldName = 'CAP'
       Size = 5
-    end
-    object qyMandantePROVINCIA: TStringField
-      DisplayLabel = 'Prov.'
-      DisplayWidth = 8
-      FieldName = 'PROVINCIA'
-      Size = 3
     end
     object qyMandanteCELLULARE: TStringField
       DisplayLabel = 'Cell.'
@@ -72,33 +61,29 @@ inherited dmBrMandante: TdmBrMandante
       Visible = False
     end
     object qyMandanteMAIL: TStringField
+      DisplayLabel = 'eMail'
       FieldName = 'MAIL'
-      Visible = False
-      Size = 300
+      Size = 100
     end
     object qyMandanteSITO: TStringField
+      DisplayLabel = 'Sito Web'
       FieldName = 'SITO'
-      Visible = False
-      Size = 200
+      Size = 100
     end
     object qyMandantePARTITA_IVA: TStringField
-      DisplayLabel = 'P.IVA'
-      DisplayWidth = 33
+      DisplayLabel = 'Partita IVA'
       FieldName = 'PARTITA_IVA'
+      Size = 16
     end
     object qyMandanteCODICE_FISCALE: TStringField
       DisplayLabel = 'Codice Fiscale'
       FieldName = 'CODICE_FISCALE'
+      Size = 16
     end
     object qyMandanteNOTE: TStringField
       FieldName = 'NOTE'
       Visible = False
       Size = 4000
-    end
-    object qyMandanteBANCA: TStringField
-      FieldName = 'BANCA'
-      Visible = False
-      Size = 1000
     end
     object qyMandanteIBAN: TStringField
       FieldName = 'IBAN'
@@ -132,6 +117,13 @@ inherited dmBrMandante: TdmBrMandante
     object qyMandanteDAT_AGG_REC: TDateTimeField
       FieldName = 'DAT_AGG_REC'
       Visible = False
+    end
+    object qyMandanteBANCA: TStringField
+      FieldName = 'BANCA'
+      Size = 250
+    end
+    object qyMandanteID_PROVINCIA: TFloatField
+      FieldName = 'ID_PROVINCIA'
     end
   end
   object dsMandante: TDataSource

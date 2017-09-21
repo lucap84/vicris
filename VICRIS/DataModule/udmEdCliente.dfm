@@ -38,9 +38,6 @@ inherited dmEdCliente: TdmEdCliente
     object cdsClienteID_CLIENTE: TFloatField
       FieldName = 'ID_CLIENTE'
     end
-    object cdsClienteID_CLIENTE_OLD: TFloatField
-      FieldName = 'ID_CLIENTE_OLD'
-    end
     object cdsClienteNOME: TStringField
       FieldName = 'NOME'
       Size = 500
@@ -65,10 +62,6 @@ inherited dmEdCliente: TdmEdCliente
       FieldName = 'CAP'
       Size = 5
     end
-    object cdsClientePROVINCIA: TStringField
-      FieldName = 'PROVINCIA'
-      Size = 3
-    end
     object cdsClienteTELEFONO: TStringField
       FieldName = 'TELEFONO'
       Size = 40
@@ -80,39 +73,9 @@ inherited dmEdCliente: TdmEdCliente
     object cdsClienteFAX: TStringField
       FieldName = 'FAX'
     end
-    object cdsClienteMAIL: TStringField
-      FieldName = 'MAIL'
-      Size = 200
-    end
-    object cdsClienteSITO: TStringField
-      FieldName = 'SITO'
-      Size = 2000
-    end
-    object cdsClientePARTITA_IVA: TStringField
-      FieldName = 'PARTITA_IVA'
-    end
-    object cdsClienteCODICE_FISCALE: TStringField
-      FieldName = 'CODICE_FISCALE'
-    end
-    object cdsClienteLOCALITA: TStringField
-      FieldName = 'LOCALITA'
-      Size = 50
-    end
-    object cdsClienteBANCA: TStringField
-      FieldName = 'BANCA'
-      Size = 1000
-    end
     object cdsClienteIBAN: TStringField
       FieldName = 'IBAN'
       Size = 40
-    end
-    object cdsClienteCODICE_ABI: TStringField
-      FieldName = 'CODICE_ABI'
-      Size = 7
-    end
-    object cdsClienteCODICE_CAB: TStringField
-      FieldName = 'CODICE_CAB'
-      Size = 7
     end
     object cdsClienteNOTE: TStringField
       FieldName = 'NOTE'
@@ -129,6 +92,40 @@ inherited dmEdCliente: TdmEdCliente
     object cdsClienteDAT_AGG_REC: TDateTimeField
       FieldName = 'DAT_AGG_REC'
     end
+    object cdsClienteMAIL: TStringField
+      FieldName = 'MAIL'
+      Size = 200
+    end
+    object cdsClienteSITO: TStringField
+      FieldName = 'SITO'
+      Size = 200
+    end
+    object cdsClientePARTITA_IVA: TStringField
+      FieldName = 'PARTITA_IVA'
+      Size = 16
+    end
+    object cdsClienteCODICE_FISCALE: TStringField
+      FieldName = 'CODICE_FISCALE'
+      Size = 16
+    end
+    object cdsClienteBANCA: TStringField
+      FieldName = 'BANCA'
+      Size = 1000
+    end
+    object cdsClienteCODICE_ABI: TStringField
+      FieldName = 'CODICE_ABI'
+      Size = 5
+    end
+    object cdsClienteCODICE_CAB: TStringField
+      FieldName = 'CODICE_CAB'
+      Size = 5
+    end
+    object cdsClienteID_PROVINCIA: TFloatField
+      FieldName = 'ID_PROVINCIA'
+    end
+    object cdsClienteID_LOCALITA: TFloatField
+      FieldName = 'ID_LOCALITA'
+    end
   end
   object dsCliente: TDataSource
     DataSet = cdsCliente
@@ -139,7 +136,7 @@ inherited dmEdCliente: TdmEdCliente
     Session = OraSession
     SQL.Strings = (
       'SELECT *'
-      '  FROM COMMENTI_CLIENTI'
+      '  FROM TB_COMMENTI_CLIENTI'
       ' WHERE ID_CLIENTE = :ID_CLIENTE'
       ' ORDER BY DATA_COMMENTO')
     MasterSource = dsCliente
@@ -149,6 +146,7 @@ inherited dmEdCliente: TdmEdCliente
       item
         DataType = ftUnknown
         Name = 'ID_CLIENTE'
+        Value = Null
       end>
   end
   object poCommenti: TDataSetProvider
@@ -168,14 +166,6 @@ inherited dmEdCliente: TdmEdCliente
     Top = 152
     object cdsCommentiID_COMMENTO: TFloatField
       FieldName = 'ID_COMMENTO'
-      Visible = False
-    end
-    object cdsCommentiID_COMMENTO_OLD: TFloatField
-      FieldName = 'ID_COMMENTO_OLD'
-      Visible = False
-    end
-    object cdsCommentiID_CLIENTE_OLD: TFloatField
-      FieldName = 'ID_CLIENTE_OLD'
       Visible = False
     end
     object cdsCommentiID_CLIENTE: TFloatField

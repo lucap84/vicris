@@ -13,11 +13,10 @@ type
     cdsCatProdotto: TClientDataSet;
     dsCatProdotto: TDataSource;
     cdsCatProdottoID_CATEGORIA: TFloatField;
-    cdsCatProdottoID_CATEGORIA_OLD: TFloatField;
-    cdsCatProdottoCATEGORIA: TStringField;
     cdsCatProdottoCOD_USR: TStringField;
     cdsCatProdottoDES_PDL: TStringField;
     cdsCatProdottoDAT_AGG_REC: TDateTimeField;
+    cdsCatProdottoCATEGORIA: TStringField;
   private
     { Private declarations }
   public

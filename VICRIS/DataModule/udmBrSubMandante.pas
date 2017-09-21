@@ -11,10 +11,10 @@ type
     qySubMandante: TOraQuery;
     dsSubMandante: TDataSource;
     qySubMandanteID_SUBMANDANTE: TFloatField;
-    qySubMandanteSUBMANDANTE: TStringField;
     qySubMandanteCOD_USR: TStringField;
     qySubMandanteDES_PDL: TStringField;
     qySubMandanteDAT_AGG_REC: TDateTimeField;
+    qySubMandanteSUBMANDANTE: TStringField;
   private
     { Private declarations }
   public

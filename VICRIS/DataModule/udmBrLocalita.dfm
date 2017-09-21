@@ -21,7 +21,7 @@ inherited dmBrLocalita: TdmBrLocalita
     object qyLocalitaLOCALITA: TStringField
       DisplayLabel = 'Descrizione'
       FieldName = 'LOCALITA'
-      Size = 300
+      Size = 100
     end
     object qyLocalitaCOD_USR: TStringField
       FieldName = 'COD_USR'

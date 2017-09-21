@@ -5,32 +5,32 @@ inherited dmBrVendita: TdmBrVendita
   object qyVendita: TOraQuery
     SQL.Strings = (
       
-        'SELECT V.ID_VENDITA, V.DATA, V.ID_CLIENTE, V.DATA_FATTURA, V.NUM' +
-        'ERO_FATTURA, V.NOTE,'
+        'SELECT V.ID_VENDITA, V.DATA_VENDITA, V.ID_CLIENTE, V.DATA_FATTUR' +
+        'A, V.NUMERO_FATTURA, V.NOTE,'
       '       C.NOME,'
       '       COUNT(M.ID_PRODOTTO) NUM_ART,'
-      '       SUM(M.IMPORTO)       TOT_VEN'
+      '       SUM(M.IMPORTO_TOTALE) TOT_VEN'
       '  FROM TB_VENDITE V, TB_CLIENTI C, TB_MOVIMENTI M'
       ' WHERE V.ID_CLIENTE = C.ID_CLIENTE'
       '   AND V.ID_VENDITA = M.ID_VENDITA (+)'
       
-        ' GROUP BY V.ID_VENDITA, V.DATA, V.ID_CLIENTE, V.DATA_FATTURA, V.' +
-        'NUMERO_FATTURA, V.NOTE,'
+        ' GROUP BY V.ID_VENDITA, V.DATA_VENDITA, V.ID_CLIENTE, V.DATA_FAT' +
+        'TURA, V.NUMERO_FATTURA, V.NOTE,'
       '          C.NOME'
-      ' ORDER BY V.DATA DESC')
+      ' ORDER BY V.DATA_VENDITA DESC')
     Left = 16
     Top = 16
     object qyVenditaID_VENDITA: TFloatField
       DisplayLabel = 'Id'
       FieldName = 'ID_VENDITA'
     end
-    object qyVenditaDATA: TDateTimeField
-      DisplayLabel = 'Data'
-      FieldName = 'DATA'
-    end
     object qyVenditaID_CLIENTE: TFloatField
       FieldName = 'ID_CLIENTE'
       Visible = False
+    end
+    object qyVenditaDATA_VENDITA: TDateTimeField
+      DisplayLabel = 'Data'
+      FieldName = 'DATA_VENDITA'
     end
     object qyVenditaNOME: TStringField
       DisplayLabel = 'Ragione Sociale'

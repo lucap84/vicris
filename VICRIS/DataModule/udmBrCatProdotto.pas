@@ -11,11 +11,10 @@ type
     dsCatProdotto: TDataSource;
     qyCatProdotto: TOraQuery;
     qyCatProdottoID_CATEGORIA: TFloatField;
-    qyCatProdottoID_CATEGORIA_OLD: TFloatField;
-    qyCatProdottoCATEGORIA: TStringField;
     qyCatProdottoCOD_USR: TStringField;
     qyCatProdottoDES_PDL: TStringField;
     qyCatProdottoDAT_AGG_REC: TDateTimeField;
+    qyCatProdottoCATEGORIA: TStringField;
   private
     { Private declarations }
   public
