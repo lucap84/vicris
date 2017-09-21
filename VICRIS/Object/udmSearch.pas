@@ -43,6 +43,10 @@ type
     qySubManID_SUBMANDANTE: TFloatField;
     qySubManSUBMANDANTE: TStringField;
     qySubManDESCRIZIONE: TStringField;
+    qyPrn: TOraQuery;
+    qyPrnID_PROVINCIA: TFloatField;
+    qyPrnPROVINCIA: TStringField;
+    qyPrnDESCRIZIONE: TStringField;
     procedure dmSearchCreate(Sender: TObject);
   private
     { Private declarations }
@@ -73,7 +77,7 @@ uses
   //Generale
   uEdCliente, uEdMandante, uEdLocalita,
   //Magazzino
-  uEdCatProdotto, uEdProdotto;
+  uEdCatProdotto, uEdProdotto, uEdSubmandante;
 
 {$R *.dfm}
 
@@ -145,7 +149,7 @@ begin
             1002 : FhEditFormClass := TfmEdLocalita;
             1003 : FhEditFormClass := TfmEdCatProdotto;
             1004 : FhEditFormClass := TfmEdProdotto;
-//            1005 : FhEditFormClass := TfmEdOggetto;
+            1005 : FhEditFormClass := TfmEdSubmandante;
 //            1006 : FhEditFormClass := TfmEdPromotore;
 //            1007 : FhEditFormClass := TfmEdIncarico;
 //            1008 : FhEditFormClass := TfmEdPersona;
@@ -179,13 +183,13 @@ begin
   Result := Null;
   case ATag of
     0:;
-    1000 : Result := dmSearch('Clienti',            qyCli,    'id_cliente',   AOp, ATag);
-    1001 : Result := dmSearch('Mandanti',           qyMan,    'id_mandante',  AOp, ATag);
-    1002 : Result := dmSearch('Località',           qyLoc,    'localita',     AOp, ATag);
-    1003 : Result := dmSearch('Categorie Prodotto', qyCatPro, 'id_categoria', AOp, ATag);
-    1004 : Result := dmSearch('Prodotti',           qyPro,    'id_prodotto',  AOp, ATag);
-//    1005 : Result := dmSearch('C.D.U.',        qyOgg, 'cod_ogg;cod_ubi', AOp, ATag);
-//    1006 : Result := dmSearch('Istituzioni',   qyPmr, 'cod_pmr', AOp, ATag);
+    1000 : Result := dmSearch('Clienti',            qyCli,    'id_cliente',     AOp, ATag);
+    1001 : Result := dmSearch('Mandanti',           qyMan,    'id_mandante',    AOp, ATag);
+    1002 : Result := dmSearch('Località',           qyLoc,    'id_localita',    AOp, ATag);
+    1003 : Result := dmSearch('Categorie Prodotto', qyCatPro, 'id_categoria',   AOp, ATag);
+    1004 : Result := dmSearch('Prodotti',           qyPro,    'id_prodotto',    AOp, ATag);
+    1005 : Result := dmSearch('Submandanti',        qySubMan, 'id_submandante', AOp, ATag);
+    1006 : Result := dmSearch('Province',           qyPrn,    'id_provincia',   AOp, ATag);
 //    1007 : Result := dmSearch('Incarichi',     qyInc, 'cod_inc', AOp, ATag);
 //    1008 : Result := dmSearch('Persone',       qyPer, 'cod_aut', AOp, ATag);
 //    1009 : Result := dmSearch('Ruoli',         qyRol, 'cod_rol;cod_pmr;cod_inc;cod_aut', AOp, ATag);

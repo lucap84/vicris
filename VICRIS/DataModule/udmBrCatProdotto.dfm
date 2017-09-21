@@ -17,11 +17,11 @@ inherited dmBrCatProdotto: TdmBrCatProdotto
     Left = 24
     Top = 24
     object qyCatProdottoID_CATEGORIA: TFloatField
-      DisplayLabel = 'Id'
       FieldName = 'ID_CATEGORIA'
+      Visible = False
     end
     object qyCatProdottoCATEGORIA: TStringField
-      DisplayLabel = 'Descrizione'
+      DisplayLabel = 'Categoria'
       FieldName = 'CATEGORIA'
       Size = 150
     end

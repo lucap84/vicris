@@ -16,11 +16,11 @@ inherited dmBrCliente: TdmBrCliente
     Left = 32
     Top = 16
     object qyClienteID_CLIENTE: TFloatField
-      DisplayLabel = 'Id'
       FieldName = 'ID_CLIENTE'
+      Visible = False
     end
     object qyClienteNOME: TStringField
-      DisplayLabel = 'Ragione Sociale'
+      DisplayLabel = 'Nome'
       FieldName = 'NOME'
       Size = 500
     end
@@ -30,8 +30,8 @@ inherited dmBrCliente: TdmBrCliente
       Size = 100
     end
     object qyClienteINDIRIZZO: TStringField
-      DisplayLabel = 'Indirizzo'
       FieldName = 'INDIRIZZO'
+      Visible = False
       Size = 2000
     end
     object qyClienteINDIRIZZO_SPEDIZIONE: TStringField
@@ -42,7 +42,6 @@ inherited dmBrCliente: TdmBrCliente
     object qyClienteCITTA: TStringField
       DisplayLabel = 'Citt'#224
       FieldName = 'CITTA'
-      Visible = False
       Size = 100
     end
     object qyClienteCAP: TStringField
@@ -51,18 +50,38 @@ inherited dmBrCliente: TdmBrCliente
       Size = 5
     end
     object qyClienteTELEFONO: TStringField
+      DisplayLabel = 'Telefono'
       FieldName = 'TELEFONO'
-      Visible = False
       Size = 40
     end
     object qyClienteCELLULARE: TStringField
+      DisplayLabel = 'Cellulare'
       FieldName = 'CELLULARE'
-      Visible = False
       Size = 40
     end
     object qyClienteFAX: TStringField
       FieldName = 'FAX'
       Visible = False
+    end
+    object qyClienteMAIL: TStringField
+      DisplayLabel = 'eMail'
+      FieldName = 'MAIL'
+      Size = 200
+    end
+    object qyClienteSITO: TStringField
+      FieldName = 'SITO'
+      Visible = False
+      Size = 200
+    end
+    object qyClientePARTITA_IVA: TStringField
+      DisplayLabel = 'Partita IVA'
+      FieldName = 'PARTITA_IVA'
+      Size = 16
+    end
+    object qyClienteCODICE_FISCALE: TStringField
+      DisplayLabel = 'Codice Fiscale'
+      FieldName = 'CODICE_FISCALE'
+      Size = 16
     end
     object qyClienteBANCA: TStringField
       FieldName = 'BANCA'
@@ -73,6 +92,16 @@ inherited dmBrCliente: TdmBrCliente
       FieldName = 'IBAN'
       Visible = False
       Size = 40
+    end
+    object qyClienteCODICE_ABI: TStringField
+      FieldName = 'CODICE_ABI'
+      Visible = False
+      Size = 5
+    end
+    object qyClienteCODICE_CAB: TStringField
+      FieldName = 'CODICE_CAB'
+      Visible = False
+      Size = 5
     end
     object qyClienteNOTE: TStringField
       FieldName = 'NOTE'
@@ -93,42 +122,22 @@ inherited dmBrCliente: TdmBrCliente
       FieldName = 'DAT_AGG_REC'
       Visible = False
     end
-    object qyClienteMAIL: TStringField
-      FieldName = 'MAIL'
-      Size = 200
-    end
-    object qyClienteSITO: TStringField
-      FieldName = 'SITO'
-      Size = 200
-    end
-    object qyClientePARTITA_IVA: TStringField
-      FieldName = 'PARTITA_IVA'
-      Size = 16
-    end
-    object qyClienteCODICE_FISCALE: TStringField
-      FieldName = 'CODICE_FISCALE'
-      Size = 16
-    end
-    object qyClienteCODICE_ABI: TStringField
-      FieldName = 'CODICE_ABI'
-      Size = 5
-    end
-    object qyClienteCODICE_CAB: TStringField
-      FieldName = 'CODICE_CAB'
-      Size = 5
-    end
     object qyClienteID_PROVINCIA: TFloatField
       FieldName = 'ID_PROVINCIA'
+      Visible = False
     end
     object qyClienteID_LOCALITA: TFloatField
       FieldName = 'ID_LOCALITA'
+      Visible = False
     end
     object qyClienteLOCALITA: TStringField
       FieldName = 'LOCALITA'
+      Visible = False
       Size = 100
     end
     object qyClientePROVINCIA: TStringField
       FieldName = 'PROVINCIA'
+      Visible = False
       Size = 2
     end
   end

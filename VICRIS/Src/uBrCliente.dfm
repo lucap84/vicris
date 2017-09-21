@@ -1,10 +1,7 @@
 inherited fmBrCliente: TfmBrCliente
-  Left = 514
+  Left = 341
   Top = 263
-  Width = 785
   Caption = 'Clienti'
-  Constraints.MinHeight = 0
-  Constraints.MinWidth = 0
   OldCreateOrder = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -12,65 +9,61 @@ inherited fmBrCliente: TfmBrCliente
   hReport = rpBrowse
   PixelsPerInch = 96
   TextHeight = 13
-  inherited pnTools: TPanel
-    Width = 769
-  end
   inherited grBrowse: TDBGridAux
-    Width = 769
     DataSource = dmBrCliente.dsCliente
     Columns = <
       item
         Expanded = False
-        FieldName = 'ID_CLIENTE'
-        Width = 0
-        Visible = True
-      end
-      item
-        Expanded = False
         FieldName = 'NOME'
-        Width = 134
+        Width = 156
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'REFERENTE'
-        Width = 26
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'INDIRIZZO'
-        Width = 541
+        Width = 62
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CITTA'
-        Width = 26
+        Width = 62
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CAP'
-        Width = 1
+        Width = 33
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'PROVINCIA'
-        Width = 1
+        FieldName = 'TELEFONO'
+        Width = 49
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CELLULARE'
+        Width = 49
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'MAIL'
+        Width = 124
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'PARTITA_IVA'
-        Width = 5
+        Width = 92
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CODICE_FISCALE'
-        Width = 5
+        Width = 92
         Visible = True
       end>
   end

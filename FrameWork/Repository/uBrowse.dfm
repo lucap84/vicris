@@ -1,12 +1,12 @@
 object fmBrowse: TfmBrowse
   Left = 347
   Top = 204
-  Width = 743
+  Width = 750
   Height = 600
   Caption = 'fmBrowse'
   Color = clBtnFace
   Constraints.MinHeight = 600
-  Constraints.MinWidth = 743
+  Constraints.MinWidth = 750
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -22,7 +22,7 @@ object fmBrowse: TfmBrowse
   object pnTools: TPanel
     Left = 0
     Top = 501
-    Width = 727
+    Width = 734
     Height = 60
     Align = alBottom
     BevelOuter = bvNone
@@ -3203,9 +3203,8 @@ object fmBrowse: TfmBrowse
   object grBrowse: TDBGridAux
     Left = 0
     Top = 0
-    Width = 727
+    Width = 734
     Height = 501
-    OptionsEx = [dgeEnableSort, dgeLocalFilter, dgeLocalSorting, dgeRecordCount, dgeStretch]
     OnGetCellParams = grBrowseGetCellParams
     Align = alClient
     Color = 16577515

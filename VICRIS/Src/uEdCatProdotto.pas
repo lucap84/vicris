@@ -7,7 +7,7 @@ uses
   Dialogs, uEdit, ppVar, ppBands, ppCtrls, ppPrnabl, ppClass, ppCache,
   ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE, Menus,
   ActnList, StdCtrls, Buttons, ExtCtrls, Mask, DBCtrls,
-  udmEdCatProdotto;
+  udmEdCatProdotto, TXComp;
 
 type
   TfmEdCatProdotto = class(TfmEdit)

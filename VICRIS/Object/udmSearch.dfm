@@ -1,8 +1,8 @@
 object dmSearch: TdmSearch
   OldCreateOrder = False
   OnCreate = dmSearchCreate
-  Left = 645
-  Top = 285
+  Left = 766
+  Top = 253
   Height = 405
   Width = 298
   object OraSearch: TOraSession
@@ -117,15 +117,15 @@ object dmSearch: TdmSearch
       'SELECT ID_LOCALITA, LOCALITA, LOCALITA DESCRIZIONE'
       '  FROM TB_LOCALITA'
       
-        ' WHERE LOCALITA BETWEEN NVL(:LOCALITA, '#39' '#39') AND NVL(:LOCALITA, '#39 +
-        'zzzzzzzzzz'#39')'
+        ' WHERE ID_LOCALITA BETWEEN NVL(:ID_LOCALITA, 0) AND NVL(:ID_LOCA' +
+        'LITA, 999999999999)'
       ' ORDER BY LOCALITA')
     Left = 184
     Top = 104
     ParamData = <
       item
         DataType = ftUnknown
-        Name = 'LOCALITA'
+        Name = 'ID_LOCALITA'
       end>
     object qyLocID_LOCALITA: TFloatField
       DisplayLabel = 'Id'
@@ -135,12 +135,12 @@ object dmSearch: TdmSearch
     object qyLocLOCALITA: TStringField
       DisplayLabel = 'Descrizione'
       FieldName = 'LOCALITA'
-      Size = 300
+      Size = 100
     end
     object qyLocDESCRIZIONE: TStringField
       FieldName = 'DESCRIZIONE'
       Visible = False
-      Size = 300
+      Size = 100
     end
   end
   object qyCatPro: TOraQuery
@@ -265,6 +265,38 @@ object dmSearch: TdmSearch
       FieldName = 'DESCRIZIONE'
       Visible = False
       Size = 500
+    end
+  end
+  object qyPrn: TOraQuery
+    Session = OraSearch
+    SQL.Strings = (
+      'SELECT ID_PROVINCIA, PROVINCIA, PROVINCIA DESCRIZIONE'
+      '  FROM TB_PROVINCE'
+      
+        ' WHERE ID_PROVINCIA BETWEEN NVL(:ID_PROVINCIA, 0) AND NVL(:ID_PR' +
+        'OVINCIA, 999999999999)'
+      ' ORDER BY PROVINCIA')
+    Left = 240
+    Top = 104
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_PROVINCIA'
+      end>
+    object qyPrnID_PROVINCIA: TFloatField
+      DisplayLabel = 'Id'
+      FieldName = 'ID_PROVINCIA'
+      Required = True
+    end
+    object qyPrnPROVINCIA: TStringField
+      DisplayLabel = 'Descrizione'
+      FieldName = 'PROVINCIA'
+      Size = 2
+    end
+    object qyPrnDESCRIZIONE: TStringField
+      FieldName = 'DESCRIZIONE'
+      Visible = False
+      Size = 2
     end
   end
 end

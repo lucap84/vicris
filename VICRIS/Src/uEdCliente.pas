@@ -51,7 +51,6 @@ type
     deNote: TDBMemo;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
-    DBEdit3: TDBEdit;
     DBEdit4: TDBEdit;
     DBEdit5: TDBEdit;
     DBEdit6: TDBEdit;
@@ -67,6 +66,8 @@ type
     teCommenti: TTabSheet;
     DBGridAux1: TDBGridAux;
     dtDataCommento: TDBEditDateTimePicker;
+    deDesLocalita: TEdit;
+    deProvincia: TDBSearch;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private

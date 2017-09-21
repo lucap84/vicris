@@ -73,25 +73,6 @@ inherited dmEdCliente: TdmEdCliente
     object cdsClienteFAX: TStringField
       FieldName = 'FAX'
     end
-    object cdsClienteIBAN: TStringField
-      FieldName = 'IBAN'
-      Size = 40
-    end
-    object cdsClienteNOTE: TStringField
-      FieldName = 'NOTE'
-      Size = 4000
-    end
-    object cdsClienteCOD_USR: TStringField
-      FieldName = 'COD_USR'
-      Size = 12
-    end
-    object cdsClienteDES_PDL: TStringField
-      FieldName = 'DES_PDL'
-      Size = 60
-    end
-    object cdsClienteDAT_AGG_REC: TDateTimeField
-      FieldName = 'DAT_AGG_REC'
-    end
     object cdsClienteMAIL: TStringField
       FieldName = 'MAIL'
       Size = 200
@@ -112,6 +93,10 @@ inherited dmEdCliente: TdmEdCliente
       FieldName = 'BANCA'
       Size = 1000
     end
+    object cdsClienteIBAN: TStringField
+      FieldName = 'IBAN'
+      Size = 40
+    end
     object cdsClienteCODICE_ABI: TStringField
       FieldName = 'CODICE_ABI'
       Size = 5
@@ -119,6 +104,21 @@ inherited dmEdCliente: TdmEdCliente
     object cdsClienteCODICE_CAB: TStringField
       FieldName = 'CODICE_CAB'
       Size = 5
+    end
+    object cdsClienteNOTE: TStringField
+      FieldName = 'NOTE'
+      Size = 4000
+    end
+    object cdsClienteCOD_USR: TStringField
+      FieldName = 'COD_USR'
+      Size = 12
+    end
+    object cdsClienteDES_PDL: TStringField
+      FieldName = 'DES_PDL'
+      Size = 60
+    end
+    object cdsClienteDAT_AGG_REC: TDateTimeField
+      FieldName = 'DAT_AGG_REC'
     end
     object cdsClienteID_PROVINCIA: TFloatField
       FieldName = 'ID_PROVINCIA'
@@ -166,11 +166,9 @@ inherited dmEdCliente: TdmEdCliente
     Top = 152
     object cdsCommentiID_COMMENTO: TFloatField
       FieldName = 'ID_COMMENTO'
-      Visible = False
     end
     object cdsCommentiID_CLIENTE: TFloatField
       FieldName = 'ID_CLIENTE'
-      Visible = False
     end
     object cdsCommentiDATA_COMMENTO: TDateTimeField
       FieldName = 'DATA_COMMENTO'
@@ -181,17 +179,14 @@ inherited dmEdCliente: TdmEdCliente
     end
     object cdsCommentiCOD_USR: TStringField
       FieldName = 'COD_USR'
-      Visible = False
       Size = 12
     end
     object cdsCommentiDES_PDL: TStringField
       FieldName = 'DES_PDL'
-      Visible = False
       Size = 60
     end
     object cdsCommentiDAT_AGG_REC: TDateTimeField
       FieldName = 'DAT_AGG_REC'
-      Visible = False
     end
   end
   object dsCommenti: TDataSource

@@ -20,26 +20,22 @@ type
     qyClienteTELEFONO: TStringField;
     qyClienteCELLULARE: TStringField;
     qyClienteFAX: TStringField;
-    qyClienteBANCA: TStringField;
-    qyClienteIBAN: TStringField;
-    qyClienteNOTE: TStringField;
-    qyClienteCOD_USR: TStringField;
-    qyClienteDES_PDL: TStringField;
-    qyClienteDAT_AGG_REC: TDateTimeField;
     qyClienteMAIL: TStringField;
     qyClienteSITO: TStringField;
     qyClientePARTITA_IVA: TStringField;
     qyClienteCODICE_FISCALE: TStringField;
+    qyClienteBANCA: TStringField;
+    qyClienteIBAN: TStringField;
     qyClienteCODICE_ABI: TStringField;
     qyClienteCODICE_CAB: TStringField;
+    qyClienteNOTE: TStringField;
+    qyClienteCOD_USR: TStringField;
+    qyClienteDES_PDL: TStringField;
+    qyClienteDAT_AGG_REC: TDateTimeField;
     qyClienteID_PROVINCIA: TFloatField;
     qyClienteID_LOCALITA: TFloatField;
     qyClienteLOCALITA: TStringField;
     qyClientePROVINCIA: TStringField;
-  private
-    { Private declarations }
-  public
-    { Public declarations }
   end;
 
 var

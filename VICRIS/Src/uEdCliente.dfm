@@ -1,6 +1,6 @@
 inherited fmEdCliente: TfmEdCliente
-  Left = 371
-  Top = 210
+  Left = 316
+  Top = 146
   Width = 760
   Height = 610
   ActiveControl = deNome
@@ -11,7 +11,6 @@ inherited fmEdCliente: TfmEdCliente
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   hFirstActiveControl = deNome
-  hReport = rpEdit
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnTools: TPanel
@@ -116,7 +115,6 @@ inherited fmEdCliente: TfmEdCliente
         Top = 220
         Width = 56
         Height = 20
-        Anchors = [akTop]
         Caption = 'C.A.P.:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -130,7 +128,6 @@ inherited fmEdCliente: TfmEdCliente
         Top = 220
         Width = 60
         Height = 20
-        Anchors = [akTop]
         Caption = 'PROV.:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -422,31 +419,14 @@ inherited fmEdCliente: TfmEdCliente
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 6
       end
       object DBEdit2: TDBEdit
         Left = 472
         Top = 218
         Width = 89
         Height = 28
-        Anchors = [akTop]
         DataField = 'CAP'
-        DataSource = dmEdCliente.dsCliente
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 6
-      end
-      object DBEdit3: TDBEdit
-        Left = 647
-        Top = 218
-        Width = 89
-        Height = 28
-        Anchors = [akTop]
-        DataField = 'PROVINCIA'
         DataSource = dmEdCliente.dsCliente
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -615,10 +595,10 @@ inherited fmEdCliente: TfmEdCliente
         Tag = 1002
         Left = 128
         Top = 188
-        Width = 273
+        Width = 89
         Height = 28
         Color = clYellow
-        DataField = 'LOCALITA'
+        DataField = 'ID_LOCALITA'
         DataSource = dmEdCliente.dsCliente
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -627,6 +607,40 @@ inherited fmEdCliente: TfmEdCliente
         Font.Style = []
         ParentFont = False
         TabOrder = 4
+        hCmpDes = deDesLocalita
+      end
+      object deDesLocalita: TEdit
+        Left = 219
+        Top = 188
+        Width = 517
+        Height = 28
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 5
+        Text = 'deDesLocalita'
+      end
+      object deProvincia: TDBSearch
+        Tag = 1006
+        Left = 647
+        Top = 218
+        Width = 89
+        Height = 28
+        Color = clYellow
+        DataField = 'ID_PROVINCIA'
+        DataSource = dmEdCliente.dsCliente
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 20
+        hCmpDes = deDesLocalita
       end
     end
     object teCommenti: TTabSheet
