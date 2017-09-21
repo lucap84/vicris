@@ -49,7 +49,7 @@ type
     cdsMovimentiID_MOVIMENTO: TFloatField;
     cdsMovimentiPREZZO_VENDITA: TFloatField;
     cdsMovimentiIMPORTO_TOTALE: TFloatField;
-    procedure cdsMovimentiPREZZOChange(Sender: TField);
+    procedure cdsMovimentiPREZZO_VENDITAChange(Sender: TField);
     procedure cdsMovimentiQUANTITAChange(Sender: TField);
     procedure cdsMovimentiSCONTOChange(Sender: TField);
     procedure poMovimentiGetTableName(Sender: TObject; DataSet: TDataSet;
@@ -79,7 +79,7 @@ begin
     cdsVenditaID_VENDITA.AsInteger := dmGlobal.GetNpaDet;
 
   if DataSet = cdsMovimenti then
-    cdsMovimentiID_MOVIMENTI.AsInteger := dmGlobal.GetNpaDet;
+    cdsMovimentiID_MOVIMENTO.AsInteger := dmGlobal.GetNpaDet;
 end;
 
 procedure TdmEdVendita.dmCalcTot;
@@ -87,13 +87,13 @@ var
   AQta, AImpUnt, ASco, ATot: double;
 begin
   AQta    := cdsMovimentiQUANTITA.AsFloat;
-  AImpUnt := cdsMovimentiPREZZO.AsFloat;
+  AImpUnt := cdsMovimentiPREZZO_VENDITA.AsFloat;
   ASco    := cdsMovimentiSCONTO.AsFloat;
   ATot := (AQta * AImpUnt) * ((100 - ASco)/100);
-  cdsMovimentiIMPORTO.AsFloat := ATot;
+  cdsMovimentiIMPORTO_TOTALE.AsFloat := ATot;
 end;
 
-procedure TdmEdVendita.cdsMovimentiPREZZOChange(Sender: TField);
+procedure TdmEdVendita.cdsMovimentiPREZZO_VENDITAChange(Sender: TField);
 begin
   inherited;
   dmCalcTot;

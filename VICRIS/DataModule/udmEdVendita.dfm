@@ -174,6 +174,7 @@ inherited dmEdVendita: TdmEdVendita
     object cdsMovimentiPREZZO_VENDITA: TFloatField
       FieldName = 'PREZZO_VENDITA'
       Origin = 'TB_MOVIMENTI.PREZZO_VENDITA'
+      OnChange = cdsMovimentiPREZZO_VENDITAChange
     end
     object cdsMovimentiQUANTITA: TFloatField
       DisplayLabel = 'Qt'#224
