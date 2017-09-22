@@ -3205,7 +3205,6 @@ object fmBrowse: TfmBrowse
     Top = 0
     Width = 734
     Height = 501
-    OptionsEx = [dgeEnableSort, dgeLocalFilter, dgeLocalSorting, dgeRecordCount, dgeStretch]
     OnGetCellParams = grBrowseGetCellParams
     Align = alClient
     Color = 16577515

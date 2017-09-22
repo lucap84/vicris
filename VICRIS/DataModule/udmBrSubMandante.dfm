@@ -2,21 +2,22 @@ inherited dmBrSubMandante: TdmBrSubMandante
   hDataSet = qySubMandante
   hKeyFields.Strings = (
     'ID_SUBMANDANTE')
-  Height = 162
-  Width = 205
+  Height = 124
+  Width = 185
   object qySubMandante: TOraQuery
     SQL.Strings = (
       'SELECT *'
       '  FROM TB_SUBMANDANTI'
-      ' ORDER BY ID_SUBMANDANTE')
+      ' ORDER BY SUBMANDANTE')
     Left = 24
     Top = 16
     object qySubMandanteID_SUBMANDANTE: TFloatField
-      DisplayLabel = 'Id'
       FieldName = 'ID_SUBMANDANTE'
+      Visible = False
     end
     object qySubMandanteSUBMANDANTE: TStringField
-      DisplayLabel = 'Ragione Sociale'
+      DisplayLabel = 'Submandante'
+      DisplayWidth = 50
       FieldName = 'SUBMANDANTE'
       Size = 200
     end

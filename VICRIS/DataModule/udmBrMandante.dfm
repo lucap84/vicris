@@ -4,13 +4,14 @@ inherited dmBrMandante: TdmBrMandante
     'id_mandante')
   Left = 301
   Top = 306
-  Height = 179
-  Width = 213
+  Height = 133
+  Width = 172
   object qyMandante: TOraQuery
     SQL.Strings = (
-      'SELECT *'
-      '  FROM TB_MANDANTI'
-      ' ORDER BY MANDANTE')
+      'SELECT M.*, P.PROVINCIA'
+      '  FROM TB_MANDANTI M, TB_PROVINCE P'
+      ' WHERE M.ID_PROVINCIA = P.ID_PROVINCIA (+)'
+      ' ORDER BY M.MANDANTE')
     Left = 32
     Top = 24
     object qyMandanteID_MANDANTE: TFloatField
@@ -18,41 +19,42 @@ inherited dmBrMandante: TdmBrMandante
       Visible = False
     end
     object qyMandanteMANDANTE: TStringField
-      DisplayLabel = 'Descrizione'
+      DisplayLabel = 'Mandante'
+      DisplayWidth = 50
       FieldName = 'MANDANTE'
       Size = 200
     end
     object qyMandanteINDIRIZZO: TStringField
-      DisplayWidth = 3241
+      DisplayWidth = 2000
       FieldName = 'INDIRIZZO'
       Visible = False
       Size = 2000
     end
     object qyMandanteCITTA: TStringField
       DisplayLabel = 'Citt'#224
-      DisplayWidth = 162
+      DisplayWidth = 15
       FieldName = 'CITTA'
       Size = 100
     end
     object qyMandanteCAP: TStringField
-      DisplayLabel = 'C.A.P.'
       DisplayWidth = 9
       FieldName = 'CAP'
+      Visible = False
       Size = 5
     end
     object qyMandanteCELLULARE: TStringField
-      DisplayLabel = 'Cell.'
-      DisplayWidth = 33
+      DisplayLabel = 'Cellulare'
+      DisplayWidth = 10
       FieldName = 'CELLULARE'
     end
     object qyMandanteTELEFONO_1: TStringField
-      DisplayLabel = 'Tel. 1'
-      DisplayWidth = 33
+      DisplayLabel = 'Telefono'
+      DisplayWidth = 10
       FieldName = 'TELEFONO_1'
     end
     object qyMandanteTELEFONO_2: TStringField
-      DisplayLabel = 'Tel. 2'
-      DisplayWidth = 33
+      DisplayLabel = 'Telefono'
+      DisplayWidth = 10
       FieldName = 'TELEFONO_2'
     end
     object qyMandanteFAX: TStringField
@@ -61,6 +63,7 @@ inherited dmBrMandante: TdmBrMandante
     end
     object qyMandanteMAIL: TStringField
       DisplayLabel = 'eMail'
+      DisplayWidth = 20
       FieldName = 'MAIL'
       Size = 100
     end
@@ -70,13 +73,13 @@ inherited dmBrMandante: TdmBrMandante
       Size = 100
     end
     object qyMandantePARTITA_IVA: TStringField
-      DisplayLabel = 'Partita IVA'
       FieldName = 'PARTITA_IVA'
+      Visible = False
       Size = 16
     end
     object qyMandanteCODICE_FISCALE: TStringField
-      DisplayLabel = 'Codice Fiscale'
       FieldName = 'CODICE_FISCALE'
+      Visible = False
       Size = 16
     end
     object qyMandanteNOTE: TStringField
@@ -125,6 +128,11 @@ inherited dmBrMandante: TdmBrMandante
     object qyMandanteID_PROVINCIA: TFloatField
       FieldName = 'ID_PROVINCIA'
       Visible = False
+    end
+    object qyMandantePROVINCIA: TStringField
+      DisplayLabel = 'Prov.'
+      FieldName = 'PROVINCIA'
+      Size = 2
     end
   end
   object dsMandante: TDataSource

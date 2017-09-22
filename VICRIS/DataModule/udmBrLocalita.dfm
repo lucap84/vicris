@@ -4,22 +4,22 @@ inherited dmBrLocalita: TdmBrLocalita
     'id_localita')
   Left = 674
   Top = 294
-  Height = 164
-  Width = 198
+  Height = 122
+  Width = 162
   object qyLocalita: TOraQuery
     SQL.Strings = (
       'SELECT *'
       '  FROM TB_LOCALITA'
       ' ORDER BY LOCALITA')
-    Left = 48
-    Top = 48
+    Left = 16
+    Top = 16
     object qyLocalitaID_LOCALITA: TFloatField
-      DisplayLabel = 'Id'
       FieldName = 'ID_LOCALITA'
       Required = True
+      Visible = False
     end
     object qyLocalitaLOCALITA: TStringField
-      DisplayLabel = 'Descrizione'
+      DisplayLabel = 'Localit'#224
       FieldName = 'LOCALITA'
       Size = 100
     end
@@ -40,7 +40,7 @@ inherited dmBrLocalita: TdmBrLocalita
   end
   object dsLocalita: TDataSource
     DataSet = qyLocalita
-    Left = 120
-    Top = 48
+    Left = 88
+    Top = 16
   end
 end

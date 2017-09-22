@@ -14,15 +14,15 @@ type
     qyProdottoPRODOTTO: TStringField;
     qyProdottoID_MANDANTE: TFloatField;
     qyProdottoID_CATEGORIA: TFloatField;
+    qyProdottoUNITA_MISURA: TStringField;
     qyProdottoNOTE: TStringField;
     qyProdottoCOD_USR: TStringField;
     qyProdottoDES_PDL: TStringField;
     qyProdottoDAT_AGG_REC: TDateTimeField;
-    qyProdottoCATEGORIA: TStringField;
-    qyProdottoUNITA_MISURA: TStringField;
     qyProdottoID_SUBMANDANTE: TFloatField;
-    qyProdottoSUBMANDANTE: TStringField;
     qyProdottoMANDANTE: TStringField;
+    qyProdottoCATEGORIA: TStringField;
+    qyProdottoSUBMANDANTE: TStringField;
   private
     { Private declarations }
   public

@@ -9,19 +9,6 @@ inherited fmBrSubMandante: TfmBrSubMandante
   TextHeight = 13
   inherited grBrowse: TDBGridAux
     DataSource = dmBrSubMandante.dsSubMandante
-    Columns = <
-      item
-        Expanded = False
-        FieldName = 'ID_SUBMANDANTE'
-        Width = 94
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'SUBMANDANTE'
-        Width = 4504
-        Visible = True
-      end>
   end
   inherited rpBrowse: TppReport
     DataPipelineName = 'plBrowse'

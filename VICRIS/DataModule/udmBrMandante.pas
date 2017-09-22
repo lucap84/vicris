@@ -33,6 +33,7 @@ type
     qyMandanteCODICE_FISCALE: TStringField;
     qyMandanteBANCA: TStringField;
     qyMandanteID_PROVINCIA: TFloatField;
+    qyMandantePROVINCIA: TStringField;
   private
     { Private declarations }
   public

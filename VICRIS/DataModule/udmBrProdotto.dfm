@@ -24,14 +24,10 @@ inherited dmBrProdotto: TdmBrProdotto
       Visible = False
     end
     object qyProdottoPRODOTTO: TStringField
-      DisplayLabel = 'Descrizione'
+      DisplayLabel = 'Prodotto'
+      DisplayWidth = 50
       FieldName = 'PRODOTTO'
       Size = 200
-    end
-    object qyProdottoUNITA_MISURA: TStringField
-      DisplayLabel = 'Unit'#224' di Misura'
-      FieldName = 'UNITA_MISURA'
-      Size = 10
     end
     object qyProdottoID_MANDANTE: TFloatField
       FieldName = 'ID_MANDANTE'
@@ -40,6 +36,12 @@ inherited dmBrProdotto: TdmBrProdotto
     object qyProdottoID_CATEGORIA: TFloatField
       FieldName = 'ID_CATEGORIA'
       Visible = False
+    end
+    object qyProdottoUNITA_MISURA: TStringField
+      DisplayLabel = 'U.M.'
+      DisplayWidth = 5
+      FieldName = 'UNITA_MISURA'
+      Size = 10
     end
     object qyProdottoNOTE: TStringField
       FieldName = 'NOTE'
@@ -60,24 +62,27 @@ inherited dmBrProdotto: TdmBrProdotto
       FieldName = 'DAT_AGG_REC'
       Visible = False
     end
+    object qyProdottoID_SUBMANDANTE: TFloatField
+      FieldName = 'ID_SUBMANDANTE'
+      Visible = False
+    end
     object qyProdottoMANDANTE: TStringField
       DisplayLabel = 'Mandante'
+      DisplayWidth = 25
       FieldName = 'MANDANTE'
       Size = 200
     end
     object qyProdottoSUBMANDANTE: TStringField
       DisplayLabel = 'Submandante'
+      DisplayWidth = 25
       FieldName = 'SUBMANDANTE'
       Size = 200
     end
     object qyProdottoCATEGORIA: TStringField
       DisplayLabel = 'Categoria'
+      DisplayWidth = 15
       FieldName = 'CATEGORIA'
       Size = 150
-    end
-    object qyProdottoID_SUBMANDANTE: TFloatField
-      FieldName = 'ID_SUBMANDANTE'
-      Visible = False
     end
   end
   object dsProdotto: TDataSource

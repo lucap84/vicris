@@ -10,37 +10,6 @@ inherited fmBrProdotto: TfmBrProdotto
   TextHeight = 13
   inherited grBrowse: TDBGridAux
     DataSource = dmBrProdotto.dsProdotto
-    Columns = <
-      item
-        Expanded = False
-        FieldName = 'PRODOTTO'
-        Width = 200
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'UNITA_MISURA'
-        Width = 60
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'MANDANTE'
-        Width = 200
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'SUBMANDANTE'
-        Width = 200
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'CATEGORIA'
-        Width = 150
-        Visible = True
-      end>
   end
   inherited plBrowse: TppBDEPipeline
     DataSource = dmBrProdotto.dsProdotto

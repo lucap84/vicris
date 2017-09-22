@@ -2,6 +2,8 @@ inherited dmBrProvincia: TdmBrProvincia
   hDataSet = qyProvincia
   hKeyFields.Strings = (
     'id_provincia')
+  Height = 117
+  Width = 163
   object qyProvincia: TOraQuery
     SQL.Strings = (
       'SELECT *'

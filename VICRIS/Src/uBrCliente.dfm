@@ -11,61 +11,6 @@ inherited fmBrCliente: TfmBrCliente
   TextHeight = 13
   inherited grBrowse: TDBGridAux
     DataSource = dmBrCliente.dsCliente
-    Columns = <
-      item
-        Expanded = False
-        FieldName = 'NOME'
-        Width = 156
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'REFERENTE'
-        Width = 62
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'CITTA'
-        Width = 62
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'CAP'
-        Width = 33
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'TELEFONO'
-        Width = 49
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'CELLULARE'
-        Width = 49
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'MAIL'
-        Width = 124
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'PARTITA_IVA'
-        Width = 92
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'CODICE_FISCALE'
-        Width = 92
-        Visible = True
-      end>
   end
   inherited plBrowse: TppBDEPipeline
     DataSource = dmBrCliente.dsCliente

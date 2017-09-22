@@ -8,10 +8,10 @@ inherited dmBrCliente: TdmBrCliente
   Width = 194
   object qyCliente: TOraQuery
     SQL.Strings = (
-      'SELECT C.*, L.LOCALITA, P.PROVINCIA'
-      '  FROM TB_CLIENTI C, TB_LOCALITA L, TB_PROVINCE P'
-      ' WHERE C.ID_LOCALITA  = L.ID_LOCALITA  (+)'
-      '   AND C.ID_PROVINCIA = P.ID_PROVINCIA (+)'
+      'SELECT C.*, P.PROVINCIA, L.LOCALITA'
+      '  FROM TB_CLIENTI C, TB_PROVINCE P, TB_LOCALITA L'
+      ' WHERE C.ID_PROVINCIA = P.ID_PROVINCIA (+)'
+      '   AND C.ID_LOCALITA  = L.ID_LOCALITA  (+)'
       ' ORDER BY C.NOME')
     Left = 32
     Top = 16
@@ -20,13 +20,14 @@ inherited dmBrCliente: TdmBrCliente
       Visible = False
     end
     object qyClienteNOME: TStringField
-      DisplayLabel = 'Nome'
+      DisplayLabel = 'Cliente'
+      DisplayWidth = 50
       FieldName = 'NOME'
       Size = 500
     end
     object qyClienteREFERENTE: TStringField
-      DisplayLabel = 'Referente'
       FieldName = 'REFERENTE'
+      Visible = False
       Size = 100
     end
     object qyClienteINDIRIZZO: TStringField
@@ -41,21 +42,24 @@ inherited dmBrCliente: TdmBrCliente
     end
     object qyClienteCITTA: TStringField
       DisplayLabel = 'Citt'#224
+      DisplayWidth = 15
       FieldName = 'CITTA'
       Size = 100
     end
     object qyClienteCAP: TStringField
-      DisplayLabel = 'C.A.P.'
       FieldName = 'CAP'
+      Visible = False
       Size = 5
     end
     object qyClienteTELEFONO: TStringField
       DisplayLabel = 'Telefono'
+      DisplayWidth = 10
       FieldName = 'TELEFONO'
       Size = 40
     end
     object qyClienteCELLULARE: TStringField
       DisplayLabel = 'Cellulare'
+      DisplayWidth = 10
       FieldName = 'CELLULARE'
       Size = 40
     end
@@ -65,6 +69,7 @@ inherited dmBrCliente: TdmBrCliente
     end
     object qyClienteMAIL: TStringField
       DisplayLabel = 'eMail'
+      DisplayWidth = 15
       FieldName = 'MAIL'
       Size = 200
     end
@@ -74,13 +79,13 @@ inherited dmBrCliente: TdmBrCliente
       Size = 200
     end
     object qyClientePARTITA_IVA: TStringField
-      DisplayLabel = 'Partita IVA'
       FieldName = 'PARTITA_IVA'
+      Visible = False
       Size = 16
     end
     object qyClienteCODICE_FISCALE: TStringField
-      DisplayLabel = 'Codice Fiscale'
       FieldName = 'CODICE_FISCALE'
+      Visible = False
       Size = 16
     end
     object qyClienteBANCA: TStringField
@@ -130,15 +135,16 @@ inherited dmBrCliente: TdmBrCliente
       FieldName = 'ID_LOCALITA'
       Visible = False
     end
-    object qyClienteLOCALITA: TStringField
-      FieldName = 'LOCALITA'
-      Visible = False
-      Size = 100
-    end
     object qyClientePROVINCIA: TStringField
+      DisplayLabel = 'Prov.'
       FieldName = 'PROVINCIA'
-      Visible = False
       Size = 2
+    end
+    object qyClienteLOCALITA: TStringField
+      DisplayLabel = 'Localit'#224
+      DisplayWidth = 15
+      FieldName = 'LOCALITA'
+      Size = 100
     end
   end
   object dsCliente: TDataSource

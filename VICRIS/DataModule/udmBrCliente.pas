@@ -34,8 +34,8 @@ type
     qyClienteDAT_AGG_REC: TDateTimeField;
     qyClienteID_PROVINCIA: TFloatField;
     qyClienteID_LOCALITA: TFloatField;
-    qyClienteLOCALITA: TStringField;
     qyClientePROVINCIA: TStringField;
+    qyClienteLOCALITA: TStringField;
   end;
 
 var

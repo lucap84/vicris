@@ -2,6 +2,8 @@ inherited dmBrVendita: TdmBrVendita
   hDataSet = qyVendita
   hKeyFields.Strings = (
     'ID_VENDITA')
+  Height = 121
+  Width = 143
   object qyVendita: TOraQuery
     SQL.Strings = (
       
@@ -17,41 +19,43 @@ inherited dmBrVendita: TdmBrVendita
         ' GROUP BY V.ID_VENDITA, V.DATA_VENDITA, V.ID_CLIENTE, V.DATA_FAT' +
         'TURA, V.NUMERO_FATTURA, V.NOTE,'
       '          C.NOME'
-      ' ORDER BY V.DATA_VENDITA DESC')
+      ' ORDER BY V.DATA_VENDITA DESC, C.NOME')
     Left = 16
     Top = 16
     object qyVenditaID_VENDITA: TFloatField
-      DisplayLabel = 'Id'
       FieldName = 'ID_VENDITA'
+      Visible = False
+    end
+    object qyVenditaDATA_VENDITA: TDateTimeField
+      DisplayLabel = 'Data Vendita'
+      FieldName = 'DATA_VENDITA'
+      DisplayFormat = 'dd/mm/yyyy'
     end
     object qyVenditaID_CLIENTE: TFloatField
       FieldName = 'ID_CLIENTE'
       Visible = False
     end
-    object qyVenditaDATA_VENDITA: TDateTimeField
-      DisplayLabel = 'Data'
-      FieldName = 'DATA_VENDITA'
-    end
-    object qyVenditaNOME: TStringField
-      DisplayLabel = 'Ragione Sociale'
-      FieldName = 'NOME'
-      Size = 500
-    end
     object qyVenditaDATA_FATTURA: TDateTimeField
-      DisplayLabel = 'Data Fattura'
       FieldName = 'DATA_FATTURA'
+      Visible = False
     end
     object qyVenditaNUMERO_FATTURA: TStringField
-      DisplayLabel = 'N'#176' Fattura'
       FieldName = 'NUMERO_FATTURA'
+      Visible = False
     end
     object qyVenditaNOTE: TStringField
       FieldName = 'NOTE'
       Visible = False
       Size = 2000
     end
+    object qyVenditaNOME: TStringField
+      DisplayLabel = 'Cliente'
+      DisplayWidth = 50
+      FieldName = 'NOME'
+      Size = 500
+    end
     object qyVenditaNUM_ART: TFloatField
-      DisplayLabel = 'N'#176' Prodotti'
+      DisplayLabel = 'N'#176' Articoli'
       FieldName = 'NUM_ART'
       DisplayFormat = '#,##0.00'
     end
