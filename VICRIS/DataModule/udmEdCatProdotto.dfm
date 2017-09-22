@@ -11,7 +11,7 @@ inherited dmEdCatProdotto: TdmEdCatProdotto
     Session = OraSession
     SQL.Strings = (
       'SELECT *'
-      '  FROM TB_CATEGORIA_PRODOTTO'
+      '  FROM TB_CATEGORIE_PRODOTTI'
       ' WHERE ID_CATEGORIA = :ID_CATEGORIA')
     Left = 48
     Top = 72

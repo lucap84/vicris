@@ -31,14 +31,6 @@ type
     qyCatProCATEGORIA: TStringField;
     qyCatProDESCRIZIONE: TStringField;
     qyPro: TOraQuery;
-    qyProID_PRODOTTO: TFloatField;
-    qyProPRODOTTO: TStringField;
-    qyProUNITA_MISURA: TStringField;
-    qyProNOTE: TStringField;
-    qyProMANDANTE: TStringField;
-    qyProCATEGORIA: TStringField;
-    qyProSUB_CATEGORIA: TStringField;
-    qyProDESCRIZIONE: TStringField;
     qySubMan: TOraQuery;
     qySubManID_SUBMANDANTE: TFloatField;
     qySubManSUBMANDANTE: TStringField;
@@ -47,6 +39,14 @@ type
     qyPrnID_PROVINCIA: TFloatField;
     qyPrnPROVINCIA: TStringField;
     qyPrnDESCRIZIONE: TStringField;
+    qyProID_PRODOTTO: TFloatField;
+    qyProPRODOTTO: TStringField;
+    qyProUNITA_MISURA: TStringField;
+    qyProNOTE: TStringField;
+    qyProMANDANTE: TStringField;
+    qyProCATEGORIA: TStringField;
+    qyProSUBMANDANTE: TStringField;
+    qyProDESCRIZIONE: TStringField;
     procedure dmSearchCreate(Sender: TObject);
   private
     { Private declarations }

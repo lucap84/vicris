@@ -13,6 +13,8 @@ type
     cdsMandante: TClientDataSet;
     dsMandante: TDataSource;
     cdsMandanteID_MANDANTE: TFloatField;
+    cdsMandanteID_MANDANTE_OLD: TFloatField;
+    cdsMandanteMANDANTE: TStringField;
     cdsMandanteINDIRIZZO: TStringField;
     cdsMandanteCITTA: TStringField;
     cdsMandanteCAP: TStringField;
@@ -20,7 +22,12 @@ type
     cdsMandanteTELEFONO_1: TStringField;
     cdsMandanteTELEFONO_2: TStringField;
     cdsMandanteFAX: TStringField;
+    cdsMandanteMAIL: TStringField;
+    cdsMandanteSITO: TStringField;
+    cdsMandantePARTITA_IVA: TStringField;
+    cdsMandanteCODICE_FISCALE: TStringField;
     cdsMandanteNOTE: TStringField;
+    cdsMandanteBANCA: TStringField;
     cdsMandanteIBAN: TStringField;
     cdsMandanteCODICE_ABI: TStringField;
     cdsMandanteCODICE_CAB: TStringField;
@@ -28,12 +35,6 @@ type
     cdsMandanteCOD_USR: TStringField;
     cdsMandanteDES_PDL: TStringField;
     cdsMandanteDAT_AGG_REC: TDateTimeField;
-    cdsMandanteMANDANTE: TStringField;
-    cdsMandanteMAIL: TStringField;
-    cdsMandanteSITO: TStringField;
-    cdsMandantePARTITA_IVA: TStringField;
-    cdsMandanteCODICE_FISCALE: TStringField;
-    cdsMandanteBANCA: TStringField;
     cdsMandanteID_PROVINCIA: TFloatField;
   private
     { Private declarations }

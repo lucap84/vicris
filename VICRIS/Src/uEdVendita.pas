@@ -8,7 +8,7 @@ uses
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
   Menus, ActnList, StdCtrls, Buttons, ExtCtrls, udmEdVendita, udmSearch,
   Mask, DBCtrls, DBSearch, ComCtrls, DBEditDateTimePicker, Grids, DBGrids,
-  CRGrid;
+  CRGrid, DBGridAux;
 
 type
   TfmEdVendita = class(TfmEdit)
@@ -25,7 +25,6 @@ type
     pnBackVendita: TPanel;
     pnTitleMovimenti: TPanel;
     pnBackNewMov: TPanel;
-    grMovimenti: TCRDBGrid;
     laProdotto: TLabel;
     deProdotto: TDBSearch;
     deDesProdotto: TEdit;
@@ -40,6 +39,7 @@ type
     laTotale: TLabel;
     deTotale: TDBEdit;
     nvMovimenti: TDBNavigator;
+    grMovimenti: TDBGridAux;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure nvMovimentiClick(Sender: TObject; Button: TNavigateBtn);
@@ -72,28 +72,34 @@ procedure TfmEdVendita.nvMovimentiClick(Sender: TObject;
   Button: TNavigateBtn);
 begin
   inherited;
-  if (Button = nbEdit)   or
-     (Button = nbInsert) then
+  with TdmEdVendita(hDataModule) do
   begin
-    with TdmEdVendita(hDataModule) do
+    if (Button = nbEdit)   or
+       (Button = nbInsert) then
     begin
       dmDsPost(cdsVendita);
       dmDsApplyUpdates(cdsVendita);
-      dmDsRefresh(cdsVendita);
+      //dmDsRefresh(cdsVendita);
       dmDsEdit(cdsVendita);
+      dmDsEdit(cdsMovimenti);
     end;
-  end;
 
-
-  if (Button = nbPost)   or
-     (Button = nbDelete) then
-  begin
-    with TdmEdVendita(hDataModule) do
+    if (Button = nbRefresh)   then
     begin
+      dmDsPost(cdsMovimenti);
       dmDsApplyUpdates(cdsMovimenti);
-      dmDsRefresh(cdsMovimenti);
     end;
-  end
+
+    if (Button = nbPost)   or
+       (Button = nbDelete) then
+    begin
+      with TdmEdVendita(hDataModule) do
+      begin
+        dmDsApplyUpdates(cdsMovimenti);
+        dmDsRefresh(cdsMovimenti);
+      end;
+    end
+  end;
 end;
 
 end.

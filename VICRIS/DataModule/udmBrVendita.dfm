@@ -44,8 +44,9 @@ inherited dmBrVendita: TdmBrVendita
       Visible = False
     end
     object qyVenditaNOTE: TStringField
+      DisplayLabel = 'Note'
+      DisplayWidth = 75
       FieldName = 'NOTE'
-      Visible = False
       Size = 2000
     end
     object qyVenditaNOME: TStringField

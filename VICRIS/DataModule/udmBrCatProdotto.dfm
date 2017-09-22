@@ -12,7 +12,7 @@ inherited dmBrCatProdotto: TdmBrCatProdotto
   object qyCatProdotto: TOraQuery
     SQL.Strings = (
       'SELECT *'
-      '  FROM TB_CATEGORIA_PRODOTTO'
+      '  FROM TB_CATEGORIE_PRODOTTI'
       ' ORDER BY CATEGORIA')
     Left = 24
     Top = 24

@@ -11,7 +11,7 @@ inherited dmBrProdotto: TdmBrProdotto
       'SELECT P.*,'
       '       M.MANDANTE, C.CATEGORIA, S.SUBMANDANTE'
       
-        '  FROM TB_PRODOTTI P, TB_MANDANTI M, TB_CATEGORIA_PRODOTTO C, TB' +
+        '  FROM TB_PRODOTTI P, TB_MANDANTI M, TB_CATEGORIE_PRODOTTI C, TB' +
         '_SUBMANDANTI S'
       ' WHERE P.ID_MANDANTE    = M.ID_MANDANTE    (+)'
       '   AND P.ID_CATEGORIA   = C.ID_CATEGORIA   (+)'

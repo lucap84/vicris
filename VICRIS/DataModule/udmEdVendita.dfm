@@ -2,6 +2,8 @@ inherited dmEdVendita: TdmEdVendita
   hDataSet = cdsVendita
   hKeyFields.Strings = (
     'ID_VENDITA')
+  Left = 819
+  Top = 272
   Height = 234
   Width = 366
   inherited OraSession: TOraSession
@@ -36,11 +38,11 @@ inherited dmEdVendita: TdmEdVendita
     object cdsVenditaID_VENDITA: TFloatField
       FieldName = 'ID_VENDITA'
     end
-    object cdsVenditaID_CLIENTE: TFloatField
-      FieldName = 'ID_CLIENTE'
-    end
     object cdsVenditaDATA_VENDITA: TDateTimeField
       FieldName = 'DATA_VENDITA'
+    end
+    object cdsVenditaID_CLIENTE: TFloatField
+      FieldName = 'ID_CLIENTE'
     end
     object cdsVenditaDATA_FATTURA: TDateTimeField
       FieldName = 'DATA_FATTURA'
@@ -72,7 +74,12 @@ inherited dmEdVendita: TdmEdVendita
   object qyMovimenti: TOraQuery
     Session = OraSession
     SQL.Strings = (
-      'SELECT M.*, P.PRODOTTO'
+      'SELECT M.ID_VENDITA, M.ID_MOVIMENTO,'
+      
+        '       M.ID_PRODOTTO, M.PREZZO_VENDITA, M.QUANTITA, M.SCONTO, M.' +
+        'IMPORTO_TOTALE, M.PREZZO_ACQUISTO,'
+      '       M.COD_USR, M.DES_PDL, M.DAT_AGG_REC,'
+      '       P.PRODOTTO'
       '  FROM TB_MOVIMENTI M, TB_PRODOTTI P'
       ' WHERE M.ID_VENDITA = :ID_VENDITA'
       '   AND M.ID_PRODOTTO = P.ID_PRODOTTO (+)'
@@ -85,7 +92,6 @@ inherited dmEdVendita: TdmEdVendita
       item
         DataType = ftUnknown
         Name = 'ID_VENDITA'
-        Value = Null
       end>
     object qyMovimentiID_VENDITA: TFloatField
       FieldName = 'ID_VENDITA'
@@ -137,7 +143,6 @@ inherited dmEdVendita: TdmEdVendita
       FieldName = 'PRODOTTO'
       Origin = 'TB_PRODOTTI.PRODOTTO'
       ProviderFlags = []
-      ReadOnly = True
       Size = 200
     end
   end
@@ -165,19 +170,21 @@ inherited dmEdVendita: TdmEdVendita
     object cdsMovimentiID_MOVIMENTO: TFloatField
       FieldName = 'ID_MOVIMENTO'
       Origin = 'TB_MOVIMENTI.ID_MOVIMENTO'
+      Visible = False
     end
     object cdsMovimentiID_PRODOTTO: TFloatField
-      DisplayLabel = 'Id'
       FieldName = 'ID_PRODOTTO'
       Origin = 'TB_MOVIMENTI.ID_PRODOTTO'
+      Visible = False
     end
     object cdsMovimentiPREZZO_VENDITA: TFloatField
       FieldName = 'PREZZO_VENDITA'
       Origin = 'TB_MOVIMENTI.PREZZO_VENDITA'
       OnChange = cdsMovimentiPREZZO_VENDITAChange
+      DisplayFormat = '#,##0.00'
+      EditFormat = '###0.00'
     end
     object cdsMovimentiQUANTITA: TFloatField
-      DisplayLabel = 'Qt'#224
       FieldName = 'QUANTITA'
       Origin = 'TB_MOVIMENTI.QUANTITA'
       OnChange = cdsMovimentiQUANTITAChange
@@ -185,7 +192,6 @@ inherited dmEdVendita: TdmEdVendita
       EditFormat = '###0.00'
     end
     object cdsMovimentiSCONTO: TFloatField
-      DisplayLabel = '% Sconto'
       FieldName = 'SCONTO'
       Origin = 'TB_MOVIMENTI.SCONTO'
       OnChange = cdsMovimentiSCONTOChange
@@ -195,9 +201,10 @@ inherited dmEdVendita: TdmEdVendita
     object cdsMovimentiIMPORTO_TOTALE: TFloatField
       FieldName = 'IMPORTO_TOTALE'
       Origin = 'TB_MOVIMENTI.IMPORTO_TOTALE'
+      DisplayFormat = '#,##0.00'
+      EditFormat = '###0.00'
     end
     object cdsMovimentiPREZZO_ACQUISTO: TFloatField
-      DisplayLabel = 'Costo Acquisto'
       FieldName = 'PREZZO_ACQUISTO'
       Origin = 'TB_MOVIMENTI.PREZZO_ACQUISTO'
       DisplayFormat = '#,##0.00'
@@ -221,11 +228,9 @@ inherited dmEdVendita: TdmEdVendita
       Visible = False
     end
     object cdsMovimentiPRODOTTO: TStringField
-      DisplayLabel = 'Descrizione'
       FieldName = 'PRODOTTO'
       Origin = 'TB_PRODOTTI.PRODOTTO'
       ProviderFlags = []
-      ReadOnly = True
       Size = 200
     end
   end

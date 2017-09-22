@@ -147,7 +147,7 @@ object dmSearch: TdmSearch
     Session = OraSearch
     SQL.Strings = (
       'SELECT ID_CATEGORIA, CATEGORIA, CATEGORIA DESCRIZIONE'
-      '  FROM TB_CATEGORIA_PRODOTTO'
+      '  FROM TB_CATEGORIE_PRODOTTI'
       
         ' WHERE ID_CATEGORIA BETWEEN NVL(:ID_CATEGORIA, 0) AND NVL(:ID_CA' +
         'TEGORIA, 999999999999)'
@@ -178,17 +178,17 @@ object dmSearch: TdmSearch
     Session = OraSearch
     SQL.Strings = (
       'SELECT P.ID_PRODOTTO, P.PRODOTTO, P.UNITA_MISURA, P.NOTE,'
-      '       M.MANDANTE, C.CATEGORIA, S.CATEGORIA SUB_CATEGORIA,'
+      '       M.MANDANTE, C.CATEGORIA, S.SUBMANDANTE,'
       '       P.PRODOTTO DESCRIZIONE'
       
-        '  FROM TB_PRODOTTI P, TB_MANDANTI M, TB_CATEGORIA_PRODOTTO C, TB' +
-        '_CATEGORIA_PRODOTTO S'
+        '  FROM TB_PRODOTTI P, TB_MANDANTI M, TB_CATEGORIE_PRODOTTI C, TB' +
+        '_SUBMANDANTI S'
       
         ' WHERE P.ID_PRODOTTO BETWEEN NVL(:ID_PRODOTTO, 0) AND NVL(:ID_PR' +
         'ODOTTO, 999999999999)'
-      '   AND P.ID_MANDANTE     = M.ID_MANDANTE  (+)'
-      '   AND P.ID_CATEGORIA    = C.ID_CATEGORIA (+)'
-      '   AND P.ID_SUBCATEGORIA = S.ID_CATEGORIA (+)'
+      '   AND P.ID_MANDANTE    = M.ID_MANDANTE  (+)'
+      '   AND P.ID_CATEGORIA   = C.ID_CATEGORIA (+)'
+      '   AND P.ID_SUBMANDANTE = S.ID_SUBMANDANTE (+)'
       ' ORDER BY P.PRODOTTO')
     Left = 128
     Top = 160
@@ -199,36 +199,42 @@ object dmSearch: TdmSearch
       end>
     object qyProID_PRODOTTO: TFloatField
       DisplayLabel = 'Id'
+      DisplayWidth = 5
       FieldName = 'ID_PRODOTTO'
     end
     object qyProPRODOTTO: TStringField
-      DisplayLabel = 'Descrizione'
+      DisplayLabel = 'Prodotto'
+      DisplayWidth = 25
       FieldName = 'PRODOTTO'
       Size = 200
     end
     object qyProUNITA_MISURA: TStringField
       DisplayLabel = 'Unit'#224' di Misura'
       FieldName = 'UNITA_MISURA'
+      Size = 10
     end
     object qyProNOTE: TStringField
-      DisplayLabel = 'Note'
       FieldName = 'NOTE'
+      Visible = False
       Size = 2000
     end
     object qyProMANDANTE: TStringField
       DisplayLabel = 'Mandante'
+      DisplayWidth = 30
       FieldName = 'MANDANTE'
-      Size = 500
+      Size = 200
+    end
+    object qyProSUBMANDANTE: TStringField
+      DisplayLabel = 'Submandante'
+      DisplayWidth = 30
+      FieldName = 'SUBMANDANTE'
+      Size = 200
     end
     object qyProCATEGORIA: TStringField
       DisplayLabel = 'Categoria'
+      DisplayWidth = 30
       FieldName = 'CATEGORIA'
-      Size = 300
-    end
-    object qyProSUB_CATEGORIA: TStringField
-      DisplayLabel = 'Sotto Categoria'
-      FieldName = 'SUB_CATEGORIA'
-      Size = 300
+      Size = 150
     end
     object qyProDESCRIZIONE: TStringField
       FieldName = 'DESCRIZIONE'

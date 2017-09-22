@@ -154,12 +154,29 @@ end;
 procedure TfmMenu.FormCreate(Sender: TObject);
 var
   i : integer;
+  AUser, APsw : String;
 begin
   dmChkUsr := TdmChkUsr.Create(nil);
   dmChkUsr.dmConnect;
+
+  APsw  :='';
+  AUser :='';
+  if ParamCount > 0 then
+    AUser := ParamStr(1);
+  if ParamCount > 1 then
+    APsw := ParamStr(2);
+
   if not Assigned(fmChkUsr) then
     fmChkUsr := TfmChkUsr.Create(Self);
-  fmChkUsr.ShowModal;
+
+  if (APsw  = '') or (AUser = '') then
+    fmChkUsr.ShowModal
+  else
+  begin
+    fmChkUsr.ModalResult := mrOk;
+    fmChkUsr.hUsr        := AUser;
+    fmChkUsr.hPwd        := APsw;
+  end;
 
   if (fmChkUsr.ModalResult = mrOk) and
      dmChkUsr.Login(fmChkUsr.hUsr, fmChkUsr.hPwd, Application.Title) then

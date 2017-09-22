@@ -8,14 +8,14 @@ uses
   udmEdMandante, udmSearch, ppVar, ppBands, ppCtrls, ppPrnabl, ppClass,
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
   Menus, ComCtrls, Grids, DBGrids, ppModule, raCodMod, ppSubRpt,
-  ppStrtch, ppMemo, DBGridAux, TXComp;
+  ppStrtch, ppMemo, DBGridAux, TXComp, DBSearch;
 
 type
   TfmEdMandante = class(TfmEdit)
     pcMandante: TPageControl;
     teMandante: TTabSheet;
     laNome: TLabel;
-    deNome: TDBEdit;
+    deMandante: TDBEdit;
     ppLabel1: TppLabel;
     ppLabel2: TppLabel;
     ppDBText1: TppDBText;
@@ -45,21 +45,22 @@ type
     laIban: TLabel;
     laNote: TLabel;
     deNote: TDBMemo;
-    DBEdit1: TDBEdit;
-    DBEdit2: TDBEdit;
-    DBEdit3: TDBEdit;
-    DBEdit4: TDBEdit;
-    DBEdit5: TDBEdit;
-    DBEdit6: TDBEdit;
-    DBEdit7: TDBEdit;
-    DBEdit8: TDBEdit;
-    DBEdit9: TDBEdit;
-    DBEdit10: TDBEdit;
-    DBEdit11: TDBEdit;
-    DBEdit12: TDBEdit;
-    DBEdit13: TDBEdit;
-    DBEdit14: TDBEdit;
+    deCitta: TDBEdit;
+    deCap: TDBEdit;
+    deTelefono: TDBEdit;
+    deCellulare: TDBEdit;
+    deFax: TDBEdit;
+    deMail: TDBEdit;
+    deSito: TDBEdit;
+    dePartitaIva: TDBEdit;
+    deCodiceFiscale: TDBEdit;
+    deAbi: TDBEdit;
+    deCab: TDBEdit;
+    deIban: TDBEdit;
+    deTelefono2: TDBEdit;
     Label1: TLabel;
+    deProvincia: TDBSearch;
+    deDesProvincia: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private

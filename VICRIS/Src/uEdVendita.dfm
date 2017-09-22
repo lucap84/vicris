@@ -15,7 +15,7 @@ inherited fmEdVendita: TfmEdVendita
   inherited pnTools: TPanel
     Top = 514
     Width = 744
-    TabOrder = 4
+    TabOrder = 3
     inherited bbCommit: TBitBtn
       Left = 179
     end
@@ -130,7 +130,7 @@ inherited fmEdVendita: TfmEdVendita
       Font.Style = []
       ParentFont = False
       TabOrder = 2
-      DataField = 'DATA'
+      DataField = 'DATA_VENDITA'
       DataSource = dmEdVendita.dsVendita
       ReadOnly = False
       DefaultEditMask = '!99/99/9999;1;_'
@@ -347,7 +347,7 @@ inherited fmEdVendita: TfmEdVendita
       Top = 38
       Width = 121
       Height = 28
-      DataField = 'PREZZO'
+      DataField = 'PREZZO_VENDITA'
       DataSource = dmEdVendita.dsMovimenti
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -408,7 +408,7 @@ inherited fmEdVendita: TfmEdVendita
       Width = 121
       Height = 28
       Color = clMoneyGreen
-      DataField = 'IMPORTO'
+      DataField = 'IMPORTO_TOTALE'
       DataSource = dmEdVendita.dsMovimenti
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -416,74 +416,11 @@ inherited fmEdVendita: TfmEdVendita
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentFont = False
+      ReadOnly = True
       TabOrder = 6
     end
   end
-  object grMovimenti: TCRDBGrid [4]
-    Left = 0
-    Top = 320
-    Width = 744
-    Height = 194
-    Align = alClient
-    DataSource = dmEdVendita.dsMovimenti
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-    ReadOnly = True
-    TabOrder = 3
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'MS Sans Serif'
-    TitleFont.Style = []
-    Columns = <
-      item
-        Expanded = False
-        FieldName = 'ID_PRODOTTO'
-        Width = 42
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'PRODOTTO'
-        Width = 122
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'PREZZO'
-        Width = 94
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'QUANTITA'
-        Width = 94
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'SCONTO'
-        Width = 94
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'IMPORTO'
-        Width = 94
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'PREZZO_ACQUISTO'
-        Width = 94
-        Visible = True
-      end>
-  end
-  object nvMovimenti: TDBNavigator [5]
+  object nvMovimenti: TDBNavigator [4]
     Left = 0
     Top = 292
     Width = 744
@@ -492,8 +429,22 @@ inherited fmEdVendita: TfmEdVendita
     VisibleButtons = [nbInsert, nbDelete, nbEdit, nbPost, nbCancel, nbRefresh]
     Align = alTop
     Flat = True
-    TabOrder = 5
+    TabOrder = 4
     OnClick = nvMovimentiClick
+  end
+  object grMovimenti: TDBGridAux [5]
+    Left = 0
+    Top = 320
+    Width = 744
+    Height = 194
+    Align = alClient
+    DataSource = dmEdVendita.dsMovimenti
+    TabOrder = 5
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
   end
   inherited alEdit: TActionList
     Left = 560

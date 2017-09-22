@@ -3,14 +3,14 @@ inherited fmEdMandante: TfmEdMandante
   Top = 229
   Width = 760
   Height = 520
-  ActiveControl = deNome
+  ActiveControl = deMandante
   Caption = 'Mandante'
   Constraints.MinHeight = 520
   Constraints.MinWidth = 760
   OldCreateOrder = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  hFirstActiveControl = deNome
+  hFirstActiveControl = deMandante
   hReport = rpEdit
   PixelsPerInch = 96
   TextHeight = 13
@@ -100,7 +100,7 @@ inherited fmEdMandante: TfmEdMandante
         ParentFont = False
       end
       object laProvincia: TLabel
-        Left = 584
+        Left = 558
         Top = 100
         Width = 60
         Height = 20
@@ -286,7 +286,7 @@ inherited fmEdMandante: TfmEdMandante
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object deNome: TDBEdit
+      object deMandante: TDBEdit
         Left = 128
         Top = 8
         Width = 608
@@ -332,7 +332,7 @@ inherited fmEdMandante: TfmEdMandante
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 13
+        TabOrder = 14
       end
       object deNote: TDBMemo
         Left = 128
@@ -348,9 +348,9 @@ inherited fmEdMandante: TfmEdMandante
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 17
+        TabOrder = 18
       end
-      object DBEdit1: TDBEdit
+      object deCitta: TDBEdit
         Left = 128
         Top = 98
         Width = 273
@@ -365,10 +365,10 @@ inherited fmEdMandante: TfmEdMandante
         ParentFont = False
         TabOrder = 2
       end
-      object DBEdit2: TDBEdit
+      object deCap: TDBEdit
         Left = 472
         Top = 98
-        Width = 89
+        Width = 60
         Height = 28
         Anchors = [akTop]
         DataField = 'CAP'
@@ -381,23 +381,7 @@ inherited fmEdMandante: TfmEdMandante
         ParentFont = False
         TabOrder = 3
       end
-      object DBEdit3: TDBEdit
-        Left = 647
-        Top = 98
-        Width = 89
-        Height = 28
-        Anchors = [akTop]
-        DataField = 'PROVINCIA'
-        DataSource = dmEdMandante.dsMandante
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-      end
-      object DBEdit4: TDBEdit
+      object deTelefono: TDBEdit
         Left = 128
         Top = 128
         Width = 200
@@ -410,9 +394,9 @@ inherited fmEdMandante: TfmEdMandante
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 6
       end
-      object DBEdit5: TDBEdit
+      object deCellulare: TDBEdit
         Left = 536
         Top = 158
         Width = 200
@@ -426,9 +410,9 @@ inherited fmEdMandante: TfmEdMandante
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 9
       end
-      object DBEdit6: TDBEdit
+      object deFax: TDBEdit
         Left = 128
         Top = 158
         Width = 200
@@ -441,9 +425,9 @@ inherited fmEdMandante: TfmEdMandante
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 8
       end
-      object DBEdit7: TDBEdit
+      object deMail: TDBEdit
         Left = 128
         Top = 188
         Width = 273
@@ -456,9 +440,9 @@ inherited fmEdMandante: TfmEdMandante
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 10
       end
-      object DBEdit8: TDBEdit
+      object deSito: TDBEdit
         Left = 463
         Top = 188
         Width = 273
@@ -472,9 +456,9 @@ inherited fmEdMandante: TfmEdMandante
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 11
       end
-      object DBEdit9: TDBEdit
+      object dePartitaIva: TDBEdit
         Left = 128
         Top = 218
         Width = 273
@@ -487,9 +471,9 @@ inherited fmEdMandante: TfmEdMandante
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 12
       end
-      object DBEdit10: TDBEdit
+      object deCodiceFiscale: TDBEdit
         Left = 463
         Top = 218
         Width = 273
@@ -503,9 +487,9 @@ inherited fmEdMandante: TfmEdMandante
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 12
+        TabOrder = 13
       end
-      object DBEdit11: TDBEdit
+      object deAbi: TDBEdit
         Left = 128
         Top = 278
         Width = 89
@@ -518,9 +502,9 @@ inherited fmEdMandante: TfmEdMandante
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 14
+        TabOrder = 15
       end
-      object DBEdit12: TDBEdit
+      object deCab: TDBEdit
         Left = 312
         Top = 278
         Width = 89
@@ -533,9 +517,9 @@ inherited fmEdMandante: TfmEdMandante
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 15
+        TabOrder = 16
       end
-      object DBEdit13: TDBEdit
+      object deIban: TDBEdit
         Left = 463
         Top = 278
         Width = 273
@@ -549,9 +533,9 @@ inherited fmEdMandante: TfmEdMandante
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 16
+        TabOrder = 17
       end
-      object DBEdit14: TDBEdit
+      object deTelefono2: TDBEdit
         Left = 536
         Top = 128
         Width = 200
@@ -565,7 +549,40 @@ inherited fmEdMandante: TfmEdMandante
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 7
+      end
+      object deProvincia: TDBSearch
+        Tag = 1006
+        Left = 621
+        Top = 98
+        Width = 40
+        Height = 28
+        Color = clYellow
+        DataField = 'ID_PROVINCIA'
+        DataSource = dmEdMandante.dsMandante
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+        hCmpDes = deDesProvincia
+      end
+      object deDesProvincia: TEdit
+        Left = 664
+        Top = 98
+        Width = 72
+        Height = 28
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 5
+        Text = 'deDesProvincia'
       end
     end
   end
