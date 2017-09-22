@@ -124,7 +124,7 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
       end
       object laProvincia: TLabel
-        Left = 584
+        Left = 561
         Top = 220
         Width = 60
         Height = 20
@@ -388,7 +388,7 @@ inherited fmEdCliente: TfmEdCliente
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 15
+        TabOrder = 17
       end
       object deNote: TDBMemo
         Left = 128
@@ -404,9 +404,9 @@ inherited fmEdCliente: TfmEdCliente
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 19
+        TabOrder = 21
       end
-      object DBEdit1: TDBEdit
+      object deCitta: TDBEdit
         Left = 128
         Top = 218
         Width = 273
@@ -421,10 +421,10 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
         TabOrder = 6
       end
-      object DBEdit2: TDBEdit
+      object deCap: TDBEdit
         Left = 472
         Top = 218
-        Width = 89
+        Width = 75
         Height = 28
         DataField = 'CAP'
         DataSource = dmEdCliente.dsCliente
@@ -436,7 +436,7 @@ inherited fmEdCliente: TfmEdCliente
         ParentFont = False
         TabOrder = 7
       end
-      object DBEdit4: TDBEdit
+      object deTelefono: TDBEdit
         Left = 128
         Top = 248
         Width = 200
@@ -449,9 +449,9 @@ inherited fmEdCliente: TfmEdCliente
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 10
       end
-      object DBEdit5: TDBEdit
+      object deCellulare: TDBEdit
         Left = 536
         Top = 248
         Width = 200
@@ -465,9 +465,9 @@ inherited fmEdCliente: TfmEdCliente
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 11
       end
-      object DBEdit6: TDBEdit
+      object deFax: TDBEdit
         Left = 128
         Top = 278
         Width = 200
@@ -480,9 +480,9 @@ inherited fmEdCliente: TfmEdCliente
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 12
       end
-      object DBEdit7: TDBEdit
+      object deMail: TDBEdit
         Left = 128
         Top = 308
         Width = 273
@@ -495,9 +495,9 @@ inherited fmEdCliente: TfmEdCliente
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 13
       end
-      object DBEdit8: TDBEdit
+      object deSito: TDBEdit
         Left = 463
         Top = 308
         Width = 273
@@ -511,9 +511,9 @@ inherited fmEdCliente: TfmEdCliente
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 12
+        TabOrder = 14
       end
-      object DBEdit9: TDBEdit
+      object dePartitaIVA: TDBEdit
         Left = 128
         Top = 338
         Width = 273
@@ -526,9 +526,9 @@ inherited fmEdCliente: TfmEdCliente
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 13
+        TabOrder = 15
       end
-      object DBEdit10: TDBEdit
+      object deCodiceFiscale: TDBEdit
         Left = 463
         Top = 338
         Width = 273
@@ -542,9 +542,9 @@ inherited fmEdCliente: TfmEdCliente
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 14
+        TabOrder = 16
       end
-      object DBEdit11: TDBEdit
+      object deAbi: TDBEdit
         Left = 128
         Top = 398
         Width = 89
@@ -557,9 +557,9 @@ inherited fmEdCliente: TfmEdCliente
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 16
+        TabOrder = 18
       end
-      object DBEdit12: TDBEdit
+      object deCab: TDBEdit
         Left = 312
         Top = 398
         Width = 89
@@ -573,9 +573,9 @@ inherited fmEdCliente: TfmEdCliente
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 17
+        TabOrder = 19
       end
-      object DBEdit13: TDBEdit
+      object deIban: TDBEdit
         Left = 463
         Top = 398
         Width = 273
@@ -589,7 +589,7 @@ inherited fmEdCliente: TfmEdCliente
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 18
+        TabOrder = 20
       end
       object deLocalita: TDBSearch
         Tag = 1002
@@ -626,9 +626,9 @@ inherited fmEdCliente: TfmEdCliente
       end
       object deProvincia: TDBSearch
         Tag = 1006
-        Left = 647
+        Left = 624
         Top = 218
-        Width = 89
+        Width = 50
         Height = 28
         Color = clYellow
         DataField = 'ID_PROVINCIA'
@@ -639,14 +639,29 @@ inherited fmEdCliente: TfmEdCliente
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 20
-        hCmpDes = deDesLocalita
+        TabOrder = 8
+        hCmpDes = deDesProvincia
+      end
+      object deDesProvincia: TEdit
+        Left = 676
+        Top = 218
+        Width = 60
+        Height = 28
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 9
+        Text = 'deDesLocalita'
       end
     end
     object teCommenti: TTabSheet
       Caption = 'Commenti'
       ImageIndex = 1
-      object DBGridAux1: TDBGridAux
+      object grCommenti: TDBGridAux
         Left = 0
         Top = 0
         Width = 736
@@ -671,7 +686,6 @@ inherited fmEdCliente: TfmEdCliente
             FieldName = 'DATA_COMMENTO'
             Width = 112
             Visible = True
-            CustomControl = dtDataCommento
           end
           item
             Expanded = False
@@ -679,27 +693,6 @@ inherited fmEdCliente: TfmEdCliente
             Width = 24004
             Visible = True
           end>
-      end
-      object dtDataCommento: TDBEditDateTimePicker
-        Left = 16
-        Top = 64
-        Width = 186
-        Height = 28
-        Date = 42981.665399293980000000
-        Time = 42981.665399293980000000
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 1
-        Visible = False
-        DataField = 'DATA_COMMENTO'
-        DataSource = dmEdCliente.dsCommenti
-        ReadOnly = False
-        DefaultEditMask = '!99/99/9999;1;_'
-        AutoApplyEditMask = True
       end
     end
   end

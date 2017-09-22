@@ -7,7 +7,7 @@ uses
   Dialogs, uEdit, ActnList, StdCtrls, Buttons, ExtCtrls, Mask, DBCtrls, uCore,
   udmEdCliente, udmSearch, ppVar, ppBands, ppCtrls, ppPrnabl, ppClass,
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
-  Menus, ComCtrls, Grids, DBGrids, ppModule, raCodMod, ppSubRpt,
+  Menus, ComCtrls, Grids, DBGrids, ppModule, raCodMod, ppSubRpt, udmDBCore,
   ppStrtch, ppMemo, DBGridAux, DBSearch, DBEditDateTimePicker, TXComp;
 
 type
@@ -49,31 +49,30 @@ type
     laIban: TLabel;
     laNote: TLabel;
     deNote: TDBMemo;
-    DBEdit1: TDBEdit;
-    DBEdit2: TDBEdit;
-    DBEdit4: TDBEdit;
-    DBEdit5: TDBEdit;
-    DBEdit6: TDBEdit;
-    DBEdit7: TDBEdit;
-    DBEdit8: TDBEdit;
-    DBEdit9: TDBEdit;
-    DBEdit10: TDBEdit;
-    DBEdit11: TDBEdit;
-    DBEdit12: TDBEdit;
-    DBEdit13: TDBEdit;
+    deCitta: TDBEdit;
+    deCap: TDBEdit;
+    deTelefono: TDBEdit;
+    deCellulare: TDBEdit;
+    deFax: TDBEdit;
+    deMail: TDBEdit;
+    deSito: TDBEdit;
+    dePartitaIVA: TDBEdit;
+    deCodiceFiscale: TDBEdit;
+    deAbi: TDBEdit;
+    deCab: TDBEdit;
+    deIban: TDBEdit;
     laLocalita: TLabel;
     deLocalita: TDBSearch;
     teCommenti: TTabSheet;
-    DBGridAux1: TDBGridAux;
-    dtDataCommento: TDBEditDateTimePicker;
+    grCommenti: TDBGridAux;
     deDesLocalita: TEdit;
     deProvincia: TDBSearch;
+    deDesProvincia: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-  private
-    { Private declarations }
   public
     { Public declarations }
+    procedure SetEditState(ADmState: TdmState); override;
   end;
 
 var
@@ -93,6 +92,12 @@ procedure TfmEdCliente.FormDestroy(Sender: TObject);
 begin
   inherited;
   fmEdCliente := nil;
+end;
+
+procedure TfmEdCliente.SetEditState(ADmState: TdmState);
+begin
+  inherited;
+  teCommenti.TabVisible := Self.hDataModule.hdmState <> hdmInsert;
 end;
 
 end.

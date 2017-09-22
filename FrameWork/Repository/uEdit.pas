@@ -7,7 +7,7 @@ uses
   Dialogs, uRoot, ActnList, StdCtrls, Buttons, ExtCtrls, udmDBCore, udmSearch, DBCtrls,
   Mask, DBSearch, udmGlobal, Ora, udmEdit, Menus, CRGrid, DBClient, ppVar, DBGridAux,
   ppBands, ppCtrls, ppPrnabl, ppClass, ppCache, ppProd, ppReport, ppComm,
-  ppRelatv, ppDB, ppDBPipe, ppDBBDE, DBEditDateTimePicker, TXComp;
+  ppRelatv, ppDB, ppDBPipe, ppDBBDE, DBEditDateTimePicker, TXComp, ComCtrls;
 
 type
   TfmEditClass = class of TfmEdit;
@@ -75,8 +75,6 @@ var
 
 implementation
 
-uses uCore;
-
 {$R *.dfm}
 
 procedure TfmEdit.acRollBackExecute(Sender: TObject);
@@ -95,18 +93,24 @@ var
 begin
   for i := 0 to Self.ComponentCount - 1 do
   begin
-    if (Self.Components[i] is TDBEdit)                   and
-        Assigned(TDBEdit(Self.Components[i]).DataSource) and
-        Assigned(TDBEdit(Self.Components[i]).Field)      and
-       (TDBEdit(Self.Components[i]).Field.AsString = '') then
+    if (Self.Components[i] is TDBEdit)                           and
+        Assigned(TDBEdit(Self.Components[i]).DataSource)         and
+        Assigned(TDBEdit(Self.Components[i]).DataSource.DataSet) and
+        (TDBEdit(Self.Components[i]).DataSource.DataSet.State in [dsEdit, dsInsert]) and
+        Assigned(TDBEdit(Self.Components[i]).Field)              and
+       (TDBEdit(Self.Components[i]).Field.AsString = '')         then
       TDBEdit(Self.Components[i]).Field.Clear;
     if (Self.Components[i] is TDBEditDateTimePicker)                   and
         Assigned(TDBEditDateTimePicker(Self.Components[i]).DataSource) and
+        Assigned(TDBEditDateTimePicker(Self.Components[i]).DataSource.DataSet) and
+        (TDBEditDateTimePicker(Self.Components[i]).DataSource.DataSet.State in [dsEdit, dsInsert]) and
         Assigned(TDBEditDateTimePicker(Self.Components[i]).Field)      and
        (TDBEditDateTimePicker(Self.Components[i]).Field.AsString = '') then
       TDBEditDateTimePicker(Self.Components[i]).Field.Clear;
     if (Self.Components[i] is TDBSearch)                   and
         Assigned(TDBSearch(Self.Components[i]).DataSource) and
+        Assigned(TDBSearch(Self.Components[i]).DataSource.DataSet) and
+        (TDBSearch(Self.Components[i]).DataSource.DataSet.State in [dsEdit, dsInsert]) and
         Assigned(TDBSearch(Self.Components[i]).Field)      and
        (TDBSearch(Self.Components[i]).Field.AsString = '') then
       TDBSearch(Self.Components[i]).Field.Clear;
@@ -118,6 +122,14 @@ begin
     begin
       TdmEdit(Self.hDataModule).dmInsert;
       SetEditState(hdmInsert);
+      for i := 0 to Self.ComponentCount - 1 do
+        if (Self.Components[i] is TPageControl)  and
+           (TPageControl(Self.Components[i]).Align = alClient) then
+        begin
+          TPageControl(Self.Components[i]).TabIndex := 0;
+          Break;
+        end;
+
       if Assigned(Self.hFirstActiveControl) then
         Self.hFirstActiveControl.SetFocus;
     end
