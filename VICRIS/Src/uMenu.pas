@@ -53,6 +53,8 @@ type
     sbVen: TSpeedButton;
     sbClose: TSpeedButton;
     sbProdotti: TSpeedButton;
+    acPrn: TAction;
+    miPrn: TMenuItem;
     procedure acCommonUpdate(Sender: TObject);
     procedure acExitExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -70,6 +72,7 @@ type
     procedure acCatProExecute(Sender: TObject);
     procedure acSubManExecute(Sender: TObject);
     procedure acVenExecute(Sender: TObject);
+    procedure acPrnExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -83,7 +86,7 @@ implementation
 
 uses
   //Generale
-  uBrCliente, uBrMandante, uBrSubMandante, uBrLocalita,
+  uBrCliente, uBrMandante, uBrSubMandante, uBrLocalita, uBrProvincia,
   //Magazzino
   uBrCatProdotto, uBrProdotto, uBrVendita,
   uAbout;
@@ -111,6 +114,12 @@ procedure TfmMenu.acManExecute(Sender: TObject);
 begin
   if not Assigned(fmBrMandante) then
     fmBrMandante := TfmBrMandante.Create(Self);
+end;
+
+procedure TfmMenu.acPrnExecute(Sender: TObject);
+begin
+  if not Assigned(fmBrProvincia) then
+    fmBrProvincia := TfmBrProvincia.Create(Self);
 end;
 
 procedure TfmMenu.acProExecute(Sender: TObject);

@@ -1,8 +1,8 @@
 object dmSearch: TdmSearch
   OldCreateOrder = False
   OnCreate = dmSearchCreate
-  Left = 766
-  Top = 253
+  Left = 526
+  Top = 278
   Height = 405
   Width = 298
   object OraSearch: TOraSession
@@ -240,7 +240,7 @@ object dmSearch: TdmSearch
     Session = OraSearch
     SQL.Strings = (
       'SELECT ID_SUBMANDANTE, SUBMANDANTE, SUBMANDANTE DESCRIZIONE'
-      '  FROM TB_SUBMANDANTE'
+      '  FROM TB_SUBMANDANTI'
       
         ' WHERE ID_SUBMANDANTE BETWEEN NVL(:ID_SUBMANDANTE, 0) AND NVL(:I' +
         'D_SUBMANDANTE, 999999999999)'
@@ -251,6 +251,7 @@ object dmSearch: TdmSearch
       item
         DataType = ftUnknown
         Name = 'ID_SUBMANDANTE'
+        Value = Null
       end>
     object qySubManID_SUBMANDANTE: TFloatField
       DisplayLabel = 'Id'
@@ -259,12 +260,12 @@ object dmSearch: TdmSearch
     object qySubManSUBMANDANTE: TStringField
       DisplayLabel = 'Descrizione'
       FieldName = 'SUBMANDANTE'
-      Size = 500
+      Size = 200
     end
     object qySubManDESCRIZIONE: TStringField
       FieldName = 'DESCRIZIONE'
       Visible = False
-      Size = 500
+      Size = 200
     end
   end
   object qyPrn: TOraQuery

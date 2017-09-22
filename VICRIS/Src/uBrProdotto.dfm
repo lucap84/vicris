@@ -13,38 +13,32 @@ inherited fmBrProdotto: TfmBrProdotto
     Columns = <
       item
         Expanded = False
-        FieldName = 'ID_PRODOTTO'
-        Width = 5
-        Visible = True
-      end
-      item
-        Expanded = False
         FieldName = 'PRODOTTO'
-        Width = 105
+        Width = 200
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'UNITA_MISURA'
-        Width = 10
+        Width = 60
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'MANDANTE'
-        Width = 263
+        Width = 200
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'SUBMANDANTE'
+        Width = 200
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CATEGORIA'
-        Width = 158
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'SUB_CATEGORIA'
-        Width = 158
+        Width = 150
         Visible = True
       end>
   end
@@ -718,7 +712,15 @@ inherited fmBrProdotto: TfmBrProdotto
       end
     end
     inherited ppFooterBand1: TppFooterBand
-      inherited svPageNo: TppSystemVariable
+      inherited pplaDateSlash: TppLabel [1]
+      end
+      inherited svPageCount: TppSystemVariable [2]
+      end
+      inherited laPag: TppLabel [3]
+      end
+      inherited ppLine2: TppLine [4]
+      end
+      inherited svPageNo: TppSystemVariable [5]
         mmLeft = 168275
       end
     end

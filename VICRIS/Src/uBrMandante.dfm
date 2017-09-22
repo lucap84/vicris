@@ -17,73 +17,6 @@ inherited fmBrMandante: TfmBrMandante
   inherited grBrowse: TDBGridAux
     Width = 1116
     DataSource = dmBrMandante.dsMandante
-    Columns = <
-      item
-        Expanded = False
-        FieldName = 'ID_MANDANTE'
-        Width = 47
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'MANDANTE'
-        Width = 193
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'INDIRIZZO'
-        Width = 772
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'CITTA'
-        Width = 38
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'CAP'
-        Width = 1
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'PROVINCIA'
-        Width = 1
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'CELLULARE'
-        Width = 7
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'TELEFONO_1'
-        Width = 7
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'TELEFONO_2'
-        Width = 7
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'PARTITA_IVA'
-        Width = 7
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'CODICE_FISCALE'
-        Width = 3
-        Visible = True
-      end>
   end
   inherited plBrowse: TppBDEPipeline
     DataSource = dmBrMandante.dsMandante
@@ -148,7 +81,7 @@ inherited fmBrMandante: TfmBrMandante
       object ppLabel4: TppLabel [5]
         UserName = 'Label4'
         AutoSize = False
-        Caption = 'Citt'#224
+        Caption = 'Città'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'

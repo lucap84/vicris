@@ -75,7 +75,7 @@ implementation
 uses
   udmEdit, uEdit,
   //Generale
-  uEdCliente, uEdMandante, uEdLocalita,
+  uEdCliente, uEdMandante, uEdLocalita, uEdProvincia,
   //Magazzino
   uEdCatProdotto, uEdProdotto, uEdSubmandante;
 
@@ -150,7 +150,7 @@ begin
             1003 : FhEditFormClass := TfmEdCatProdotto;
             1004 : FhEditFormClass := TfmEdProdotto;
             1005 : FhEditFormClass := TfmEdSubmandante;
-//            1006 : FhEditFormClass := TfmEdPromotore;
+            1006 : FhEditFormClass := TfmEdProvincia;
 //            1007 : FhEditFormClass := TfmEdIncarico;
 //            1008 : FhEditFormClass := TfmEdPersona;
 //            1009 : FhEditFormClass := TfmEdRuolo;

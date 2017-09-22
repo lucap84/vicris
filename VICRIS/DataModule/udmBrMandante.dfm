@@ -11,22 +11,21 @@ inherited dmBrMandante: TdmBrMandante
       'SELECT *'
       '  FROM TB_MANDANTI'
       ' ORDER BY MANDANTE')
-    Left = 64
-    Top = 72
+    Left = 32
+    Top = 24
     object qyMandanteID_MANDANTE: TFloatField
-      DisplayLabel = 'Id'
       FieldName = 'ID_MANDANTE'
       Visible = False
     end
     object qyMandanteMANDANTE: TStringField
-      DisplayLabel = 'Ragione Sociale'
+      DisplayLabel = 'Descrizione'
       FieldName = 'MANDANTE'
       Size = 200
     end
     object qyMandanteINDIRIZZO: TStringField
-      DisplayLabel = 'Indirizzo'
       DisplayWidth = 3241
       FieldName = 'INDIRIZZO'
+      Visible = False
       Size = 2000
     end
     object qyMandanteCITTA: TStringField
@@ -66,8 +65,8 @@ inherited dmBrMandante: TdmBrMandante
       Size = 100
     end
     object qyMandanteSITO: TStringField
-      DisplayLabel = 'Sito Web'
       FieldName = 'SITO'
+      Visible = False
       Size = 100
     end
     object qyMandantePARTITA_IVA: TStringField
@@ -120,15 +119,17 @@ inherited dmBrMandante: TdmBrMandante
     end
     object qyMandanteBANCA: TStringField
       FieldName = 'BANCA'
+      Visible = False
       Size = 250
     end
     object qyMandanteID_PROVINCIA: TFloatField
       FieldName = 'ID_PROVINCIA'
+      Visible = False
     end
   end
   object dsMandante: TDataSource
     DataSet = qyMandante
-    Left = 120
-    Top = 72
+    Left = 88
+    Top = 24
   end
 end

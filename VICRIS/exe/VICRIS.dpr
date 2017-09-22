@@ -45,7 +45,11 @@ uses
   udmEdVendita in '..\DataModule\udmEdVendita.pas' {dmEdVendita: TdmDBRoot},
   uEdVendita in '..\Src\uEdVendita.pas' {fmEdVendita: TfmRoot},
   udmBrAnalisi in '..\DataModule\udmBrAnalisi.pas' {dmBrAnalisi: TdmDBRoot},
-  uBrAnalisi in '..\Src\uBrAnalisi.pas' {fmBrAnalisi: TfmRoot};
+  uBrAnalisi in '..\Src\uBrAnalisi.pas' {fmBrAnalisi: TfmRoot},
+  udmBrProvincia in '..\DataModule\udmBrProvincia.pas' {dmBrProvincia: TdmDBRoot},
+  udmEdProvincia in '..\DataModule\udmEdProvincia.pas' {dmEdProvincia: TdmDBRoot},
+  uBrProvincia in '..\Src\uBrProvincia.pas' {fmBrProvincia: TfmRoot},
+  uEdProvincia in '..\Src\uEdProvincia.pas' {fmEdProvincia: TfmRoot};
 
 {$R *.res}
 

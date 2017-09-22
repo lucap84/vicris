@@ -7,7 +7,7 @@ uses
   Dialogs, uEdit, ppVar, ppBands, ppCtrls, ppPrnabl, ppClass, ppCache,
   ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE, Menus,
   ActnList, StdCtrls, Buttons, ExtCtrls,
-  udmEdProdotto, udmSearch, Mask, DBCtrls, DBSearch;
+  udmEdProdotto, udmSearch, Mask, DBCtrls, DBSearch, TXComp;
 
 type
   TfmEdProdotto = class(TfmEdit)
@@ -21,11 +21,11 @@ type
     laMandante: TLabel;
     deCategoria: TDBSearch;
     laCategoria: TLabel;
-    deSubCategoria: TDBSearch;
-    laSubCategoria: TLabel;
+    deSubmandante: TDBSearch;
+    laSubMandante: TLabel;
     deDesMandante: TEdit;
     deDesCategoria: TEdit;
-    deDesSubCategoria: TEdit;
+    deDesSubmandante: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private

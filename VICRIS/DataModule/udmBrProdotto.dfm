@@ -20,8 +20,8 @@ inherited dmBrProdotto: TdmBrProdotto
     Left = 16
     Top = 24
     object qyProdottoID_PRODOTTO: TFloatField
-      DisplayLabel = 'ID'
       FieldName = 'ID_PRODOTTO'
+      Visible = False
     end
     object qyProdottoPRODOTTO: TStringField
       DisplayLabel = 'Descrizione'
@@ -63,7 +63,7 @@ inherited dmBrProdotto: TdmBrProdotto
     object qyProdottoMANDANTE: TStringField
       DisplayLabel = 'Mandante'
       FieldName = 'MANDANTE'
-      Size = 500
+      Size = 200
     end
     object qyProdottoSUBMANDANTE: TStringField
       DisplayLabel = 'Submandante'
@@ -73,7 +73,7 @@ inherited dmBrProdotto: TdmBrProdotto
     object qyProdottoCATEGORIA: TStringField
       DisplayLabel = 'Categoria'
       FieldName = 'CATEGORIA'
-      Size = 300
+      Size = 150
     end
     object qyProdottoID_SUBMANDANTE: TFloatField
       FieldName = 'ID_SUBMANDANTE'

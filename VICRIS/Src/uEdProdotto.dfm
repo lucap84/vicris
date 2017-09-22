@@ -67,7 +67,7 @@ inherited fmEdProdotto: TfmEdProdotto
   end
   object laCategoria: TLabel [4]
     Left = 8
-    Top = 100
+    Top = 130
     Width = 110
     Height = 20
     Caption = 'CATEGORIA:'
@@ -78,12 +78,12 @@ inherited fmEdProdotto: TfmEdProdotto
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object laSubCategoria: TLabel [5]
+  object laSubMandante: TLabel [5]
     Left = 8
-    Top = 130
-    Width = 108
+    Top = 100
+    Width = 140
     Height = 20
-    Caption = 'SOTTO CAT.:'
+    Caption = 'SUBMANDANTE:'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -112,9 +112,9 @@ inherited fmEdProdotto: TfmEdProdotto
     end
   end
   object deNote: TDBMemo [7]
-    Left = 128
+    Left = 143
     Top = 158
-    Width = 608
+    Width = 593
     Height = 58
     Anchors = [akLeft, akTop, akRight, akBottom]
     DataField = 'NOTE'
@@ -128,9 +128,9 @@ inherited fmEdProdotto: TfmEdProdotto
     TabOrder = 8
   end
   object deProdotto: TDBEdit [8]
-    Left = 128
+    Left = 143
     Top = 8
-    Width = 608
+    Width = 593
     Height = 28
     Anchors = [akLeft, akTop, akRight]
     DataField = 'PRODOTTO'
@@ -144,9 +144,9 @@ inherited fmEdProdotto: TfmEdProdotto
     TabOrder = 0
   end
   object deUnitaMisura: TDBEdit [9]
-    Left = 128
+    Left = 143
     Top = 38
-    Width = 608
+    Width = 593
     Height = 28
     Anchors = [akLeft, akTop, akRight]
     DataField = 'UNITA_MISURA'
@@ -161,7 +161,7 @@ inherited fmEdProdotto: TfmEdProdotto
   end
   object deMandante: TDBSearch [10]
     Tag = 1001
-    Left = 128
+    Left = 143
     Top = 68
     Width = 50
     Height = 28
@@ -179,8 +179,8 @@ inherited fmEdProdotto: TfmEdProdotto
   end
   object deCategoria: TDBSearch [11]
     Tag = 1003
-    Left = 128
-    Top = 98
+    Left = 143
+    Top = 128
     Width = 50
     Height = 28
     Color = clYellow
@@ -195,14 +195,14 @@ inherited fmEdProdotto: TfmEdProdotto
     TabOrder = 4
     hCmpDes = deDesCategoria
   end
-  object deSubCategoria: TDBSearch [12]
-    Tag = 1003
-    Left = 128
-    Top = 128
+  object deSubmandante: TDBSearch [12]
+    Tag = 1005
+    Left = 143
+    Top = 98
     Width = 50
     Height = 28
     Color = clYellow
-    DataField = 'ID_SUBCATEGORIA'
+    DataField = 'ID_SUBMANDANTE'
     DataSource = dmEdProdotto.dsProdotto
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -211,12 +211,12 @@ inherited fmEdProdotto: TfmEdProdotto
     Font.Style = []
     ParentFont = False
     TabOrder = 6
-    hCmpDes = deDesSubCategoria
+    hCmpDes = deDesSubmandante
   end
   object deDesMandante: TEdit [13]
-    Left = 181
+    Left = 196
     Top = 68
-    Width = 555
+    Width = 540
     Height = 28
     Anchors = [akLeft, akTop, akRight]
     Font.Charset = DEFAULT_CHARSET
@@ -229,9 +229,9 @@ inherited fmEdProdotto: TfmEdProdotto
     TabOrder = 3
   end
   object deDesCategoria: TEdit [14]
-    Left = 181
-    Top = 98
-    Width = 555
+    Left = 196
+    Top = 128
+    Width = 540
     Height = 28
     Anchors = [akLeft, akTop, akRight]
     Font.Charset = DEFAULT_CHARSET
@@ -243,10 +243,10 @@ inherited fmEdProdotto: TfmEdProdotto
     ReadOnly = True
     TabOrder = 5
   end
-  object deDesSubCategoria: TEdit [15]
-    Left = 181
-    Top = 128
-    Width = 555
+  object deDesSubmandante: TEdit [15]
+    Left = 196
+    Top = 98
+    Width = 540
     Height = 28
     Anchors = [akLeft, akTop, akRight]
     Font.Charset = DEFAULT_CHARSET

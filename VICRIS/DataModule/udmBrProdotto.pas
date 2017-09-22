@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, udmBrowse, DB, MemDS, DBAccess, Ora;
-
+                      
 type
   TdmBrProdotto = class(TdmBrowse)
     qyProdotto: TOraQuery;
@@ -18,11 +18,11 @@ type
     qyProdottoCOD_USR: TStringField;
     qyProdottoDES_PDL: TStringField;
     qyProdottoDAT_AGG_REC: TDateTimeField;
-    qyProdottoMANDANTE: TStringField;
     qyProdottoCATEGORIA: TStringField;
     qyProdottoUNITA_MISURA: TStringField;
     qyProdottoID_SUBMANDANTE: TFloatField;
     qyProdottoSUBMANDANTE: TStringField;
+    qyProdottoMANDANTE: TStringField;
   private
     { Private declarations }
   public

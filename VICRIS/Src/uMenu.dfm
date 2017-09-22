@@ -8045,6 +8045,9 @@ object fmMenu: TfmMenu
         object miLoc: TMenuItem
           Action = acLoc
         end
+        object miPrn: TMenuItem
+          Action = acPrn
+        end
       end
       object miMagazzino: TMenuItem
         Caption = '&Magazzino'
@@ -8174,6 +8177,13 @@ object fmMenu: TfmMenu
       Caption = '&Vendite'
       Hint = 'Apre l'#39'elenco delle Vendite'
       OnExecute = acVenExecute
+      OnUpdate = acCommonUpdate
+    end
+    object acPrn: TAction
+      Category = 'DB_Generale'
+      Caption = '&Province'
+      Hint = 'Apre l'#39'elenco delle Province'
+      OnExecute = acPrnExecute
       OnUpdate = acCommonUpdate
     end
   end

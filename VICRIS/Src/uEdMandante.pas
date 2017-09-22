@@ -8,7 +8,7 @@ uses
   udmEdMandante, udmSearch, ppVar, ppBands, ppCtrls, ppPrnabl, ppClass,
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
   Menus, ComCtrls, Grids, DBGrids, ppModule, raCodMod, ppSubRpt,
-  ppStrtch, ppMemo, DBGridAux;
+  ppStrtch, ppMemo, DBGridAux, TXComp;
 
 type
   TfmEdMandante = class(TfmEdit)
