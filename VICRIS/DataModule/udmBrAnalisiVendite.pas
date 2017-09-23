@@ -34,16 +34,25 @@ type
     dsMandanti: TDataSource;
     dsClienti: TDataSource;
     dsSubmandanti: TDataSource;
+    qyCategoria: TOraQuery;
+    qyCategoriaID_CATEGORIA: TFloatField;
+    qyCategoriaCATEGORIA: TStringField;
+    qyCategoriaORD: TFloatField;
+    dsCategoria: TDataSource;
     procedure FiltersDataChange(Sender: TObject; Field: TField);
   private
     FhDataFin: TDateTime;
     FhDataIni: TDateTime;
+    FhPrezzoFin: double;
+    FhPrezzoIni: double;
     { Private declarations }
   public
     { Public declarations }
     procedure dmDoFilter;
     property hDataIni : TDateTime read FhDataIni write FhDataIni;
     property hDataFin : TDateTime read FhDataFin write FhDataFin;
+    property hPrezzoIni : double read FhPrezzoIni write FhPrezzoIni;
+    property hPrezzoFin : double read FhPrezzoFin write FhPrezzoFin;
   end;
 
 var
@@ -57,8 +66,10 @@ implementation
 
 procedure TdmBrAnalisiVendite.dmDoFilter;
 begin
-  qyAnalisiVendite.ParamByName('Data_Inizio').AsDateTime  := hDataIni;
-  qyAnalisiVendite.ParamByName('Data_Fine').AsDateTime    := hDataFin;
+  qyAnalisiVendite.ParamByName('Data_Inizio').AsDateTime := hDataIni;
+  qyAnalisiVendite.ParamByName('Data_Fine').AsDateTime   := hDataFin;
+  qyAnalisiVendite.ParamByName('Prezzo_Inizio').AsFloat  := hPrezzoIni;
+  qyAnalisiVendite.ParamByName('Prezzo_Fine').AsFloat    := hPrezzoFin;
 
   qyAnalisiVendite.ParamByName('Id_Cliente').Clear;
   if (qyClientiID_CLIENTE.AsInteger <> -1)         then
@@ -71,6 +82,10 @@ begin
   qyAnalisiVendite.ParamByName('Id_Submandante').Clear;
   if (qySubmandantiID_SUBMANDANTE.AsInteger <> -1)         then
     qyAnalisiVendite.ParamByName('Id_Submandante').AsInteger := qySubmandantiID_SUBMANDANTE.AsInteger;
+
+  qyAnalisiVendite.ParamByName('Id_Categoria').Clear;
+  if (qyCategoriaID_CATEGORIA.AsInteger <> -1)         then
+    qyAnalisiVendite.ParamByName('Id_Categoria').AsInteger := qyCategoriaID_CATEGORIA.AsInteger;
 
   dmDsRefresh(qyAnalisiVendite);
 end;

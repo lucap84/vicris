@@ -7,12 +7,27 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
   OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
+  object Label10: TLabel [0]
+    Left = 8
+    Top = 186
+    Width = 75
+    Height = 13
+    AutoSize = False
+    Caption = 'Submandanti'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   inherited grBrowse: TDBGridAux
     Left = 249
     Width = 485
     DataSource = dmBrAnalisiVendite.dsAnalisiVendite
+    PopupMenu = puAnalisiVendite
   end
-  object pnlateAnalisi: TPanel [2]
+  object pnlateAnalisi: TPanel [3]
     Left = 0
     Top = 0
     Width = 249
@@ -106,6 +121,64 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       Font.Style = [fsBold]
       ParentFont = False
     end
+    object Label7: TLabel
+      Left = 8
+      Top = 216
+      Width = 129
+      Height = 13
+      AutoSize = False
+      Caption = 'Prezzo Vendita ('#8364')'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label8: TLabel
+      Left = 8
+      Top = 235
+      Width = 75
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Minimo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label9: TLabel
+      Left = 8
+      Top = 258
+      Width = 75
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Massimo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label11: TLabel
+      Left = 8
+      Top = 186
+      Width = 75
+      Height = 13
+      AutoSize = False
+      Caption = 'Categoria'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object pnTopAnalisi: TPanel
       Left = 0
       Top = 0
@@ -152,7 +225,6 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       ListField = 'NOME'
       ListSource = dmBrAnalisiVendite.dsClienti
       TabOrder = 3
-      OnCloseUp = FiltersChange
     end
     object cbMandanti: TDBLookupComboBox
       Left = 95
@@ -163,7 +235,6 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       ListField = 'MANDANTE'
       ListSource = dmBrAnalisiVendite.dsMandanti
       TabOrder = 4
-      OnCloseUp = FiltersChange
     end
     object cbSubmandanti: TDBLookupComboBox
       Left = 95
@@ -174,12 +245,46 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       ListField = 'SUBMANDANTE'
       ListSource = dmBrAnalisiVendite.dsSubmandanti
       TabOrder = 5
-      OnCloseUp = FiltersChange
     end
+    object dePrezzoInizio: TEdit
+      Left = 96
+      Top = 232
+      Width = 121
+      Height = 21
+      TabOrder = 6
+      OnChange = FiltersChange
+      OnKeyPress = PrezzoKeyPress
+    end
+    object dePrezzoFine: TEdit
+      Left = 96
+      Top = 256
+      Width = 121
+      Height = 21
+      TabOrder = 7
+      OnChange = FiltersChange
+      OnKeyPress = PrezzoKeyPress
+    end
+  end
+  object cbCategoria: TDBLookupComboBox [4]
+    Left = 95
+    Top = 184
+    Width = 145
+    Height = 21
+    KeyField = 'ID_CATEGORIA'
+    ListField = 'CATEGORIA'
+    ListSource = dmBrAnalisiVendite.dsCategoria
+    TabOrder = 3
   end
   inherited alBrowse: TActionList
     Left = 8
     Top = 472
+    object acExpXls: TAction
+      Category = 'Record'
+      Caption = 'Esporta Dati....'
+      Hint = 'Esporta i dati visualizzati su file Excel...'
+      OnExecute = acExpXlsExecute
+      OnUpdate = acExpXlsUpdate
+    end
   end
   inherited plBrowse: TppBDEPipeline
     Left = 8
@@ -193,5 +298,47 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
   inherited rbExtraOptions: TExtraOptions
     Left = 104
     Top = 440
+  end
+  object puAnalisiVendite: TPopupMenu
+    Left = 144
+    Top = 312
+    object piExpXls: TMenuItem
+      Action = acExpXls
+    end
+  end
+  object SMExport: TSMExportToXLS
+    AnimatedStatus = True
+    DataFormats.DateSeparator = '/'
+    DataFormats.TimeSeparator = ':'
+    DataFormats.FourDigitYear = True
+    DataFormats.LeadingZerosInDate = True
+    DataFormats.ThousandSeparator = '.'
+    DataFormats.DecimalSeparator = ','
+    DataFormats.CurrencyString = #8364
+    DataFormats.BooleanTrue = 'True'
+    DataFormats.BooleanFalse = 'False'
+    KeyGenerator = 'SMExport 4.50'
+    SelectedRecord = False
+    BlankIfZero = True
+    RightToLeft = False
+    Columns = <>
+    DataSet = dmBrAnalisiVendite.qyAnalisiVendite
+    ColumnSource = csDataSet
+    ActionAfterExport = aeOpenView
+    FileName = 'C:\Users\MarcoC.HSC2K3MAIN\Desktop\SMExport.XLS'
+    AddTitle = True
+    CharacterSet = csANSI_WINDOWS
+    ExportStyle.Style = esNormal
+    ExportStyle.OddColor = clBlack
+    ExportStyle.EvenColor = clBlack
+    Left = 96
+    Top = 312
+  end
+  object sdExcel: TSaveDialog
+    DefaultExt = 'xls'
+    Filter = 'Cartella di lavoro Excel 97-2003|*.xls'
+    Title = 'Salva con Nome...'
+    Left = 96
+    Top = 360
   end
 end

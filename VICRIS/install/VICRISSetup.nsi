@@ -5,8 +5,8 @@ Var hwnd ; Window handle of the custom page
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "VICRIS"
 !define PRODUCT_VERSION "1.0"
-!define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\VICRIS.exe"
-!define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
+!define PRODUCT_DIR_REGKEY "c:\Software\Microsoft\Windows\CurrentVersion\App Paths\VICRIS.exe"
+!define PRODUCT_UNINST_KEY "c:\Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 !define env_hklm 'HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"'
 
@@ -60,12 +60,12 @@ SectionIn RO
   SetShellVarContext all
   SetOutPath "$INSTDIR"
   SetOverwrite on
-  File "e:\Delphi\Delphi7\VICRIS\vicris\VICRIS\exe\VICRIS.exe"
+  File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\exe\VICRIS.exe"
   SetOverwrite ifnewer
-  File "e:\Delphi\Delphi7\SharedLibrary\midas.dll"
-  File "e:\Delphi\Delphi7\SharedLibrary\msvcr71.dll"
-  File "e:\Delphi\Delphi7\SharedLibrary\ssleay32.dll"
-  File "e:\Delphi\Delphi7\SharedLibrary\libeay32.dll"
+  File "c:\Software\Delphi\Delphi7\SharedLibrary\midas.dll"
+  File "c:\Software\Delphi\Delphi7\SharedLibrary\msvcr71.dll"
+  File "c:\Software\Delphi\Delphi7\SharedLibrary\ssleay32.dll"
+  File "c:\Software\Delphi\Delphi7\SharedLibrary\libeay32.dll"
   RMDir /r "$SMPROGRAMS\VICRIS"
   CreateDirectory "$SMPROGRAMS\VICRIS"
   CreateShortCut "$SMPROGRAMS\VICRIS\VICRIS.lnk" "$INSTDIR\VICRIS.exe"
@@ -79,7 +79,7 @@ Section "Users Admin" SEC02
   SetShellVarContext all
   SetOutPath "$INSTDIR"
   SetOverwrite on
-  File "e:\Delphi\Delphi7\VICRIS\vicris\User\exe\User.exe"
+  File "c:\Software\Delphi\Delphi7\VICRIS\vicris\User\exe\User.exe"
   SetOverwrite ifnewer
   CreateShortCut "$SMPROGRAMS\VICRIS\Users Admin.lnk" "$INSTDIR\User.exe"
   SetOverwrite off
@@ -91,19 +91,19 @@ Section /o "File di Oracle" SEC03
 ;SectionIn RO
   SetOutPath "$INSTDIR\Oracle"
   SetOverwrite on
-  File "e:\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\orannzsbb10.dll"
-  File "e:\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\oraociei10.dll"
-  File "e:\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\oci.dll"
-  File "e:\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\tnsnames.ora"
+  File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\orannzsbb10.dll"
+  File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\oraociei10.dll"
+  File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\oci.dll"
+  File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\tnsnames.ora"
   ; Scrivo le chiavi di registro
-  ReadRegStr $0 HKLM "Software\ORACLE" "ORACLE_HOME"
+  ReadRegStr $0 HKLM "c:\Software\ORACLE" "ORACLE_HOME"
   StrCmp $0 "" 0 +3
-    WriteRegStr HKLM "Software\ORACLE" "ORACLE_HOME"      "$INSTDIR\Oracle"
-    WriteRegStr HKLM "Software\ORACLE" "TNS_ADMIN"        "$INSTDIR\Oracle"
-  WriteRegStr HKLM "Software\ORACLE"   "NLS_LANG"         "ITALIAN_ITALY.WE8ISO8859P15"
-  WriteRegStr HKLM "Software\ORACLE"   "NLS_SORT"         "BINARY"
-  WriteRegStr HKLM "Software\ORACLE"   "NLS_DATE_FORMAT"  "DD-MM-YYYY"
-  WriteRegStr HKLM "Software\ORACLE"   "ORACLE_HOME_NAME" "OraHome"
+    WriteRegStr HKLM "c:\Software\ORACLE" "ORACLE_HOME"      "$INSTDIR\Oracle"
+    WriteRegStr HKLM "c:\Software\ORACLE" "TNS_ADMIN"        "$INSTDIR\Oracle"
+  WriteRegStr HKLM "c:\Software\ORACLE"   "NLS_LANG"         "ITALIAN_ITALY.WE8ISO8859P15"
+  WriteRegStr HKLM "c:\Software\ORACLE"   "NLS_SORT"         "BINARY"
+  WriteRegStr HKLM "c:\Software\ORACLE"   "NLS_DATE_FORMAT"  "DD-MM-YYYY"
+  WriteRegStr HKLM "c:\Software\ORACLE"   "ORACLE_HOME_NAME" "OraHome"
 SectionEnd
 
 Section -AdditionalIcons
@@ -231,7 +231,7 @@ Section Uninstall
   Delete "$INSTDIR\Oracle"
   
   ; Elimino le chiavi di registro
-;  DeleteRegKey HKLM "Software\ORACLE"
+;  DeleteRegKey HKLM "c:\Software\ORACLE"
 
   RMDir /r "$SMPROGRAMS\VICRIS"
   RMDir "$INSTDIR\Oracle"
@@ -356,7 +356,7 @@ FunctionEnd
 ; or
 ; '' (Unknown Windows Version)
 ;
-; Usage:
+; Usagc:\Software
 ;   Call GetWindowsVersion
 ;   Pop $R0
 ;   ; at this point $R0 is "NT 4.0" or whatnot

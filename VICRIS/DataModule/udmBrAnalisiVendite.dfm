@@ -35,6 +35,12 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       
         '   AND NVL(SF.ID_SUBMANDANTE, -1) = NVL(:ID_SUBMANDANTE, NVL(SF.' +
         'ID_SUBMANDANTE, -1))'
+      '   -- Categoria'
+      
+        '   AND NVL(CP.ID_CATEGORIA, -1) = NVL(:ID_CATEGORIA, NVL(CP.ID_C' +
+        'ATEGORIA, -1))'
+      '   -- Prezzo Vendita'
+      '   AND M.PREZZO_VENDITA BETWEEN :PREZZO_INIZIO AND :PREZZO_FINE'
       ''
       ' ORDER BY 2, 1 DESC')
     Left = 32
@@ -59,6 +65,18 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       item
         DataType = ftUnknown
         Name = 'ID_SUBMANDANTE'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'ID_CATEGORIA'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PREZZO_INIZIO'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PREZZO_FINE'
       end>
     object qyAnalisiVenditeDATA_VENDITA: TDateTimeField
       DisplayLabel = 'Data Vendita'
@@ -138,12 +156,12 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
   end
   object qyMandanti: TOraQuery
     SQL.Strings = (
-      'SELECT -1 ID_MANDANTE, '#39'---'#39' MANDANTE'
+      'SELECT -1 ID_MANDANTE, '#39'Tutti'#39' MANDANTE, 0 ORD'
       '  FROM DUAL'
       ' UNION'
-      'SELECT ID_MANDANTE, MANDANTE'
+      'SELECT ID_MANDANTE, MANDANTE, 1 ORD'
       '  FROM TB_MANDANTI'
-      ' ORDER BY 2')
+      ' ORDER BY 3, 2')
     Left = 32
     Top = 88
     object qyMandantiID_MANDANTE: TFloatField
@@ -157,12 +175,12 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
   end
   object qySubmandanti: TOraQuery
     SQL.Strings = (
-      'SELECT -1 ID_SUBMANDANTE, '#39'---'#39' SUBMANDANTE'
+      'SELECT -1 ID_SUBMANDANTE, '#39'Tutti'#39' SUBMANDANTE, 0 ORD'
       '  FROM DUAL'
       ' UNION'
-      'SELECT ID_SUBMANDANTE, SUBMANDANTE'
+      'SELECT ID_SUBMANDANTE, SUBMANDANTE, 1 ORD'
       '  FROM TB_SUBMANDANTI'
-      ' ORDER BY 2')
+      ' ORDER BY 3,2')
     Left = 32
     Top = 208
     object qySubmandantiID_SUBMANDANTE: TFloatField
@@ -176,12 +194,12 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
   end
   object qyClienti: TOraQuery
     SQL.Strings = (
-      'SELECT -1 ID_CLIENTE, '#39'---'#39' NOME'
+      'SELECT -1 ID_CLIENTE, '#39'Tutti'#39' NOME, 0 ORD'
       '  FROM DUAL'
       ' UNION'
-      'SELECT ID_CLIENTE, NOME'
+      'SELECT ID_CLIENTE, NOME, 1 ORD'
       '  FROM TB_CLIENTI'
-      ' ORDER BY 2')
+      ' ORDER BY 3, 2')
     Left = 32
     Top = 144
     object qyClientiID_CLIENTE: TFloatField
@@ -210,5 +228,32 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
     OnDataChange = FiltersDataChange
     Left = 104
     Top = 208
+  end
+  object qyCategoria: TOraQuery
+    SQL.Strings = (
+      'SELECT -1 ID_CATEGORIA, '#39'Tutte'#39' CATEGORIA, 0 ORD'
+      '  FROM DUAL'
+      ' UNION'
+      'SELECT ID_CATEGORIA, CATEGORIA, 1 ORD'
+      '  FROM TB_CATEGORIE_PRODOTTI'
+      ' ORDER BY 3, 2')
+    Left = 32
+    Top = 264
+    object qyCategoriaID_CATEGORIA: TFloatField
+      FieldName = 'ID_CATEGORIA'
+    end
+    object qyCategoriaCATEGORIA: TStringField
+      FieldName = 'CATEGORIA'
+      Size = 150
+    end
+    object qyCategoriaORD: TFloatField
+      FieldName = 'ORD'
+    end
+  end
+  object dsCategoria: TDataSource
+    DataSet = qyCategoria
+    OnDataChange = FiltersDataChange
+    Left = 104
+    Top = 264
   end
 end
