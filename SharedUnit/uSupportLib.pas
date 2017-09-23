@@ -3,7 +3,7 @@ unit uSupportLib;
 interface
 
 uses
-  Windows, DBClient, Classes, DB, Provider, SysUtils;
+  Windows, DBClient, Classes, DB, Provider, SysUtils, DateUtils;
 
 const
   CrLf = #13#10;
@@ -13,6 +13,7 @@ function  FillZeroesLeft(Str: string; Count: integer; Chr: Char) : string;
 function  GetComponentFromName(AOwner: TComponent; AName: String): TComponent;
 function  GetDataSetFromClientDataSet(ACds: TClientDataSet): TDataSet;
 function  GetMachineName: string;
+function  YearFirstDate(ADate: TDatetime): TDatetime;
 procedure Split(StrBuf,Delimiter: string; var MyStrList: TStringList);
 
 implementation
@@ -87,6 +88,14 @@ begin
     inc(LoopCount);
   until LoopCount > Length(StrBuf);
   MyStrList.Add(TmpBuf);
+end;
+
+function YearFirstDate(ADate: TDatetime): TDateTime;
+var
+  Year, Month, Day: Word;
+begin
+  DecodeDate(Date, Year, Month, Day);
+  Result := EncodeDate(Year, 1, 1);
 end;
 
 end.

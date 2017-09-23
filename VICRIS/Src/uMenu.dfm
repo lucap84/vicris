@@ -8061,6 +8061,12 @@ object fmMenu: TfmMenu
           Action = acVen
         end
       end
+      object miAnalisi: TMenuItem
+        Caption = 'Analisi'
+        object miAnlVen: TMenuItem
+          Action = acAnlVen
+        end
+      end
     end
     object miView: TMenuItem
       Caption = 'Visualizza'
@@ -8184,6 +8190,13 @@ object fmMenu: TfmMenu
       Caption = '&Province'
       Hint = 'Apre l'#39'elenco delle Province'
       OnExecute = acPrnExecute
+      OnUpdate = acCommonUpdate
+    end
+    object acAnlVen: TAction
+      Category = 'DB_Analisi'
+      Caption = 'Analisi &Vendite'
+      Hint = 'Visualizza le Analisi sulle Vendite'
+      OnExecute = acAnlVenExecute
       OnUpdate = acCommonUpdate
     end
   end
