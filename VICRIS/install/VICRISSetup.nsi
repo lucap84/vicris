@@ -3,9 +3,9 @@
 Var hwnd ; Window handle of the custom page
 
 ; HM NIS Edit Wizard helper defines
-!define PRODUCT_NAME "PCAL"
+!define PRODUCT_NAME "VICRIS"
 !define PRODUCT_VERSION "1.0"
-!define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\PCAL.exe"
+!define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\VICRIS.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 !define env_hklm 'HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"'
@@ -33,7 +33,7 @@ XPStyle on
 ; Instfiles page
 !insertmacro MUI_PAGE_INSTFILES
 ; Finish page
-!define MUI_FINISHPAGE_RUN "$INSTDIR\PCAL.exe"
+!define MUI_FINISHPAGE_RUN "$INSTDIR\VICRIS.exe"
 !insertmacro MUI_PAGE_FINISH
 
 ; Uninstaller pages
@@ -50,28 +50,28 @@ LangString TEXT_IO_SUBTITLE ${LANG_ITALIAN} "Immettere l'indirizzo IP del server
 ; MUI end ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "PcalSetup.exe"
-InstallDir "$PROGRAMFILES\PCAL\"
+OutFile "VicrisSetup.exe"
+InstallDir "$PROGRAMFILES\VICRIS\"
 ShowInstDetails show
 ShowUnInstDetails show
 
-Section "PCAL" SEC01
+Section "VICRIS" SEC01
 SectionIn RO
   SetShellVarContext all
   SetOutPath "$INSTDIR"
   SetOverwrite on
-  File "e:\Delphi\Delphi7\PCAL\PCAL\exe\PCAL.exe"
+  File "e:\Delphi\Delphi7\VICRIS\vicris\VICRIS\exe\VICRIS.exe"
   SetOverwrite ifnewer
   File "e:\Delphi\Delphi7\SharedLibrary\midas.dll"
   File "e:\Delphi\Delphi7\SharedLibrary\msvcr71.dll"
   File "e:\Delphi\Delphi7\SharedLibrary\ssleay32.dll"
   File "e:\Delphi\Delphi7\SharedLibrary\libeay32.dll"
-  RMDir /r "$SMPROGRAMS\PCAL"
-  CreateDirectory "$SMPROGRAMS\PCAL"
-  CreateShortCut "$SMPROGRAMS\PCAL\PCAL.lnk" "$INSTDIR\PCAL.exe"
+  RMDir /r "$SMPROGRAMS\VICRIS"
+  CreateDirectory "$SMPROGRAMS\VICRIS"
+  CreateShortCut "$SMPROGRAMS\VICRIS\VICRIS.lnk" "$INSTDIR\VICRIS.exe"
   SetOverwrite off
-  CreateShortCut "$QUICKLAUNCH\PCAL.lnk" "$INSTDIR\PCAL.exe"
-  CreateShortCut "$DESKTOP\PCAL.lnk" "$INSTDIR\PCAL.exe"
+  CreateShortCut "$QUICKLAUNCH\VICRIS.lnk" "$INSTDIR\VICRIS.exe"
+  CreateShortCut "$DESKTOP\VICRIS.lnk" "$INSTDIR\VICRIS.exe"
 SectionEnd
 
 Section "Users Admin" SEC02
@@ -79,9 +79,9 @@ Section "Users Admin" SEC02
   SetShellVarContext all
   SetOutPath "$INSTDIR"
   SetOverwrite on
-  File "e:\Delphi\Delphi7\PCAL\User\exe\User.exe"
+  File "e:\Delphi\Delphi7\VICRIS\vicris\User\exe\User.exe"
   SetOverwrite ifnewer
-  CreateShortCut "$SMPROGRAMS\PCAL\Users Admin.lnk" "$INSTDIR\User.exe"
+  CreateShortCut "$SMPROGRAMS\VICRIS\Users Admin.lnk" "$INSTDIR\User.exe"
   SetOverwrite off
   CreateShortCut "$QUICKLAUNCH\Users Admin.lnk" "$INSTDIR\User.exe"
   CreateShortCut "$DESKTOP\Users Admin.lnk" "$INSTDIR\User.exe"
@@ -91,22 +91,23 @@ Section /o "File di Oracle" SEC03
 ;SectionIn RO
   SetOutPath "$INSTDIR\Oracle"
   SetOverwrite on
-  File "s:\Job\DataBase\OracleInstantClient10.1\orannzsbb10.dll"
-  File "s:\Job\DataBase\OracleInstantClient10.1\oraociei10.dll"
-  File "s:\Job\DataBase\OracleInstantClient10.1\oci.dll"
-  File "s:\Job\DataBase\OracleInstantClient10.1\tnsnames.ora"
+  File "e:\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\orannzsbb10.dll"
+  File "e:\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\oraociei10.dll"
+  File "e:\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\oci.dll"
+  File "e:\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\tnsnames.ora"
   ; Scrivo le chiavi di registro
   ReadRegStr $0 HKLM "Software\ORACLE" "ORACLE_HOME"
   StrCmp $0 "" 0 +3
-    WriteRegStr HKLM "Software\ORACLE" "ORACLE_HOME"     "$INSTDIR\Oracle"
-    WriteRegStr HKLM "Software\ORACLE" "TNS_ADMIN"       "$INSTDIR\Oracle"
-  WriteRegStr HKLM "Software\ORACLE" "NLS_LANG"        "ITALIAN_ITALY.WE8ISO8859P15"
-  WriteRegStr HKLM "Software\ORACLE" "NLS_SORT"        "BINARY"
-  WriteRegStr HKLM "Software\ORACLE" "NLS_DATE_FORMAT" "DD-MM-YYYY"
+    WriteRegStr HKLM "Software\ORACLE" "ORACLE_HOME"      "$INSTDIR\Oracle"
+    WriteRegStr HKLM "Software\ORACLE" "TNS_ADMIN"        "$INSTDIR\Oracle"
+  WriteRegStr HKLM "Software\ORACLE"   "NLS_LANG"         "ITALIAN_ITALY.WE8ISO8859P15"
+  WriteRegStr HKLM "Software\ORACLE"   "NLS_SORT"         "BINARY"
+  WriteRegStr HKLM "Software\ORACLE"   "NLS_DATE_FORMAT"  "DD-MM-YYYY"
+  WriteRegStr HKLM "Software\ORACLE"   "ORACLE_HOME_NAME" "OraHome"
 SectionEnd
 
 Section -AdditionalIcons
-  CreateShortCut "$SMPROGRAMS\PCAL\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
+  CreateShortCut "$SMPROGRAMS\VICRIS\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
 SectionEnd
 
 Section -Post
@@ -124,17 +125,17 @@ Section -Post
     Call AdvReplaceInFile
 
   WriteUninstaller "$INSTDIR\Uninstall.exe"
-  WriteRegStr HKLM "${PRODUCT_DIR_REGKEY}" "" "$INSTDIR\PCAL.exe"
+  WriteRegStr HKLM "${PRODUCT_DIR_REGKEY}" "" "$INSTDIR\VICRIS.exe"
 
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\Uninstall.exe"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$INSTDIR\PCAL.exe"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$INSTDIR\VICRIS.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
 SectionEnd
 
 ; Section descriptions
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-  !insertmacro MUI_DESCRIPTION_TEXT ${SEC01} "File dell'applicazione PCAL"
+  !insertmacro MUI_DESCRIPTION_TEXT ${SEC01} "File dell'applicazione VICRIS"
   !insertmacro MUI_DESCRIPTION_TEXT ${SEC02} "File dell'applicazione Users Admin"
   !insertmacro MUI_DESCRIPTION_TEXT ${SEC03} "File di Oracle"
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
@@ -178,11 +179,11 @@ Function .onInit
 
   GetTempFileName $R0
   File /oname=$R0 "pv.exe"
-  nsExec::ExecToStack '"$R0" PCAL.exe'
+  nsExec::ExecToStack '"$R0" VICRIS.exe'
   Pop $0 # return value/error/timeout
   Pop $1 # printed text
   StrCmp $0 "0" 0 DontAbort
-    MessageBox MB_OK "PCAL è in esecuzione! Uscire dal programma e rieseguire l'aggiornamento."
+    MessageBox MB_OK "VICRIS è in esecuzione! Uscire dal programma e rieseguire l'aggiornamento."
     Abort
   DontAbort:
   
@@ -208,20 +209,20 @@ FunctionEnd
 Section Uninstall
   SetShellVarContext all
   Delete "$INSTDIR\Uninstall.exe"
-  Delete "$INSTDIR\PCAL.exe"
+  Delete "$INSTDIR\VICRIS.exe"
   Delete "$INSTDIR\User.exe"
   Delete "$INSTDIR\midas.dll"
   Delete "$INSTDIR\msvcr71.dll"
   Delete "$INSTDIR\ssleay32.dll"
   Delete "$INSTDIR\libeay32.dll"
 
-  Delete "$SMPROGRAMS\PCAL\Uninstall.lnk"
-  Delete "$SMPROGRAMS\PCAL\PCAL.lnk"
-  Delete "$SMPROGRAMS\PCAL\Users Admin.lnk"
+  Delete "$SMPROGRAMS\VICRIS\Uninstall.lnk"
+  Delete "$SMPROGRAMS\VICRIS\VICRIS.lnk"
+  Delete "$SMPROGRAMS\VICRIS\Users Admin.lnk"
 
-  Delete "$QUICKLAUNCH\PCAL.lnk"
+  Delete "$QUICKLAUNCH\VICRIS.lnk"
   Delete "$QUICKLAUNCH\Users Admin.lnk"
-  Delete "$DESKTOP\PCAL.lnk"
+  Delete "$DESKTOP\VICRIS.lnk"
 
   Delete "$INSTDIR\Oracle\orannzsbb10.dll"
   Delete "$INSTDIR\Oracle\oraociei10.dll"
@@ -232,7 +233,7 @@ Section Uninstall
   ; Elimino le chiavi di registro
 ;  DeleteRegKey HKLM "Software\ORACLE"
 
-  RMDir /r "$SMPROGRAMS\PCAL"
+  RMDir /r "$SMPROGRAMS\VICRIS"
   RMDir "$INSTDIR\Oracle"
   RMDir "$INSTDIR"
 
