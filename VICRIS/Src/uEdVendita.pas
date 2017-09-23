@@ -8,7 +8,7 @@ uses
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
   Menus, ActnList, StdCtrls, Buttons, ExtCtrls, udmEdVendita, udmSearch,
   Mask, DBCtrls, DBSearch, ComCtrls, DBEditDateTimePicker, Grids, DBGrids,
-  CRGrid, DBGridAux;
+  CRGrid, DBGridAux, DB;
 
 type
   TfmEdVendita = class(TfmEdit)
@@ -43,6 +43,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure nvMovimentiClick(Sender: TObject; Button: TNavigateBtn);
+    procedure nvMovimentiBeforeAction(Sender: TObject;
+      Button: TNavigateBtn);
   private
     { Private declarations }
   public
@@ -77,18 +79,13 @@ begin
     if (Button = nbEdit)   or
        (Button = nbInsert) then
     begin
-      dmDsPost(cdsVendita);
-      dmDsApplyUpdates(cdsVendita);
-      //dmDsRefresh(cdsVendita);
       dmDsEdit(cdsVendita);
       dmDsEdit(cdsMovimenti);
+      deProdotto.SetFocus;
     end;
 
-    if (Button = nbRefresh)   then
-    begin
-      dmDsPost(cdsMovimenti);
-      dmDsApplyUpdates(cdsMovimenti);
-    end;
+    if Button = nbInsert then
+      deDesProdotto.Text := '';
 
     if (Button = nbPost)   or
        (Button = nbDelete) then
@@ -99,6 +96,28 @@ begin
         dmDsRefresh(cdsMovimenti);
       end;
     end
+  end;
+end;
+
+procedure TfmEdVendita.nvMovimentiBeforeAction(Sender: TObject;
+  Button: TNavigateBtn);
+begin
+  inherited;
+  with TdmEdVendita(hDataModule) do
+  begin
+    if (Button = nbEdit)   or
+       (Button = nbInsert) then
+    begin
+      dmDsPost(cdsVendita);
+      dmDsApplyUpdates(cdsVendita);
+    end;
+
+    if Button = nbRefresh then
+    begin
+      if cdsMovimenti.State in [dsEdit, dsInsert] then
+        dmDsCancel(cdsMovimenti);
+      dmDsApplyUpdates(cdsMovimenti);
+    end;
   end;
 end;
 

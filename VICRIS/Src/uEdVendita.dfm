@@ -430,6 +430,7 @@ inherited fmEdVendita: TfmEdVendita
     Align = alTop
     Flat = True
     TabOrder = 4
+    BeforeAction = nvMovimentiBeforeAction
     OnClick = nvMovimentiClick
   end
   object grMovimenti: TDBGridAux [5]

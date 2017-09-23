@@ -1,7 +1,7 @@
 inherited dmEdVendita: TdmEdVendita
   hDataSet = cdsVendita
   hKeyFields.Strings = (
-    'ID_VENDITA')
+    'id_vendita')
   Left = 819
   Top = 272
   Height = 234

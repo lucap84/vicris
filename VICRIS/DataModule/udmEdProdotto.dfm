@@ -1,7 +1,7 @@
 inherited dmEdProdotto: TdmEdProdotto
   hDataSet = cdsProdotto
   hKeyFields.Strings = (
-    'ID_PRODOTTO')
+    'id_prodotto')
   Height = 218
   Width = 320
   inherited OraSession: TOraSession

@@ -1,7 +1,7 @@
 inherited dmBrSubMandante: TdmBrSubMandante
   hDataSet = qySubMandante
   hKeyFields.Strings = (
-    'ID_SUBMANDANTE')
+    'id_submandante')
   Height = 124
   Width = 185
   object qySubMandante: TOraQuery

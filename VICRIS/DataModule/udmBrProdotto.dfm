@@ -1,7 +1,7 @@
 inherited dmBrProdotto: TdmBrProdotto
   hDataSet = qyProdotto
   hKeyFields.Strings = (
-    'ID_PRODOTTO')
+    'id_prodotto')
   Left = 448
   Top = 152
   Height = 148

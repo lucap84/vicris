@@ -1,7 +1,7 @@
 inherited dmEdSubMandante: TdmEdSubMandante
   hDataSet = cdsSubMandante
   hKeyFields.Strings = (
-    'ID_SUBMANDANTE')
+    'id_submandante')
   Height = 176
   Width = 428
   inherited OraSession: TOraSession
