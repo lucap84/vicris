@@ -96,14 +96,14 @@ Section /o "File di Oracle" SEC03
   File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\oci.dll"
   File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\tnsnames.ora"
   ; Scrivo le chiavi di registro
-  ReadRegStr $0 HKLM "c:\Software\ORACLE" "ORACLE_HOME"
+  ReadRegStr $0 HKLM "Software\ORACLE" "ORACLE_HOME"
   StrCmp $0 "" 0 +3
-    WriteRegStr HKLM "c:\Software\ORACLE" "ORACLE_HOME"      "$INSTDIR\Oracle"
-    WriteRegStr HKLM "c:\Software\ORACLE" "TNS_ADMIN"        "$INSTDIR\Oracle"
-  WriteRegStr HKLM "c:\Software\ORACLE"   "NLS_LANG"         "ITALIAN_ITALY.WE8ISO8859P15"
-  WriteRegStr HKLM "c:\Software\ORACLE"   "NLS_SORT"         "BINARY"
-  WriteRegStr HKLM "c:\Software\ORACLE"   "NLS_DATE_FORMAT"  "DD-MM-YYYY"
-  WriteRegStr HKLM "c:\Software\ORACLE"   "ORACLE_HOME_NAME" "OraHome"
+    WriteRegStr HKLM "Software\ORACLE" "ORACLE_HOME"     "$INSTDIR\Oracle"
+    WriteRegStr HKLM "Software\ORACLE" "TNS_ADMIN"       "$INSTDIR\Oracle"
+  WriteRegStr HKLM "Software\ORACLE" "NLS_LANG"        "ITALIAN_ITALY.WE8ISO8859P15"
+  WriteRegStr HKLM "Software\ORACLE" "NLS_SORT"        "BINARY"
+  WriteRegStr HKLM "Software\ORACLE" "NLS_DATE_FORMAT" "DD-MM-YYYY"
+  WriteRegStr HKLM "Software\ORACLE"   "ORACLE_HOME_NAME" "OraHome"
 SectionEnd
 
 Section -AdditionalIcons
@@ -231,7 +231,7 @@ Section Uninstall
   Delete "$INSTDIR\Oracle"
   
   ; Elimino le chiavi di registro
-;  DeleteRegKey HKLM "c:\Software\ORACLE"
+;  DeleteRegKey HKLM "Software\ORACLE"
 
   RMDir /r "$SMPROGRAMS\VICRIS"
   RMDir "$INSTDIR\Oracle"
