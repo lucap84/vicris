@@ -68,6 +68,7 @@ type
     deDesLocalita: TEdit;
     deProvincia: TDBSearch;
     deDesProvincia: TEdit;
+    ckFlagActive: TDBCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   public

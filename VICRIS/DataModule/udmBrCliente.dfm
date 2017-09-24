@@ -146,6 +146,13 @@ inherited dmBrCliente: TdmBrCliente
       FieldName = 'LOCALITA'
       Size = 100
     end
+    object qyClienteFLAG_ACTIVE: TStringField
+      FieldName = 'FLAG_ACTIVE'
+      Required = True
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
   end
   object dsCliente: TDataSource
     DataSet = qyCliente

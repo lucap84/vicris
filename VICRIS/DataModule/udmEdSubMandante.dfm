@@ -51,6 +51,12 @@ inherited dmEdSubMandante: TdmEdSubMandante
     object cdsSubMandanteDAT_AGG_REC: TDateTimeField
       FieldName = 'DAT_AGG_REC'
     end
+    object cdsSubMandanteFLAG_ACTIVE: TStringField
+      FieldName = 'FLAG_ACTIVE'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
   end
   object dsSubMandante: TDataSource
     DataSet = cdsSubMandante

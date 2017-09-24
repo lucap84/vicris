@@ -53,6 +53,12 @@ inherited dmEdProdotto: TdmEdProdotto
     object cdsProdottoDAT_AGG_REC: TDateTimeField
       FieldName = 'DAT_AGG_REC'
     end
+    object cdsProdottoFLAG_ACTIVE: TStringField
+      FieldName = 'FLAG_ACTIVE'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
   end
   object dsProdotto: TDataSource
     DataSet = cdsProdotto

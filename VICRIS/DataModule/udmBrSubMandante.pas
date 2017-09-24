@@ -15,6 +15,7 @@ type
     qySubMandanteDES_PDL: TStringField;
     qySubMandanteDAT_AGG_REC: TDateTimeField;
     qySubMandanteSUBMANDANTE: TStringField;
+    qySubMandanteFLAG_ACTIVE: TStringField;
   private
     { Private declarations }
   public

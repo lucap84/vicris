@@ -36,12 +36,11 @@ type
     cdsMandanteDES_PDL: TStringField;
     cdsMandanteDAT_AGG_REC: TDateTimeField;
     cdsMandanteID_PROVINCIA: TFloatField;
-  private
-    { Private declarations }
+    cdsMandanteFLAG_ACTIVE: TStringField;
   protected
-    function dmCheckValidateData: boolean; override;
-  public
-    { Public declarations }
+    function  dmCheckValidateData: boolean; override;
+
+    procedure dmAfterInsert(DataSet: TDataSet); override;
   end;
 
 var
@@ -52,6 +51,13 @@ implementation
 {$R *.dfm}
 
 { TdmEdMandante }
+
+procedure TdmEdMandante.dmAfterInsert(DataSet: TDataSet);
+begin
+  inherited;
+  if DataSet = cdsMandante then
+    cdsMandanteFLAG_ACTIVE.AsString := '1';
+end;
 
 function TdmEdMandante.dmCheckValidateData: boolean;
 var

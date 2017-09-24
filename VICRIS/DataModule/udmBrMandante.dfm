@@ -134,6 +134,13 @@ inherited dmBrMandante: TdmBrMandante
       FieldName = 'PROVINCIA'
       Size = 2
     end
+    object qyMandanteFLAG_ACTIVE: TStringField
+      FieldName = 'FLAG_ACTIVE'
+      Required = True
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
   end
   object dsMandante: TDataSource
     DataSet = qyMandante

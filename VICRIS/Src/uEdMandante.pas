@@ -61,6 +61,7 @@ type
     Label1: TLabel;
     deProvincia: TDBSearch;
     deDesProvincia: TEdit;
+    ckFlagActive: TDBCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private

@@ -122,6 +122,12 @@ inherited dmEdMandante: TdmEdMandante
     object cdsMandanteID_PROVINCIA: TFloatField
       FieldName = 'ID_PROVINCIA'
     end
+    object cdsMandanteFLAG_ACTIVE: TStringField
+      FieldName = 'FLAG_ACTIVE'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
   end
   object dsMandante: TDataSource
     DataSet = cdsMandante

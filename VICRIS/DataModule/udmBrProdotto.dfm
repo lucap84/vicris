@@ -84,6 +84,13 @@ inherited dmBrProdotto: TdmBrProdotto
       FieldName = 'CATEGORIA'
       Size = 150
     end
+    object qyProdottoFLAG_ACTIVE: TStringField
+      FieldName = 'FLAG_ACTIVE'
+      Required = True
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
   end
   object dsProdotto: TDataSource
     DataSet = qyProdotto

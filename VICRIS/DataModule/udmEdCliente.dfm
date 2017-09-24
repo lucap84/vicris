@@ -126,6 +126,12 @@ inherited dmEdCliente: TdmEdCliente
     object cdsClienteID_LOCALITA: TFloatField
       FieldName = 'ID_LOCALITA'
     end
+    object cdsClienteFLAG_ACTIVE: TStringField
+      FieldName = 'FLAG_ACTIVE'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
   end
   object dsCliente: TDataSource
     DataSet = cdsCliente

@@ -35,6 +35,13 @@ inherited dmBrSubMandante: TdmBrSubMandante
       FieldName = 'DAT_AGG_REC'
       Visible = False
     end
+    object qySubMandanteFLAG_ACTIVE: TStringField
+      FieldName = 'FLAG_ACTIVE'
+      Required = True
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
   end
   object dsSubMandante: TDataSource
     DataSet = qySubMandante

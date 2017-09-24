@@ -48,13 +48,10 @@ type
     cdsCommentiCOD_USR: TStringField;
     cdsCommentiDES_PDL: TStringField;
     cdsCommentiDAT_AGG_REC: TDateTimeField;
-  private
-    { Private declarations }
+    cdsClienteFLAG_ACTIVE: TStringField;
   protected
     function dmCheckValidateData: boolean; override;
     procedure dmAfterInsert(DataSet: TDataSet); override;
-  public
-    { Public declarations }
   end;
 
 var
@@ -69,6 +66,9 @@ implementation
 procedure TdmEdCliente.dmAfterInsert(DataSet: TDataSet);
 begin
   inherited;
+  if DataSet = cdsCliente then
+    cdsClienteFLAG_ACTIVE.AsString := '1';
+
   if DataSet = cdsCommenti then
     cdsCommentiID_COMMENTO.AsInteger := dmGlobal.GetNpaDet;
 end;

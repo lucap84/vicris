@@ -2,10 +2,10 @@ inherited fmEdProdotto: TfmEdProdotto
   Left = 302
   Top = 179
   Width = 760
-  Height = 320
+  Height = 355
   ActiveControl = deProdotto
   Caption = 'Prodotto'
-  Constraints.MinHeight = 320
+  Constraints.MinHeight = 355
   Constraints.MinWidth = 760
   OldCreateOrder = True
   OnCreate = FormCreate
@@ -92,9 +92,9 @@ inherited fmEdProdotto: TfmEdProdotto
     ParentFont = False
   end
   inherited pnTools: TPanel
-    Top = 224
+    Top = 259
     Width = 744
-    TabOrder = 9
+    TabOrder = 10
     inherited bbCommit: TBitBtn
       Left = 179
     end
@@ -257,6 +257,28 @@ inherited fmEdProdotto: TfmEdProdotto
     ParentFont = False
     ReadOnly = True
     TabOrder = 7
+  end
+  object ckFlagActive: TDBCheckBox [16]
+    Left = 312
+    Top = 223
+    Width = 105
+    Height = 33
+    Alignment = taLeftJustify
+    Anchors = [akLeft]
+    Caption = 'STATO'
+    Color = clBtnFace
+    DataField = 'FLAG_ACTIVE'
+    DataSource = dmEdProdotto.dsProdotto
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 9
+    ValueChecked = '1'
+    ValueUnchecked = '0'
   end
   inherited alEdit: TActionList
     Left = 720

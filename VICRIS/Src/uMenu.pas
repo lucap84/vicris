@@ -58,6 +58,7 @@ type
     acAnlVen: TAction;
     miAnalisi: TMenuItem;
     miAnlVen: TMenuItem;
+    sbAnalisiVendite: TSpeedButton;
     procedure acCommonUpdate(Sender: TObject);
     procedure acExitExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);

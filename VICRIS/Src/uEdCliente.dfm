@@ -2,10 +2,10 @@ inherited fmEdCliente: TfmEdCliente
   Left = 316
   Top = 146
   Width = 760
-  Height = 610
+  Height = 650
   ActiveControl = deNome
   Caption = 'Cliente'
-  Constraints.MinHeight = 610
+  Constraints.MinHeight = 650
   Constraints.MinWidth = 760
   OldCreateOrder = True
   OnCreate = FormCreate
@@ -14,7 +14,7 @@ inherited fmEdCliente: TfmEdCliente
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnTools: TPanel
-    Top = 514
+    Top = 554
     Width = 744
     inherited bbCommit: TBitBtn
       Left = 250
@@ -36,7 +36,7 @@ inherited fmEdCliente: TfmEdCliente
     Left = 0
     Top = 0
     Width = 744
-    Height = 514
+    Height = 554
     ActivePage = teCliente
     Align = alClient
     TabOrder = 1
@@ -44,7 +44,7 @@ inherited fmEdCliente: TfmEdCliente
       Caption = 'Cliente'
       DesignSize = (
         736
-        486)
+        526)
       object laNome: TLabel
         Left = 8
         Top = 10
@@ -656,6 +656,28 @@ inherited fmEdCliente: TfmEdCliente
         ReadOnly = True
         TabOrder = 9
         Text = 'deDesLocalita'
+      end
+      object ckFlagActive: TDBCheckBox
+        Left = 312
+        Top = 488
+        Width = 105
+        Height = 33
+        Alignment = taLeftJustify
+        Anchors = [akLeft]
+        Caption = 'STATO'
+        Color = clBtnFace
+        DataField = 'FLAG_ACTIVE'
+        DataSource = dmEdCliente.dsCliente
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 22
+        ValueChecked = '1'
+        ValueUnchecked = '0'
       end
     end
     object teCommenti: TTabSheet

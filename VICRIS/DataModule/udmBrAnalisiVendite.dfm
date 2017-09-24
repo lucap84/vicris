@@ -24,7 +24,9 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       '   AND C.ID_PROVINCIA   = PN.ID_PROVINCIA   (+)'
       '   '
       '   -- Data Vendita Range'
-      '   AND V.DATA_VENDITA   BETWEEN :DATA_INIZIO AND :DATA_FINE'
+      
+        '   AND TRUNC(V.DATA_VENDITA)   BETWEEN :DATA_INIZIO AND :DATA_FI' +
+        'NE'
       '   -- Cliente'
       '   AND C.ID_CLIENTE     = NVL(:ID_CLIENTE, C.ID_CLIENTE)'
       '   -- Mandante'

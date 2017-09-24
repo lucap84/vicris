@@ -36,6 +36,7 @@ type
     qyClienteID_LOCALITA: TFloatField;
     qyClientePROVINCIA: TStringField;
     qyClienteLOCALITA: TStringField;
+    qyClienteFLAG_ACTIVE: TStringField;
   end;
 
 var

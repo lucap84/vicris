@@ -26,6 +26,7 @@ type
     deDesMandante: TEdit;
     deDesCategoria: TEdit;
     deDesSubmandante: TEdit;
+    ckFlagActive: TDBCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private

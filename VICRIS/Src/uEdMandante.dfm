@@ -2,10 +2,10 @@ inherited fmEdMandante: TfmEdMandante
   Left = 589
   Top = 229
   Width = 760
-  Height = 520
+  Height = 570
   ActiveControl = deMandante
   Caption = 'Mandante'
-  Constraints.MinHeight = 520
+  Constraints.MinHeight = 570
   Constraints.MinWidth = 760
   OldCreateOrder = True
   OnCreate = FormCreate
@@ -15,7 +15,7 @@ inherited fmEdMandante: TfmEdMandante
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnTools: TPanel
-    Top = 424
+    Top = 474
     Width = 744
     inherited bbCommit: TBitBtn
       Left = 250
@@ -37,7 +37,7 @@ inherited fmEdMandante: TfmEdMandante
     Left = 0
     Top = 0
     Width = 744
-    Height = 424
+    Height = 474
     ActivePage = teMandante
     Align = alClient
     TabOrder = 1
@@ -45,7 +45,7 @@ inherited fmEdMandante: TfmEdMandante
       Caption = 'Mandante'
       DesignSize = (
         736
-        396)
+        446)
       object laNome: TLabel
         Left = 8
         Top = 10
@@ -583,6 +583,28 @@ inherited fmEdMandante: TfmEdMandante
         ReadOnly = True
         TabOrder = 5
         Text = 'deDesProvincia'
+      end
+      object ckFlagActive: TDBCheckBox
+        Left = 312
+        Top = 403
+        Width = 105
+        Height = 33
+        Alignment = taLeftJustify
+        Anchors = [akLeft]
+        Caption = 'STATO'
+        Color = clBtnFace
+        DataField = 'FLAG_ACTIVE'
+        DataSource = dmEdMandante.dsMandante
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 19
+        ValueChecked = '1'
+        ValueUnchecked = '0'
       end
     end
   end

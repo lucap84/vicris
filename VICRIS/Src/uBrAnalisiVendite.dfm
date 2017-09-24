@@ -1,10 +1,11 @@
 inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
-  Left = 281
-  Top = 280
+  Left = 445
+  Top = 202
   Caption = 'Analisi Vendite'
   OldCreateOrder = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  hFirstActiveControl = grBrowse
   PixelsPerInch = 96
   TextHeight = 13
   object Label10: TLabel [0]
@@ -35,7 +36,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     Align = alLeft
     BevelOuter = bvNone
     TabOrder = 2
-    object Label1: TLabel
+    object laDataVendita: TLabel
       Left = 8
       Top = 40
       Width = 75
@@ -49,7 +50,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label2: TLabel
+    object laDataInizio: TLabel
       Left = 8
       Top = 57
       Width = 75
@@ -64,7 +65,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label3: TLabel
+    object laDataFine: TLabel
       Left = 8
       Top = 82
       Width = 75
@@ -79,7 +80,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label4: TLabel
+    object laClienti: TLabel
       Left = 8
       Top = 112
       Width = 75
@@ -93,7 +94,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label5: TLabel
+    object laMandanti: TLabel
       Left = 8
       Top = 137
       Width = 75
@@ -107,7 +108,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label6: TLabel
+    object laSubmandanti: TLabel
       Left = 8
       Top = 162
       Width = 75
@@ -121,7 +122,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label7: TLabel
+    object laPrezzoVendita: TLabel
       Left = 8
       Top = 216
       Width = 129
@@ -135,7 +136,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label8: TLabel
+    object laPrezzoInizio: TLabel
       Left = 8
       Top = 235
       Width = 75
@@ -150,7 +151,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label9: TLabel
+    object laPrezzoFine: TLabel
       Left = 8
       Top = 258
       Width = 75
@@ -165,7 +166,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label11: TLabel
+    object laCategoria: TLabel
       Left = 8
       Top = 186
       Width = 75
@@ -199,7 +200,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     object dtDataInizio: TDateTimePicker
       Left = 95
       Top = 55
-      Width = 92
+      Width = 145
       Height = 21
       Date = 43001.442648865740000000
       Time = 43001.442648865740000000
@@ -209,7 +210,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     object dtDataFine: TDateTimePicker
       Left = 95
       Top = 80
-      Width = 92
+      Width = 145
       Height = 21
       Date = 43001.442648865740000000
       Time = 43001.442648865740000000
@@ -247,33 +248,33 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       TabOrder = 5
     end
     object dePrezzoInizio: TEdit
-      Left = 96
+      Left = 95
       Top = 232
-      Width = 121
-      Height = 21
-      TabOrder = 6
-      OnChange = FiltersChange
-      OnKeyPress = PrezzoKeyPress
-    end
-    object dePrezzoFine: TEdit
-      Left = 96
-      Top = 256
-      Width = 121
+      Width = 145
       Height = 21
       TabOrder = 7
       OnChange = FiltersChange
       OnKeyPress = PrezzoKeyPress
     end
-  end
-  object cbCategoria: TDBLookupComboBox [4]
-    Left = 95
-    Top = 184
-    Width = 145
-    Height = 21
-    KeyField = 'ID_CATEGORIA'
-    ListField = 'CATEGORIA'
-    ListSource = dmBrAnalisiVendite.dsCategoria
-    TabOrder = 3
+    object dePrezzoFine: TEdit
+      Left = 95
+      Top = 256
+      Width = 145
+      Height = 21
+      TabOrder = 8
+      OnChange = FiltersChange
+      OnKeyPress = PrezzoKeyPress
+    end
+    object cbCategoria: TDBLookupComboBox
+      Left = 95
+      Top = 184
+      Width = 145
+      Height = 21
+      KeyField = 'ID_CATEGORIA'
+      ListField = 'CATEGORIA'
+      ListSource = dmBrAnalisiVendite.dsCategoria
+      TabOrder = 6
+    end
   end
   inherited alBrowse: TActionList
     Left = 8

@@ -65,6 +65,8 @@ type
     procedure ppHeaderBand1BeforePrint(Sender: TObject);
     procedure ppFooterBand1BeforePrint(Sender: TObject);
     procedure rpBrowsePrintingComplete(Sender: TObject);
+    procedure grBrowseDrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
   private
     { Private declarations }
     FPrintToFile : boolean;
@@ -331,6 +333,22 @@ begin
   Self.hEditForm.hDataModule.hKeyValues.Assign(Self.hDataModule.hKeyValues);
   TdmEdit(Self.hEditForm.hDataModule).dmView;
   Self.hEditForm.SetEditState(hdmView);
+end;
+
+procedure TfmBrowse.grBrowseDrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn;
+  State: TGridDrawState);
+begin
+  if Assigned(grBrowse.DataSource)         and
+     Assigned(grBrowse.DataSource.DataSet) and
+     Assigned(grBrowse.DataSource.DataSet.FindField('Flag_Active'))          and
+     (grBrowse.DataSource.DataSet.FieldByName('Flag_Active').AsString = '0') then
+  begin
+    grBrowse.Canvas.Brush.Color := clRed;
+    grBrowse.Canvas.Font.Color  := clWhite;
+  end;
+
+  grBrowse.DefaultDrawColumnCell(Rect, DataCol, Column, State);
 end;
 
 procedure TfmBrowse.grBrowseGetCellParams(Sender: TObject; Field: TField;

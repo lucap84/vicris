@@ -66,8 +66,8 @@ implementation
 
 procedure TdmBrAnalisiVendite.dmDoFilter;
 begin
-  qyAnalisiVendite.ParamByName('Data_Inizio').AsDateTime := hDataIni;
-  qyAnalisiVendite.ParamByName('Data_Fine').AsDateTime   := hDataFin;
+  qyAnalisiVendite.ParamByName('Data_Inizio').AsDate := hDataIni;
+  qyAnalisiVendite.ParamByName('Data_Fine').AsDate   := hDataFin;
   qyAnalisiVendite.ParamByName('Prezzo_Inizio').AsFloat  := hPrezzoIni;
   qyAnalisiVendite.ParamByName('Prezzo_Fine').AsFloat    := hPrezzoFin;
 

@@ -34,6 +34,7 @@ type
     qyMandanteBANCA: TStringField;
     qyMandanteID_PROVINCIA: TFloatField;
     qyMandantePROVINCIA: TStringField;
+    qyMandanteFLAG_ACTIVE: TStringField;
   private
     { Private declarations }
   public

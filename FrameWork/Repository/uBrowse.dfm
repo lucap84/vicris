@@ -3223,6 +3223,7 @@ object fmBrowse: TfmBrowse
     TitleFont.Height = -16
     TitleFont.Name = 'MS Sans Serif'
     TitleFont.Style = [fsBold]
+    OnDrawColumnCell = grBrowseDrawColumnCell
     OnDblClick = acViewExecute
   end
   object alBrowse: TActionList

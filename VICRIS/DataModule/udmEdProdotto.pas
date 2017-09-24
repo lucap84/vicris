@@ -22,10 +22,9 @@ type
     cdsProdottoDES_PDL: TStringField;
     cdsProdottoDAT_AGG_REC: TDateTimeField;
     cdsProdottoID_SUBMANDANTE: TFloatField;
-  private
-    { Private declarations }
-  public
-    { Public declarations }
+    cdsProdottoFLAG_ACTIVE: TStringField;
+  protected
+    procedure dmAfterInsert(DataSet: TDataSet); override;
   end;
 
 var
@@ -34,5 +33,14 @@ var
 implementation
 
 {$R *.dfm}
+
+{ TdmEdProdotto }
+
+procedure TdmEdProdotto.dmAfterInsert(DataSet: TDataSet);
+begin
+  inherited;
+  if DataSet = cdsProdotto then
+    cdsProdottoFLAG_ACTIVE.AsString := '1';
+end;
 
 end.

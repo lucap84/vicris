@@ -17,10 +17,9 @@ type
     cdsSubMandanteDES_PDL: TStringField;
     cdsSubMandanteDAT_AGG_REC: TDateTimeField;
     cdsSubMandanteSUBMANDANTE: TStringField;
-  private
-    { Private declarations }
-  public
-    { Public declarations }
+    cdsSubMandanteFLAG_ACTIVE: TStringField;
+  protected
+    procedure dmAfterInsert(DataSet: TDataSet); override;
   end;
 
 var
@@ -29,5 +28,14 @@ var
 implementation
 
 {$R *.dfm}
+
+{ TdmEdSubMandante }
+
+procedure TdmEdSubMandante.dmAfterInsert(DataSet: TDataSet);
+begin
+  inherited;
+  if DataSet = cdsSubmandante then
+    cdsSubmandanteFLAG_ACTIVE.AsString := '1';
+end;
 
 end.

@@ -7,12 +7,13 @@ uses
   Dialogs, uEdit, ppVar, ppBands, ppCtrls, ppPrnabl, ppClass, ppCache,
   ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE, Menus,
   ActnList, StdCtrls, Buttons, ExtCtrls, Mask, DBCtrls,
-  udmEdSubMandante;
+  udmEdSubMandante, TXComp;
 
 type
   TfmEdSubMandante = class(TfmEdit)
     laDescrizione: TLabel;
     deDescrizione: TDBEdit;
+    ckFlagActive: TDBCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private

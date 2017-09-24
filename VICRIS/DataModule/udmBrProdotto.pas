@@ -23,6 +23,7 @@ type
     qyProdottoMANDANTE: TStringField;
     qyProdottoCATEGORIA: TStringField;
     qyProdottoSUBMANDANTE: TStringField;
+    qyProdottoFLAG_ACTIVE: TStringField;
   private
     { Private declarations }
   public
