@@ -29,6 +29,7 @@ object dmSearch: TdmSearch
       
         ' WHERE ID_CLIENTE BETWEEN NVL(:ID_CLIENTE, 0) AND NVL(:ID_CLIENT' +
         'E, 999999999999)'
+      '   AND FLAG_ACTIVE = '#39'1'#39
       ' ORDER BY NOME')
     FetchAll = True
     Left = 64
@@ -78,6 +79,7 @@ object dmSearch: TdmSearch
       
         ' WHERE ID_MANDANTE BETWEEN NVL(:ID_MANDANTE, 0) AND NVL(:ID_MAND' +
         'ANTE, 999999999999)'
+      '   AND FLAG_ACTIVE = '#39'1'#39
       ' ORDER BY MANDANTE')
     Left = 120
     Top = 104
@@ -186,9 +188,11 @@ object dmSearch: TdmSearch
       
         ' WHERE P.ID_PRODOTTO BETWEEN NVL(:ID_PRODOTTO, 0) AND NVL(:ID_PR' +
         'ODOTTO, 999999999999)'
-      '   AND P.ID_MANDANTE    = M.ID_MANDANTE  (+)'
-      '   AND P.ID_CATEGORIA   = C.ID_CATEGORIA (+)'
-      '   AND P.ID_SUBMANDANTE = S.ID_SUBMANDANTE (+)'
+      '   AND P.ID_MANDANTE           = M.ID_MANDANTE  (+)'
+      '   AND P.ID_CATEGORIA          = C.ID_CATEGORIA (+)'
+      '   AND P.ID_SUBMANDANTE        = S.ID_SUBMANDANTE (+)'
+      '   AND P.FLAG_ACTIVE           = '#39'1'#39
+      '   AND NVL(M.FLAG_ACTIVE, '#39'1'#39') = '#39'1'#39
       ' ORDER BY P.PRODOTTO')
     Left = 128
     Top = 160
@@ -250,6 +254,7 @@ object dmSearch: TdmSearch
       
         ' WHERE ID_SUBMANDANTE BETWEEN NVL(:ID_SUBMANDANTE, 0) AND NVL(:I' +
         'D_SUBMANDANTE, 999999999999)'
+      '   AND FLAG_ACTIVE = '#39'1'#39
       ' ORDER BY SUBMANDANTE')
     Left = 192
     Top = 160
@@ -257,7 +262,6 @@ object dmSearch: TdmSearch
       item
         DataType = ftUnknown
         Name = 'ID_SUBMANDANTE'
-        Value = Null
       end>
     object qySubManID_SUBMANDANTE: TFloatField
       DisplayLabel = 'Id'

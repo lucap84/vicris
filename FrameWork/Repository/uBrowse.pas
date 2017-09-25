@@ -233,6 +233,13 @@ begin
   if Assigned(grBrowse.DataSource) and
      Assigned(grBrowse.DataSource.DataSet) then
   begin
+    grBrowse.DataSource.DataSet.Filtered := False;
+    if Assigned(grBrowse.DataSource.DataSet.FindField('Flag_Active')) then
+    begin
+      grBrowse.DataSource.DataSet.Filter   := 'FLAG_ACTIVE = '+QuotedStr('1');
+      grBrowse.DataSource.DataSet.Filtered := True;
+    end;
+
     plBrowse.DataSource := grBrowse.DataSource;
     plBrowse.ClearBookmarkList;
     if Assigned(grBrowse.SelectedRows) and
@@ -245,6 +252,7 @@ begin
     rpBrowse.PrinterSetup.DocumentName := Self.Caption + '_' + FormatDateTime('mm/dd/yyyy hh:mm:ss', Now);
     rpBrowse.PrinterSetup.PrinterName := 'Screen';
     rpBrowse.Print;
+    grBrowse.DataSource.DataSet.Filtered := False;
   end;
 end;
 

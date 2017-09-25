@@ -11,7 +11,6 @@ inherited fmEdMandante: TfmEdMandante
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   hFirstActiveControl = deMandante
-  hReport = rpEdit
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnTools: TPanel
