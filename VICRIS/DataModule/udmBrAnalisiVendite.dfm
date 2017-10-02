@@ -29,20 +29,33 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
         'NE'
       '   -- Cliente'
       '   AND C.ID_CLIENTE     = NVL(:ID_CLIENTE, C.ID_CLIENTE)'
+      
+        '   AND C.FLAG_ACTIVE    BETWEEN :FLAG_ACTIVE_CLI_INI AND :FLAG_A' +
+        'CTIVE_CLI_FIN'
       '   -- Mandante'
       
         '   AND NVL(F.ID_MANDANTE, -1)    = NVL(:ID_MANDANTE, NVL(F.ID_MA' +
         'NDANTE, -1))'
+      
+        '   AND C.FLAG_ACTIVE    BETWEEN :FLAG_ACTIVE_MAN_INI AND :FLAG_A' +
+        'CTIVE_MAN_FIN'
       '   -- Submandante'
       
         '   AND NVL(SF.ID_SUBMANDANTE, -1) = NVL(:ID_SUBMANDANTE, NVL(SF.' +
         'ID_SUBMANDANTE, -1))'
+      
+        '   AND C.FLAG_ACTIVE    BETWEEN :FLAG_ACTIVE_SUB_INI AND :FLAG_A' +
+        'CTIVE_SUB_FIN'
       '   -- Categoria'
       
         '   AND NVL(CP.ID_CATEGORIA, -1) = NVL(:ID_CATEGORIA, NVL(CP.ID_C' +
         'ATEGORIA, -1))'
       '   -- Prezzo Vendita'
       '   AND M.PREZZO_VENDITA BETWEEN :PREZZO_INIZIO AND :PREZZO_FINE'
+      ''
+      
+        '   AND V.FLAG_VICRIS BETWEEN :FLAG_VICRIS_INI AND :FLAG_VICRIS_F' +
+        'IN'
       ''
       ' ORDER BY 2, 1 DESC')
     Left = 32
@@ -62,11 +75,35 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       end
       item
         DataType = ftUnknown
+        Name = 'FLAG_ACTIVE_CLI_INI'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'FLAG_ACTIVE_CLI_FIN'
+      end
+      item
+        DataType = ftUnknown
         Name = 'ID_MANDANTE'
       end
       item
         DataType = ftUnknown
+        Name = 'FLAG_ACTIVE_MAN_INI'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'FLAG_ACTIVE_MAN_FIN'
+      end
+      item
+        DataType = ftUnknown
         Name = 'ID_SUBMANDANTE'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'FLAG_ACTIVE_SUB_INI'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'FLAG_ACTIVE_SUB_FIN'
       end
       item
         DataType = ftUnknown
@@ -79,6 +116,14 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       item
         DataType = ftUnknown
         Name = 'PREZZO_FINE'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'FLAG_VICRIS_INI'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'FLAG_VICRIS_FIN'
       end>
     object qyAnalisiVenditeDATA_VENDITA: TDateTimeField
       DisplayLabel = 'Data Vendita'
@@ -163,9 +208,19 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       ' UNION'
       'SELECT ID_MANDANTE, MANDANTE, 1 ORD'
       '  FROM TB_MANDANTI'
+      ' WHERE FLAG_ACTIVE BETWEEN :FLAG_ACTIVE_INI AND :FLAG_ACTIVE_FIN'
       ' ORDER BY 3, 2')
     Left = 32
     Top = 88
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'FLAG_ACTIVE_INI'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'FLAG_ACTIVE_FIN'
+      end>
     object qyMandantiID_MANDANTE: TFloatField
       FieldName = 'ID_MANDANTE'
       Required = True
@@ -182,9 +237,19 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       ' UNION'
       'SELECT ID_SUBMANDANTE, SUBMANDANTE, 1 ORD'
       '  FROM TB_SUBMANDANTI'
+      ' WHERE FLAG_ACTIVE BETWEEN :FLAG_ACTIVE_INI AND :FLAG_ACTIVE_FIN'
       ' ORDER BY 3,2')
     Left = 32
     Top = 208
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'FLAG_ACTIVE_INI'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'FLAG_ACTIVE_FIN'
+      end>
     object qySubmandantiID_SUBMANDANTE: TFloatField
       FieldName = 'ID_SUBMANDANTE'
       Required = True
@@ -201,9 +266,19 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       ' UNION'
       'SELECT ID_CLIENTE, NOME, 1 ORD'
       '  FROM TB_CLIENTI'
+      ' WHERE FLAG_ACTIVE BETWEEN :FLAG_ACTIVE_INI AND :FLAG_ACTIVE_FIN'
       ' ORDER BY 3, 2')
     Left = 32
     Top = 144
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'FLAG_ACTIVE_INI'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'FLAG_ACTIVE_FIN'
+      end>
     object qyClientiID_CLIENTE: TFloatField
       FieldName = 'ID_CLIENTE'
       Required = True

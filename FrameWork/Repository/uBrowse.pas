@@ -186,7 +186,8 @@ begin
     begin
       hEditDataModule.hKeyValues.Assign(Self.hDataModule.hKeyValues);
       hEditDataModule.dmDelete;
-      hEditDataModule.dmCommit;
+      if not hEditDataModule.dmCommit then
+        ShowMessage('Record Non Cancellato!'); 
     end;
     hEditDataModule.Free;
     hEditDataModule := nil;

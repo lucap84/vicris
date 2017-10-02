@@ -67,7 +67,7 @@ inherited fmEdSubMandante: TfmEdSubMandante
     Width = 105
     Height = 33
     Alignment = taLeftJustify
-    Caption = 'STATO'
+    Caption = 'ATTIVO'
     Color = clBtnFace
     DataField = 'FLAG_ACTIVE'
     DataSource = dmEdSubMandante.dsSubMandante

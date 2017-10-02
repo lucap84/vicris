@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uBrowse, TXComp, ppVar, ppBands, ppCtrls, ppPrnabl, ppClass,
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
-  ActnList, Grids, DBGrids, DBGridAux, StdCtrls, Buttons, ExtCtrls,
+  ActnList, Grids, DBGrids, DBGridAux, StdCtrls, Buttons, ExtCtrls, Ora,
   udmBrAnalisiVendite, ComCtrls, uSupportLib, DBCtrls, ExportDS, SME2OLE,
   Menus, SME2Cell, SME2XLS;
 
@@ -38,6 +38,10 @@ type
     Label10: TLabel;
     laCategoria: TLabel;
     cbCategoria: TDBLookupComboBox;
+    rgFlagVicris: TRadioGroup;
+    rgClienti: TRadioGroup;
+    rgMandanti: TRadioGroup;
+    rgSubmandanti: TRadioGroup;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FiltersChange(Sender: TObject);
@@ -76,6 +80,8 @@ begin
 end;
 
 procedure TfmBrAnalisiVendite.FiltersChange(Sender: TObject);
+var
+  AQuery : TOraQuery;
 begin
   inherited;
   if Assigned(hDataModule) then
@@ -89,6 +95,44 @@ begin
         hPrezzoIni := StrToFloat(dePrezzoInizio.Text);
       if dePrezzoFine.Text <> '' then
         hPrezzoFin := StrToFloat(dePrezzoFine.Text);
+      hFlagVicris  := rgFlagVicris.ItemIndex;
+      hFlagAtvCli  := rgClienti.ItemIndex;
+      hFlagAtvMan  := rgMandanti.ItemIndex;
+      hFlagAtvSub  := rgSubmandanti.ItemIndex;
+
+      if (Sender = rgClienti)     or
+         (Sender = rgMandanti)    or
+         (Sender = rgSubmandanti) then
+      begin
+        if Sender = rgClienti then
+        begin
+          AQuery := qyClienti;
+          cbClienti.KeyValue     := -1;
+        end;
+
+        if Sender = rgMandanti then
+        begin
+          AQuery := qyMandanti;
+          cbMandanti.KeyValue    := -1;
+        end;
+
+        if Sender = rgSubmandanti then
+        begin
+          AQuery := qySubMandanti;
+          cbSubmandanti.KeyValue := -1;
+        end;
+
+        AQuery.ParamByName('Flag_Active_Ini').AsString := '0';
+        AQuery.ParamByName('Flag_Active_Fin').AsString := '1';
+        if TRadioGroup(Sender).ItemIndex <> 2 then
+        begin
+          AQuery.ParamByName('Flag_Active_Ini').AsString := IntToStr(TRadioGroup(Sender).ItemIndex);
+          AQuery.ParamByName('Flag_Active_Fin').AsString := IntToStr(TRadioGroup(Sender).ItemIndex);
+        end;
+
+        dmDsRefresh(AQuery);
+      end;
+
       dmDoFilter;
     end;
 end;
@@ -99,15 +143,22 @@ begin
   if Assigned(hDataModule) then
     with TdmBrAnalisiVendite(hDataModule) do
     begin
+      qyClienti.ParamByName('Flag_Active_Ini').AsString := '0';
+      qyClienti.ParamByName('Flag_Active_Fin').AsString := '1';
       dmDsOpen(qyClienti);
+      qyMandanti.ParamByName('Flag_Active_Ini').AsString := '0';
+      qyMandanti.ParamByName('Flag_Active_Fin').AsString := '1';
       dmDsOpen(qyMandanti);
+      qySubmandanti.ParamByName('Flag_Active_Ini').AsString := '0';
+      qySubmandanti.ParamByName('Flag_Active_Fin').AsString := '1';
       dmDsOpen(qySubmandanti);
       dmDsOpen(qyCategoria);
     end;
+
   cbClienti.KeyValue     := -1;
   cbMandanti.KeyValue    := -1;
   cbSubmandanti.KeyValue := -1;
-  cbCategoria.KeyValue := -1;
+  cbCategoria.KeyValue   := -1;
 
   FiltersChange(nil);
 end;

@@ -590,7 +590,7 @@ inherited fmEdMandante: TfmEdMandante
         Height = 33
         Alignment = taLeftJustify
         Anchors = [akLeft]
-        Caption = 'STATO'
+        Caption = 'ATTIVO'
         Color = clBtnFace
         DataField = 'FLAG_ACTIVE'
         DataSource = dmEdMandante.dsMandante

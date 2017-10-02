@@ -96,7 +96,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object laMandanti: TLabel
       Left = 8
-      Top = 137
+      Top = 185
       Width = 75
       Height = 13
       AutoSize = False
@@ -110,7 +110,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object laSubmandanti: TLabel
       Left = 8
-      Top = 162
+      Top = 258
       Width = 75
       Height = 13
       AutoSize = False
@@ -124,7 +124,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object laPrezzoVendita: TLabel
       Left = 8
-      Top = 216
+      Top = 344
       Width = 129
       Height = 13
       AutoSize = False
@@ -138,7 +138,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object laPrezzoInizio: TLabel
       Left = 8
-      Top = 235
+      Top = 363
       Width = 75
       Height = 13
       Alignment = taRightJustify
@@ -153,7 +153,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object laPrezzoFine: TLabel
       Left = 8
-      Top = 258
+      Top = 386
       Width = 75
       Height = 13
       Alignment = taRightJustify
@@ -168,7 +168,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object laCategoria: TLabel
       Left = 8
-      Top = 186
+      Top = 314
       Width = 75
       Height = 13
       AutoSize = False
@@ -229,7 +229,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object cbMandanti: TDBLookupComboBox
       Left = 95
-      Top = 135
+      Top = 183
       Width = 145
       Height = 21
       KeyField = 'ID_MANDANTE'
@@ -239,7 +239,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object cbSubmandanti: TDBLookupComboBox
       Left = 95
-      Top = 160
+      Top = 256
       Width = 145
       Height = 21
       KeyField = 'ID_SUBMANDANTE'
@@ -249,7 +249,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object dePrezzoInizio: TEdit
       Left = 95
-      Top = 232
+      Top = 360
       Width = 145
       Height = 21
       TabOrder = 7
@@ -258,7 +258,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object dePrezzoFine: TEdit
       Left = 95
-      Top = 256
+      Top = 384
       Width = 145
       Height = 21
       TabOrder = 8
@@ -267,13 +267,79 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object cbCategoria: TDBLookupComboBox
       Left = 95
-      Top = 184
+      Top = 312
       Width = 145
       Height = 21
       KeyField = 'ID_CATEGORIA'
       ListField = 'CATEGORIA'
       ListSource = dmBrAnalisiVendite.dsCategoria
       TabOrder = 6
+    end
+    object rgFlagVicris: TRadioGroup
+      Left = 8
+      Top = 416
+      Width = 233
+      Height = 51
+      Caption = ' Provenienza Vendita '
+      Columns = 3
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ItemIndex = 2
+      Items.Strings = (
+        'Labriola'
+        'Vicris'
+        'Entrambe')
+      ParentFont = False
+      TabOrder = 9
+      OnClick = FiltersChange
+    end
+    object rgClienti: TRadioGroup
+      Left = 8
+      Top = 131
+      Width = 233
+      Height = 30
+      Caption = ' Clienti '
+      Columns = 3
+      ItemIndex = 2
+      Items.Strings = (
+        'NON Attivi'
+        'Attivi'
+        'Entrambi')
+      TabOrder = 10
+      OnClick = FiltersChange
+    end
+    object rgMandanti: TRadioGroup
+      Left = 8
+      Top = 204
+      Width = 233
+      Height = 30
+      Caption = ' Mandanti '
+      Columns = 3
+      ItemIndex = 2
+      Items.Strings = (
+        'NON Attivi'
+        'Attivi'
+        'Entrambi')
+      TabOrder = 11
+      OnClick = FiltersChange
+    end
+    object rgSubmandanti: TRadioGroup
+      Left = 8
+      Top = 277
+      Width = 233
+      Height = 30
+      Caption = ' Submandanti '
+      Columns = 3
+      ItemIndex = 2
+      Items.Strings = (
+        'NON Attivi'
+        'Attivi'
+        'Entrambi')
+      TabOrder = 12
+      OnClick = FiltersChange
     end
   end
   inherited alBrowse: TActionList
@@ -288,21 +354,20 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
   end
   inherited plBrowse: TppBDEPipeline
-    Left = 8
-    Top = 440
+    Left = 40
+    Top = 472
   end
   inherited rpBrowse: TppReport
-    Left = 64
-    Top = 440
+    Left = 88
+    Top = 472
     DataPipelineName = 'plBrowse'
   end
   inherited rbExtraOptions: TExtraOptions
-    Left = 104
-    Top = 440
+    Top = 472
   end
   object puAnalisiVendite: TPopupMenu
-    Left = 144
-    Top = 312
+    Left = 216
+    Top = 472
     object piExpXls: TMenuItem
       Action = acExpXls
     end
@@ -332,14 +397,14 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     ExportStyle.Style = esNormal
     ExportStyle.OddColor = clBlack
     ExportStyle.EvenColor = clBlack
-    Left = 96
-    Top = 312
+    Left = 184
+    Top = 472
   end
   object sdExcel: TSaveDialog
     DefaultExt = 'xls'
     Filter = 'Cartella di lavoro Excel 97-2003|*.xls'
     Title = 'Salva con Nome...'
-    Left = 96
-    Top = 360
+    Left = 152
+    Top = 472
   end
 end

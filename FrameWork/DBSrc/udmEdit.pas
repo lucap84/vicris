@@ -110,49 +110,53 @@ begin
       dmGlobal.DimNumPrg(KeyStr, hKeyValues[hKeyValues.Count - 1]);
     if (hTipAttNum = hPrgAutAaa) and (not FhNumManPrv) then
       dmDimNumPrgCustom;
-    dmDsApplyUpdates(TClientDataSet(hDataSet));
+    Result := dmDsApplyUpdates(TClientDataSet(hDataSet));
   end;
-  if (hdmState in [hdmInsert, hdmEdit]) then
+
+  if Result then
   begin
-    if dmCheckValidateData then
+    if (hdmState in [hdmInsert, hdmEdit]) then
     begin
-      if dmPostAll then
+      if dmCheckValidateData then
       begin
-        if hdmState = hdmInsert then
+        if dmPostAll then
         begin
-          if (hTipAttNum = hPrgAut) and (not FhNumManPrv) then
+          if hdmState = hdmInsert then
           begin
-            NewCod := dmGlobal.AggNumPrg(KeyStr);
-            dmDsEdit(hDataSet);
-            hDataSet.FieldByName(hKeyFields[hKeyFields.Count - 1]).AsString := NewCod;
-            dmPostAll;
+            if (hTipAttNum = hPrgAut) and (not FhNumManPrv) then
+            begin
+              NewCod := dmGlobal.AggNumPrg(KeyStr);
+              dmDsEdit(hDataSet);
+              hDataSet.FieldByName(hKeyFields[hKeyFields.Count - 1]).AsString := NewCod;
+              dmPostAll;
+            end;
+            if (hTipAttNum = hPrgAutAaa) and (not FhNumManPrv) then
+            begin
+              NewCod := dmAggNumPrgCustom;
+              dmDsEdit(hDataSet);
+              hDataSet.FieldByName(hKeyFields[hKeyFields.Count - 1]).AsString := NewCod;
+              dmPostAll;
+            end;
           end;
-          if (hTipAttNum = hPrgAutAaa) and (not FhNumManPrv) then
-          begin
-            NewCod := dmAggNumPrgCustom;
-            dmDsEdit(hDataSet);
-            hDataSet.FieldByName(hKeyFields[hKeyFields.Count - 1]).AsString := NewCod;
-            dmPostAll;
-          end;
-        end;
-        getMainSession.Commit;
-        if hdmState = hdmInsert then
-          if (hTipAttNum in [hPrgAut, hPrgAutAaa]) and (not FhNumManPrv) then
-            MessageDlg('E'' stato inserito il record N° '+NewCod, mtInformation, [mbOK], 0);
-        if (hdmState in [hdmEdit, hdmDelete]) then
-          RemoveDmoLck;
+          getMainSession.Commit;
+          if hdmState = hdmInsert then
+            if (hTipAttNum in [hPrgAut, hPrgAutAaa]) and (not FhNumManPrv) then
+              MessageDlg('E'' stato inserito il record N° '+NewCod, mtInformation, [mbOK], 0);
+          if (hdmState in [hdmEdit, hdmDelete]) then
+            RemoveDmoLck;
+        end
+        else
+          Result := False;
       end
       else
         Result := False;
-    end
-    else
-      Result := False;
-
-    if not Result then
-    begin
-      if (hdmState in [hdmEdit, hdmDelete]) then
-        RemoveDmoLck;
     end;
+  end;
+
+  if not Result then
+  begin
+    if (hdmState in [hdmEdit, hdmDelete]) then
+      RemoveDmoLck;
   end;
 end;
 

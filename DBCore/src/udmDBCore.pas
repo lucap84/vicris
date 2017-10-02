@@ -3,7 +3,7 @@ unit udmDBCore;
 interface
 
 uses
-  Windows, Classes, SysUtils, DB, DBClient, Forms, Ora, uSupportLib, Variants;
+  Windows, Classes, SysUtils, DB, DBClient, Forms, Ora, uSupportLib, Variants, OraError;
 
 const
   CrLf = #13#10;
@@ -143,11 +143,15 @@ begin
   try
     try
       DataSet.ApplyUpdates(-1);
-    except
+    finally
+      Result := True;
+    end;
+  except
+    on E : Exception do
+    begin
+      MessageDlg(E.Message, mtWarning, [mbOK], 0);
       Result := False;
     end;
-  finally
-    Result := True;
   end;
 end;
 
@@ -156,15 +160,15 @@ begin
   try
     try
       DataSet.Delete;
-    except
-      on E : Exception do
-      begin
-        MessageDlg(E.Message, mtWarning, [mbOK], 0);
-        Result := False;
-      end;
+    finally
+      Result := True;
     end;
-  finally
-    Result := True;
+  except
+    on E : Exception do
+    begin
+      MessageDlg(E.Message, mtWarning, [mbOK], 0);
+      Result := False;
+    end;
   end;
 end;
 

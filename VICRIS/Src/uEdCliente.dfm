@@ -664,7 +664,7 @@ inherited fmEdCliente: TfmEdCliente
         Height = 33
         Alignment = taLeftJustify
         Anchors = [akLeft]
-        Caption = 'STATO'
+        Caption = 'ATTIVO'
         Color = clBtnFace
         DataField = 'FLAG_ACTIVE'
         DataSource = dmEdCliente.dsCliente
