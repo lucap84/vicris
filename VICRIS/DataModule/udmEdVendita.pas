@@ -85,7 +85,10 @@ procedure TdmEdVendita.dmAfterInsert(DataSet: TDataSet);
 begin
   inherited;
   if DataSet = cdsVendita then
+  begin
     cdsVenditaID_VENDITA.AsInteger := dmGlobal.GetNpaDet;
+    cdsVenditaFLAG_VICRIS.AsString := '1';
+  end;
 
   if DataSet = cdsMovimenti then
     cdsMovimentiID_MOVIMENTO.AsInteger := dmGlobal.GetNpaDet;

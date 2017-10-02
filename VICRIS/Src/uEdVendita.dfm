@@ -201,6 +201,25 @@ inherited fmEdVendita: TfmEdVendita
       ReadOnly = True
       TabOrder = 1
     end
+    object ckFlagVicris: TDBCheckBox
+      Left = 653
+      Top = 42
+      Width = 169
+      Height = 17
+      Anchors = [akTop]
+      Caption = 'VENDITA VICRIS'
+      DataField = 'FLAG_VICRIS'
+      DataSource = dmEdVendita.dsVendita
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 6
+      ValueChecked = '1'
+      ValueUnchecked = '0'
+    end
   end
   object pnTitleMovimenti: TPanel [2]
     Left = 0
