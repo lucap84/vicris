@@ -2,8 +2,8 @@ inherited dmEdVendita: TdmEdVendita
   hDataSet = cdsVendita
   hKeyFields.Strings = (
     'id_vendita')
-  Left = 819
-  Top = 272
+  Left = 555
+  Top = 269
   Height = 234
   Width = 366
   inherited OraSession: TOraSession
@@ -54,6 +54,12 @@ inherited dmEdVendita: TdmEdVendita
       FieldName = 'NOTE'
       Size = 2000
     end
+    object cdsVenditaFLAG_VICRIS: TStringField
+      FieldName = 'FLAG_VICRIS'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
     object cdsVenditaCOD_USR: TStringField
       FieldName = 'COD_USR'
       Size = 12
@@ -78,6 +84,9 @@ inherited dmEdVendita: TdmEdVendita
       
         '       M.ID_PRODOTTO, M.PREZZO_VENDITA, M.QUANTITA, M.SCONTO, M.' +
         'IMPORTO_TOTALE, M.PREZZO_ACQUISTO,'
+      
+        '       M.NUMERO_FATTURA, M.DATA_FATTURA, M.NUMERO_BOLLA, M.DATA_' +
+        'BOLLA,'
       '       M.COD_USR, M.DES_PDL, M.DAT_AGG_REC,'
       '       P.PRODOTTO'
       '  FROM TB_MOVIMENTI M, TB_PRODOTTI P'
@@ -92,6 +101,7 @@ inherited dmEdVendita: TdmEdVendita
       item
         DataType = ftUnknown
         Name = 'ID_VENDITA'
+        Value = Null
       end>
     object qyMovimentiID_VENDITA: TFloatField
       FieldName = 'ID_VENDITA'
@@ -124,6 +134,24 @@ inherited dmEdVendita: TdmEdVendita
     object qyMovimentiPREZZO_ACQUISTO: TFloatField
       FieldName = 'PREZZO_ACQUISTO'
       Origin = 'TB_MOVIMENTI.PREZZO_ACQUISTO'
+    end
+    object qyMovimentiNUMERO_FATTURA: TStringField
+      FieldName = 'NUMERO_FATTURA'
+      Origin = 'TB_MOVIMENTI.NUMERO_FATTURA'
+      Size = 12
+    end
+    object qyMovimentiDATA_FATTURA: TDateTimeField
+      FieldName = 'DATA_FATTURA'
+      Origin = 'TB_MOVIMENTI.DATA_FATTURA'
+    end
+    object qyMovimentiNUMERO_BOLLA: TStringField
+      FieldName = 'NUMERO_BOLLA'
+      Origin = 'TB_MOVIMENTI.NUMERO_BOLLA'
+      Size = 12
+    end
+    object qyMovimentiDATA_BOLLA: TDateTimeField
+      FieldName = 'DATA_BOLLA'
+      Origin = 'TB_MOVIMENTI.DATA_BOLLA'
     end
     object qyMovimentiCOD_USR: TStringField
       FieldName = 'COD_USR'
@@ -178,6 +206,7 @@ inherited dmEdVendita: TdmEdVendita
       Visible = False
     end
     object cdsMovimentiPREZZO_VENDITA: TFloatField
+      DisplayLabel = 'Prezzo'
       FieldName = 'PREZZO_VENDITA'
       Origin = 'TB_MOVIMENTI.PREZZO_VENDITA'
       OnChange = cdsMovimentiPREZZO_VENDITAChange
@@ -185,6 +214,7 @@ inherited dmEdVendita: TdmEdVendita
       EditFormat = '###0.00'
     end
     object cdsMovimentiQUANTITA: TFloatField
+      DisplayLabel = 'Qt'#224
       FieldName = 'QUANTITA'
       Origin = 'TB_MOVIMENTI.QUANTITA'
       OnChange = cdsMovimentiQUANTITAChange
@@ -192,6 +222,7 @@ inherited dmEdVendita: TdmEdVendita
       EditFormat = '###0.00'
     end
     object cdsMovimentiSCONTO: TFloatField
+      DisplayLabel = '% Sconto'
       FieldName = 'SCONTO'
       Origin = 'TB_MOVIMENTI.SCONTO'
       OnChange = cdsMovimentiSCONTOChange
@@ -199,16 +230,38 @@ inherited dmEdVendita: TdmEdVendita
       EditFormat = '###0.00'
     end
     object cdsMovimentiIMPORTO_TOTALE: TFloatField
+      DisplayLabel = 'Totale'
       FieldName = 'IMPORTO_TOTALE'
       Origin = 'TB_MOVIMENTI.IMPORTO_TOTALE'
       DisplayFormat = '#,##0.00'
       EditFormat = '###0.00'
     end
     object cdsMovimentiPREZZO_ACQUISTO: TFloatField
+      DisplayLabel = 'Costo'
       FieldName = 'PREZZO_ACQUISTO'
       Origin = 'TB_MOVIMENTI.PREZZO_ACQUISTO'
       DisplayFormat = '#,##0.00'
       EditFormat = '###0.00'
+    end
+    object cdsMovimentiNUMERO_FATTURA: TStringField
+      DisplayLabel = 'N'#176' Fattura'
+      FieldName = 'NUMERO_FATTURA'
+      Size = 12
+    end
+    object cdsMovimentiDATA_FATTURA: TDateTimeField
+      DisplayLabel = 'Data Fattura'
+      FieldName = 'DATA_FATTURA'
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object cdsMovimentiNUMERO_BOLLA: TStringField
+      DisplayLabel = 'N'#176' DdT'
+      FieldName = 'NUMERO_BOLLA'
+      Size = 12
+    end
+    object cdsMovimentiDATA_BOLLA: TDateTimeField
+      DisplayLabel = 'Data DdT'
+      FieldName = 'DATA_BOLLA'
+      DisplayFormat = 'dd/mm/yyyy'
     end
     object cdsMovimentiCOD_USR: TStringField
       FieldName = 'COD_USR'

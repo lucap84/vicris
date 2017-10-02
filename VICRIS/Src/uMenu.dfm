@@ -1,6 +1,6 @@
 object fmMenu: TfmMenu
-  Left = 579
-  Top = 149
+  Left = 211
+  Top = 101
   Width = 850
   Height = 800
   Caption = ' - VICRIS'

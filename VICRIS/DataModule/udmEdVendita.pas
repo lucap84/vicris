@@ -49,6 +49,15 @@ type
     cdsMovimentiDES_PDL: TStringField;
     cdsMovimentiDAT_AGG_REC: TDateTimeField;
     cdsMovimentiPRODOTTO: TStringField;
+    cdsVenditaFLAG_VICRIS: TStringField;
+    qyMovimentiNUMERO_FATTURA: TStringField;
+    qyMovimentiDATA_FATTURA: TDateTimeField;
+    qyMovimentiNUMERO_BOLLA: TStringField;
+    qyMovimentiDATA_BOLLA: TDateTimeField;
+    cdsMovimentiNUMERO_FATTURA: TStringField;
+    cdsMovimentiDATA_FATTURA: TDateTimeField;
+    cdsMovimentiNUMERO_BOLLA: TStringField;
+    cdsMovimentiDATA_BOLLA: TDateTimeField;
     procedure cdsMovimentiPREZZO_VENDITAChange(Sender: TField);
     procedure cdsMovimentiQUANTITAChange(Sender: TField);
     procedure cdsMovimentiSCONTOChange(Sender: TField);

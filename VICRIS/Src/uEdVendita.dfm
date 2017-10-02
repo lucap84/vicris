@@ -1,11 +1,11 @@
 inherited fmEdVendita: TfmEdVendita
   Left = 322
   Top = 202
-  Width = 760
+  Width = 847
   Height = 610
   Caption = 'Vendita'
   Constraints.MinHeight = 610
-  Constraints.MinWidth = 760
+  Constraints.MinWidth = 847
   OldCreateOrder = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -14,34 +14,34 @@ inherited fmEdVendita: TfmEdVendita
   TextHeight = 13
   inherited pnTools: TPanel
     Top = 514
-    Width = 744
+    Width = 831
     TabOrder = 3
     inherited bbCommit: TBitBtn
-      Left = 179
+      Left = 203
     end
     inherited bbRollBack: TBitBtn
-      Left = 316
+      Left = 356
     end
     inherited bbPrior: TBitBtn
-      Left = 42
+      Left = 50
     end
     inherited bbNext: TBitBtn
-      Left = 453
+      Left = 509
     end
     inherited bbPrint: TBitBtn
-      Left = 590
+      Left = 662
     end
   end
   object pnBackVendita: TPanel [1]
     Left = 0
     Top = 0
-    Width = 744
+    Width = 831
     Height = 161
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
     DesignSize = (
-      744
+      831
       161)
     object laNote: TLabel
       Left = 8
@@ -155,7 +155,7 @@ inherited fmEdVendita: TfmEdVendita
     object deNote: TDBMemo
       Left = 128
       Top = 68
-      Width = 608
+      Width = 695
       Height = 58
       Anchors = [akLeft, akTop, akRight]
       DataField = 'NOTE'
@@ -189,7 +189,7 @@ inherited fmEdVendita: TfmEdVendita
     object deCliente: TEdit
       Left = 226
       Top = 8
-      Width = 510
+      Width = 597
       Height = 28
       Anchors = [akLeft, akTop, akRight]
       Font.Charset = DEFAULT_CHARSET
@@ -205,7 +205,7 @@ inherited fmEdVendita: TfmEdVendita
   object pnTitleMovimenti: TPanel [2]
     Left = 0
     Top = 161
-    Width = 744
+    Width = 831
     Height = 31
     Align = alTop
     BevelInner = bvLowered
@@ -222,15 +222,15 @@ inherited fmEdVendita: TfmEdVendita
   object pnBackNewMov: TPanel [3]
     Left = 0
     Top = 192
-    Width = 744
-    Height = 100
+    Width = 831
+    Height = 169
     Align = alTop
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 2
     DesignSize = (
-      744
-      100)
+      831
+      169)
     object laProdotto: TLabel
       Left = 8
       Top = 10
@@ -245,7 +245,7 @@ inherited fmEdVendita: TfmEdVendita
       ParentFont = False
     end
     object Label1: TLabel
-      Left = 268
+      Left = 253
       Top = 40
       Width = 77
       Height = 20
@@ -258,7 +258,7 @@ inherited fmEdVendita: TfmEdVendita
       ParentFont = False
     end
     object laSconto: TLabel
-      Left = 494
+      Left = 462
       Top = 40
       Width = 78
       Height = 20
@@ -297,11 +297,37 @@ inherited fmEdVendita: TfmEdVendita
       ParentFont = False
     end
     object laTotale: TLabel
-      Left = 268
-      Top = 70
+      Left = 625
+      Top = 40
       Width = 73
       Height = 20
       Caption = 'TOTALE:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object laFatturaMov: TLabel
+      Left = 8
+      Top = 100
+      Width = 87
+      Height = 20
+      Caption = 'FATTURA:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object laDdtMov: TLabel
+      Left = 8
+      Top = 130
+      Width = 42
+      Height = 20
+      Caption = 'DDT:'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -330,7 +356,7 @@ inherited fmEdVendita: TfmEdVendita
     object deDesProdotto: TEdit
       Left = 226
       Top = 8
-      Width = 510
+      Width = 597
       Height = 28
       Anchors = [akLeft, akTop, akRight]
       Font.Charset = DEFAULT_CHARSET
@@ -343,7 +369,7 @@ inherited fmEdVendita: TfmEdVendita
       TabOrder = 1
     end
     object dePrezzo: TDBEdit
-      Left = 350
+      Left = 332
       Top = 38
       Width = 121
       Height = 28
@@ -358,7 +384,7 @@ inherited fmEdVendita: TfmEdVendita
       TabOrder = 3
     end
     object deSconto: TDBEdit
-      Left = 576
+      Left = 542
       Top = 38
       Width = 73
       Height = 28
@@ -392,19 +418,20 @@ inherited fmEdVendita: TfmEdVendita
       Top = 68
       Width = 121
       Height = 28
+      Color = clRed
       DataField = 'PREZZO_ACQUISTO'
       DataSource = dmEdVendita.dsMovimenti
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clWhite
       Font.Height = -16
       Font.Name = 'MS Sans Serif'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 5
+      TabOrder = 6
     end
     object deTotale: TDBEdit
-      Left = 350
-      Top = 68
+      Left = 702
+      Top = 38
       Width = 121
       Height = 28
       Color = clMoneyGreen
@@ -417,13 +444,87 @@ inherited fmEdVendita: TfmEdVendita
       Font.Style = [fsBold]
       ParentFont = False
       ReadOnly = True
-      TabOrder = 6
+      TabOrder = 5
+    end
+    object dtDataFatturaMov: TDBEditDateTimePicker
+      Left = 128
+      Top = 98
+      Width = 186
+      Height = 28
+      Date = 42982.809528541660000000
+      Time = 42982.809528541660000000
+      Color = clGreen
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 7
+      DataField = 'DATA_FATTURA'
+      DataSource = dmEdVendita.dsMovimenti
+      ReadOnly = False
+      DefaultEditMask = '!99/99/9999;1;_'
+      AutoApplyEditMask = True
+    end
+    object deNumeroFatturaMov: TDBEdit
+      Left = 316
+      Top = 98
+      Width = 186
+      Height = 28
+      Color = clGreen
+      DataField = 'NUMERO_FATTURA'
+      DataSource = dmEdVendita.dsMovimenti
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 8
+    end
+    object dtDataBollaMov: TDBEditDateTimePicker
+      Left = 128
+      Top = 128
+      Width = 186
+      Height = 28
+      Date = 42982.809528541660000000
+      Time = 42982.809528541660000000
+      Color = clSkyBlue
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 9
+      DataField = 'DATA_BOLLA'
+      DataSource = dmEdVendita.dsMovimenti
+      ReadOnly = False
+      DefaultEditMask = '!99/99/9999;1;_'
+      AutoApplyEditMask = True
+    end
+    object deNumeroBollaMov: TDBEdit
+      Left = 316
+      Top = 128
+      Width = 186
+      Height = 28
+      Color = clSkyBlue
+      DataField = 'NUMERO_BOLLA'
+      DataSource = dmEdVendita.dsMovimenti
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 10
     end
   end
   object nvMovimenti: TDBNavigator [4]
     Left = 0
-    Top = 292
-    Width = 744
+    Top = 361
+    Width = 831
     Height = 28
     DataSource = dmEdVendita.dsMovimenti
     VisibleButtons = [nbInsert, nbDelete, nbEdit, nbPost, nbCancel, nbRefresh]
@@ -435,9 +536,9 @@ inherited fmEdVendita: TfmEdVendita
   end
   object grMovimenti: TDBGridAux [5]
     Left = 0
-    Top = 320
-    Width = 744
-    Height = 194
+    Top = 389
+    Width = 831
+    Height = 125
     Align = alClient
     DataSource = dmEdVendita.dsMovimenti
     TabOrder = 5

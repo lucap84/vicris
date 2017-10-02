@@ -9,7 +9,12 @@ inherited dmBrVendita: TdmBrVendita
       
         'SELECT V.ID_VENDITA, V.DATA_VENDITA, V.ID_CLIENTE, V.DATA_FATTUR' +
         'A, V.NUMERO_FATTURA, V.NOTE,'
-      '       C.NOME,'
+      '       C.NOME, V.FLAG_VICRIS,'
+      '       CASE WHEN V.FLAG_VICRIS = '#39'1'#39' THEN'
+      '         '#39'VICRIS'#39
+      '       ELSE'
+      '         NULL'
+      '       END DES_VICRIS,'
       '       COUNT(M.ID_PRODOTTO) NUM_ART,'
       '       SUM(M.IMPORTO_TOTALE) TOT_VEN'
       '  FROM TB_VENDITE V, TB_CLIENTI C, TB_MOVIMENTI M'
@@ -18,7 +23,12 @@ inherited dmBrVendita: TdmBrVendita
       
         ' GROUP BY V.ID_VENDITA, V.DATA_VENDITA, V.ID_CLIENTE, V.DATA_FAT' +
         'TURA, V.NUMERO_FATTURA, V.NOTE,'
-      '          C.NOME'
+      '          C.NOME, V.FLAG_VICRIS,'
+      '       CASE WHEN V.FLAG_VICRIS = '#39'1'#39' THEN'
+      '         '#39'VICRIS'#39
+      '       ELSE'
+      '         NULL'
+      '       END'
       ' ORDER BY V.DATA_VENDITA DESC, C.NOME')
     Left = 16
     Top = 16
@@ -61,9 +71,22 @@ inherited dmBrVendita: TdmBrVendita
       FieldName = 'NUMERO_FATTURA'
       Visible = False
     end
+    object qyVenditaDES_VICRIS: TStringField
+      DisplayLabel = 'Vendita Vicris'
+      FieldName = 'DES_VICRIS'
+      FixedChar = True
+      Size = 6
+    end
     object qyVenditaID_CLIENTE: TFloatField
       FieldName = 'ID_CLIENTE'
       Visible = False
+    end
+    object qyVenditaFLAG_VICRIS: TStringField
+      FieldName = 'FLAG_VICRIS'
+      Required = True
+      Visible = False
+      FixedChar = True
+      Size = 1
     end
   end
   object dsVendita: TDataSource

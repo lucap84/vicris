@@ -19,6 +19,8 @@ type
     qyVenditaNOME: TStringField;
     qyVenditaNUM_ART: TFloatField;
     qyVenditaTOT_VEN: TFloatField;
+    qyVenditaFLAG_VICRIS: TStringField;
+    qyVenditaDES_VICRIS: TStringField;
   private
     { Private declarations }
   public

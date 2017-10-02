@@ -40,6 +40,12 @@ type
     deTotale: TDBEdit;
     nvMovimenti: TDBNavigator;
     grMovimenti: TDBGridAux;
+    laFatturaMov: TLabel;
+    dtDataFatturaMov: TDBEditDateTimePicker;
+    deNumeroFatturaMov: TDBEdit;
+    laDdtMov: TLabel;
+    dtDataBollaMov: TDBEditDateTimePicker;
+    deNumeroBollaMov: TDBEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure nvMovimentiClick(Sender: TObject; Button: TNavigateBtn);
