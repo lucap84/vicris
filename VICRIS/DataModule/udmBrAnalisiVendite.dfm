@@ -9,13 +9,18 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       
         'SELECT V.DATA_VENDITA, C.NOME, P.PRODOTTO, M.QUANTITA, M.PREZZO_' +
         'VENDITA, M.SCONTO, M.IMPORTO_TOTALE, F.MANDANTE, SF.SUBMANDANTE,' +
-        ' PN.PROVINCIA, L.LOCALITA, CP.CATEGORIA'
+        ' PN.PROVINCIA, L.LOCALITA, CP.CATEGORIA, V.FLAG_VICRIS,'
+      '       CASE WHEN V.FLAG_VICRIS = '#39'1'#39' THEN'
+      '         '#39'VICRIS'#39
+      '       ELSE'
+      '         NULL'
+      '       END DES_VICRIS'
       
         '  FROM TB_VENDITE V, TB_CLIENTI C, TB_MOVIMENTI M, TB_PRODOTTI P' +
         ', TB_MANDANTI F, TB_SUBMANDANTI SF, TB_CATEGORIE_PRODOTTI CP,'
       '       TB_LOCALITA L, TB_PROVINCE PN'
       ' WHERE V.ID_CLIENTE     = C.ID_CLIENTE      (+)'
-      '   AND V.ID_VENDITA     = M.ID_MOVIMENTO    (+)'
+      '   AND V.ID_VENDITA     = M.ID_VENDITA      (+)'
       '   AND M.ID_PRODOTTO    = P.ID_PRODOTTO     (+)'
       '   AND P.ID_MANDANTE    = F.ID_MANDANTE     (+)'
       '   AND P.ID_SUBMANDANTE = SF.ID_SUBMANDANTE (+)'
@@ -28,30 +33,34 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
         '   AND TRUNC(V.DATA_VENDITA)   BETWEEN :DATA_INIZIO AND :DATA_FI' +
         'NE'
       '   -- Cliente'
-      '   AND C.ID_CLIENTE     = NVL(:ID_CLIENTE, C.ID_CLIENTE)'
       
-        '   AND C.FLAG_ACTIVE    BETWEEN :FLAG_ACTIVE_CLI_INI AND :FLAG_A' +
-        'CTIVE_CLI_FIN'
+        '   AND NVL(C.ID_CLIENTE, '#39'1'#39')     = NVL(:ID_CLIENTE, NVL(C.ID_CL' +
+        'IENTE, '#39'1'#39'))'
+      
+        '   AND NVL(C.FLAG_ACTIVE, '#39'1'#39')    BETWEEN :FLAG_ACTIVE_CLI_INI A' +
+        'ND :FLAG_ACTIVE_CLI_FIN'
       '   -- Mandante'
       
         '   AND NVL(F.ID_MANDANTE, -1)    = NVL(:ID_MANDANTE, NVL(F.ID_MA' +
         'NDANTE, -1))'
       
-        '   AND C.FLAG_ACTIVE    BETWEEN :FLAG_ACTIVE_MAN_INI AND :FLAG_A' +
-        'CTIVE_MAN_FIN'
+        '   AND NVL(C.FLAG_ACTIVE, '#39'1'#39')    BETWEEN :FLAG_ACTIVE_MAN_INI A' +
+        'ND :FLAG_ACTIVE_MAN_FIN'
       '   -- Submandante'
       
         '   AND NVL(SF.ID_SUBMANDANTE, -1) = NVL(:ID_SUBMANDANTE, NVL(SF.' +
         'ID_SUBMANDANTE, -1))'
       
-        '   AND C.FLAG_ACTIVE    BETWEEN :FLAG_ACTIVE_SUB_INI AND :FLAG_A' +
-        'CTIVE_SUB_FIN'
+        '   AND NVL(C.FLAG_ACTIVE, '#39'1'#39')    BETWEEN :FLAG_ACTIVE_SUB_INI A' +
+        'ND :FLAG_ACTIVE_SUB_FIN'
       '   -- Categoria'
       
         '   AND NVL(CP.ID_CATEGORIA, -1) = NVL(:ID_CATEGORIA, NVL(CP.ID_C' +
         'ATEGORIA, -1))'
       '   -- Prezzo Vendita'
-      '   AND M.PREZZO_VENDITA BETWEEN :PREZZO_INIZIO AND :PREZZO_FINE'
+      
+        '   AND NVL(M.PREZZO_VENDITA, 0) BETWEEN :PREZZO_INIZIO AND :PREZ' +
+        'ZO_FINE'
       ''
       
         '   AND V.FLAG_VICRIS BETWEEN :FLAG_VICRIS_INI AND :FLAG_VICRIS_F' +
@@ -194,6 +203,20 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       DisplayWidth = 20
       FieldName = 'CATEGORIA'
       Size = 150
+    end
+    object qyAnalisiVenditeFLAG_VICRIS: TStringField
+      FieldName = 'FLAG_VICRIS'
+      Required = True
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
+    object qyAnalisiVenditeDES_VICRIS: TStringField
+      DisplayLabel = 'Vendita Vicris'
+      DisplayWidth = 10
+      FieldName = 'DES_VICRIS'
+      FixedChar = True
+      Size = 6
     end
   end
   object dsAnalisiVendite: TDataSource

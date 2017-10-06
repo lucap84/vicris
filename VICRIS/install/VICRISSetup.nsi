@@ -103,7 +103,7 @@ Section /o "File di Oracle" SEC03
   WriteRegStr HKLM "Software\ORACLE" "NLS_LANG"        "ITALIAN_ITALY.WE8ISO8859P15"
   WriteRegStr HKLM "Software\ORACLE" "NLS_SORT"        "BINARY"
   WriteRegStr HKLM "Software\ORACLE" "NLS_DATE_FORMAT" "DD-MM-YYYY"
-  WriteRegStr HKLM "Software\ORACLE"   "ORACLE_HOME_NAME" "OraHome"
+  WriteRegStr HKLM "Software\ORACLE" "ORACLE_HOME_NAME" "OraHome"
 SectionEnd
 
 Section -AdditionalIcons

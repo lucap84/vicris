@@ -53,8 +53,16 @@ begin
      Assigned(grBrowse.DataSource.DataSet.FindField('Flag_Vicris'))          and
      (grBrowse.DataSource.DataSet.FieldByName('Flag_Vicris').AsString = '0') then
   begin
-    grBrowse.Canvas.Brush.Color := clSkyBlue;
-    grBrowse.Canvas.Font.Color  := clWhite;
+    if (gdSelected in State) then
+    begin
+      grBrowse.Canvas.Brush.Color := clYellow;
+      grBrowse.Canvas.Font.Color  := clWindowText;
+    end
+    else
+    begin
+      grBrowse.Canvas.Brush.Color := clMoneyGreen;
+      grBrowse.Canvas.Font.Color  := clWindowText;
+    end;
   end;
 
   grBrowse.DefaultDrawColumnCell(Rect, DataCol, Column, State);

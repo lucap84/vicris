@@ -3726,6 +3726,11 @@ object fmMenu: TfmMenu
     Width = 150
     Height = 150
     Action = acCli
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
     Glyph.Data = {
       66750000424D6675000000000000360000002800000064000000640000000100
       18000000000030750000120B0000120B00000000000000000000FFFFFFFFFFFF
@@ -4668,6 +4673,7 @@ object fmMenu: TfmMenu
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFF}
     Layout = blGlyphTop
+    ParentFont = False
   end
   object sbMan: TSpeedButton
     Left = 176
@@ -4675,6 +4681,11 @@ object fmMenu: TfmMenu
     Width = 150
     Height = 150
     Action = acMan
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
     Glyph.Data = {
       92760000424D9276000000000000360000002800000064000000650000000100
       1800000000005C760000120B0000120B00000000000000000000FFFFFFFFFFFF
@@ -5626,6 +5637,7 @@ object fmMenu: TfmMenu
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
     Layout = blGlyphTop
+    ParentFont = False
   end
   object sbVen: TSpeedButton
     Left = 344
@@ -5633,6 +5645,11 @@ object fmMenu: TfmMenu
     Width = 150
     Height = 150
     Action = acVen
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
     Glyph.Data = {
       66750000424D6675000000000000360000002800000064000000640000000100
       18000000000030750000120B0000120B00000000000000000000FFFFFFFFFFFF
@@ -6575,6 +6592,7 @@ object fmMenu: TfmMenu
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFF}
     Layout = blGlyphTop
+    ParentFont = False
   end
   object sbClose: TSpeedButton
     Left = 750
@@ -7064,6 +7082,11 @@ object fmMenu: TfmMenu
     Width = 150
     Height = 150
     Action = acPro
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
     Glyph.Data = {
       66750000424D6675000000000000360000002800000064000000640000000100
       18000000000030750000120B0000120B00000000000000000000FFFFFFFFFFFF
@@ -8006,6 +8029,7 @@ object fmMenu: TfmMenu
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFF}
     Layout = blGlyphTop
+    ParentFont = False
   end
   object sbAnalisiVendite: TSpeedButton
     Left = 664
@@ -8013,6 +8037,11 @@ object fmMenu: TfmMenu
     Width = 150
     Height = 150
     Action = acAnlVen
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
     Glyph.Data = {
       46A40000424D46A400000000000036000000280000008C000000640000000100
       18000000000010A40000120B0000120B00000000000000000000FFFFFFFFFFFF
@@ -9330,6 +9359,7 @@ object fmMenu: TfmMenu
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFF}
     Layout = blGlyphTop
+    ParentFont = False
   end
   object sbMenu: TStatusBar
     Left = 0

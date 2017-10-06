@@ -544,28 +544,36 @@ inherited fmEdVendita: TfmEdVendita
     Left = 0
     Top = 361
     Width = 831
-    Height = 28
+    Height = 56
     DataSource = dmEdVendita.dsMovimenti
     VisibleButtons = [nbInsert, nbDelete, nbEdit, nbPost, nbCancel, nbRefresh]
     Align = alTop
     Flat = True
+    Ctl3D = True
+    ParentCtl3D = False
     TabOrder = 4
     BeforeAction = nvMovimentiBeforeAction
     OnClick = nvMovimentiClick
   end
   object grMovimenti: TDBGridAux [5]
     Left = 0
-    Top = 389
+    Top = 417
     Width = 831
-    Height = 125
+    Height = 97
     Align = alClient
     DataSource = dmEdVendita.dsMovimenti
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 5
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
-    TitleFont.Height = -11
+    TitleFont.Height = -21
     TitleFont.Name = 'MS Sans Serif'
-    TitleFont.Style = []
+    TitleFont.Style = [fsBold]
   end
   inherited alEdit: TActionList
     Left = 560

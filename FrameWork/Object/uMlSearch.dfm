@@ -1,15 +1,13 @@
 object fmMlSearch: TfmMlSearch
-  Left = 467
-  Top = 361
+  Left = 408
+  Top = 209
   BorderStyle = bsDialog
   Caption = 'Ricerca'
-  ClientHeight = 273
-  ClientWidth = 492
+  ClientHeight = 361
+  ClientWidth = 584
   Color = clBtnFace
-  Constraints.MaxHeight = 300
-  Constraints.MaxWidth = 500
-  Constraints.MinHeight = 300
-  Constraints.MinWidth = 400
+  Constraints.MinHeight = 400
+  Constraints.MinWidth = 600
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -21,17 +19,17 @@ object fmMlSearch: TfmMlSearch
   TextHeight = 13
   object pnTools: TPanel
     Left = 0
-    Top = 214
-    Width = 492
+    Top = 302
+    Width = 584
     Height = 59
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
     DesignSize = (
-      492
+      584
       59)
     object sbFilter: TSpeedButton
-      Left = 392
+      Left = 481
       Top = 4
       Width = 100
       Height = 26
@@ -81,7 +79,7 @@ object fmMlSearch: TfmMlSearch
       OnClick = sbFilterClick
     end
     object sbSearch: TSpeedButton
-      Left = 392
+      Left = 481
       Top = 33
       Width = 100
       Height = 25
@@ -131,7 +129,7 @@ object fmMlSearch: TfmMlSearch
       OnClick = sbSearchClick
     end
     object bbOk: TBitBtn
-      Left = 2
+      Left = -1
       Top = 5
       Width = 53
       Height = 53
@@ -587,7 +585,7 @@ object fmMlSearch: TfmMlSearch
       Spacing = 0
     end
     object bbCancel: TBitBtn
-      Left = 58
+      Left = 47
       Top = 5
       Width = 53
       Height = 53
@@ -1042,7 +1040,7 @@ object fmMlSearch: TfmMlSearch
       Spacing = 0
     end
     object bbInsert: TBitBtn
-      Left = 114
+      Left = 95
       Top = 5
       Width = 53
       Height = 53
@@ -1537,8 +1535,8 @@ object fmMlSearch: TfmMlSearch
   object grSearch: TDBGridAux
     Left = 0
     Top = 0
-    Width = 492
-    Height = 214
+    Width = 584
+    Height = 302
     OptionsEx = [dgeEnableSort, dgeLocalFilter, dgeLocalSorting, dgeRecordCount, dgeStretch]
     OnGetCellParams = grSearchGetCellParams
     Align = alClient
@@ -1546,7 +1544,7 @@ object fmMlSearch: TfmMlSearch
     DataSource = dsSearch
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -16
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     Options = [dgTitles, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect]
@@ -1555,7 +1553,7 @@ object fmMlSearch: TfmMlSearch
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
-    TitleFont.Height = -11
+    TitleFont.Height = -16
     TitleFont.Name = 'MS Sans Serif'
     TitleFont.Style = []
     OnDblClick = grSearchDblClick

@@ -13,7 +13,6 @@ type
     cdsMandante: TClientDataSet;
     dsMandante: TDataSource;
     cdsMandanteID_MANDANTE: TFloatField;
-    cdsMandanteID_MANDANTE_OLD: TFloatField;
     cdsMandanteMANDANTE: TStringField;
     cdsMandanteINDIRIZZO: TStringField;
     cdsMandanteCITTA: TStringField;

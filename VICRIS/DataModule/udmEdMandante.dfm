@@ -38,13 +38,9 @@ inherited dmEdMandante: TdmEdMandante
     object cdsMandanteID_MANDANTE: TFloatField
       FieldName = 'ID_MANDANTE'
     end
-    object cdsMandanteID_MANDANTE_OLD: TFloatField
-      FieldName = 'ID_MANDANTE_OLD'
-    end
     object cdsMandanteMANDANTE: TStringField
       FieldName = 'MANDANTE'
-      Size = 200
-    end
+      Size = 200    end
     object cdsMandanteINDIRIZZO: TStringField
       FieldName = 'INDIRIZZO'
       Size = 2000

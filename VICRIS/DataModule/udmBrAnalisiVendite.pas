@@ -39,6 +39,8 @@ type
     qyCategoriaCATEGORIA: TStringField;
     qyCategoriaORD: TFloatField;
     dsCategoria: TDataSource;
+    qyAnalisiVenditeFLAG_VICRIS: TStringField;
+    qyAnalisiVenditeDES_VICRIS: TStringField;
     procedure FiltersDataChange(Sender: TObject; Field: TField);
   private
     FhDataFin: TDateTime;

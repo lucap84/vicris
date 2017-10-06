@@ -627,15 +627,6 @@ inherited fmEdMandante: TfmEdMandante
       DisplayWidth = 0
       Position = 0
     end
-    object plEditppField2: TppField
-      Alignment = taRightJustify
-      FieldAlias = 'ID_MANDANTE_OLD'
-      FieldName = 'ID_MANDANTE_OLD'
-      FieldLength = 0
-      DataType = dtDouble
-      DisplayWidth = 10
-      Position = 1
-    end
     object plEditppField3: TppField
       FieldAlias = 'NOME'
       FieldName = 'NOME'

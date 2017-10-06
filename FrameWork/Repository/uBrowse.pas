@@ -230,16 +230,23 @@ end;
 procedure TfmBrowse.acPrintExecute(Sender: TObject);
 var
   i : integer;
+  AppFilter   : String;
+  AppFiltered : boolean;
 begin
+  AppFilter   := grBrowse.DataSource.DataSet.Filter;
+  AppFiltered := grBrowse.DataSource.DataSet.Filtered;
   if Assigned(grBrowse.DataSource) and
      Assigned(grBrowse.DataSource.DataSet) then
   begin
     grBrowse.DataSource.DataSet.Filtered := False;
     if Assigned(grBrowse.DataSource.DataSet.FindField('Flag_Active')) then
     begin
-      grBrowse.DataSource.DataSet.Filter   := 'FLAG_ACTIVE = '+QuotedStr('1');
-      grBrowse.DataSource.DataSet.Filtered := True;
+      if grBrowse.DataSource.DataSet.Filter <> '' then
+        grBrowse.DataSource.DataSet.Filter := grBrowse.DataSource.DataSet.Filter + ' AND FLAG_ACTIVE = '+QuotedStr('1')
+      else
+        grBrowse.DataSource.DataSet.Filter   := 'FLAG_ACTIVE = '+QuotedStr('1');
     end;
+    grBrowse.DataSource.DataSet.Filtered := True;
 
     plBrowse.DataSource := grBrowse.DataSource;
     plBrowse.ClearBookmarkList;
@@ -254,6 +261,8 @@ begin
     rpBrowse.PrinterSetup.PrinterName := 'Screen';
     rpBrowse.Print;
     grBrowse.DataSource.DataSet.Filtered := False;
+    grBrowse.DataSource.DataSet.Filter   := AppFilter;
+    grBrowse.DataSource.DataSet.Filtered := AppFiltered;
   end;
 end;
 

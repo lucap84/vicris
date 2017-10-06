@@ -86,8 +86,9 @@ begin
   inherited;
   if DataSet = cdsVendita then
   begin
-    cdsVenditaID_VENDITA.AsInteger := dmGlobal.GetNpaDet;
-    cdsVenditaFLAG_VICRIS.AsString := '1';
+    cdsVenditaID_VENDITA.AsInteger    := dmGlobal.GetNpaDet;
+    cdsVenditaFLAG_VICRIS.AsString    := '1';
+    cdsVenditaDATA_VENDITA.AsDateTime := Date;
   end;
 
   if DataSet = cdsMovimenti then

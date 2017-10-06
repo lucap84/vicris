@@ -49,6 +49,8 @@ type
     procedure acExpXlsUpdate(Sender: TObject);
     procedure acExpXlsExecute(Sender: TObject);
     procedure PrezzoKeyPress(Sender: TObject; var Key: Char);
+    procedure grBrowseDrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
   private
     { Private declarations }
   public
@@ -122,15 +124,17 @@ begin
           cbSubmandanti.KeyValue := -1;
         end;
 
-        AQuery.ParamByName('Flag_Active_Ini').AsString := '0';
-        AQuery.ParamByName('Flag_Active_Fin').AsString := '1';
-        if TRadioGroup(Sender).ItemIndex <> 2 then
+        if Assigned(AQuery) then
         begin
-          AQuery.ParamByName('Flag_Active_Ini').AsString := IntToStr(TRadioGroup(Sender).ItemIndex);
-          AQuery.ParamByName('Flag_Active_Fin').AsString := IntToStr(TRadioGroup(Sender).ItemIndex);
+          AQuery.ParamByName('Flag_Active_Ini').AsString := '0';
+          AQuery.ParamByName('Flag_Active_Fin').AsString := '1';
+          if TRadioGroup(Sender).ItemIndex <> 2 then
+          begin
+            AQuery.ParamByName('Flag_Active_Ini').AsString := IntToStr(TRadioGroup(Sender).ItemIndex);
+            AQuery.ParamByName('Flag_Active_Fin').AsString := IntToStr(TRadioGroup(Sender).ItemIndex);
+          end;
+          dmDsRefresh(AQuery);
         end;
-
-        dmDsRefresh(AQuery);
       end;
 
       dmDoFilter;
@@ -185,6 +189,31 @@ begin
   inherited;
   if not (Key in [#8, '0'..'9']) then
     Key := #0;
+end;
+
+procedure TfmBrAnalisiVendite.grBrowseDrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn;
+  State: TGridDrawState);
+begin
+  inherited;
+  if Assigned(grBrowse.DataSource)         and
+     Assigned(grBrowse.DataSource.DataSet) and
+     Assigned(grBrowse.DataSource.DataSet.FindField('Flag_Vicris'))          and
+     (grBrowse.DataSource.DataSet.FieldByName('Flag_Vicris').AsString = '0') then
+  begin
+    if (gdSelected in State) then
+    begin
+      grBrowse.Canvas.Brush.Color := clYellow;
+      grBrowse.Canvas.Font.Color  := clWindowText;
+    end
+    else
+    begin
+      grBrowse.Canvas.Brush.Color := clMoneyGreen;
+      grBrowse.Canvas.Font.Color  := clWindowText;
+    end;
+  end;
+
+  grBrowse.DefaultDrawColumnCell(Rect, DataCol, Column, State);
 end;
 
 end.
