@@ -303,8 +303,8 @@ begin
   FhFlgDel     := hFlgDel;
   FhFlgVis     := hFlgVis;
   FhFlgPrt     := hFlgPrt;
-  hDataModule.dmDsOpen(hDataModule.hDataSet);
   GridLoadLayout;
+  hDataModule.dmDsOpen(hDataModule.hDataSet);
 end;
 
 procedure TfmBrowse.FormRefresh(Sender: TObject);
@@ -438,18 +438,42 @@ end;
 
 procedure TfmBrowse.GridLoadLayout;
 var
-  OrigCols : integer;
+  i, j : integer;
+  Founded : boolean;
 begin
-  OrigCols := grBrowse.Columns.Count;
   if FileExists(IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName))+Self.Name+'.grl') then
   begin
     grBrowse.Columns.LoadFromFile(IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName))+Self.Name+'.grl');
-    if OrigCols <> grBrowse.Columns.Count then
+    with hDataModule do
     begin
-      DeleteFile(IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName))+Self.Name+'.grl');
-      hDataModule.dmDsClose(hDataModule.hDataSet);
-      grBrowse.Columns.Clear;
-      hDataModule.dmDsOpen(hDataModule.hDataSet);
+      for i := 0  to hDataSet.Fields.Count - 1 do
+        if hDataSet.Fields[i].Visible then
+        begin
+          Founded := False;
+          for j := 0 to grBrowse.Columns.Count - 1 do
+            if hDataSet.Fields[i].FieldName = grBrowse.Columns[j].FieldName then
+            begin
+              Founded := True;
+              Break;
+            end;
+
+          if not Founded then
+            grBrowse.Columns.Add.Field := hDataSet.Fields[i];
+        end;
+
+      for i := 0  to grBrowse.Columns.Count - 1 do
+      begin
+        Founded := False;
+        for j := 0 to hDataSet.Fields.Count - 1 do
+          if hDataSet.Fields[j].FieldName = grBrowse.Columns[i].FieldName then
+          begin
+            Founded := True;
+            Break;
+          end;
+
+        if not Founded then
+          grBrowse.Columns.Delete(i);
+      end;
     end;
   end;
 end;
