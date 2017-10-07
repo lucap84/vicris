@@ -58,15 +58,18 @@ type
     cdsMovimentiDATA_FATTURA: TDateTimeField;
     cdsMovimentiNUMERO_BOLLA: TStringField;
     cdsMovimentiDATA_BOLLA: TDateTimeField;
+    cdsMovimentiguadagno: TFloatField;
     procedure cdsMovimentiPREZZO_VENDITAChange(Sender: TField);
     procedure cdsMovimentiQUANTITAChange(Sender: TField);
     procedure cdsMovimentiSCONTOChange(Sender: TField);
     procedure poMovimentiGetTableName(Sender: TObject; DataSet: TDataSet;
       var TableName: String);
+    procedure cdsMovimentiPREZZO_ACQUISTOChange(Sender: TField);
+    procedure cdsMovimentiCalcFields(DataSet: TDataSet);
   private
     { Private declarations }
   protected
-    procedure dmCalcTot;
+    procedure dmCalcTot(IsTotale: boolean = True);
     procedure dmAfterInsert(DataSet: TDataSet); override;
   public
     { Public declarations }
@@ -95,18 +98,35 @@ begin
     cdsMovimentiID_MOVIMENTO.AsInteger := dmGlobal.GetNpaDet;
 end;
 
-procedure TdmEdVendita.dmCalcTot;
+procedure TdmEdVendita.dmCalcTot(IsTotale: boolean = True);
 var
-  AQta, AImpUnt, ASco, ATot: double;
+  AQta, AImpUnt, ASco, ATot, ACosto: double;
 begin
   AQta    := cdsMovimentiQUANTITA.AsFloat;
+  ACosto  := cdsMovimentiPREZZO_ACQUISTO.AsFloat * AQta;
   AImpUnt := cdsMovimentiPREZZO_VENDITA.AsFloat;
   ASco    := cdsMovimentiSCONTO.AsFloat;
   ATot := (AQta * AImpUnt) * ((100 - ASco)/100);
-  cdsMovimentiIMPORTO_TOTALE.AsFloat := ATot;
+  if IsTotale then
+    cdsMovimentiIMPORTO_TOTALE.AsFloat := ATot;
+  if ACosto <> 0 then
+    cdsMovimentiguadagno.AsFloat := ((ATot / ACosto) *  100) - 100
+  else
+    cdsMovimentiguadagno.AsFloat := 100;
+end;
+
+procedure TdmEdVendita.cdsMovimentiCalcFields(DataSet: TDataSet);
+begin
+  dmCalcTot(False);
 end;
 
 procedure TdmEdVendita.cdsMovimentiPREZZO_VENDITAChange(Sender: TField);
+begin
+  inherited;
+  dmCalcTot;
+end;
+
+procedure TdmEdVendita.cdsMovimentiPREZZO_ACQUISTOChange(Sender: TField);
 begin
   inherited;
   dmCalcTot;

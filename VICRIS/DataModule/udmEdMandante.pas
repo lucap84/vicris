@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, udmEdit, DB, DBClient, Provider, MemDS, DBAccess, Ora, uSupportLib;
+  Dialogs, udmEdit, DB, DBClient, Provider, MemDS, DBAccess, Ora, uSupportLib,
+  udmDBCore;
 
 type
   TdmEdMandante = class(TdmEdit)
@@ -36,10 +37,12 @@ type
     cdsMandanteDAT_AGG_REC: TDateTimeField;
     cdsMandanteID_PROVINCIA: TFloatField;
     cdsMandanteFLAG_ACTIVE: TStringField;
+    osUpdProdotti: TOraSQL;
   protected
     function  dmCheckValidateData: boolean; override;
-
     procedure dmAfterInsert(DataSet: TDataSet); override;
+  public
+    function  dmCommit: boolean; override;
   end;
 
 var
@@ -71,6 +74,18 @@ begin
   end
   else
     inherited dmCheckValidateData;
+end;
+
+function TdmEdMandante.dmCommit: boolean;
+begin
+  if hdmState = hdmEdit then
+  begin
+    osUpdProdotti.ParamByName('FLAG_ACTIVE').AsString := cdsMandanteFLAG_ACTIVE.AsString;
+    osUpdProdotti.ParamByName('ID_MANDANTE').AsString := cdsMandanteID_MANDANTE.AsString;
+    osUpdProdotti.Execute;
+  end;
+
+  inherited dmCommit;
 end;
 
 end.

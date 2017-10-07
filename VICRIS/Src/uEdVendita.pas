@@ -47,6 +47,8 @@ type
     dtDataBollaMov: TDBEditDateTimePicker;
     deNumeroBollaMov: TDBEdit;
     ckFlagVicris: TDBCheckBox;
+    laGuadagno: TLabel;
+    deGuadagno: TDBEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure nvMovimentiClick(Sender: TObject; Button: TNavigateBtn);

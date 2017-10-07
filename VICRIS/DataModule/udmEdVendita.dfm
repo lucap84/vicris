@@ -101,7 +101,6 @@ inherited dmEdVendita: TdmEdVendita
       item
         DataType = ftUnknown
         Name = 'ID_VENDITA'
-        Value = Null
       end>
     object qyMovimentiID_VENDITA: TFloatField
       FieldName = 'ID_VENDITA'
@@ -188,6 +187,7 @@ inherited dmEdVendita: TdmEdVendita
     PacketRecords = 0
     Params = <>
     ProviderName = 'poMovimenti'
+    OnCalcFields = cdsMovimentiCalcFields
     Left = 216
     Top = 120
     object cdsMovimentiID_VENDITA: TFloatField
@@ -205,13 +205,13 @@ inherited dmEdVendita: TdmEdVendita
       Origin = 'TB_MOVIMENTI.ID_PRODOTTO'
       Visible = False
     end
-    object cdsMovimentiPREZZO_VENDITA: TFloatField
-      DisplayLabel = 'Prezzo'
-      FieldName = 'PREZZO_VENDITA'
-      Origin = 'TB_MOVIMENTI.PREZZO_VENDITA'
-      OnChange = cdsMovimentiPREZZO_VENDITAChange
-      DisplayFormat = '#,##0.00'
-      EditFormat = '###0.00'
+    object cdsMovimentiPRODOTTO: TStringField
+      DisplayLabel = 'Prodotto'
+      DisplayWidth = 20
+      FieldName = 'PRODOTTO'
+      Origin = 'TB_PRODOTTI.PRODOTTO'
+      ProviderFlags = []
+      Size = 200
     end
     object cdsMovimentiQUANTITA: TFloatField
       DisplayLabel = 'Qt'#224
@@ -221,11 +221,11 @@ inherited dmEdVendita: TdmEdVendita
       DisplayFormat = '#,##0.00'
       EditFormat = '###0.00'
     end
-    object cdsMovimentiSCONTO: TFloatField
-      DisplayLabel = '% Sconto'
-      FieldName = 'SCONTO'
-      Origin = 'TB_MOVIMENTI.SCONTO'
-      OnChange = cdsMovimentiSCONTOChange
+    object cdsMovimentiPREZZO_VENDITA: TFloatField
+      DisplayLabel = 'Prezzo'
+      FieldName = 'PREZZO_VENDITA'
+      Origin = 'TB_MOVIMENTI.PREZZO_VENDITA'
+      OnChange = cdsMovimentiPREZZO_VENDITAChange
       DisplayFormat = '#,##0.00'
       EditFormat = '###0.00'
     end
@@ -240,8 +240,19 @@ inherited dmEdVendita: TdmEdVendita
       DisplayLabel = 'Costo'
       FieldName = 'PREZZO_ACQUISTO'
       Origin = 'TB_MOVIMENTI.PREZZO_ACQUISTO'
+      OnChange = cdsMovimentiPREZZO_ACQUISTOChange
       DisplayFormat = '#,##0.00'
       EditFormat = '###0.00'
+    end
+    object cdsMovimentiguadagno: TFloatField
+      DisplayLabel = 'Gadagno (%)'
+      FieldKind = fkCalculated
+      FieldName = 'guadagno'
+      ProviderFlags = []
+      ReadOnly = True
+      DisplayFormat = '#,##0.00 %'
+      EditFormat = '###0.00'
+      Calculated = True
     end
     object cdsMovimentiNUMERO_FATTURA: TStringField
       DisplayLabel = 'N'#176' Fattura'
@@ -269,6 +280,14 @@ inherited dmEdVendita: TdmEdVendita
       Visible = False
       Size = 12
     end
+    object cdsMovimentiSCONTO: TFloatField
+      DisplayLabel = '% Sconto'
+      FieldName = 'SCONTO'
+      Origin = 'TB_MOVIMENTI.SCONTO'
+      OnChange = cdsMovimentiSCONTOChange
+      DisplayFormat = '#,##0.00'
+      EditFormat = '###0.00'
+    end
     object cdsMovimentiDES_PDL: TStringField
       FieldName = 'DES_PDL'
       Origin = 'TB_MOVIMENTI.DES_PDL'
@@ -279,12 +298,6 @@ inherited dmEdVendita: TdmEdVendita
       FieldName = 'DAT_AGG_REC'
       Origin = 'TB_MOVIMENTI.DAT_AGG_REC'
       Visible = False
-    end
-    object cdsMovimentiPRODOTTO: TStringField
-      FieldName = 'PRODOTTO'
-      Origin = 'TB_PRODOTTI.PRODOTTO'
-      ProviderFlags = []
-      Size = 200
     end
   end
   object dsMovimenti: TDataSource

@@ -41,6 +41,8 @@ type
     dsCategoria: TDataSource;
     qyAnalisiVenditeFLAG_VICRIS: TStringField;
     qyAnalisiVenditeDES_VICRIS: TStringField;
+    qyAnalisiVenditePREZZO_ACQUISTO: TFloatField;
+    qyAnalisiVenditeGUADAGNO: TFloatField;
     procedure FiltersDataChange(Sender: TObject; Field: TField);
   private
     FhDataFin: TDateTime;

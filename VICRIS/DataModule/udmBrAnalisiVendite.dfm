@@ -1,20 +1,28 @@
 inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
   hDataSet = qyAnalisiVendite
-  Left = 322
-  Top = 274
+  Left = 771
+  Top = 333
   Height = 353
   Width = 194
   object qyAnalisiVendite: TOraQuery
     SQL.Strings = (
       
         'SELECT V.DATA_VENDITA, C.NOME, P.PRODOTTO, M.QUANTITA, M.PREZZO_' +
-        'VENDITA, M.SCONTO, M.IMPORTO_TOTALE, F.MANDANTE, SF.SUBMANDANTE,' +
-        ' PN.PROVINCIA, L.LOCALITA, CP.CATEGORIA, V.FLAG_VICRIS,'
+        'VENDITA, M.SCONTO, M.IMPORTO_TOTALE, M.PREZZO_ACQUISTO, F.MANDAN' +
+        'TE, SF.SUBMANDANTE, PN.PROVINCIA, L.LOCALITA, CP.CATEGORIA, V.FL' +
+        'AG_VICRIS,'
       '       CASE WHEN V.FLAG_VICRIS = '#39'1'#39' THEN'
       '         '#39'VICRIS'#39
       '       ELSE'
       '         NULL'
-      '       END DES_VICRIS'
+      '       END DES_VICRIS,'
+      '       CASE WHEN NVL(M.PREZZO_ACQUISTO, 0) <> 0 THEN'
+      
+        '         ((M.IMPORTO_TOTALE / (M.PREZZO_ACQUISTO * M.QUANTITA)) ' +
+        '* 100) - 100'
+      '       ELSE'
+      '         100'
+      '       END GUADAGNO'
       
         '  FROM TB_VENDITE V, TB_CLIENTI C, TB_MOVIMENTI M, TB_PRODOTTI P' +
         ', TB_MANDANTI F, TB_SUBMANDANTI SF, TB_CATEGORIE_PRODOTTI CP,'
@@ -136,26 +144,21 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       end>
     object qyAnalisiVenditeDATA_VENDITA: TDateTimeField
       DisplayLabel = 'Data Vendita'
+      DisplayWidth = 10
       FieldName = 'DATA_VENDITA'
       DisplayFormat = 'dd/mm/yyyy'
     end
     object qyAnalisiVenditeNOME: TStringField
       DisplayLabel = 'Cliente'
-      DisplayWidth = 30
+      DisplayWidth = 20
       FieldName = 'NOME'
       Size = 500
     end
     object qyAnalisiVenditePRODOTTO: TStringField
       DisplayLabel = 'Prodotto'
-      DisplayWidth = 20
+      DisplayWidth = 15
       FieldName = 'PRODOTTO'
       Size = 200
-    end
-    object qyAnalisiVenditeQUANTITA: TFloatField
-      DisplayLabel = 'Qt'#224
-      DisplayWidth = 5
-      FieldName = 'QUANTITA'
-      DisplayFormat = '#,##0.00'
     end
     object qyAnalisiVenditePREZZO_VENDITA: TFloatField
       DisplayLabel = 'Prezzo'
@@ -163,10 +166,10 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       FieldName = 'PREZZO_VENDITA'
       DisplayFormat = '#,##0.00'
     end
-    object qyAnalisiVenditeSCONTO: TFloatField
-      DisplayLabel = '% Sconto'
+    object qyAnalisiVenditeQUANTITA: TFloatField
+      DisplayLabel = 'Qt'#224
       DisplayWidth = 5
-      FieldName = 'SCONTO'
+      FieldName = 'QUANTITA'
       DisplayFormat = '#,##0.00'
     end
     object qyAnalisiVenditeIMPORTO_TOTALE: TFloatField
@@ -174,6 +177,18 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       DisplayWidth = 8
       FieldName = 'IMPORTO_TOTALE'
       DisplayFormat = '#,##0.00'
+    end
+    object qyAnalisiVenditePREZZO_ACQUISTO: TFloatField
+      DisplayLabel = 'Costo Unitario'
+      DisplayWidth = 8
+      FieldName = 'PREZZO_ACQUISTO'
+      DisplayFormat = '#,##0.00'
+    end
+    object qyAnalisiVenditeGUADAGNO: TFloatField
+      DisplayLabel = 'Guadagno (%)'
+      DisplayWidth = 8
+      FieldName = 'GUADAGNO'
+      DisplayFormat = '#,##0.00 %'
     end
     object qyAnalisiVenditeMANDANTE: TStringField
       DisplayLabel = 'Mandante'
@@ -210,6 +225,12 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       Visible = False
       FixedChar = True
       Size = 1
+    end
+    object qyAnalisiVenditeSCONTO: TFloatField
+      DisplayLabel = '% Sconto'
+      DisplayWidth = 5
+      FieldName = 'SCONTO'
+      DisplayFormat = '#,##0.00'
     end
     object qyAnalisiVenditeDES_VICRIS: TStringField
       DisplayLabel = 'Vendita Vicris'

@@ -40,7 +40,8 @@ inherited dmEdMandante: TdmEdMandante
     end
     object cdsMandanteMANDANTE: TStringField
       FieldName = 'MANDANTE'
-      Size = 200    end
+      Size = 200
+    end
     object cdsMandanteINDIRIZZO: TStringField
       FieldName = 'INDIRIZZO'
       Size = 2000
@@ -129,5 +130,23 @@ inherited dmEdMandante: TdmEdMandante
     DataSet = cdsMandante
     Left = 232
     Top = 88
+  end
+  object osUpdProdotti: TOraSQL
+    Session = OraSession
+    SQL.Strings = (
+      'UPDATE TB_PRODOTTI'
+      '   SET FLAG_ACTIVE = :FLAG_ACTIVE'
+      ' WHERE ID_MANDANTE = :ID_MANDANTE')
+    Left = 232
+    Top = 24
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'FLAG_ACTIVE'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'ID_MANDANTE'
+      end>
   end
 end

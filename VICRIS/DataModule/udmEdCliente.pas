@@ -70,7 +70,10 @@ begin
     cdsClienteFLAG_ACTIVE.AsString := '1';
 
   if DataSet = cdsCommenti then
-    cdsCommentiID_COMMENTO.AsInteger := dmGlobal.GetNpaDet;
+  begin
+    cdsCommentiID_COMMENTO.AsInteger   := dmGlobal.GetNpaDet;
+    cdsCommentiDATA_COMMENTO.AsDateTime := Date;
+  end
 end;
 
 function TdmEdCliente.dmCheckValidateData: boolean;

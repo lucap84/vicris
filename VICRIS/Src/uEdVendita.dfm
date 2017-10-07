@@ -354,6 +354,19 @@ inherited fmEdVendita: TfmEdVendita
       Font.Style = [fsBold]
       ParentFont = False
     end
+    object laGuadagno: TLabel
+      Left = 558
+      Top = 70
+      Width = 137
+      Height = 20
+      Caption = 'GUAGAGNO (%)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object deProdotto: TDBSearch
       Tag = 1004
       Left = 128
@@ -538,6 +551,23 @@ inherited fmEdVendita: TfmEdVendita
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 10
+    end
+    object deGuadagno: TDBEdit
+      Left = 702
+      Top = 68
+      Width = 121
+      Height = 28
+      Color = clMoneyGreen
+      DataField = 'guadagno'
+      DataSource = dmEdVendita.dsMovimenti
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 11
     end
   end
   object nvMovimenti: TDBNavigator [4]
