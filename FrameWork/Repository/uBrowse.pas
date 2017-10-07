@@ -70,7 +70,7 @@ type
   private
     { Private declarations }
     FPrintToFile : boolean;
-    
+
     FhFlgIrt, FhFlgUpd, FhFlgDel,
     FhFlgVis, FhFlgPrt : boolean;
 
@@ -78,6 +78,9 @@ type
     FhEditFormClass: TfmEditClass;
     FhEditDataModule: TdmEdit;
     FhEditDataModuleClass: TdmEditClass;
+
+    procedure GridLoadLayout;
+    procedure GridSaveLayout;
   protected
     procedure FormRefresh(Sender: TObject); override;
     procedure FormNext(Sender: TObject); override;
@@ -281,6 +284,7 @@ end;
 
 procedure TfmBrowse.acCloseExecute(Sender: TObject);
 begin
+  GridSaveLayout;
   Self.Close;
 end;
 
@@ -300,6 +304,7 @@ begin
   FhFlgVis     := hFlgVis;
   FhFlgPrt     := hFlgPrt;
   hDataModule.dmDsOpen(hDataModule.hDataSet);
+  GridLoadLayout;
 end;
 
 procedure TfmBrowse.FormRefresh(Sender: TObject);
@@ -424,6 +429,29 @@ end;
 procedure TfmBrowse.rpBrowsePrintingComplete(Sender: TObject);
 begin
   FPrintToFile := False;
+end;
+
+procedure TfmBrowse.GridSaveLayout;
+begin
+  grBrowse.Columns.SaveToFile(IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName))+Self.Name+'.grl');
+end;
+
+procedure TfmBrowse.GridLoadLayout;
+var
+  OrigCols : integer;
+begin
+  OrigCols := grBrowse.Columns.Count;
+  if FileExists(IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName))+Self.Name+'.grl') then
+  begin
+    grBrowse.Columns.LoadFromFile(IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName))+Self.Name+'.grl');
+    if OrigCols <> grBrowse.Columns.Count then
+    begin
+      DeleteFile(IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName))+Self.Name+'.grl');
+      hDataModule.dmDsClose(hDataModule.hDataSet);
+      grBrowse.Columns.Clear;
+      hDataModule.dmDsOpen(hDataModule.hDataSet);
+    end;
+  end;
 end;
 
 end.
