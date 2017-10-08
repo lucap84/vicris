@@ -24,6 +24,8 @@ type
     procedure grSearchGetCellParams(Sender: TObject; Field: TField;
       AFont: TFont; var Background: TColor; State: TGridDrawState;
       StateEx: TGridDrawStateEx);
+    procedure grSearchKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
     FhRes: Variant;
@@ -130,6 +132,13 @@ begin
      sbSearch.Down            and
      (not grSearch.Focused)   then
     Background := clMoneyGreen;
+end;
+
+procedure TfmMlSearch.grSearchKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+    SetSearchResult;
 end;
 
 end.

@@ -1,6 +1,7 @@
 object fmMlSearch: TfmMlSearch
   Left = 408
   Top = 209
+  ActiveControl = grSearch
   BorderStyle = bsDialog
   Caption = 'Ricerca'
   ClientHeight = 361
@@ -1557,6 +1558,7 @@ object fmMlSearch: TfmMlSearch
     TitleFont.Name = 'MS Sans Serif'
     TitleFont.Style = []
     OnDblClick = grSearchDblClick
+    OnKeyUp = grSearchKeyUp
   end
   object dsSearch: TDataSource
     Left = 104
