@@ -70,11 +70,7 @@ begin
 
   for i := 0 to Self.ComponentCount - 1 do
     if Self.Components[i] is TDBGridAux then
-    begin
       GridLoadLayout(TDBGridAux(Self.Components[i]));
-      TDBGridAux(Self.Components[i]).TitleFont.Style := TDBGridAux(Self.Components[i]).TitleFont.Style + [fsBold];
-      TDBGridAux(Self.Components[i]).Font.Style      := TDBGridAux(Self.Components[i]).Font.Style      - [fsBold];
-    end;
 end;
 
 procedure TfmRoot.FormClose(Sender: TObject; var Action: TCloseAction);

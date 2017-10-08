@@ -10,7 +10,7 @@ uses
   udmEdCliente, uEdCliente,
   ppCtrls, ppDB, ppVar, ppBands, ppPrnabl, ppClass,
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDBPipe, ppDBBDE, TXComp,
-  DBGridAux, GIFImage, jpeg;
+  DBGridAux, GIFImage, jpeg, Menus, ExportDS, SME2Cell, SME2XLS;
 
 type
   TfmBrCliente = class(TfmBrowse)
