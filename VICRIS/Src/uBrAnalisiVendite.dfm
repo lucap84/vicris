@@ -1,6 +1,6 @@
 inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
-  Left = 445
-  Top = 202
+  Left = 589
+  Top = 258
   Caption = 'Analisi Vendite'
   OldCreateOrder = True
   OnCreate = FormCreate
@@ -356,10 +356,5 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
   end
   inherited rbExtraOptions: TExtraOptions
     Top = 472
-  end
-  inherited puAnalisiVendite: TPopupMenu
-    inherited piExpXls: TMenuItem
-      OnClick = acExpXlsExecute
-    end
   end
 end

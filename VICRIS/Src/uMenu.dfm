@@ -9375,6 +9375,7 @@ object fmMenu: TfmMenu
       end>
   end
   object mmMenu: TMainMenu
+    OwnerDraw = True
     Left = 8
     object miFile: TMenuItem
       Caption = 'File'
