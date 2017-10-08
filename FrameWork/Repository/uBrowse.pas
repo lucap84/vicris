@@ -7,7 +7,8 @@ uses
   Dialogs, uRoot, Grids, DBGrids, ExtCtrls, DB, ActnList, StdCtrls,
   Buttons, udmGlobal, DBClient, Ora, udmDBCore, udmBrowse, udmEdit, uEdit,
   ppProd, ppClass, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
-  ppBands, ppCache, ppPrnabl, ppCtrls, ppVar, TXComp, uGlobals, DBGridAux;
+  ppBands, ppCache, ppPrnabl, ppCtrls, ppVar, TXComp, uGlobals, DBGridAux,
+  ExportDS, SME2Cell, SME2XLS, Menus;
 
 type
   TfmBrowse = class(TfmRoot)
@@ -43,6 +44,11 @@ type
     sbFilter: TSpeedButton;
     rbExtraOptions: TExtraOptions;
     imgTitle: TppImage;
+    SMExport: TSMExportToXLS;
+    sdExcel: TSaveDialog;
+    acExpXls: TAction;
+    puBrowse: TPopupMenu;
+    piExpXls: TMenuItem;
     procedure acInsertUpdate(Sender: TObject);
     procedure acEditUpdate(Sender: TObject);
     procedure acViewUpdate(Sender: TObject);
@@ -67,6 +73,8 @@ type
     procedure rpBrowsePrintingComplete(Sender: TObject);
     procedure grBrowseDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure acExpXlsExecute(Sender: TObject);
+    procedure acExpXlsUpdate(Sender: TObject);
   private
     { Private declarations }
     FPrintToFile : boolean;
@@ -425,6 +433,27 @@ end;
 procedure TfmBrowse.rpBrowsePrintingComplete(Sender: TObject);
 begin
   FPrintToFile := False;
+end;
+
+procedure TfmBrowse.acExpXlsExecute(Sender: TObject);
+begin
+  if Assigned(hDataModule) then
+  begin
+    sdExcel.FileName := Self.Caption + '_' + FormatDateTime('yyyymmdd', Now)+'.xls';
+    if sdExcel.Execute then
+    begin
+      SMExport.FileName := sdExcel.FileName;
+      SMExport.Dataset  := hDataModule.hDataSet;
+      SMExport.Execute;
+    end;
+  end;
+end;
+
+procedure TfmBrowse.acExpXlsUpdate(Sender: TObject);
+begin
+  if Assigned(hDataModule) then
+    with hDataModule do
+      TAction(Sender).Enabled := not hDataSet.IsEmpty;
 end;
 
 end.

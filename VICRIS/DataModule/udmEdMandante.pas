@@ -85,7 +85,7 @@ begin
     osUpdProdotti.Execute;
   end;
 
-  inherited dmCommit;
+  Result := inherited dmCommit;
 end;
 
 end.

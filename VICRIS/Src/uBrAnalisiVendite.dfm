@@ -26,7 +26,6 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     Left = 249
     Width = 485
     DataSource = dmBrAnalisiVendite.dsAnalisiVendite
-    PopupMenu = puAnalisiVendite
   end
   object pnlateAnalisi: TPanel [3]
     Left = 0
@@ -345,13 +344,6 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
   inherited alBrowse: TActionList
     Left = 8
     Top = 472
-    object acExpXls: TAction
-      Category = 'Record'
-      Caption = 'Esporta Dati....'
-      Hint = 'Esporta i dati visualizzati su file Excel...'
-      OnExecute = acExpXlsExecute
-      OnUpdate = acExpXlsUpdate
-    end
   end
   inherited plBrowse: TppBDEPipeline
     Left = 40
@@ -365,46 +357,9 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
   inherited rbExtraOptions: TExtraOptions
     Top = 472
   end
-  object puAnalisiVendite: TPopupMenu
-    Left = 216
-    Top = 472
-    object piExpXls: TMenuItem
-      Action = acExpXls
+  inherited puAnalisiVendite: TPopupMenu
+    inherited piExpXls: TMenuItem
+      OnClick = acExpXlsExecute
     end
-  end
-  object SMExport: TSMExportToXLS
-    AnimatedStatus = True
-    DataFormats.DateSeparator = '/'
-    DataFormats.TimeSeparator = ':'
-    DataFormats.FourDigitYear = True
-    DataFormats.LeadingZerosInDate = True
-    DataFormats.ThousandSeparator = '.'
-    DataFormats.DecimalSeparator = ','
-    DataFormats.CurrencyString = #8364
-    DataFormats.BooleanTrue = 'True'
-    DataFormats.BooleanFalse = 'False'
-    KeyGenerator = 'SMExport 4.50'
-    SelectedRecord = False
-    BlankIfZero = True
-    RightToLeft = False
-    Columns = <>
-    DataSet = dmBrAnalisiVendite.qyAnalisiVendite
-    ColumnSource = csDataSet
-    ActionAfterExport = aeOpenView
-    FileName = 'C:\Users\MarcoC.HSC2K3MAIN\Desktop\SMExport.XLS'
-    AddTitle = True
-    CharacterSet = csANSI_WINDOWS
-    ExportStyle.Style = esNormal
-    ExportStyle.OddColor = clBlack
-    ExportStyle.EvenColor = clBlack
-    Left = 184
-    Top = 472
-  end
-  object sdExcel: TSaveDialog
-    DefaultExt = 'xls'
-    Filter = 'Cartella di lavoro Excel 97-2003|*.xls'
-    Title = 'Salva con Nome...'
-    Left = 152
-    Top = 472
   end
 end

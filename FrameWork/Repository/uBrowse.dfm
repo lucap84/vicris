@@ -3217,6 +3217,7 @@ object fmBrowse: TfmBrowse
     Options = [dgTitles, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgMultiSelect]
     ParentCtl3D = False
     ParentFont = False
+    PopupMenu = puBrowse
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -3264,6 +3265,13 @@ object fmBrowse: TfmBrowse
       Hint = 'Chiude la transazione'
       OnExecute = acCloseExecute
       OnUpdate = acCloseUpdate
+    end
+    object acExpXls: TAction
+      Category = 'Record'
+      Caption = 'Esporta Dati....'
+      Hint = 'Esporta i dati visualizzati su file Excel...'
+      OnExecute = acExpXlsExecute
+      OnUpdate = acExpXlsUpdate
     end
   end
   object plBrowse: TppBDEPipeline
@@ -3513,5 +3521,47 @@ object fmBrowse: TfmBrowse
     DotMatrix.PrinterType = ptEpson
     Left = 120
     Top = 48
+  end
+  object SMExport: TSMExportToXLS
+    AnimatedStatus = True
+    DataFormats.DateSeparator = '/'
+    DataFormats.TimeSeparator = ':'
+    DataFormats.FourDigitYear = True
+    DataFormats.LeadingZerosInDate = True
+    DataFormats.ThousandSeparator = '.'
+    DataFormats.DecimalSeparator = ','
+    DataFormats.CurrencyString = #8364
+    DataFormats.BooleanTrue = 'True'
+    DataFormats.BooleanFalse = 'False'
+    KeyGenerator = 'SMExport 4.50'
+    SelectedRecord = False
+    BlankIfZero = False
+    Options = [soFieldMask, soShowMessage, soWaitCursor, soDisableControls, soColLines, soRowLines, soExportBlankValues]
+    RightToLeft = False
+    Columns = <>
+    ColumnSource = csDataSet
+    ActionAfterExport = aeOpenView
+    FileName = 'C:\Users\MarcoC.HSC2K3MAIN\Desktop\SMExport.XLS'
+    AddTitle = True
+    CharacterSet = csANSI_WINDOWS
+    ExportStyle.Style = esNormal
+    ExportStyle.OddColor = clBlack
+    ExportStyle.EvenColor = clBlack
+    Left = 120
+    Top = 80
+  end
+  object sdExcel: TSaveDialog
+    DefaultExt = 'xls'
+    Filter = 'Cartella di lavoro Excel 97-2003|*.xls'
+    Title = 'Salva con Nome...'
+    Left = 80
+    Top = 80
+  end
+  object puBrowse: TPopupMenu
+    Left = 160
+    Top = 80
+    object piExpXls: TMenuItem
+      Action = acExpXls
+    end
   end
 end

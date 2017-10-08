@@ -25,14 +25,9 @@ type
     laClienti: TLabel;
     laMandanti: TLabel;
     laSubmandanti: TLabel;
-    puAnalisiVendite: TPopupMenu;
-    acExpXls: TAction;
-    piExpXls: TMenuItem;
-    SMExport: TSMExportToXLS;
     laPrezzoVendita: TLabel;
     laPrezzoInizio: TLabel;
     laPrezzoFine: TLabel;
-    sdExcel: TSaveDialog;
     dePrezzoInizio: TEdit;
     dePrezzoFine: TEdit;
     Label10: TLabel;
@@ -46,8 +41,6 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure FiltersChange(Sender: TObject);
     procedure FormPostCreate(Sender: TObject);
-    procedure acExpXlsUpdate(Sender: TObject);
-    procedure acExpXlsExecute(Sender: TObject);
     procedure PrezzoKeyPress(Sender: TObject; var Key: Char);
     procedure grBrowseDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
@@ -86,6 +79,8 @@ var
   AQuery : TOraQuery;
 begin
   inherited;
+  AQuery := nil;
+  
   if Assigned(hDataModule) then
     with TdmBrAnalisiVendite(hDataModule) do
     begin
@@ -165,22 +160,6 @@ begin
   cbCategoria.KeyValue   := -1;
 
   FiltersChange(nil);
-end;
-
-procedure TfmBrAnalisiVendite.acExpXlsUpdate(Sender: TObject);
-begin
-  if Assigned(hDataModule) then
-    with TdmBrAnalisiVendite(hDataModule) do
-      TAction(Sender).Enabled := not qyAnalisiVendite.IsEmpty;
-end;
-
-procedure TfmBrAnalisiVendite.acExpXlsExecute(Sender: TObject);
-begin
-  if sdExcel.Execute then
-  begin
-    SMExport.FileName := sdExcel.FileName;
-    SMExport.Execute;
-  end;
 end;
 
 procedure TfmBrAnalisiVendite.PrezzoKeyPress(Sender: TObject;
