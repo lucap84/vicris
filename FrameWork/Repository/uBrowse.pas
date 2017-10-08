@@ -79,8 +79,8 @@ type
     FhEditDataModule: TdmEdit;
     FhEditDataModuleClass: TdmEditClass;
 
-    procedure GridLoadLayout;
-    procedure GridSaveLayout;
+    procedure GridLoadLayout(AGrid: TDBGridAux);
+    procedure GridSaveLayout(AGrid: TDBGridAux);
   protected
     procedure FormRefresh(Sender: TObject); override;
     procedure FormNext(Sender: TObject); override;
@@ -284,7 +284,7 @@ end;
 
 procedure TfmBrowse.acCloseExecute(Sender: TObject);
 begin
-  GridSaveLayout;
+  GridSaveLayout(grBrowse);
   Self.Close;
 end;
 
@@ -303,7 +303,7 @@ begin
   FhFlgDel     := hFlgDel;
   FhFlgVis     := hFlgVis;
   FhFlgPrt     := hFlgPrt;
-  GridLoadLayout;
+  GridLoadLayout(grBrowse);
   hDataModule.dmDsOpen(hDataModule.hDataSet);
 end;
 
@@ -431,48 +431,48 @@ begin
   FPrintToFile := False;
 end;
 
-procedure TfmBrowse.GridSaveLayout;
+procedure TfmBrowse.GridSaveLayout(AGrid: TDBGridAux);
 begin
-  grBrowse.Columns.SaveToFile(IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName))+Self.Name+'.grl');
+  AGrid.Columns.SaveToFile(IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName))+Self.Name+'.'+AGrid.Name+'.grl');
 end;
 
-procedure TfmBrowse.GridLoadLayout;
+procedure TfmBrowse.GridLoadLayout(AGrid: TDBGridAux);
 var
   i, j : integer;
   Founded : boolean;
 begin
-  if FileExists(IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName))+Self.Name+'.grl') then
+  if FileExists(IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName))+Self.Name+'.'+AGrid.Name+'.grl') then
   begin
-    grBrowse.Columns.LoadFromFile(IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName))+Self.Name+'.grl');
+    AGrid.Columns.LoadFromFile(IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName))+Self.Name+'.'+AGrid.Name+'.grl');
     with hDataModule do
     begin
-      for i := 0  to hDataSet.Fields.Count - 1 do
-        if hDataSet.Fields[i].Visible then
+      for i := 0  to AGrid.DataSource.Dataset.Fields.Count - 1 do
+        if AGrid.DataSource.Dataset.Fields[i].Visible then
         begin
           Founded := False;
-          for j := 0 to grBrowse.Columns.Count - 1 do
-            if hDataSet.Fields[i].FieldName = grBrowse.Columns[j].FieldName then
+          for j := 0 to AGrid.Columns.Count - 1 do
+            if AGrid.DataSource.Dataset.Fields[i].FieldName = AGrid.Columns[j].FieldName then
             begin
               Founded := True;
               Break;
             end;
 
           if not Founded then
-            grBrowse.Columns.Add.Field := hDataSet.Fields[i];
+            AGrid.Columns.Add.Field := AGrid.DataSource.Dataset.Fields[i];
         end;
 
-      for i := 0  to grBrowse.Columns.Count - 1 do
+      for i := AGrid.Columns.Count - 1  downto 0 do
       begin
         Founded := False;
-        for j := 0 to hDataSet.Fields.Count - 1 do
-          if hDataSet.Fields[j].FieldName = grBrowse.Columns[i].FieldName then
+        for j := 0 to AGrid.DataSource.Dataset.Fields.Count - 1 do
+          if AGrid.DataSource.Dataset.Fields[j].FieldName = AGrid.Columns[i].FieldName then
           begin
-            Founded := True;
+            Founded := AGrid.DataSource.Dataset.Fields[j].Visible;
             Break;
           end;
 
         if not Founded then
-          grBrowse.Columns.Delete(i);
+          AGrid.Columns.Delete(i);
       end;
     end;
   end;
