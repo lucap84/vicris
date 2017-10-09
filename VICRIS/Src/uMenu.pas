@@ -100,11 +100,10 @@ uses
 function KeyboardHookProcedure(nCode: Integer; wParam: WPARAM; lParam: LPARAM): integer; stdcall;
 var
   KeyUp : bool;
-
 begin
   Result := 0;
 
-  Case ncode Of
+  case ncode of
   HC_ACTION:
     begin
       {We trap the keystrokes here}
@@ -121,11 +120,11 @@ begin
         begin
           {if KeyUp}
           if (KeyUp <> false) then
-            begin
-              {Create a UpArrow keyboard event}
-              keybd_event (VkKeyScan(','), 0, 0, 0);
-              keybd_event (VkKeyScan(','), 0, KEYEVENTF_KEYUP, 0);
-            end { (KeyUp <> false) };
+          begin
+            {Create a UpArrow keyboard event}
+            keybd_event (VkKeyScan(','), 0, 0, 0);
+            keybd_event (VkKeyScan(','), 0, KEYEVENTF_KEYUP, 0);
+          end { (KeyUp <> false) };
           {Swallow the keystroke}
           Result := -1;
           exit
