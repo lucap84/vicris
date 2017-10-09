@@ -9507,8 +9507,8 @@ object fmMenu: TfmMenu
     end
     object acLoc: TAction
       Category = 'DB_Generale'
-      Caption = '&Localit'#224
-      Hint = 'Apre l'#39'elenco delle Localit'#224
+      Caption = '&Regione'
+      Hint = 'Apre l'#39'elenco delle Regioni'
       OnExecute = acLocExecute
       OnUpdate = acCommonUpdate
     end

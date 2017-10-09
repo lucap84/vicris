@@ -12,7 +12,7 @@ inherited dmBrCliente: TdmBrCliente
       '  FROM TB_CLIENTI C, TB_PROVINCE P, TB_LOCALITA L'
       ' WHERE C.ID_PROVINCIA = P.ID_PROVINCIA (+)'
       '   AND C.ID_LOCALITA  = L.ID_LOCALITA  (+)'
-      ' ORDER BY C.NOME')
+      ' ORDER BY C.ID_CLIENTE DESC')
     Left = 32
     Top = 16
     object qyClienteID_CLIENTE: TFloatField
@@ -109,8 +109,9 @@ inherited dmBrCliente: TdmBrCliente
       Size = 5
     end
     object qyClienteNOTE: TStringField
+      DisplayLabel = 'Note'
+      DisplayWidth = 30
       FieldName = 'NOTE'
-      Visible = False
       Size = 4000
     end
     object qyClienteCOD_USR: TStringField
@@ -141,7 +142,7 @@ inherited dmBrCliente: TdmBrCliente
       Size = 2
     end
     object qyClienteLOCALITA: TStringField
-      DisplayLabel = 'Localit'#224
+      DisplayLabel = 'Regione'
       DisplayWidth = 15
       FieldName = 'LOCALITA'
       Size = 100

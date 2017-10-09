@@ -8,7 +8,7 @@ inherited dmBrSubMandante: TdmBrSubMandante
     SQL.Strings = (
       'SELECT *'
       '  FROM TB_SUBMANDANTI'
-      ' ORDER BY SUBMANDANTE')
+      ' ORDER BY ID_SUBMANDANTE DESC')
     Left = 24
     Top = 16
     object qySubMandanteID_SUBMANDANTE: TFloatField

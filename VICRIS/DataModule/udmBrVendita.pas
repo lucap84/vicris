@@ -17,7 +17,6 @@ type
     qyVenditaNUMERO_FATTURA: TStringField;
     qyVenditaNOTE: TStringField;
     qyVenditaNOME: TStringField;
-    qyVenditaNUM_ART: TFloatField;
     qyVenditaTOT_VEN: TFloatField;
     qyVenditaFLAG_VICRIS: TStringField;
     qyVenditaDES_VICRIS: TStringField;

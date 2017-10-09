@@ -53,18 +53,22 @@ type
     FhFlagAtvMan: integer;
     FhFlagAtvCli: integer;
     FhFlagAtvSub: integer;
+    FhAcquistoFin: double;
+    FhAcquistoIni: double;
     { Private declarations }
   public
     { Public declarations }
     procedure dmDoFilter;
-    property hDataIni    : TDateTime read FhDataIni    write FhDataIni;
-    property hDataFin    : TDateTime read FhDataFin    write FhDataFin;
-    property hPrezzoIni  : double    read FhPrezzoIni  write FhPrezzoIni;
-    property hPrezzoFin  : double    read FhPrezzoFin  write FhPrezzoFin;
-    property hFlagVicris : integer   read FhFlagVicris write FhFlagVicris;
-    property hFlagAtvCli : integer   read FhFlagAtvCli write FhFlagAtvCli;
-    property hFlagAtvMan : integer   read FhFlagAtvMan write FhFlagAtvMan;
-    property hFlagAtvSub : integer   read FhFlagAtvSub write FhFlagAtvSub;
+    property hDataIni    : TDateTime read FhDataIni     write FhDataIni;
+    property hDataFin    : TDateTime read FhDataFin     write FhDataFin;
+    property hPrezzoIni  : double    read FhPrezzoIni   write FhPrezzoIni;
+    property hPrezzoFin  : double    read FhPrezzoFin   write FhPrezzoFin;
+    property hAcquistoIni: double    read FhAcquistoIni write FhAcquistoIni;
+    property hAcquistoFin: double    read FhAcquistoFin write FhAcquistoFin;
+    property hFlagVicris : integer   read FhFlagVicris  write FhFlagVicris;
+    property hFlagAtvCli : integer   read FhFlagAtvCli  write FhFlagAtvCli;
+    property hFlagAtvMan : integer   read FhFlagAtvMan  write FhFlagAtvMan;
+    property hFlagAtvSub : integer   read FhFlagAtvSub  write FhFlagAtvSub;
   end;
 
 var
@@ -78,10 +82,12 @@ implementation
 
 procedure TdmBrAnalisiVendite.dmDoFilter;
 begin
-  qyAnalisiVendite.ParamByName('Data_Inizio').AsDate := hDataIni;
-  qyAnalisiVendite.ParamByName('Data_Fine').AsDate   := hDataFin;
+  qyAnalisiVendite.ParamByName('Data_Inizio').AsDate     := hDataIni;
+  qyAnalisiVendite.ParamByName('Data_Fine').AsDate       := hDataFin;
   qyAnalisiVendite.ParamByName('Prezzo_Inizio').AsFloat  := hPrezzoIni;
   qyAnalisiVendite.ParamByName('Prezzo_Fine').AsFloat    := hPrezzoFin;
+  qyAnalisiVendite.ParamByName('Acquisto_Inizio').AsFloat:= hAcquistoIni;
+  qyAnalisiVendite.ParamByName('Acquisto_Fine').AsFloat  := hAcquistoFin;
 
   qyAnalisiVendite.ParamByName('Id_Cliente').Clear;
   if (qyClientiID_CLIENTE.AsInteger <> -1)         then

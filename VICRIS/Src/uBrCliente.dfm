@@ -728,7 +728,7 @@ inherited fmBrCliente: TfmBrCliente
       end
       object ppDBText3: TppDBText
         UserName = 'DBText3'
-        DataField = 'LOCALITA'
+        DataField = 'REGIONE'
         DataPipeline = plBrowse
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack

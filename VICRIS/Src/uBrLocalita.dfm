@@ -1,7 +1,7 @@
 inherited fmBrLocalita: TfmBrLocalita
   Left = 752
   Top = 288
-  Caption = 'Localit'#224
+  Caption = 'Regione'
   OldCreateOrder = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy

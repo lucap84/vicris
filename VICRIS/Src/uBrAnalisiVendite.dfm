@@ -1,7 +1,9 @@
 inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
-  Left = 589
-  Top = 258
+  Left = 249
+  Top = 136
+  Height = 640
   Caption = 'Analisi Vendite'
+  Constraints.MinHeight = 640
   OldCreateOrder = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -22,16 +24,20 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     Font.Style = [fsBold]
     ParentFont = False
   end
+  inherited pnTools: TPanel
+    Top = 541
+  end
   inherited grBrowse: TDBGridAux
     Left = 249
     Width = 485
+    Height = 541
     DataSource = dmBrAnalisiVendite.dsAnalisiVendite
   end
   object pnlateAnalisi: TPanel [3]
     Left = 0
     Top = 0
     Width = 249
-    Height = 501
+    Height = 541
     Align = alLeft
     BevelOuter = bvNone
     TabOrder = 2
@@ -95,7 +101,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object laMandanti: TLabel
       Left = 8
-      Top = 185
+      Top = 181
       Width = 75
       Height = 13
       AutoSize = False
@@ -109,7 +115,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object laSubmandanti: TLabel
       Left = 8
-      Top = 258
+      Top = 394
       Width = 75
       Height = 13
       AutoSize = False
@@ -123,7 +129,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object laPrezzoVendita: TLabel
       Left = 8
-      Top = 344
+      Top = 248
       Width = 129
       Height = 13
       AutoSize = False
@@ -137,7 +143,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object laPrezzoInizio: TLabel
       Left = 8
-      Top = 363
+      Top = 267
       Width = 75
       Height = 13
       Alignment = taRightJustify
@@ -152,7 +158,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object laPrezzoFine: TLabel
       Left = 8
-      Top = 386
+      Top = 290
       Width = 75
       Height = 13
       Alignment = taRightJustify
@@ -167,11 +173,55 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object laCategoria: TLabel
       Left = 8
-      Top = 314
+      Top = 463
       Width = 75
       Height = 13
       AutoSize = False
       Caption = 'Categoria'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object laPrezzoAcquisto: TLabel
+      Left = 8
+      Top = 320
+      Width = 129
+      Height = 13
+      AutoSize = False
+      Caption = 'Prezzo Vendita ('#8364')'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object laAcquistoInizio: TLabel
+      Left = 8
+      Top = 339
+      Width = 75
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Minimo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object laAcquistoFine: TLabel
+      Left = 8
+      Top = 362
+      Width = 75
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Massimo'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -228,55 +278,55 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     end
     object cbMandanti: TDBLookupComboBox
       Left = 95
-      Top = 183
+      Top = 179
       Width = 145
       Height = 21
       KeyField = 'ID_MANDANTE'
       ListField = 'MANDANTE'
       ListSource = dmBrAnalisiVendite.dsMandanti
-      TabOrder = 4
+      TabOrder = 5
     end
     object cbSubmandanti: TDBLookupComboBox
       Left = 95
-      Top = 256
+      Top = 392
       Width = 145
       Height = 21
       KeyField = 'ID_SUBMANDANTE'
       ListField = 'SUBMANDANTE'
       ListSource = dmBrAnalisiVendite.dsSubmandanti
-      TabOrder = 5
+      TabOrder = 7
     end
     object dePrezzoInizio: TEdit
       Left = 95
-      Top = 360
+      Top = 264
       Width = 145
       Height = 21
-      TabOrder = 7
+      TabOrder = 10
       OnChange = FiltersChange
       OnKeyPress = PrezzoKeyPress
     end
     object dePrezzoFine: TEdit
       Left = 95
-      Top = 384
+      Top = 288
       Width = 145
       Height = 21
-      TabOrder = 8
+      TabOrder = 11
       OnChange = FiltersChange
       OnKeyPress = PrezzoKeyPress
     end
     object cbCategoria: TDBLookupComboBox
       Left = 95
-      Top = 312
+      Top = 461
       Width = 145
       Height = 21
       KeyField = 'ID_CATEGORIA'
       ListField = 'CATEGORIA'
       ListSource = dmBrAnalisiVendite.dsCategoria
-      TabOrder = 6
+      TabOrder = 9
     end
     object rgFlagVicris: TRadioGroup
       Left = 8
-      Top = 416
+      Top = 488
       Width = 233
       Height = 51
       Caption = ' Provenienza Vendita '
@@ -292,7 +342,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         'Vicris'
         'Entrambe')
       ParentFont = False
-      TabOrder = 9
+      TabOrder = 14
       OnClick = FiltersChange
     end
     object rgClienti: TRadioGroup
@@ -302,59 +352,77 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       Height = 30
       Caption = ' Clienti '
       Columns = 3
-      ItemIndex = 2
+      ItemIndex = 1
       Items.Strings = (
         'NON Attivi'
         'Attivi'
         'Entrambi')
-      TabOrder = 10
+      TabOrder = 4
       OnClick = FiltersChange
     end
     object rgMandanti: TRadioGroup
       Left = 8
-      Top = 204
+      Top = 200
       Width = 233
       Height = 30
       Caption = ' Mandanti '
       Columns = 3
-      ItemIndex = 2
+      ItemIndex = 1
       Items.Strings = (
         'NON Attivi'
         'Attivi'
         'Entrambi')
-      TabOrder = 11
+      TabOrder = 6
       OnClick = FiltersChange
     end
     object rgSubmandanti: TRadioGroup
       Left = 8
-      Top = 277
+      Top = 413
       Width = 233
       Height = 30
       Caption = ' Submandanti '
       Columns = 3
-      ItemIndex = 2
+      ItemIndex = 1
       Items.Strings = (
         'NON Attivi'
         'Attivi'
         'Entrambi')
-      TabOrder = 12
+      TabOrder = 8
       OnClick = FiltersChange
+    end
+    object deAcquistoFine: TEdit
+      Left = 95
+      Top = 360
+      Width = 145
+      Height = 21
+      TabOrder = 12
+      OnChange = FiltersChange
+      OnKeyPress = PrezzoKeyPress
+    end
+    object deAcquistoInizio: TEdit
+      Left = 95
+      Top = 336
+      Width = 145
+      Height = 21
+      TabOrder = 13
+      OnChange = FiltersChange
+      OnKeyPress = PrezzoKeyPress
     end
   end
   inherited alBrowse: TActionList
     Left = 8
-    Top = 472
+    Top = 544
   end
   inherited plBrowse: TppBDEPipeline
     Left = 40
-    Top = 472
+    Top = 544
   end
   inherited rpBrowse: TppReport
     Left = 88
-    Top = 472
+    Top = 544
     DataPipelineName = 'plBrowse'
   end
   inherited rbExtraOptions: TExtraOptions
-    Top = 472
+    Top = 544
   end
 end

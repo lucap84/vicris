@@ -78,13 +78,11 @@ type
     procedure acVenExecute(Sender: TObject);
     procedure acPrnExecute(Sender: TObject);
     procedure acAnlVenExecute(Sender: TObject);
-  private
-    { Private declarations }
-  public
-    { Public declarations }
   end;
 
 var
+  hinstDLL: LongWord;
+  hhookSysMsg: Longword;
   fmMenu: TfmMenu;
 
 implementation
@@ -98,6 +96,56 @@ uses
   uBrAnalisiVendite,
   uAbout;
 {$R *.dfm}
+
+function KeyboardHookProcedure(nCode: Integer; wParam: WPARAM; lParam: LPARAM): integer; stdcall;
+var
+  KeyUp : bool;
+
+begin
+  Result := 0;
+
+  Case ncode Of
+  HC_ACTION:
+    begin
+      {We trap the keystrokes here}
+      {Is this a key up message?}
+      KeyUp := ((lParam and (1 shl 31)) <> 0);
+
+      {if KeyUp then increment the key count}
+      if (KeyUp <> false) then
+      begin
+      end { (KeyUp <> false) };
+
+      Case wParam Of
+      VK_DECIMAL:
+        begin
+          {if KeyUp}
+          if (KeyUp <> false) then
+            begin
+              {Create a UpArrow keyboard event}
+              keybd_event (VkKeyScan(','), 0, 0, 0);
+              keybd_event (VkKeyScan(','), 0, KEYEVENTF_KEYUP, 0);
+            end { (KeyUp <> false) };
+          {Swallow the keystroke}
+          Result := -1;
+          exit
+        end;
+      end;
+      Result := 0
+    end; {HC_ACTION}
+  HC_NOREMOVE:
+    begin
+      {This is a keystroke message, but the keystroke message}
+      {has not been removed from the message queue, since an}
+      {application has called PeekMessage() specifying PM_NOREMOVE}
+      Result := 0;
+      exit
+    end;
+  end { case code }; {case code}
+  if (ncode < 0) then
+    {Call the next hook in the hook chain}
+    Result := CallNextHookEx (hhookSysMsg, ncode, wParam, lParam)
+end;
 
 procedure TfmMenu.acAnlVenExecute(Sender: TObject);
 begin
@@ -169,6 +217,9 @@ var
   i : integer;
   AUser, APsw : String;
 begin
+  hinstDLL    := GetModuleHandle(nil);
+  hhookSysMsg := SetWindowsHookEx (WH_KEYBOARD, @KeyboardHookProcedure, hinstDLL, GetCurrentThreadId);
+
   dmChkUsr := TdmChkUsr.Create(nil);
   dmChkUsr.dmConnect;
 

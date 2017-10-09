@@ -10,7 +10,7 @@ inherited dmBrLocalita: TdmBrLocalita
     SQL.Strings = (
       'SELECT *'
       '  FROM TB_LOCALITA'
-      ' ORDER BY LOCALITA')
+      ' ORDER BY ID_LOCALITA DESC')
     Left = 16
     Top = 16
     object qyLocalitaID_LOCALITA: TFloatField
@@ -19,7 +19,7 @@ inherited dmBrLocalita: TdmBrLocalita
       Visible = False
     end
     object qyLocalitaLOCALITA: TStringField
-      DisplayLabel = 'Localit'#224
+      DisplayLabel = 'Regione'
       FieldName = 'LOCALITA'
       Size = 100
     end

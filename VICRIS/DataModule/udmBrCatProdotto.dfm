@@ -13,7 +13,7 @@ inherited dmBrCatProdotto: TdmBrCatProdotto
     SQL.Strings = (
       'SELECT *'
       '  FROM TB_CATEGORIE_PRODOTTI'
-      ' ORDER BY CATEGORIA')
+      ' ORDER BY ID_CATEGORIA DESC')
     Left = 24
     Top = 24
     object qyCatProdottoID_CATEGORIA: TFloatField

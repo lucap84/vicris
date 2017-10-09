@@ -16,7 +16,7 @@ inherited dmBrProdotto: TdmBrProdotto
       ' WHERE P.ID_MANDANTE    = M.ID_MANDANTE    (+)'
       '   AND P.ID_CATEGORIA   = C.ID_CATEGORIA   (+)'
       '   AND P.ID_SUBMANDANTE = S.ID_SUBMANDANTE (+)'
-      ' ORDER BY P.PRODOTTO')
+      ' ORDER BY P.ID_PRODOTTO DESC')
     Left = 16
     Top = 24
     object qyProdottoID_PRODOTTO: TFloatField
@@ -41,6 +41,7 @@ inherited dmBrProdotto: TdmBrProdotto
       DisplayLabel = 'U.M.'
       DisplayWidth = 5
       FieldName = 'UNITA_MISURA'
+      Visible = False
       Size = 10
     end
     object qyProdottoNOTE: TStringField

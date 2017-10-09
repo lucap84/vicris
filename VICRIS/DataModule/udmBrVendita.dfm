@@ -15,7 +15,6 @@ inherited dmBrVendita: TdmBrVendita
       '       ELSE'
       '         NULL'
       '       END DES_VICRIS,'
-      '       COUNT(M.ID_PRODOTTO) NUM_ART,'
       '       SUM(M.IMPORTO_TOTALE) TOT_VEN'
       '  FROM TB_VENDITE V, TB_CLIENTI C, TB_MOVIMENTI M'
       ' WHERE V.ID_CLIENTE = C.ID_CLIENTE'
@@ -46,11 +45,6 @@ inherited dmBrVendita: TdmBrVendita
       DisplayWidth = 50
       FieldName = 'NOME'
       Size = 500
-    end
-    object qyVenditaNUM_ART: TFloatField
-      DisplayLabel = 'N'#176' Articoli'
-      FieldName = 'NUM_ART'
-      DisplayFormat = '#,##0.00'
     end
     object qyVenditaTOT_VEN: TFloatField
       DisplayLabel = 'Totale Vendita'

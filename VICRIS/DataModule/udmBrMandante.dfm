@@ -11,7 +11,7 @@ inherited dmBrMandante: TdmBrMandante
       'SELECT M.*, P.PROVINCIA'
       '  FROM TB_MANDANTI M, TB_PROVINCE P'
       ' WHERE M.ID_PROVINCIA = P.ID_PROVINCIA (+)'
-      ' ORDER BY M.MANDANTE')
+      ' ORDER BY M.ID_MANDANTE DESC')
     Left = 32
     Top = 24
     object qyMandanteID_MANDANTE: TFloatField
@@ -83,8 +83,9 @@ inherited dmBrMandante: TdmBrMandante
       Size = 16
     end
     object qyMandanteNOTE: TStringField
+      DisplayLabel = 'Note'
+      DisplayWidth = 30
       FieldName = 'NOTE'
-      Visible = False
       Size = 4000
     end
     object qyMandanteIBAN: TStringField

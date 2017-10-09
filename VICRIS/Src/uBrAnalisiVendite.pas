@@ -37,6 +37,11 @@ type
     rgClienti: TRadioGroup;
     rgMandanti: TRadioGroup;
     rgSubmandanti: TRadioGroup;
+    laPrezzoAcquisto: TLabel;
+    laAcquistoInizio: TLabel;
+    laAcquistoFine: TLabel;
+    deAcquistoFine: TEdit;
+    deAcquistoInizio: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FiltersChange(Sender: TObject);
@@ -65,7 +70,9 @@ begin
   dtDataInizio.Date    := YearFirstDate(Now);
   dtDataFine.Date      := Date;
   dePrezzoInizio.Text  := '0';
-  dePrezzoFine.Text    := '999999999'
+  dePrezzoFine.Text    := '999999999';
+  deAcquistoInizio.Text:= '0';
+  deAcquistoFine.Text  := '999999999';
 end;
 
 procedure TfmBrAnalisiVendite.FormDestroy(Sender: TObject);
@@ -92,6 +99,12 @@ begin
         hPrezzoIni := StrToFloat(dePrezzoInizio.Text);
       if dePrezzoFine.Text <> '' then
         hPrezzoFin := StrToFloat(dePrezzoFine.Text);
+      hAcquistoIni := 0;
+      hAcquistoFin := 999999999;
+      if deAcquistoInizio.Text <> '' then
+        hAcquistoIni := StrToFloat(deAcquistoInizio.Text);
+      if deAcquistoFine.Text <> '' then
+        hAcquistoFin := StrToFloat(deAcquistoFine.Text);
       hFlagVicris  := rgFlagVicris.ItemIndex;
       hFlagAtvCli  := rgClienti.ItemIndex;
       hFlagAtvMan  := rgMandanti.ItemIndex;

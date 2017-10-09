@@ -69,12 +69,16 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       
         '   AND NVL(M.PREZZO_VENDITA, 0) BETWEEN :PREZZO_INIZIO AND :PREZ' +
         'ZO_FINE'
+      '   -- Prezzo Acquisto'
+      
+        '   AND NVL(M.PREZZO_ACQUISTO, 0) BETWEEN :ACQUISTO_INIZIO AND :A' +
+        'CQUISTO_FINE'
       ''
       
         '   AND V.FLAG_VICRIS BETWEEN :FLAG_VICRIS_INI AND :FLAG_VICRIS_F' +
         'IN'
       ''
-      ' ORDER BY 2, 1 DESC')
+      ' ORDER BY 1 DESC, 2')
     Left = 32
     Top = 24
     ParamData = <
@@ -133,6 +137,14 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       item
         DataType = ftUnknown
         Name = 'PREZZO_FINE'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'ACQUISTO_INIZIO'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'ACQUISTO_FINE'
       end
       item
         DataType = ftUnknown
@@ -200,6 +212,7 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       DisplayLabel = 'Submandante'
       DisplayWidth = 20
       FieldName = 'SUBMANDANTE'
+      Visible = False
       Size = 200
     end
     object qyAnalisiVenditePROVINCIA: TStringField
@@ -208,7 +221,7 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       Size = 2
     end
     object qyAnalisiVenditeLOCALITA: TStringField
-      DisplayLabel = 'Localit'#224
+      DisplayLabel = 'Regione'
       DisplayWidth = 15
       FieldName = 'LOCALITA'
       Size = 100
@@ -217,6 +230,7 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       DisplayLabel = 'Categoria'
       DisplayWidth = 20
       FieldName = 'CATEGORIA'
+      Visible = False
       Size = 150
     end
     object qyAnalisiVenditeFLAG_VICRIS: TStringField
@@ -230,6 +244,7 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       DisplayLabel = '% Sconto'
       DisplayWidth = 5
       FieldName = 'SCONTO'
+      Visible = False
       DisplayFormat = '#,##0.00'
     end
     object qyAnalisiVenditeDES_VICRIS: TStringField

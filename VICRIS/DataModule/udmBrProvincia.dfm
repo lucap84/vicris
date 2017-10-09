@@ -8,7 +8,7 @@ inherited dmBrProvincia: TdmBrProvincia
     SQL.Strings = (
       'SELECT *'
       '  FROM TB_PROVINCE'
-      ' ORDER BY PROVINCIA')
+      ' ORDER BY ID_PROVINCIA DESC')
     Left = 16
     Top = 16
     object qyProvinciaID_PROVINCIA: TFloatField

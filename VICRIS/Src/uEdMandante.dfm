@@ -1,6 +1,6 @@
 inherited fmEdMandante: TfmEdMandante
-  Left = 589
-  Top = 229
+  Left = 285
+  Top = 235
   Width = 760
   Height = 570
   ActiveControl = deMandante
@@ -556,6 +556,7 @@ inherited fmEdMandante: TfmEdMandante
         Top = 98
         Width = 40
         Height = 28
+        Anchors = [akTop]
         Color = clYellow
         DataField = 'ID_PROVINCIA'
         DataSource = dmEdMandante.dsMandante
@@ -573,6 +574,7 @@ inherited fmEdMandante: TfmEdMandante
         Top = 98
         Width = 72
         Height = 28
+        Anchors = [akTop]
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -632,146 +634,154 @@ inherited fmEdMandante: TfmEdMandante
       FieldName = 'NOME'
       FieldLength = 500
       DisplayWidth = 500
-      Position = 2
+      Position = 1
     end
     object plEditppField4: TppField
       FieldAlias = 'REFERENTE'
       FieldName = 'REFERENTE'
       FieldLength = 100
       DisplayWidth = 100
-      Position = 3
+      Position = 2
     end
     object plEditppField5: TppField
       FieldAlias = 'INDIRIZZO'
       FieldName = 'INDIRIZZO'
       FieldLength = 2000
       DisplayWidth = 2000
-      Position = 4
+      Position = 3
     end
     object plEditppField6: TppField
       FieldAlias = 'INDIRIZZO_SPEDIZIONE'
       FieldName = 'INDIRIZZO_SPEDIZIONE'
       FieldLength = 2000
       DisplayWidth = 2000
-      Position = 5
+      Position = 4
     end
     object plEditppField7: TppField
       FieldAlias = 'CITTA'
       FieldName = 'CITTA'
       FieldLength = 100
       DisplayWidth = 100
-      Position = 6
+      Position = 5
     end
     object plEditppField8: TppField
       FieldAlias = 'CAP'
       FieldName = 'CAP'
       FieldLength = 5
       DisplayWidth = 5
-      Position = 7
+      Position = 6
     end
     object plEditppField9: TppField
       FieldAlias = 'PROVINCIA'
       FieldName = 'PROVINCIA'
       FieldLength = 3
       DisplayWidth = 3
-      Position = 8
+      Position = 7
     end
     object plEditppField10: TppField
       FieldAlias = 'TELEFONO'
       FieldName = 'TELEFONO'
       FieldLength = 40
       DisplayWidth = 40
-      Position = 9
+      Position = 8
     end
     object plEditppField11: TppField
       FieldAlias = 'CELLULARE'
       FieldName = 'CELLULARE'
       FieldLength = 40
       DisplayWidth = 40
-      Position = 10
+      Position = 9
     end
     object plEditppField12: TppField
       FieldAlias = 'FAX'
       FieldName = 'FAX'
       FieldLength = 20
       DisplayWidth = 20
-      Position = 11
+      Position = 10
     end
     object plEditppField13: TppField
       FieldAlias = 'MAIL'
       FieldName = 'MAIL'
       FieldLength = 200
       DisplayWidth = 200
-      Position = 12
+      Position = 11
     end
     object plEditppField14: TppField
       FieldAlias = 'SITO'
       FieldName = 'SITO'
       FieldLength = 2000
       DisplayWidth = 2000
-      Position = 13
+      Position = 12
     end
     object plEditppField15: TppField
       FieldAlias = 'PARTITA_IVA'
       FieldName = 'PARTITA_IVA'
       FieldLength = 20
       DisplayWidth = 20
-      Position = 14
+      Position = 13
     end
     object plEditppField16: TppField
       FieldAlias = 'CODICE_FISCALE'
       FieldName = 'CODICE_FISCALE'
       FieldLength = 20
       DisplayWidth = 20
-      Position = 15
+      Position = 14
     end
     object plEditppField17: TppField
       FieldAlias = 'LOCALITA'
       FieldName = 'LOCALITA'
       FieldLength = 50
       DisplayWidth = 50
-      Position = 16
+      Position = 15
     end
     object plEditppField18: TppField
       FieldAlias = 'BANCA'
       FieldName = 'BANCA'
       FieldLength = 1000
       DisplayWidth = 1000
-      Position = 17
+      Position = 16
     end
     object plEditppField19: TppField
       FieldAlias = 'IBAN'
       FieldName = 'IBAN'
       FieldLength = 40
       DisplayWidth = 40
-      Position = 18
+      Position = 17
     end
     object plEditppField20: TppField
       FieldAlias = 'CODICE_ABI'
       FieldName = 'CODICE_ABI'
       FieldLength = 7
       DisplayWidth = 7
-      Position = 19
+      Position = 18
     end
     object plEditppField21: TppField
       FieldAlias = 'CODICE_CAB'
       FieldName = 'CODICE_CAB'
       FieldLength = 7
       DisplayWidth = 7
-      Position = 20
+      Position = 19
     end
     object plEditppField22: TppField
       FieldAlias = 'NOTE'
       FieldName = 'NOTE'
       FieldLength = 4000
       DisplayWidth = 4000
-      Position = 21
+      Position = 20
     end
     object plEditppField23: TppField
       FieldAlias = 'COD_USR'
       FieldName = 'COD_USR'
       FieldLength = 12
       DisplayWidth = 12
+      Position = 21
+    end
+    object plEditppField25: TppField
+      FieldAlias = 'DAT_AGG_REC'
+      FieldName = 'DAT_AGG_REC'
+      FieldLength = 0
+      DataType = dtDateTime
+      DisplayWidth = 18
       Position = 22
     end
     object plEditppField24: TppField
@@ -780,14 +790,6 @@ inherited fmEdMandante: TfmEdMandante
       FieldLength = 60
       DisplayWidth = 60
       Position = 23
-    end
-    object plEditppField25: TppField
-      FieldAlias = 'DAT_AGG_REC'
-      FieldName = 'DAT_AGG_REC'
-      FieldLength = 0
-      DataType = dtDateTime
-      DisplayWidth = 18
-      Position = 24
     end
   end
   inherited rpEdit: TppReport

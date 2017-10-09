@@ -302,7 +302,7 @@ inherited fmEdCliente: TfmEdCliente
         Top = 190
         Width = 95
         Height = 20
-        Caption = 'LOCALITA'#39':'
+        Caption = 'REGIONE:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16

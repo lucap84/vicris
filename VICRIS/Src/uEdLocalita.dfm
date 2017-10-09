@@ -4,7 +4,7 @@ inherited fmEdLocalita: TfmEdLocalita
   Width = 760
   Height = 170
   ActiveControl = deLocalita
-  Caption = 'Localit'#224
+  Caption = 'Regione'
   Constraints.MinHeight = 170
   Constraints.MinWidth = 760
   OldCreateOrder = True
@@ -41,13 +41,13 @@ inherited fmEdLocalita: TfmEdLocalita
     Align = alClient
     TabOrder = 1
     object teLocalita: TTabSheet
-      Caption = 'Localit'#224
+      Caption = 'Regione'
       object laNome: TLabel
         Left = 8
         Top = 10
         Width = 95
         Height = 20
-        Caption = 'LOCALITA'#39':'
+        Caption = 'REGIONE:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
