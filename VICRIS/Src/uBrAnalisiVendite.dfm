@@ -191,7 +191,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
       Width = 129
       Height = 13
       AutoSize = False
-      Caption = 'Prezzo Vendita ('#8364')'
+      Caption = 'Prezzo Acquisto ('#8364')'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11

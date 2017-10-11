@@ -309,6 +309,8 @@ begin
   FhFlgVis     := hFlgVis;
   FhFlgPrt     := hFlgPrt;
   hDataModule.dmDsOpen(hDataModule.hDataSet);
+  sbSearch.Down := True;
+  sbSearchClick(nil);
 end;
 
 procedure TfmBrowse.FormRefresh(Sender: TObject);

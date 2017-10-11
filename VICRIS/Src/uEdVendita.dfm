@@ -357,9 +357,9 @@ inherited fmEdVendita: TfmEdVendita
     object laGuadagno: TLabel
       Left = 558
       Top = 70
-      Width = 137
+      Width = 136
       Height = 20
-      Caption = 'GUAGAGNO (%)'
+      Caption = 'GUADAGNO (%)'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
