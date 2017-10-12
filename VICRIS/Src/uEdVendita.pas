@@ -54,6 +54,7 @@ type
     procedure nvMovimentiClick(Sender: TObject; Button: TNavigateBtn);
     procedure nvMovimentiBeforeAction(Sender: TObject;
       Button: TNavigateBtn);
+    procedure deProdottoChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -128,6 +129,12 @@ begin
       dmDsApplyUpdates(cdsMovimenti);
     end;
   end;
+end;
+
+procedure TfmEdVendita.deProdottoChange(Sender: TObject);
+begin
+  inherited;
+  ExitDlg(Sender);
 end;
 
 end.

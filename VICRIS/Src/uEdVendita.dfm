@@ -383,6 +383,7 @@ inherited fmEdVendita: TfmEdVendita
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnChange = deProdottoChange
       hCmpDes = deDesProdotto
     end
     object deDesProdotto: TEdit
@@ -598,6 +599,7 @@ inherited fmEdVendita: TfmEdVendita
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
+    ReadOnly = True
     TabOrder = 5
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText

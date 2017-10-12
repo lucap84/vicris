@@ -26,6 +26,7 @@ type
       StateEx: TGridDrawStateEx);
     procedure grSearchKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
     FhRes: Variant;
@@ -139,6 +140,12 @@ procedure TfmMlSearch.grSearchKeyUp(Sender: TObject; var Key: Word;
 begin
   if Key = VK_RETURN then
     SetSearchResult;
+end;
+
+procedure TfmMlSearch.FormActivate(Sender: TObject);
+begin
+  sbFilter.Down := True;
+  sbFilterClick(nil);
 end;
 
 end.

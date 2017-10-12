@@ -3,7 +3,7 @@ object dmSearch: TdmSearch
   OnCreate = dmSearchCreate
   Left = 526
   Top = 278
-  Height = 405
+  Height = 269
   Width = 298
   object OraSearch: TOraSession
     Options.Charset = 'WE8ISO8859P15'
