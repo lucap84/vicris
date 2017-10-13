@@ -201,9 +201,10 @@ inherited dmEdVendita: TdmEdVendita
       Visible = False
     end
     object cdsMovimentiID_PRODOTTO: TFloatField
+      DisplayLabel = 'Id'
+      DisplayWidth = 5
       FieldName = 'ID_PRODOTTO'
       Origin = 'TB_MOVIMENTI.ID_PRODOTTO'
-      Visible = False
     end
     object cdsMovimentiPRODOTTO: TStringField
       DisplayLabel = 'Prodotto'

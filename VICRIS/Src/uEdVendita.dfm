@@ -1,10 +1,10 @@
 inherited fmEdVendita: TfmEdVendita
-  Left = 322
-  Top = 202
+  Left = 252
+  Top = 97
   Width = 847
-  Height = 610
+  Height = 660
   Caption = 'Vendita'
-  Constraints.MinHeight = 610
+  Constraints.MinHeight = 660
   Constraints.MinWidth = 847
   OldCreateOrder = True
   OnCreate = FormCreate
@@ -13,7 +13,7 @@ inherited fmEdVendita: TfmEdVendita
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnTools: TPanel
-    Top = 514
+    Top = 564
     Width = 831
     TabOrder = 3
     inherited bbCommit: TBitBtn
@@ -493,7 +493,7 @@ inherited fmEdVendita: TfmEdVendita
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 7
+      TabOrder = 8
       DataField = 'DATA_FATTURA'
       DataSource = dmEdVendita.dsMovimenti
       ReadOnly = False
@@ -514,7 +514,7 @@ inherited fmEdVendita: TfmEdVendita
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 8
+      TabOrder = 9
     end
     object dtDataBollaMov: TDBEditDateTimePicker
       Left = 128
@@ -530,7 +530,7 @@ inherited fmEdVendita: TfmEdVendita
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 9
+      TabOrder = 10
       DataField = 'DATA_BOLLA'
       DataSource = dmEdVendita.dsMovimenti
       ReadOnly = False
@@ -551,7 +551,7 @@ inherited fmEdVendita: TfmEdVendita
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 10
+      TabOrder = 11
     end
     object deGuadagno: TDBEdit
       Left = 702
@@ -568,18 +568,17 @@ inherited fmEdVendita: TfmEdVendita
       Font.Style = [fsBold]
       ParentFont = False
       ReadOnly = True
-      TabOrder = 11
+      TabOrder = 7
     end
   end
   object nvMovimenti: TDBNavigator [4]
     Left = 0
     Top = 361
     Width = 831
-    Height = 56
+    Height = 55
     DataSource = dmEdVendita.dsMovimenti
     VisibleButtons = [nbInsert, nbDelete, nbEdit, nbPost, nbCancel, nbRefresh]
     Align = alTop
-    Flat = True
     Ctl3D = True
     ParentCtl3D = False
     TabOrder = 4
@@ -588,9 +587,9 @@ inherited fmEdVendita: TfmEdVendita
   end
   object grMovimenti: TDBGridAux [5]
     Left = 0
-    Top = 417
+    Top = 416
     Width = 831
-    Height = 97
+    Height = 148
     Align = alClient
     DataSource = dmEdVendita.dsMovimenti
     Font.Charset = DEFAULT_CHARSET
@@ -598,6 +597,7 @@ inherited fmEdVendita: TfmEdVendita
     Font.Height = -21
     Font.Name = 'MS Sans Serif'
     Font.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
     ParentFont = False
     ReadOnly = True
     TabOrder = 5

@@ -55,10 +55,8 @@ type
     procedure nvMovimentiBeforeAction(Sender: TObject;
       Button: TNavigateBtn);
     procedure deProdottoChange(Sender: TObject);
-  private
-    { Private declarations }
-  public
-    { Public declarations }
+  protected
+    procedure SearchDlg(Sender: TObject); override;
   end;
 
 var
@@ -135,6 +133,23 @@ procedure TfmEdVendita.deProdottoChange(Sender: TObject);
 begin
   inherited;
   ExitDlg(Sender);
+end;
+
+procedure TfmEdVendita.SearchDlg(Sender: TObject);
+begin
+  with TdmEdVendita(hDataModule) do
+    if Sender = deProdotto then
+    begin
+      if not (cdsMovimenti.State in [dsEdit, dsInsert]) then
+      begin
+        dmDsPost(cdsVendita);
+        dmDsApplyUpdates(cdsVendita);
+        dmDsInsert(cdsMovimenti);
+        dmDsEdit(cdsVendita);
+        dmDsEdit(cdsMovimenti);
+      end;
+    end;
+  inherited;
 end;
 
 end.

@@ -1,5 +1,7 @@
 inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
   hDataSet = qyAnalisiVendite
+  hKeyFields.Strings = (
+    'id_vendita')
   Left = 771
   Top = 333
   Height = 353
@@ -7,10 +9,10 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
   object qyAnalisiVendite: TOraQuery
     SQL.Strings = (
       
-        'SELECT V.DATA_VENDITA, C.NOME, P.PRODOTTO, M.QUANTITA, M.PREZZO_' +
-        'VENDITA, M.SCONTO, M.IMPORTO_TOTALE, M.PREZZO_ACQUISTO, F.MANDAN' +
-        'TE, SF.SUBMANDANTE, PN.PROVINCIA, L.LOCALITA, CP.CATEGORIA, V.FL' +
-        'AG_VICRIS,'
+        'SELECT V.ID_VENDITA, V.DATA_VENDITA, C.NOME, P.PRODOTTO, M.QUANT' +
+        'ITA, M.PREZZO_VENDITA, M.SCONTO, M.IMPORTO_TOTALE, M.PREZZO_ACQU' +
+        'ISTO, F.MANDANTE, SF.SUBMANDANTE, PN.PROVINCIA, L.LOCALITA, CP.C' +
+        'ATEGORIA, V.FLAG_VICRIS,'
       '       CASE WHEN V.FLAG_VICRIS = '#39'1'#39' THEN'
       '         '#39'VICRIS'#39
       '       ELSE'
@@ -253,6 +255,11 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       FieldName = 'DES_VICRIS'
       FixedChar = True
       Size = 6
+    end
+    object qyAnalisiVenditeID_VENDITA: TFloatField
+      FieldName = 'ID_VENDITA'
+      Required = True
+      Visible = False
     end
   end
   object dsAnalisiVendite: TDataSource

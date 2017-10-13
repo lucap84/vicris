@@ -331,4 +331,53 @@ object dmGlobal: TdmGlobal
         ParamType = ptInput
       end>
   end
+  object qyGetParametri: TOraQuery
+    Session = OraGlobal
+    SQL.Strings = (
+      'SELECT *'
+      '  FROM PARAMETRI'
+      ' WHERE COD_PAR = :COD_PAR')
+    Left = 280
+    Top = 152
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'COD_PAR'
+      end>
+    object qyGetParametriNPA_PAR: TFloatField
+      FieldName = 'NPA_PAR'
+      Required = True
+    end
+    object qyGetParametriCOD_PAR: TStringField
+      FieldName = 'COD_PAR'
+      Required = True
+    end
+    object qyGetParametriDES_PAR: TStringField
+      FieldName = 'DES_PAR'
+      Size = 60
+    end
+    object qyGetParametriDES_CAT_PAR: TStringField
+      FieldName = 'DES_CAT_PAR'
+      Size = 60
+    end
+    object qyGetParametriVAL_PAR: TStringField
+      FieldName = 'VAL_PAR'
+      Size = 60
+    end
+    object qyGetParametriNUM_ORD: TFloatField
+      FieldName = 'NUM_ORD'
+      Required = True
+    end
+    object qyGetParametriCOD_USR: TStringField
+      FieldName = 'COD_USR'
+      Size = 12
+    end
+    object qyGetParametriDES_PDL: TStringField
+      FieldName = 'DES_PDL'
+      Size = 60
+    end
+    object qyGetParametriDAT_AGG_REC: TDateTimeField
+      FieldName = 'DAT_AGG_REC'
+    end
+  end
 end

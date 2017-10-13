@@ -58,12 +58,14 @@ inherited dmBrVendita: TdmBrVendita
       Size = 2000
     end
     object qyVenditaDATA_FATTURA: TDateTimeField
+      DisplayLabel = 'Data Fattura'
       FieldName = 'DATA_FATTURA'
-      Visible = False
+      DisplayFormat = 'dd/mm/yyyy'
     end
     object qyVenditaNUMERO_FATTURA: TStringField
+      DisplayLabel = 'N'#176' Fattura'
+      DisplayWidth = 10
       FieldName = 'NUMERO_FATTURA'
-      Visible = False
     end
     object qyVenditaDES_VICRIS: TStringField
       DisplayLabel = 'Vendita Vicris'

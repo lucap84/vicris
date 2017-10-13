@@ -37,7 +37,8 @@ requires
   vclactnband,
   dac70,
   odac70,
-  rbRCL77;
+  rbRCL77,
+  MyCmps;
 
 contains
   DBCoreReg in '..\src\DBCoreReg.pas',

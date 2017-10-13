@@ -43,6 +43,7 @@ type
     qyAnalisiVenditeDES_VICRIS: TStringField;
     qyAnalisiVenditePREZZO_ACQUISTO: TFloatField;
     qyAnalisiVenditeGUADAGNO: TFloatField;
+    qyAnalisiVenditeID_VENDITA: TFloatField;
     procedure FiltersDataChange(Sender: TObject; Field: TField);
   private
     FhDataFin: TDateTime;

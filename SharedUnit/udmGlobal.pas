@@ -25,6 +25,16 @@ type
     qyCheckMaxNUM_PRG: TFloatField;
     spAggNumPrgAaa: TOraStoredProc;
     spDimNumPrgAaa: TOraStoredProc;
+    qyGetParametri: TOraQuery;
+    qyGetParametriNPA_PAR: TFloatField;
+    qyGetParametriCOD_PAR: TStringField;
+    qyGetParametriDES_PAR: TStringField;
+    qyGetParametriDES_CAT_PAR: TStringField;
+    qyGetParametriVAL_PAR: TStringField;
+    qyGetParametriNUM_ORD: TFloatField;
+    qyGetParametriCOD_USR: TStringField;
+    qyGetParametriDES_PDL: TStringField;
+    qyGetParametriDAT_AGG_REC: TDateTimeField;
   private
     { Private declarations }
   public
@@ -39,6 +49,7 @@ type
     function  dmCheckDmoLck(ACodKey: TStringList; ACodValKey: String): boolean;
     function  dmCheckDupValue(ACodKey: TStringList; ADataSet: TDataSet): boolean;
     function  dmCheckMaxValue(ACodKey: TStringList; ADataSet: TDataSet): boolean;
+    function  dmGetParametri(ACodPar: String): Variant;
 
     function  AggNumPrg(ACod: String): String;
     function  DimNumPrg(ACod, ACodPrg: String): Boolean;
@@ -253,6 +264,19 @@ end;
 procedure TdmGlobal.dmDisconnect;
 begin
   OraGlobal.DisConnect;
+end;
+
+function TdmGlobal.dmGetParametri(ACodPar: String): Variant;
+begin
+  Result := False;
+  with qyGetParametri do
+  begin
+    qyGetParametri.ParamByName('Cod_Par').AsString := ACodPar;
+    qyGetParametri.Open;
+    if not qyGetParametri.IsEmpty then
+      Result := qyGetParametriVAL_PAR.Value;
+    qyGetParametri.Close;
+  end;
 end;
 
 procedure TdmGlobal.dmInsertDmoLck(ACodKey: TStringList; ACodValKey, AFlgOpr: String);

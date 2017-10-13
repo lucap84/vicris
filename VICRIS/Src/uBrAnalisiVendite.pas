@@ -8,7 +8,7 @@ uses
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
   ActnList, Grids, DBGrids, DBGridAux, StdCtrls, Buttons, ExtCtrls, Ora,
   udmBrAnalisiVendite, ComCtrls, uSupportLib, DBCtrls, ExportDS, SME2OLE,
-  Menus, SME2Cell, SME2XLS;
+  Menus, SME2Cell, SME2XLS, udmEdVendita, uEdVendita;
 
 type
   TfmBrAnalisiVendite = class(TfmBrowse)
@@ -49,6 +49,9 @@ type
     procedure PrezzoKeyPress(Sender: TObject; var Key: Char);
     procedure grBrowseDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure acInsertUpdate(Sender: TObject);
+    procedure acEditUpdate(Sender: TObject);
+    procedure acDeleteUpdate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -66,6 +69,8 @@ procedure TfmBrAnalisiVendite.FormCreate(Sender: TObject);
 begin
   inherited;
   hDataModuleClass     := TdmBrAnalisiVendite;
+  hEditDataModuleClass := TdmEdVendita;
+  hEditFormClass       := TfmEdVendita;
 
   dtDataInizio.Date    := YearFirstDate(Now);
   dtDataFine.Date      := Date;
@@ -206,6 +211,21 @@ begin
   end;
 
   grBrowse.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+end;
+
+procedure TfmBrAnalisiVendite.acInsertUpdate(Sender: TObject);
+begin
+  TAction(Sender).Enabled := False;
+end;
+
+procedure TfmBrAnalisiVendite.acEditUpdate(Sender: TObject);
+begin
+  TAction(Sender).Enabled := False;
+end;
+
+procedure TfmBrAnalisiVendite.acDeleteUpdate(Sender: TObject);
+begin
+  TAction(Sender).Enabled := False;
 end;
 
 end.
