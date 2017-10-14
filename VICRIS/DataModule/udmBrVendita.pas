@@ -20,6 +20,8 @@ type
     qyVenditaTOT_VEN: TFloatField;
     qyVenditaFLAG_VICRIS: TStringField;
     qyVenditaDES_VICRIS: TStringField;
+    qyVenditaIMPOSTA: TFloatField;
+    qyVenditaTOTALE_IVATO: TFloatField;
   private
     { Private declarations }
   public

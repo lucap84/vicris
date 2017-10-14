@@ -15,7 +15,9 @@ inherited dmBrVendita: TdmBrVendita
       '       ELSE'
       '         NULL'
       '       END DES_VICRIS,'
-      '       SUM(M.IMPORTO_TOTALE) TOT_VEN'
+      '       SUM(M.IMPORTO_TOTALE) TOT_VEN,'
+      '       SUM(M.IMPOSTA)        IMPOSTA,'
+      '       SUM(M.TOTALE_IVATO)   TOTALE_IVATO'
       '  FROM TB_VENDITE V, TB_CLIENTI C, TB_MOVIMENTI M'
       ' WHERE V.ID_CLIENTE = C.ID_CLIENTE'
       '   AND V.ID_VENDITA = M.ID_VENDITA (+)'
@@ -48,7 +50,20 @@ inherited dmBrVendita: TdmBrVendita
     end
     object qyVenditaTOT_VEN: TFloatField
       DisplayLabel = 'Totale Vendita'
+      DisplayWidth = 10
       FieldName = 'TOT_VEN'
+      DisplayFormat = '#,##0.00'
+    end
+    object qyVenditaIMPOSTA: TFloatField
+      DisplayLabel = 'Imposta'
+      DisplayWidth = 10
+      FieldName = 'IMPOSTA'
+      DisplayFormat = '#,##0.00'
+    end
+    object qyVenditaTOTALE_IVATO: TFloatField
+      DisplayLabel = 'Totale Ivato'
+      DisplayWidth = 10
+      FieldName = 'TOTALE_IVATO'
       DisplayFormat = '#,##0.00'
     end
     object qyVenditaNOTE: TStringField
