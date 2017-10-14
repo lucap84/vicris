@@ -2,19 +2,32 @@ inherited dmEdVendita: TdmEdVendita
   hDataSet = cdsVendita
   hKeyFields.Strings = (
     'id_vendita')
-  Left = 555
-  Top = 269
+  Left = 541
+  Top = 270
   Height = 234
   Width = 366
   inherited OraSession: TOraSession
+    Connected = True
     EncryptedPassword = 'A9FFB6FFBCFFADFFB6FFACFF'
   end
   object qyVendita: TOraQuery
     Session = OraSession
     SQL.Strings = (
-      'SELECT *'
-      '  FROM TB_VENDITE'
-      ' WHERE ID_VENDITA = :ID_VENDITA')
+      
+        'SELECT V.ID_VENDITA, V.DATA_VENDITA, V.ID_CLIENTE, V.NUMERO_FATT' +
+        'URA, V.DATA_FATTURA, V.NOTE, V.FLAG_VICRIS, '
+      '       V.COD_USR, V.DES_PDL, V.DAT_AGG_REC,'
+      '       SUM(M.IMPORTO_TOTALE) IMPORTO_TOTALE,'
+      '       SUM(M.IMPOSTA)        IMPOSTA,'
+      '       SUM(M.TOTALE_IVATO)   TOTALE_IVATO'
+      '  FROM TB_VENDITE V, TB_MOVIMENTI M'
+      ' WHERE V.ID_VENDITA = :ID_VENDITA'
+      '   AND V.ID_VENDITA = M.ID_VENDITA (+)'
+      
+        ' GROUP BY V.ID_VENDITA, V.DATA_VENDITA, V.ID_CLIENTE, V.NUMERO_F' +
+        'ATTURA, V.DATA_FATTURA, V.NOTE, V.FLAG_VICRIS, '
+      '          V.COD_USR, V.DES_PDL, V.DAT_AGG_REC')
+    Options.FieldsOrigin = True
     Left = 64
     Top = 64
     ParamData = <
@@ -23,9 +36,72 @@ inherited dmEdVendita: TdmEdVendita
         Name = 'ID_VENDITA'
         Value = Null
       end>
+    object qyVenditaID_VENDITA: TFloatField
+      FieldName = 'ID_VENDITA'
+      Origin = 'TB_VENDITE.ID_VENDITA'
+      Required = True
+    end
+    object qyVenditaDATA_VENDITA: TDateTimeField
+      FieldName = 'DATA_VENDITA'
+      Origin = 'TB_VENDITE.DATA_VENDITA'
+    end
+    object qyVenditaID_CLIENTE: TFloatField
+      FieldName = 'ID_CLIENTE'
+      Origin = 'TB_VENDITE.ID_CLIENTE'
+    end
+    object qyVenditaNUMERO_FATTURA: TStringField
+      FieldName = 'NUMERO_FATTURA'
+      Origin = 'TB_VENDITE.NUMERO_FATTURA'
+    end
+    object qyVenditaDATA_FATTURA: TDateTimeField
+      FieldName = 'DATA_FATTURA'
+      Origin = 'TB_VENDITE.DATA_FATTURA'
+    end
+    object qyVenditaNOTE: TStringField
+      FieldName = 'NOTE'
+      Origin = 'TB_VENDITE.NOTE'
+      Size = 2000
+    end
+    object qyVenditaFLAG_VICRIS: TStringField
+      FieldName = 'FLAG_VICRIS'
+      Origin = 'TB_VENDITE.FLAG_VICRIS'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object qyVenditaCOD_USR: TStringField
+      FieldName = 'COD_USR'
+      Origin = 'TB_VENDITE.COD_USR'
+      Size = 12
+    end
+    object qyVenditaDES_PDL: TStringField
+      FieldName = 'DES_PDL'
+      Origin = 'TB_VENDITE.DES_PDL'
+      Size = 60
+    end
+    object qyVenditaDAT_AGG_REC: TDateTimeField
+      FieldName = 'DAT_AGG_REC'
+      Origin = 'TB_VENDITE.DAT_AGG_REC'
+    end
+    object qyVenditaIMPORTO_TOTALE: TFloatField
+      FieldName = 'IMPORTO_TOTALE'
+      Origin = 'IMPORTO_TOTALE'
+      ProviderFlags = []
+    end
+    object qyVenditaIMPOSTA: TFloatField
+      FieldName = 'IMPOSTA'
+      Origin = 'IMPOSTA'
+      ProviderFlags = []
+    end
+    object qyVenditaTOTALE_IVATO: TFloatField
+      FieldName = 'TOTALE_IVATO'
+      Origin = 'TOTALE_IVATO'
+      ProviderFlags = []
+    end
   end
   object poVendita: TDataSetProvider
     DataSet = qyVendita
+    OnGetTableName = poVenditaGetTableName
     Left = 120
     Top = 64
   end
@@ -37,39 +113,70 @@ inherited dmEdVendita: TdmEdVendita
     Top = 64
     object cdsVenditaID_VENDITA: TFloatField
       FieldName = 'ID_VENDITA'
+      Origin = 'TB_VENDITE.ID_VENDITA'
     end
     object cdsVenditaDATA_VENDITA: TDateTimeField
       FieldName = 'DATA_VENDITA'
+      Origin = 'TB_VENDITE.DATA_VENDITA'
     end
     object cdsVenditaID_CLIENTE: TFloatField
       FieldName = 'ID_CLIENTE'
+      Origin = 'TB_VENDITE.ID_CLIENTE'
     end
     object cdsVenditaDATA_FATTURA: TDateTimeField
       FieldName = 'DATA_FATTURA'
+      Origin = 'TB_VENDITE.DATA_FATTURA'
     end
     object cdsVenditaNUMERO_FATTURA: TStringField
       FieldName = 'NUMERO_FATTURA'
+      Origin = 'TB_VENDITE.NUMERO_FATTURA'
     end
     object cdsVenditaNOTE: TStringField
       FieldName = 'NOTE'
+      Origin = 'TB_VENDITE.NOTE'
       Size = 2000
     end
     object cdsVenditaFLAG_VICRIS: TStringField
       FieldName = 'FLAG_VICRIS'
+      Origin = 'TB_VENDITE.FLAG_VICRIS'
       Required = True
       FixedChar = True
       Size = 1
     end
     object cdsVenditaCOD_USR: TStringField
       FieldName = 'COD_USR'
+      Origin = 'TB_VENDITE.COD_USR'
       Size = 12
     end
     object cdsVenditaDES_PDL: TStringField
       FieldName = 'DES_PDL'
+      Origin = 'TB_VENDITE.DES_PDL'
       Size = 60
     end
     object cdsVenditaDAT_AGG_REC: TDateTimeField
       FieldName = 'DAT_AGG_REC'
+      Origin = 'TB_VENDITE.DAT_AGG_REC'
+    end
+    object cdsVenditaIMPORTO_TOTALE: TFloatField
+      FieldName = 'IMPORTO_TOTALE'
+      Origin = 'IMPORTO_TOTALE'
+      ProviderFlags = []
+      DisplayFormat = '#,##0.00'
+      EditFormat = '###0.00'
+    end
+    object cdsVenditaIMPOSTA: TFloatField
+      FieldName = 'IMPOSTA'
+      Origin = 'IMPOSTA'
+      ProviderFlags = []
+      DisplayFormat = '#,##0.00'
+      EditFormat = '###0.00'
+    end
+    object cdsVenditaTOTALE_IVATO: TFloatField
+      FieldName = 'TOTALE_IVATO'
+      Origin = 'TOTALE_IVATO'
+      ProviderFlags = []
+      DisplayFormat = '#,##0.00'
+      EditFormat = '###0.00'
     end
   end
   object dsVendita: TDataSource
@@ -87,7 +194,9 @@ inherited dmEdVendita: TdmEdVendita
       
         '       M.NUMERO_FATTURA, M.DATA_FATTURA, M.NUMERO_BOLLA, M.DATA_' +
         'BOLLA,'
-      '       M.COD_USR, M.DES_PDL, M.DAT_AGG_REC,'
+      
+        '       M.COD_USR, M.DES_PDL, M.DAT_AGG_REC, M.IVA, M.IMPOSTA, M.' +
+        'TOTALE_IVATO,'
       '       P.PRODOTTO'
       '  FROM TB_MOVIMENTI M, TB_PRODOTTI P'
       ' WHERE M.ID_VENDITA = :ID_VENDITA'
@@ -101,6 +210,8 @@ inherited dmEdVendita: TdmEdVendita
       item
         DataType = ftUnknown
         Name = 'ID_VENDITA'
+        ParamType = ptInput
+        Value = Null
       end>
     object qyMovimentiID_VENDITA: TFloatField
       FieldName = 'ID_VENDITA'
@@ -171,6 +282,18 @@ inherited dmEdVendita: TdmEdVendita
       Origin = 'TB_PRODOTTI.PRODOTTO'
       ProviderFlags = []
       Size = 200
+    end
+    object qyMovimentiIVA: TFloatField
+      FieldName = 'IVA'
+      Origin = 'TB_MOVIMENTI.IVA'
+    end
+    object qyMovimentiIMPOSTA: TFloatField
+      FieldName = 'IMPOSTA'
+      Origin = 'TB_MOVIMENTI.IMPOSTA'
+    end
+    object qyMovimentiTOTALE_IVATO: TFloatField
+      FieldName = 'TOTALE_IVATO'
+      Origin = 'TB_MOVIMENTI.TOTALE_IVATO'
     end
   end
   object poMovimenti: TDataSetProvider
@@ -258,21 +381,25 @@ inherited dmEdVendita: TdmEdVendita
     object cdsMovimentiNUMERO_FATTURA: TStringField
       DisplayLabel = 'N'#176' Fattura'
       FieldName = 'NUMERO_FATTURA'
+      Origin = 'TB_MOVIMENTI.NUMERO_FATTURA'
       Size = 12
     end
     object cdsMovimentiDATA_FATTURA: TDateTimeField
       DisplayLabel = 'Data Fattura'
       FieldName = 'DATA_FATTURA'
+      Origin = 'TB_MOVIMENTI.DATA_FATTURA'
       DisplayFormat = 'dd/mm/yyyy'
     end
     object cdsMovimentiNUMERO_BOLLA: TStringField
       DisplayLabel = 'N'#176' DdT'
       FieldName = 'NUMERO_BOLLA'
+      Origin = 'TB_MOVIMENTI.NUMERO_BOLLA'
       Size = 12
     end
     object cdsMovimentiDATA_BOLLA: TDateTimeField
       DisplayLabel = 'Data DdT'
       FieldName = 'DATA_BOLLA'
+      Origin = 'TB_MOVIMENTI.DATA_BOLLA'
       DisplayFormat = 'dd/mm/yyyy'
     end
     object cdsMovimentiCOD_USR: TStringField
@@ -286,7 +413,7 @@ inherited dmEdVendita: TdmEdVendita
       FieldName = 'SCONTO'
       Origin = 'TB_MOVIMENTI.SCONTO'
       OnChange = cdsMovimentiSCONTOChange
-      DisplayFormat = '#,##0.00'
+      DisplayFormat = '#,##0.00 %'
       EditFormat = '###0.00'
     end
     object cdsMovimentiDES_PDL: TStringField
@@ -299,6 +426,29 @@ inherited dmEdVendita: TdmEdVendita
       FieldName = 'DAT_AGG_REC'
       Origin = 'TB_MOVIMENTI.DAT_AGG_REC'
       Visible = False
+    end
+    object cdsMovimentiIVA: TFloatField
+      DisplayLabel = '% IVA'
+      FieldName = 'IVA'
+      Origin = 'TB_MOVIMENTI.IVA'
+      OnChange = cdsMovimentiIVAChange
+      DisplayFormat = '#,##0.00 %'
+      EditFormat = '###0.00'
+    end
+    object cdsMovimentiIMPOSTA: TFloatField
+      DisplayLabel = 'Imposta'
+      FieldName = 'IMPOSTA'
+      Origin = 'TB_MOVIMENTI.IMPOSTA'
+      Visible = False
+      DisplayFormat = '#,##0.00'
+      EditFormat = '###0.00'
+    end
+    object cdsMovimentiTOTALE_IVATO: TFloatField
+      DisplayLabel = 'Totale Ivato'
+      FieldName = 'TOTALE_IVATO'
+      Origin = 'TB_MOVIMENTI.TOTALE_IVATO'
+      DisplayFormat = '#,##0.00'
+      EditFormat = '###0.00'
     end
   end
   object dsMovimenti: TDataSource

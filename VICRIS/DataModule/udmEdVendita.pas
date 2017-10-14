@@ -59,6 +59,28 @@ type
     cdsMovimentiNUMERO_BOLLA: TStringField;
     cdsMovimentiDATA_BOLLA: TDateTimeField;
     cdsMovimentiguadagno: TFloatField;
+    qyMovimentiIVA: TFloatField;
+    qyMovimentiIMPOSTA: TFloatField;
+    qyMovimentiTOTALE_IVATO: TFloatField;
+    cdsMovimentiIVA: TFloatField;
+    cdsMovimentiIMPOSTA: TFloatField;
+    cdsMovimentiTOTALE_IVATO: TFloatField;
+    qyVenditaID_VENDITA: TFloatField;
+    qyVenditaDATA_VENDITA: TDateTimeField;
+    qyVenditaID_CLIENTE: TFloatField;
+    qyVenditaNUMERO_FATTURA: TStringField;
+    qyVenditaDATA_FATTURA: TDateTimeField;
+    qyVenditaNOTE: TStringField;
+    qyVenditaFLAG_VICRIS: TStringField;
+    qyVenditaCOD_USR: TStringField;
+    qyVenditaDES_PDL: TStringField;
+    qyVenditaDAT_AGG_REC: TDateTimeField;
+    qyVenditaIMPORTO_TOTALE: TFloatField;
+    qyVenditaIMPOSTA: TFloatField;
+    qyVenditaTOTALE_IVATO: TFloatField;
+    cdsVenditaIMPORTO_TOTALE: TFloatField;
+    cdsVenditaIMPOSTA: TFloatField;
+    cdsVenditaTOTALE_IVATO: TFloatField;
     procedure cdsMovimentiPREZZO_VENDITAChange(Sender: TField);
     procedure cdsMovimentiQUANTITAChange(Sender: TField);
     procedure cdsMovimentiSCONTOChange(Sender: TField);
@@ -66,6 +88,9 @@ type
       var TableName: String);
     procedure cdsMovimentiPREZZO_ACQUISTOChange(Sender: TField);
     procedure cdsMovimentiCalcFields(DataSet: TDataSet);
+    procedure cdsMovimentiIVAChange(Sender: TField);
+    procedure poVenditaGetTableName(Sender: TObject; DataSet: TDataSet;
+      var TableName: String);
   private
     { Private declarations }
   protected
@@ -89,13 +114,16 @@ begin
   inherited;
   if DataSet = cdsVendita then
   begin
-    cdsVenditaID_VENDITA.AsInteger    := dmGlobal.GetNpaDet;
+    //cdsVenditaID_VENDITA.AsInteger    := dmGlobal.GetNpaDet;
     cdsVenditaFLAG_VICRIS.AsString    := '1';
     cdsVenditaDATA_VENDITA.AsDateTime := Date;
   end;
 
   if DataSet = cdsMovimenti then
-    cdsMovimentiID_MOVIMENTO.AsInteger := dmGlobal.GetNpaDet;
+  begin
+    cdsMovimentiID_MOVIMENTO.AsInteger  := dmGlobal.GetNpaDet;
+    cdsMovimentiIVA.AsFloat             := dmGlobal.GetParametri('PER_IVA');
+  end;
 end;
 
 procedure TdmEdVendita.dmCalcTot(IsTotale: boolean = True);
@@ -108,7 +136,11 @@ begin
   ASco    := cdsMovimentiSCONTO.AsFloat;
   ATot := (AQta * AImpUnt) * ((100 - ASco)/100);
   if IsTotale then
+  begin
     cdsMovimentiIMPORTO_TOTALE.AsFloat := ATot;
+    cdsMovimentiIMPOSTA.AsFloat        := ATot * (cdsMovimentiIVA.AsFloat/100);
+    cdsMovimentiTOTALE_IVATO.AsFloat   := ATot + cdsMovimentiIMPOSTA.AsFloat;
+  end;
   if ACosto <> 0 then
     cdsMovimentiguadagno.AsFloat := ((ATot / ACosto) *  100) - 100
   else
@@ -144,11 +176,24 @@ begin
   dmCalcTot;
 end;
 
+procedure TdmEdVendita.cdsMovimentiIVAChange(Sender: TField);
+begin
+  inherited;
+  dmCalcTot;
+end;
+
 procedure TdmEdVendita.poMovimentiGetTableName(Sender: TObject;
   DataSet: TDataSet; var TableName: String);
 begin
   inherited;
   TableName := 'TB_MOVIMENTI';
+end;
+
+procedure TdmEdVendita.poVenditaGetTableName(Sender: TObject;
+  DataSet: TDataSet; var TableName: String);
+begin
+  inherited;
+  TableName := 'TB_VENDITE';
 end;
 
 end.
