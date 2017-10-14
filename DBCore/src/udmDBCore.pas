@@ -33,14 +33,17 @@ type
     FhdmState: TdmState;
     FhTipAttNum: TdmTipAttNum;
 
+    procedure SetValuesToDefault(DataSet: TDataSet);
     procedure SetDataSetsMethods;
     procedure SethKeyFields(const Value: TStringList);
     procedure SethKeyValues(const Value: TStringList);
   protected
     procedure dmAfterInsert(DataSet: TDataSet); virtual;
+    procedure dmAfterEdit(DataSet: TDataSet); virtual;
     procedure dmAfterOpen(DataSet: TDataSet); virtual;
     procedure dmAfterPost(DataSet: TDataSet); virtual;
     procedure dmBeforeInsert(DataSet: TDataSet); virtual;
+    procedure dmBeforeEdit(DataSet: TDataSet); virtual;
     procedure dmBeforeOpen(DataSet: TDataSet); virtual;
     procedure dmBeforePost(DataSet: TDataSet); virtual;
 
@@ -106,6 +109,11 @@ end;
 
 procedure TdmDBCore.dmAfterInsert(DataSet: TDataSet);
 begin
+  SetValuesToDefault(DataSet);
+end;
+
+procedure TdmDBCore.dmAfterEdit(DataSet: TDataSet);
+begin
 // do nothing
 end;
 
@@ -124,6 +132,11 @@ begin
 // do nothing
 end;
 
+procedure TdmDBCore.dmBeforeEdit(DataSet: TDataSet);
+begin
+// do nothing
+end;
+
 procedure TdmDBCore.dmBeforeOpen(DataSet: TDataSet);
 begin
 // do nothing
@@ -131,6 +144,7 @@ end;
 
 procedure TdmDBCore.dmBeforePost(DataSet: TDataSet);
 begin
+  SetValuesToDefault(DataSet);
   if Assigned(DataSet.FindField('Des_Pdl')) then
     DataSet.FieldByName('Des_Pdl').AsString := GetMachineName;
   if Assigned(DataSet.FindField('Dat_Agg_Rec')) then
@@ -343,9 +357,11 @@ begin
     if Components[i] is TDataSet then
     begin
       TDataSet(Components[i]).AfterInsert   := dmAfterInsert;
+      TDataSet(Components[i]).AfterEdit     := dmAfterEdit;
       TDataSet(Components[i]).AfterOpen     := dmAfterOpen;
       TDataSet(Components[i]).AfterPost     := dmAfterPost;
       TDataSet(Components[i]).BeforeInsert  := dmBeforeInsert;
+      TDataSet(Components[i]).BeforeEdit    := dmBeforeEdit;
       TDataSet(Components[i]).BeforeOpen    := dmBeforeOpen;
       TDataSet(Components[i]).BeforePost    := dmBeforePost;
       TDataSet(Components[i]).FilterOptions := [foCaseInsensitive];
@@ -402,6 +418,21 @@ begin
       if Assigned(OraQuery.FindParam(hKeyFields[i])) then
         OraQuery.ParamByName(hKeyFields[i]).Value := hKeyValues[i];
   end;
+end;
+
+procedure TdmDBCore.SetValuesToDefault(DataSet: TDataSet);
+var
+  i : integer;
+begin
+  with DataSet do
+    for i := 0 to DataSet.Fields.Count - 1 do
+      if (Pos('ID_', ANSIUpperCase(DataSet.Fields[i].FieldName)) = 0) and
+          DataSet.Fields[i].IsNull                                    then
+        case DataSet.Fields[i].DataType of
+          ftSmallint, ftInteger,
+          ftWord, ftFloat, ftCurrency,
+          ftLargeint : DataSet.Fields[i].Value := 0;
+        end;
 end;
 
 end.

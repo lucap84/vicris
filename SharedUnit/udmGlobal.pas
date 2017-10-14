@@ -49,13 +49,13 @@ type
     function  dmCheckDmoLck(ACodKey: TStringList; ACodValKey: String): boolean;
     function  dmCheckDupValue(ACodKey: TStringList; ADataSet: TDataSet): boolean;
     function  dmCheckMaxValue(ACodKey: TStringList; ADataSet: TDataSet): boolean;
-    function  dmGetParametri(ACodPar: String): Variant;
 
     function  AggNumPrg(ACod: String): String;
     function  DimNumPrg(ACod, ACodPrg: String): Boolean;
     function  AggNumPrgAaa(AAaa: integer; ATip, ACod: String): String;
     function  DimNumPrgAaa(AAaa: integer; ATip, ACod, ACodPrg: String): Boolean;
     function  GetNpaDet: integer;
+    function  GetParametri(ACodPar: String): Variant;
   end;
 
 var
@@ -266,7 +266,7 @@ begin
   OraGlobal.DisConnect;
 end;
 
-function TdmGlobal.dmGetParametri(ACodPar: String): Variant;
+function TdmGlobal.GetParametri(ACodPar: String): Variant;
 begin
   Result := False;
   with qyGetParametri do

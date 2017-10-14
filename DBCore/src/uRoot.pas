@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, uCore, udmDBRoot, udmDBCore, ppVar, ppBands, ppPrnabl, ppClass,
-  ppCtrls, ppCache, ppComm, ppRelatv, ppProd, ppReport, DBGridAux;
+  ppCtrls, ppCache, ppComm, ppRelatv, ppProd, ppReport, DBGridAux, Buttons, DBCtrls,
+  ImgList;
 
 const
   WM_ONFORMREFRESH = WM_USER + 1;
@@ -13,11 +14,14 @@ const
   WM_ONFORMPRIOR   = WM_USER + 3;
 
 type
+  TDBNavigatorHack = class(TDBNavigator);
   TfmRootClass = class of TfmRoot;
   TfmRoot = class(TfmCore)
+    ilDBNav: TImageList;
     procedure FormDestroy(Sender: TObject);
     procedure FormPostCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     procedure GridLoadLayout(AGrid: TDBGridAux);
@@ -158,6 +162,60 @@ end;
 procedure TfmRoot.GridSaveLayout(AGrid: TDBGridAux);
 begin
   AGrid.Columns.SaveToFile(IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName))+Self.Name+'.'+AGrid.Name+'.grl');
+end;
+
+procedure TfmRoot.FormCreate(Sender: TObject);
+var
+  B: TNavigateBtn;
+  i : integer;
+begin
+  inherited;
+  for i := 0 to Self.ComponentCount - 1 do
+    if Self.Components[i] is TDBNavigator then
+      for B := Low(TNavigateBtn) to High(TNavigateBtn) do
+        with TDBNavigatorHack(Self.Components[i]).Buttons[B] do
+        begin
+          case Index of
+            nbFirst   : Caption := 'Inizio';
+            nbPrior   : Caption := 'Prec.';
+            nbNext    : Caption := 'Succ.';
+            nbLast    : Caption := 'Fine';
+            nbInsert  : begin
+                          NumGlyphs := 1;
+                          Glyph   := nil;
+                          Caption := 'Nuovo';
+                          ilDBNav.GetBitmap(0, Glyph);
+                        end;
+            nbDelete  : begin
+                          NumGlyphs := 1;
+                          Glyph   := nil;
+                          Caption := 'Cancella';
+                          ilDBNav.GetBitmap(2, Glyph);
+                        end;
+            nbEdit    : begin
+                          NumGlyphs := 1;
+                          Glyph   := nil;
+                          Caption := 'Varia';
+                          ilDBNav.GetBitmap(1, Glyph);
+                        end;
+            nbPost    : begin
+                          NumGlyphs := 1;
+                          Glyph   := nil;
+                          Caption := 'Registra';
+                          ilDBNav.GetBitmap(4, Glyph);
+                        end;
+            nbCancel  : begin
+                          NumGlyphs := 1;
+                          Glyph   := nil;
+                          Caption := 'Annulla';
+                          ilDBNav.GetBitmap(3, Glyph);
+                        end;
+            nbRefresh : Caption := 'Aggiorna';
+          end;
+          Layout   := blGlyphTop;
+          Hint     := Caption;
+          ShowHint := True;
+        end;
 end;
 
 end.

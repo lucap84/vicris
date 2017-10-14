@@ -128,11 +128,12 @@ object fmMlSearch: TfmMlSearch
       ParentShowHint = False
       ShowHint = True
       Spacing = 5
+      Visible = False
       OnClick = sbSearchClick
     end
     object bbOk: TBitBtn
-      Left = -1
-      Top = 5
+      Left = 3
+      Top = 3
       Width = 53
       Height = 53
       Anchors = []
@@ -587,8 +588,8 @@ object fmMlSearch: TfmMlSearch
       Spacing = 0
     end
     object bbCancel: TBitBtn
-      Left = 47
-      Top = 5
+      Left = 58
+      Top = 3
       Width = 53
       Height = 53
       Anchors = []
@@ -1042,8 +1043,8 @@ object fmMlSearch: TfmMlSearch
       Spacing = 0
     end
     object bbInsert: TBitBtn
-      Left = 95
-      Top = 5
+      Left = 112
+      Top = 3
       Width = 53
       Height = 53
       Anchors = []

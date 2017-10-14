@@ -75,6 +75,7 @@ object fmBrowse: TfmBrowse
       ParentShowHint = False
       ShowHint = True
       Spacing = 5
+      Visible = False
       OnClick = sbSearchClick
     end
     object sbFilter: TSpeedButton
