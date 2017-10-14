@@ -44,6 +44,8 @@ type
     qyAnalisiVenditePREZZO_ACQUISTO: TFloatField;
     qyAnalisiVenditeGUADAGNO: TFloatField;
     qyAnalisiVenditeID_VENDITA: TFloatField;
+    qyAnalisiVenditeIVA: TFloatField;
+    qyAnalisiVenditeTOTALE_IVATO: TFloatField;
     procedure FiltersDataChange(Sender: TObject; Field: TField);
   private
     FhDataFin: TDateTime;

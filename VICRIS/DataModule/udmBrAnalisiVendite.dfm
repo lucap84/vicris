@@ -10,9 +10,9 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
     SQL.Strings = (
       
         'SELECT V.ID_VENDITA, V.DATA_VENDITA, C.NOME, P.PRODOTTO, M.QUANT' +
-        'ITA, M.PREZZO_VENDITA, M.SCONTO, M.IMPORTO_TOTALE, M.PREZZO_ACQU' +
-        'ISTO, F.MANDANTE, SF.SUBMANDANTE, PN.PROVINCIA, L.LOCALITA, CP.C' +
-        'ATEGORIA, V.FLAG_VICRIS,'
+        'ITA, M.PREZZO_VENDITA, M.SCONTO, M.IMPORTO_TOTALE, M.IVA, M.TOTA' +
+        'LE_IVATO, M.PREZZO_ACQUISTO, F.MANDANTE, SF.SUBMANDANTE, PN.PROV' +
+        'INCIA, L.LOCALITA, CP.CATEGORIA, V.FLAG_VICRIS,'
       '       CASE WHEN V.FLAG_VICRIS = '#39'1'#39' THEN'
       '         '#39'VICRIS'#39
       '       ELSE'
@@ -190,6 +190,18 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       DisplayLabel = 'Totale'
       DisplayWidth = 8
       FieldName = 'IMPORTO_TOTALE'
+      DisplayFormat = '#,##0.00'
+    end
+    object qyAnalisiVenditeIVA: TFloatField
+      DisplayLabel = '% IVA'
+      DisplayWidth = 8
+      FieldName = 'IVA'
+      DisplayFormat = '#,##0.00 %'
+    end
+    object qyAnalisiVenditeTOTALE_IVATO: TFloatField
+      DisplayLabel = 'Totale Ivato'
+      DisplayWidth = 8
+      FieldName = 'TOTALE_IVATO'
       DisplayFormat = '#,##0.00'
     end
     object qyAnalisiVenditePREZZO_ACQUISTO: TFloatField
