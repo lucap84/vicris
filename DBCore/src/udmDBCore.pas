@@ -319,6 +319,18 @@ begin
             Break;
           end;
       end;
+
+      for i := 0 to ComponentCount - 1 do
+      begin
+        if (Components[i] is TDataSource)                    and
+           (TDataSource(Components[i]).DataSet is TOraQuery) and
+           (TDataSource(Components[i]).DataSet <> hDataSet)  then
+          if not dmDsOpen(TOraQuery(TDataSource(Components[i]).DataSet)) then
+          begin
+            MessageDlg(stDsError+TOraQuery(Components[i]).Name, mtError, [mbOK], 0);
+            Break;
+          end;
+      end;
     end;
   if Assigned(hDataSet) then
     hDataSet.First;

@@ -8,7 +8,7 @@ uses
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
   Menus, ActnList, StdCtrls, Buttons, ExtCtrls, udmEdVendita, udmSearch,
   Mask, DBCtrls, DBSearch, ComCtrls, DBEditDateTimePicker, Grids, DBGrids,
-  CRGrid, DBGridAux, DB;
+  CRGrid, DBGridAux, DB, udmDBCore;
 
 type
   TfmEdVendita = class(TfmEdit)
@@ -49,6 +49,18 @@ type
     ckFlagVicris: TDBCheckBox;
     laGuadagno: TLabel;
     deGuadagno: TDBEdit;
+    deIVA: TDBEdit;
+    laIVA: TLabel;
+    laTotaleIvato: TLabel;
+    deTotaleIvato: TDBEdit;
+    deTotaleVen: TDBEdit;
+    laTotaleVen: TLabel;
+    laTotaleIvatoVen: TLabel;
+    deTotaleIvatoVen: TDBEdit;
+    deImpostaVen: TDBEdit;
+    laImpostaVen: TLabel;
+    laImposta: TLabel;
+    deImposta: TDBEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure nvMovimentiClick(Sender: TObject; Button: TNavigateBtn);
@@ -98,12 +110,11 @@ begin
     if (Button = nbPost)   or
        (Button = nbDelete) then
     begin
-      with TdmEdVendita(hDataModule) do
-      begin
-        dmDsApplyUpdates(cdsMovimenti);
-        dmDsRefresh(cdsMovimenti);
-      end;
-    end
+      dmDsApplyUpdates(cdsMovimenti);
+      dmDsRefresh(cdsMovimenti);
+    end;
+
+    dmDsRefresh(qyTotVendita);
   end;
 end;
 
@@ -116,8 +127,14 @@ begin
     if (Button = nbEdit)   or
        (Button = nbInsert) then
     begin
+      if cdsMovimenti.State in [dsEdit, dsInsert] then
+        dmDsPost(cdsMovimenti);
+
       dmDsPost(cdsVendita);
       dmDsApplyUpdates(cdsVendita);
+
+      dmDsApplyUpdates(cdsMovimenti);
+      dmDsRefresh(cdsMovimenti);
     end;
 
     if Button = nbRefresh then
@@ -126,6 +143,8 @@ begin
         dmDsCancel(cdsMovimenti);
       dmDsApplyUpdates(cdsMovimenti);
     end;
+
+    dmDsRefresh(qyTotVendita);
   end;
 end;
 

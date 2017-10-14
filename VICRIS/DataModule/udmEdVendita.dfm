@@ -5,28 +5,16 @@ inherited dmEdVendita: TdmEdVendita
   Left = 541
   Top = 270
   Height = 234
-  Width = 366
+  Width = 652
   inherited OraSession: TOraSession
-    Connected = True
     EncryptedPassword = 'A9FFB6FFBCFFADFFB6FFACFF'
   end
   object qyVendita: TOraQuery
     Session = OraSession
     SQL.Strings = (
-      
-        'SELECT V.ID_VENDITA, V.DATA_VENDITA, V.ID_CLIENTE, V.NUMERO_FATT' +
-        'URA, V.DATA_FATTURA, V.NOTE, V.FLAG_VICRIS, '
-      '       V.COD_USR, V.DES_PDL, V.DAT_AGG_REC,'
-      '       SUM(M.IMPORTO_TOTALE) IMPORTO_TOTALE,'
-      '       SUM(M.IMPOSTA)        IMPOSTA,'
-      '       SUM(M.TOTALE_IVATO)   TOTALE_IVATO'
-      '  FROM TB_VENDITE V, TB_MOVIMENTI M'
-      ' WHERE V.ID_VENDITA = :ID_VENDITA'
-      '   AND V.ID_VENDITA = M.ID_VENDITA (+)'
-      
-        ' GROUP BY V.ID_VENDITA, V.DATA_VENDITA, V.ID_CLIENTE, V.NUMERO_F' +
-        'ATTURA, V.DATA_FATTURA, V.NOTE, V.FLAG_VICRIS, '
-      '          V.COD_USR, V.DES_PDL, V.DAT_AGG_REC')
+      'SELECT V.*'
+      '  FROM TB_VENDITE V'
+      ' WHERE V.ID_VENDITA = :ID_VENDITA')
     Options.FieldsOrigin = True
     Left = 64
     Top = 64
@@ -34,7 +22,6 @@ inherited dmEdVendita: TdmEdVendita
       item
         DataType = ftUnknown
         Name = 'ID_VENDITA'
-        Value = Null
       end>
     object qyVenditaID_VENDITA: TFloatField
       FieldName = 'ID_VENDITA'
@@ -83,25 +70,9 @@ inherited dmEdVendita: TdmEdVendita
       FieldName = 'DAT_AGG_REC'
       Origin = 'TB_VENDITE.DAT_AGG_REC'
     end
-    object qyVenditaIMPORTO_TOTALE: TFloatField
-      FieldName = 'IMPORTO_TOTALE'
-      Origin = 'IMPORTO_TOTALE'
-      ProviderFlags = []
-    end
-    object qyVenditaIMPOSTA: TFloatField
-      FieldName = 'IMPOSTA'
-      Origin = 'IMPOSTA'
-      ProviderFlags = []
-    end
-    object qyVenditaTOTALE_IVATO: TFloatField
-      FieldName = 'TOTALE_IVATO'
-      Origin = 'TOTALE_IVATO'
-      ProviderFlags = []
-    end
   end
   object poVendita: TDataSetProvider
     DataSet = qyVendita
-    OnGetTableName = poVenditaGetTableName
     Left = 120
     Top = 64
   end
@@ -156,27 +127,6 @@ inherited dmEdVendita: TdmEdVendita
     object cdsVenditaDAT_AGG_REC: TDateTimeField
       FieldName = 'DAT_AGG_REC'
       Origin = 'TB_VENDITE.DAT_AGG_REC'
-    end
-    object cdsVenditaIMPORTO_TOTALE: TFloatField
-      FieldName = 'IMPORTO_TOTALE'
-      Origin = 'IMPORTO_TOTALE'
-      ProviderFlags = []
-      DisplayFormat = '#,##0.00'
-      EditFormat = '###0.00'
-    end
-    object cdsVenditaIMPOSTA: TFloatField
-      FieldName = 'IMPOSTA'
-      Origin = 'IMPOSTA'
-      ProviderFlags = []
-      DisplayFormat = '#,##0.00'
-      EditFormat = '###0.00'
-    end
-    object cdsVenditaTOTALE_IVATO: TFloatField
-      FieldName = 'TOTALE_IVATO'
-      Origin = 'TOTALE_IVATO'
-      ProviderFlags = []
-      DisplayFormat = '#,##0.00'
-      EditFormat = '###0.00'
     end
   end
   object dsVendita: TDataSource
@@ -455,5 +405,38 @@ inherited dmEdVendita: TdmEdVendita
     DataSet = cdsMovimenti
     Left = 288
     Top = 120
+  end
+  object qyTotVendita: TOraQuery
+    Session = OraSession
+    SQL.Strings = (
+      'SELECT SUM(M.IMPORTO_TOTALE) IMPORTO_TOTALE,'
+      '       SUM(M.IMPOSTA)        IMPOSTA,'
+      '       SUM(M.TOTALE_IVATO)   TOTALE_IVATO'
+      '  FROM TB_MOVIMENTI M'
+      ' WHERE M.ID_VENDITA = :ID_VENDITA')
+    Left = 408
+    Top = 64
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_VENDITA'
+      end>
+    object qyTotVenditaIMPORTO_TOTALE: TFloatField
+      FieldName = 'IMPORTO_TOTALE'
+      DisplayFormat = '#,##0.00'
+    end
+    object qyTotVenditaIMPOSTA: TFloatField
+      FieldName = 'IMPOSTA'
+      DisplayFormat = '#,##0.00'
+    end
+    object qyTotVenditaTOTALE_IVATO: TFloatField
+      FieldName = 'TOTALE_IVATO'
+      DisplayFormat = '#,##0.00'
+    end
+  end
+  object dsTotVendita: TDataSource
+    DataSet = qyTotVendita
+    Left = 464
+    Top = 64
   end
 end

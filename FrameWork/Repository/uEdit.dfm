@@ -44,7 +44,7 @@ object fmEdit: TfmEdit
       Font.Style = []
       ModalResult = 1
       ParentFont = False
-      TabOrder = 0
+      TabOrder = 1
       Glyph.Data = {
         36360000424D3636000000000000360000002800000060000000300000000100
         18000000000000360000130B0000130B00000000000000000000C8D0D4C8D0D4
@@ -499,7 +499,7 @@ object fmEdit: TfmEdit
       Font.Style = []
       ModalResult = 2
       ParentFont = False
-      TabOrder = 1
+      TabOrder = 2
       Glyph.Data = {
         36360000424D3636000000000000360000002800000060000000300000000100
         18000000000000360000130B0000130B00000000000000000000C8D0D4C8D0D4
@@ -953,7 +953,7 @@ object fmEdit: TfmEdit
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 2
+      TabOrder = 0
       Glyph.Data = {
         36360000424D3636000000000000360000002800000060000000300000000100
         18000000000000360000130B0000130B00000000000000000000C8D0D4C8D0D4

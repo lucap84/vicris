@@ -191,9 +191,11 @@ begin
   SetDataSetState;
   if Assigned(hDataSet) then
   begin
+    if (hTipAttNum in [hPrgAut, hPrgAutAaa]) and (not FhNumManPrv) then
+      hKeyValues.Append(IntToStr(dmGlobal.GetNpaDet));
     dmDsInsert(hDataSet);
     if (hTipAttNum in [hPrgAut, hPrgAutAaa]) and (not FhNumManPrv) then
-      hDataSet.FieldByName(hKeyFields[hKeyFields.Count-1]).AsString := IntToStr(dmGlobal.GetNpaDet);
+      hDataSet.FieldByName(hKeyFields[hKeyFields.Count-1]).AsString := hKeyValues[hKeyValues.Count-1];
   end;
 end;
 

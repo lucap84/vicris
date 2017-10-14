@@ -75,12 +75,11 @@ type
     qyVenditaCOD_USR: TStringField;
     qyVenditaDES_PDL: TStringField;
     qyVenditaDAT_AGG_REC: TDateTimeField;
-    qyVenditaIMPORTO_TOTALE: TFloatField;
-    qyVenditaIMPOSTA: TFloatField;
-    qyVenditaTOTALE_IVATO: TFloatField;
-    cdsVenditaIMPORTO_TOTALE: TFloatField;
-    cdsVenditaIMPOSTA: TFloatField;
-    cdsVenditaTOTALE_IVATO: TFloatField;
+    qyTotVendita: TOraQuery;
+    qyTotVenditaIMPORTO_TOTALE: TFloatField;
+    qyTotVenditaIMPOSTA: TFloatField;
+    qyTotVenditaTOTALE_IVATO: TFloatField;
+    dsTotVendita: TDataSource;
     procedure cdsMovimentiPREZZO_VENDITAChange(Sender: TField);
     procedure cdsMovimentiQUANTITAChange(Sender: TField);
     procedure cdsMovimentiSCONTOChange(Sender: TField);
@@ -89,13 +88,12 @@ type
     procedure cdsMovimentiPREZZO_ACQUISTOChange(Sender: TField);
     procedure cdsMovimentiCalcFields(DataSet: TDataSet);
     procedure cdsMovimentiIVAChange(Sender: TField);
-    procedure poVenditaGetTableName(Sender: TObject; DataSet: TDataSet;
-      var TableName: String);
   private
     { Private declarations }
   protected
     procedure dmCalcTot(IsTotale: boolean = True);
     procedure dmAfterInsert(DataSet: TDataSet); override;
+    procedure dmBeforeOpen(DataSet: TDataSet); override;
   public
     { Public declarations }
   end;
@@ -114,7 +112,6 @@ begin
   inherited;
   if DataSet = cdsVendita then
   begin
-    //cdsVenditaID_VENDITA.AsInteger    := dmGlobal.GetNpaDet;
     cdsVenditaFLAG_VICRIS.AsString    := '1';
     cdsVenditaDATA_VENDITA.AsDateTime := Date;
   end;
@@ -189,11 +186,11 @@ begin
   TableName := 'TB_MOVIMENTI';
 end;
 
-procedure TdmEdVendita.poVenditaGetTableName(Sender: TObject;
-  DataSet: TDataSet; var TableName: String);
+procedure TdmEdVendita.dmBeforeOpen(DataSet: TDataSet);
 begin
   inherited;
-  TableName := 'TB_VENDITE';
+  if DataSet = qyTotVendita then
+    qyTotVendita.ParamByName('Id_Vendita').AsInteger := cdsVenditaID_VENDITA.AsInteger;
 end;
 
 end.
