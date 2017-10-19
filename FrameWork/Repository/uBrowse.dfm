@@ -3201,32 +3201,41 @@ object fmBrowse: TfmBrowse
       Spacing = 0
     end
   end
-  object grBrowse: TDBGridAux
+  object pnBackBrowse: TPanel
     Left = 0
     Top = 0
     Width = 734
     Height = 501
-    OnGetCellParams = grBrowseGetCellParams
     Align = alClient
-    Color = 16577515
-    Ctl3D = True
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    Options = [dgTitles, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgMultiSelect]
-    ParentCtl3D = False
-    ParentFont = False
-    PopupMenu = puBrowse
+    BevelOuter = bvNone
     TabOrder = 1
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -16
-    TitleFont.Name = 'MS Sans Serif'
-    TitleFont.Style = [fsBold]
-    OnDrawColumnCell = grBrowseDrawColumnCell
-    OnDblClick = acViewExecute
+    object grBrowse: TDBGridAux
+      Left = 0
+      Top = 0
+      Width = 734
+      Height = 501
+      OnGetCellParams = grBrowseGetCellParams
+      Align = alClient
+      Color = 16577515
+      Ctl3D = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      Options = [dgTitles, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgMultiSelect]
+      ParentCtl3D = False
+      ParentFont = False
+      PopupMenu = puBrowse
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -16
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = [fsBold]
+      OnDrawColumnCell = grBrowseDrawColumnCell
+      OnDblClick = acViewExecute
+    end
   end
   object alBrowse: TActionList
     Left = 24

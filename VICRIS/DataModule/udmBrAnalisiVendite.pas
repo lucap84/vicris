@@ -4,24 +4,12 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, udmBrowse, DB, MemDS, DBAccess, Ora;
+  Dialogs, udmBrowse, DB, MemDS, DBAccess, Ora, DBClient, Provider;
 
 type
   TdmBrAnalisiVendite = class(TdmBrowse)
     qyAnalisiVendite: TOraQuery;
     dsAnalisiVendite: TDataSource;
-    qyAnalisiVenditeDATA_VENDITA: TDateTimeField;
-    qyAnalisiVenditeNOME: TStringField;
-    qyAnalisiVenditePRODOTTO: TStringField;
-    qyAnalisiVenditeQUANTITA: TFloatField;
-    qyAnalisiVenditePREZZO_VENDITA: TFloatField;
-    qyAnalisiVenditeSCONTO: TFloatField;
-    qyAnalisiVenditeMANDANTE: TStringField;
-    qyAnalisiVenditeSUBMANDANTE: TStringField;
-    qyAnalisiVenditePROVINCIA: TStringField;
-    qyAnalisiVenditeLOCALITA: TStringField;
-    qyAnalisiVenditeCATEGORIA: TStringField;
-    qyAnalisiVenditeIMPORTO_TOTALE: TFloatField;
     qyMandanti: TOraQuery;
     qySubmandanti: TOraQuery;
     qyClienti: TOraQuery;
@@ -39,13 +27,30 @@ type
     qyCategoriaCATEGORIA: TStringField;
     qyCategoriaORD: TFloatField;
     dsCategoria: TDataSource;
-    qyAnalisiVenditeFLAG_VICRIS: TStringField;
-    qyAnalisiVenditeDES_VICRIS: TStringField;
-    qyAnalisiVenditePREZZO_ACQUISTO: TFloatField;
-    qyAnalisiVenditeGUADAGNO: TFloatField;
-    qyAnalisiVenditeID_VENDITA: TFloatField;
-    qyAnalisiVenditeIVA: TFloatField;
-    qyAnalisiVenditeTOTALE_IVATO: TFloatField;
+    poAnalisiVendite: TDataSetProvider;
+    cdsAnalisiVendite: TClientDataSet;
+    cdsAnalisiVenditeDATA_VENDITA: TDateTimeField;
+    cdsAnalisiVenditeNOME: TStringField;
+    cdsAnalisiVenditePRODOTTO: TStringField;
+    cdsAnalisiVenditePREZZO_VENDITA: TFloatField;
+    cdsAnalisiVenditeQUANTITA: TFloatField;
+    cdsAnalisiVenditeIMPORTO_TOTALE: TFloatField;
+    cdsAnalisiVenditeIVA: TFloatField;
+    cdsAnalisiVenditeTOTALE_IVATO: TFloatField;
+    cdsAnalisiVenditePREZZO_ACQUISTO: TFloatField;
+    cdsAnalisiVenditeGUADAGNO: TFloatField;
+    cdsAnalisiVenditeMANDANTE: TStringField;
+    cdsAnalisiVenditeSUBMANDANTE: TStringField;
+    cdsAnalisiVenditePROVINCIA: TStringField;
+    cdsAnalisiVenditeLOCALITA: TStringField;
+    cdsAnalisiVenditeCATEGORIA: TStringField;
+    cdsAnalisiVenditeFLAG_VICRIS: TStringField;
+    cdsAnalisiVenditeSCONTO: TFloatField;
+    cdsAnalisiVenditeDES_VICRIS: TStringField;
+    cdsAnalisiVenditeID_VENDITA: TFloatField;
+    cdsAnalisiVenditesum_IMPORTO_TOTALE: TAggregateField;
+    cdsAnalisiVenditeavg_PREZZO_VENDITA: TAggregateField;
+    cdsAnalisiVenditesum_QUANTITA: TAggregateField;
     procedure FiltersDataChange(Sender: TObject; Field: TField);
   private
     FhDataFin: TDateTime;
@@ -140,7 +145,7 @@ begin
     qyAnalisiVendite.ParamByName('Flag_Active_Sub_Fin').AsString := IntToStr(FhFlagAtvSub);
   end;
 
-  dmDsRefresh(qyAnalisiVendite);
+  dmDsRefresh(cdsAnalisiVendite);
 end;
 
 procedure TdmBrAnalisiVendite.FiltersDataChange(Sender: TObject;

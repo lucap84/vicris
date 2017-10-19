@@ -1,11 +1,11 @@
 inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
-  hDataSet = qyAnalisiVendite
+  hDataSet = cdsAnalisiVendite
   hKeyFields.Strings = (
     'id_vendita')
   Left = 771
   Top = 333
   Height = 353
-  Width = 194
+  Width = 329
   object qyAnalisiVendite: TOraQuery
     SQL.Strings = (
       
@@ -18,7 +18,8 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
       '       ELSE'
       '         NULL'
       '       END DES_VICRIS,'
-      '       CASE WHEN NVL(M.PREZZO_ACQUISTO, 0) <> 0 THEN'
+      '       CASE WHEN NVL(M.PREZZO_ACQUISTO, 0) <> 0 AND'
+      '                 NVL(M.QUANTITA,        0) <> 0 THEN'
       
         '         ((M.IMPORTO_TOTALE / (M.PREZZO_ACQUISTO * M.QUANTITA)) ' +
         '* 100) - 100'
@@ -156,127 +157,10 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
         DataType = ftUnknown
         Name = 'FLAG_VICRIS_FIN'
       end>
-    object qyAnalisiVenditeDATA_VENDITA: TDateTimeField
-      DisplayLabel = 'Data Vendita'
-      DisplayWidth = 10
-      FieldName = 'DATA_VENDITA'
-      DisplayFormat = 'dd/mm/yyyy'
-    end
-    object qyAnalisiVenditeNOME: TStringField
-      DisplayLabel = 'Cliente'
-      DisplayWidth = 20
-      FieldName = 'NOME'
-      Size = 500
-    end
-    object qyAnalisiVenditePRODOTTO: TStringField
-      DisplayLabel = 'Prodotto'
-      DisplayWidth = 15
-      FieldName = 'PRODOTTO'
-      Size = 200
-    end
-    object qyAnalisiVenditePREZZO_VENDITA: TFloatField
-      DisplayLabel = 'Prezzo'
-      DisplayWidth = 8
-      FieldName = 'PREZZO_VENDITA'
-      DisplayFormat = '#,##0.00'
-    end
-    object qyAnalisiVenditeQUANTITA: TFloatField
-      DisplayLabel = 'Qt'#224
-      DisplayWidth = 5
-      FieldName = 'QUANTITA'
-      DisplayFormat = '#,##0.00'
-    end
-    object qyAnalisiVenditeIMPORTO_TOTALE: TFloatField
-      DisplayLabel = 'Totale'
-      DisplayWidth = 8
-      FieldName = 'IMPORTO_TOTALE'
-      DisplayFormat = '#,##0.00'
-    end
-    object qyAnalisiVenditeIVA: TFloatField
-      DisplayLabel = '% IVA'
-      DisplayWidth = 8
-      FieldName = 'IVA'
-      DisplayFormat = '#,##0.00 %'
-    end
-    object qyAnalisiVenditeTOTALE_IVATO: TFloatField
-      DisplayLabel = 'Totale Ivato'
-      DisplayWidth = 8
-      FieldName = 'TOTALE_IVATO'
-      DisplayFormat = '#,##0.00'
-    end
-    object qyAnalisiVenditePREZZO_ACQUISTO: TFloatField
-      DisplayLabel = 'Costo Unitario'
-      DisplayWidth = 8
-      FieldName = 'PREZZO_ACQUISTO'
-      DisplayFormat = '#,##0.00'
-    end
-    object qyAnalisiVenditeGUADAGNO: TFloatField
-      DisplayLabel = 'Guadagno (%)'
-      DisplayWidth = 8
-      FieldName = 'GUADAGNO'
-      DisplayFormat = '#,##0.00 %'
-    end
-    object qyAnalisiVenditeMANDANTE: TStringField
-      DisplayLabel = 'Mandante'
-      DisplayWidth = 20
-      FieldName = 'MANDANTE'
-      Size = 200
-    end
-    object qyAnalisiVenditeSUBMANDANTE: TStringField
-      DisplayLabel = 'Submandante'
-      DisplayWidth = 20
-      FieldName = 'SUBMANDANTE'
-      Visible = False
-      Size = 200
-    end
-    object qyAnalisiVenditePROVINCIA: TStringField
-      DisplayLabel = 'Prov.'
-      FieldName = 'PROVINCIA'
-      Size = 2
-    end
-    object qyAnalisiVenditeLOCALITA: TStringField
-      DisplayLabel = 'Regione'
-      DisplayWidth = 15
-      FieldName = 'LOCALITA'
-      Size = 100
-    end
-    object qyAnalisiVenditeCATEGORIA: TStringField
-      DisplayLabel = 'Categoria'
-      DisplayWidth = 20
-      FieldName = 'CATEGORIA'
-      Visible = False
-      Size = 150
-    end
-    object qyAnalisiVenditeFLAG_VICRIS: TStringField
-      FieldName = 'FLAG_VICRIS'
-      Required = True
-      Visible = False
-      FixedChar = True
-      Size = 1
-    end
-    object qyAnalisiVenditeSCONTO: TFloatField
-      DisplayLabel = '% Sconto'
-      DisplayWidth = 5
-      FieldName = 'SCONTO'
-      Visible = False
-      DisplayFormat = '#,##0.00'
-    end
-    object qyAnalisiVenditeDES_VICRIS: TStringField
-      DisplayLabel = 'Vendita Vicris'
-      DisplayWidth = 10
-      FieldName = 'DES_VICRIS'
-      FixedChar = True
-      Size = 6
-    end
-    object qyAnalisiVenditeID_VENDITA: TFloatField
-      FieldName = 'ID_VENDITA'
-      Required = True
-      Visible = False
-    end
   end
   object dsAnalisiVendite: TDataSource
-    DataSet = qyAnalisiVendite
-    Left = 104
+    DataSet = cdsAnalisiVendite
+    Left = 248
     Top = 24
   end
   object qyMandanti: TOraQuery
@@ -410,5 +294,156 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
     OnDataChange = FiltersDataChange
     Left = 104
     Top = 264
+  end
+  object poAnalisiVendite: TDataSetProvider
+    DataSet = qyAnalisiVendite
+    Left = 104
+    Top = 24
+  end
+  object cdsAnalisiVendite: TClientDataSet
+    Aggregates = <>
+    AggregatesActive = True
+    Params = <>
+    ProviderName = 'poAnalisiVendite'
+    Left = 184
+    Top = 24
+    object cdsAnalisiVenditeDATA_VENDITA: TDateTimeField
+      DisplayLabel = 'Data Vendita'
+      DisplayWidth = 10
+      FieldName = 'DATA_VENDITA'
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object cdsAnalisiVenditeNOME: TStringField
+      DisplayLabel = 'Cliente'
+      DisplayWidth = 20
+      FieldName = 'NOME'
+      Size = 500
+    end
+    object cdsAnalisiVenditePRODOTTO: TStringField
+      DisplayLabel = 'Prodotto'
+      DisplayWidth = 15
+      FieldName = 'PRODOTTO'
+      Size = 200
+    end
+    object cdsAnalisiVenditePREZZO_VENDITA: TFloatField
+      DisplayLabel = 'Prezzo'
+      DisplayWidth = 8
+      FieldName = 'PREZZO_VENDITA'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsAnalisiVenditeQUANTITA: TFloatField
+      DisplayLabel = 'Qt'#224
+      DisplayWidth = 5
+      FieldName = 'QUANTITA'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsAnalisiVenditeIMPORTO_TOTALE: TFloatField
+      DisplayLabel = 'Totale'
+      DisplayWidth = 8
+      FieldName = 'IMPORTO_TOTALE'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsAnalisiVenditeIVA: TFloatField
+      DisplayLabel = '% IVA'
+      DisplayWidth = 8
+      FieldName = 'IVA'
+      DisplayFormat = '#,##0.00 %'
+    end
+    object cdsAnalisiVenditeTOTALE_IVATO: TFloatField
+      DisplayLabel = 'Totale Ivato'
+      DisplayWidth = 8
+      FieldName = 'TOTALE_IVATO'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsAnalisiVenditePREZZO_ACQUISTO: TFloatField
+      DisplayLabel = 'Costo Unitario'
+      DisplayWidth = 8
+      FieldName = 'PREZZO_ACQUISTO'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsAnalisiVenditeGUADAGNO: TFloatField
+      DisplayLabel = 'Guadagno (%)'
+      DisplayWidth = 8
+      FieldName = 'GUADAGNO'
+      DisplayFormat = '#,##0.00 %'
+    end
+    object cdsAnalisiVenditeMANDANTE: TStringField
+      DisplayLabel = 'Mandante'
+      DisplayWidth = 20
+      FieldName = 'MANDANTE'
+      Size = 200
+    end
+    object cdsAnalisiVenditeSUBMANDANTE: TStringField
+      DisplayLabel = 'Submandante'
+      DisplayWidth = 20
+      FieldName = 'SUBMANDANTE'
+      Visible = False
+      Size = 200
+    end
+    object cdsAnalisiVenditePROVINCIA: TStringField
+      DisplayLabel = 'Prov.'
+      FieldName = 'PROVINCIA'
+      Size = 2
+    end
+    object cdsAnalisiVenditeLOCALITA: TStringField
+      DisplayLabel = 'Regione'
+      DisplayWidth = 15
+      FieldName = 'LOCALITA'
+      Size = 100
+    end
+    object cdsAnalisiVenditeCATEGORIA: TStringField
+      DisplayLabel = 'Categoria'
+      DisplayWidth = 20
+      FieldName = 'CATEGORIA'
+      Visible = False
+      Size = 150
+    end
+    object cdsAnalisiVenditeFLAG_VICRIS: TStringField
+      FieldName = 'FLAG_VICRIS'
+      Required = True
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
+    object cdsAnalisiVenditeSCONTO: TFloatField
+      DisplayLabel = '% Sconto'
+      DisplayWidth = 5
+      FieldName = 'SCONTO'
+      Visible = False
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsAnalisiVenditeDES_VICRIS: TStringField
+      DisplayLabel = 'Vendita Vicris'
+      DisplayWidth = 10
+      FieldName = 'DES_VICRIS'
+      FixedChar = True
+      Size = 6
+    end
+    object cdsAnalisiVenditeID_VENDITA: TFloatField
+      FieldName = 'ID_VENDITA'
+      Required = True
+      Visible = False
+    end
+    object cdsAnalisiVenditesum_IMPORTO_TOTALE: TAggregateField
+      Alignment = taRightJustify
+      FieldName = 'sum_IMPORTO_TOTALE'
+      Active = True
+      DisplayFormat = '#,##0.00'
+      Expression = 'SUM(IMPORTO_TOTALE)'
+    end
+    object cdsAnalisiVenditeavg_PREZZO_VENDITA: TAggregateField
+      Alignment = taRightJustify
+      FieldName = 'avg_PREZZO_VENDITA'
+      Active = True
+      DisplayFormat = '#,##0.00'
+      Expression = 'AVG(PREZZO_VENDITA)'
+    end
+    object cdsAnalisiVenditesum_QUANTITA: TAggregateField
+      Alignment = taRightJustify
+      FieldName = 'sum_QUANTITA'
+      Active = True
+      DisplayFormat = '#,##0.00'
+      Expression = 'SUM(QUANTITA)'
+    end
   end
 end

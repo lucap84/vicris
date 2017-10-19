@@ -49,6 +49,7 @@ type
     acExpXls: TAction;
     puBrowse: TPopupMenu;
     piExpXls: TMenuItem;
+    pnBackBrowse: TPanel;
     procedure acInsertUpdate(Sender: TObject);
     procedure acEditUpdate(Sender: TObject);
     procedure acViewUpdate(Sender: TObject);

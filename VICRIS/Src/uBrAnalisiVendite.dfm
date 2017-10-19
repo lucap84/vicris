@@ -1,6 +1,6 @@
 inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
-  Left = 249
-  Top = 136
+  Left = 278
+  Top = 218
   Height = 640
   Caption = 'Analisi Vendite'
   Constraints.MinHeight = 640
@@ -10,30 +10,146 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
   hFirstActiveControl = grBrowse
   PixelsPerInch = 96
   TextHeight = 13
-  object Label10: TLabel [0]
-    Left = 8
-    Top = 186
-    Width = 75
-    Height = 13
-    AutoSize = False
-    Caption = 'Submandanti'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
-  end
   inherited pnTools: TPanel
     Top = 541
   end
-  inherited grBrowse: TDBGridAux
+  inherited pnBackBrowse: TPanel
     Left = 249
     Width = 485
     Height = 541
-    DataSource = dmBrAnalisiVendite.dsAnalisiVendite
+    inherited grBrowse: TDBGridAux
+      Width = 485
+      Height = 435
+      OptionsEx = [dgeEnableSort, dgeLocalFilter, dgeLocalSorting]
+      DataSource = dmBrAnalisiVendite.dsAnalisiVendite
+    end
+    object pnSummary: TPanel
+      Left = 0
+      Top = 435
+      Width = 485
+      Height = 106
+      Align = alBottom
+      BevelInner = bvLowered
+      TabOrder = 1
+      DesignSize = (
+        485
+        106)
+      object Label1: TLabel
+        Left = 354
+        Top = 2
+        Width = 125
+        Height = 20
+        Anchors = [akTop]
+        Caption = 'Riepilogo Totali'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object laSumTotale: TLabel
+        Left = 256
+        Top = 33
+        Width = 90
+        Height = 13
+        Alignment = taRightJustify
+        Anchors = [akTop]
+        AutoSize = False
+        Caption = 'Totale '#8364
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object laSumQuantita: TLabel
+        Left = 256
+        Top = 58
+        Width = 90
+        Height = 13
+        Alignment = taRightJustify
+        Anchors = [akTop]
+        AutoSize = False
+        Caption = 'Totale Kg'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object laAvgPrezzo: TLabel
+        Left = 256
+        Top = 83
+        Width = 90
+        Height = 13
+        Alignment = taRightJustify
+        Anchors = [akTop]
+        AutoSize = False
+        Caption = 'Prezzo Medio'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object deSumTotale: TDBEdit
+        Left = 360
+        Top = 30
+        Width = 121
+        Height = 21
+        Anchors = [akTop]
+        Color = clMoneyGreen
+        DataField = 'sum_IMPORTO_TOTALE'
+        DataSource = dmBrAnalisiVendite.dsAnalisiVendite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 0
+      end
+      object deSumQuantita: TDBEdit
+        Left = 360
+        Top = 55
+        Width = 121
+        Height = 21
+        Anchors = [akTop]
+        Color = clMoneyGreen
+        DataField = 'sum_QUANTITA'
+        DataSource = dmBrAnalisiVendite.dsAnalisiVendite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 1
+      end
+      object deAvgPrezzo: TDBEdit
+        Left = 360
+        Top = 80
+        Width = 121
+        Height = 21
+        Anchors = [akTop]
+        Color = clMoneyGreen
+        DataField = 'avg_PREZZO_VENDITA'
+        DataSource = dmBrAnalisiVendite.dsAnalisiVendite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 2
+      end
+    end
   end
-  object pnlateAnalisi: TPanel [3]
+  object pnlateAnalisi: TPanel [2]
     Left = 0
     Top = 0
     Width = 249

@@ -8,7 +8,7 @@ uses
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
   ActnList, Grids, DBGrids, DBGridAux, StdCtrls, Buttons, ExtCtrls, Ora,
   udmBrAnalisiVendite, ComCtrls, uSupportLib, DBCtrls, ExportDS, SME2OLE,
-  Menus, SME2Cell, SME2XLS, udmEdVendita, uEdVendita;
+  Menus, SME2Cell, SME2XLS, udmEdVendita, uEdVendita, Mask;
 
 type
   TfmBrAnalisiVendite = class(TfmBrowse)
@@ -30,7 +30,6 @@ type
     laPrezzoFine: TLabel;
     dePrezzoInizio: TEdit;
     dePrezzoFine: TEdit;
-    Label10: TLabel;
     laCategoria: TLabel;
     cbCategoria: TDBLookupComboBox;
     rgFlagVicris: TRadioGroup;
@@ -42,6 +41,14 @@ type
     laAcquistoFine: TLabel;
     deAcquistoFine: TEdit;
     deAcquistoInizio: TEdit;
+    pnSummary: TPanel;
+    Label1: TLabel;
+    laSumTotale: TLabel;
+    laSumQuantita: TLabel;
+    laAvgPrezzo: TLabel;
+    deSumTotale: TDBEdit;
+    deSumQuantita: TDBEdit;
+    deAvgPrezzo: TDBEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FiltersChange(Sender: TObject);
@@ -155,6 +162,8 @@ begin
 end;
 
 procedure TfmBrAnalisiVendite.FormPostCreate(Sender: TObject);
+var
+  i : integer;
 begin
   inherited;
   if Assigned(hDataModule) then
@@ -176,6 +185,10 @@ begin
   cbMandanti.KeyValue    := -1;
   cbSubmandanti.KeyValue := -1;
   cbCategoria.KeyValue   := -1;
+
+  for i := 0 to grBrowse.Columns.Count - 1 do
+    if grBrowse.Columns[i].FieldName = 'IMPORTO_TOTALE' then
+      grBrowse.Columns[i].SummaryMode := smSum;
 
   FiltersChange(nil);
 end;
