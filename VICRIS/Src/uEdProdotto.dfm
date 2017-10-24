@@ -259,7 +259,7 @@ inherited fmEdProdotto: TfmEdProdotto
     TabOrder = 7
   end
   object ckFlagActive: TDBCheckBox [16]
-    Left = 312
+    Left = 8
     Top = 223
     Width = 105
     Height = 33

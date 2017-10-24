@@ -4,8 +4,8 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
     'id_vendita')
   Left = 771
   Top = 333
-  Height = 353
-  Width = 329
+  Height = 401
+  Width = 384
   object qyAnalisiVendite: TOraQuery
     SQL.Strings = (
       
@@ -160,7 +160,7 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
   end
   object dsAnalisiVendite: TDataSource
     DataSet = cdsAnalisiVendite
-    Left = 248
+    Left = 280
     Top = 24
   end
   object qyMandanti: TOraQuery
@@ -297,15 +297,18 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
   end
   object poAnalisiVendite: TDataSetProvider
     DataSet = qyAnalisiVendite
-    Left = 104
+    Left = 112
     Top = 24
   end
   object cdsAnalisiVendite: TClientDataSet
     Aggregates = <>
     AggregatesActive = True
+    FieldDefs = <>
+    IndexDefs = <>
     Params = <>
     ProviderName = 'poAnalisiVendite'
-    Left = 184
+    StoreDefs = True
+    Left = 192
     Top = 24
     object cdsAnalisiVenditeDATA_VENDITA: TDateTimeField
       DisplayLabel = 'Data Vendita'

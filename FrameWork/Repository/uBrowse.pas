@@ -76,6 +76,7 @@ type
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure acExpXlsExecute(Sender: TObject);
     procedure acExpXlsUpdate(Sender: TObject);
+    procedure grBrowseDblClick(Sender: TObject);
   private
     { Private declarations }
     FPrintToFile : boolean;
@@ -457,6 +458,22 @@ begin
   if Assigned(hDataModule) then
     with hDataModule do
       TAction(Sender).Enabled := not hDataSet.IsEmpty;
+end;
+
+procedure TfmBrowse.grBrowseDblClick(Sender: TObject);
+
+  function IsOnTitle(Grid: TDBGridAux): Boolean;
+  var
+    Pt: TPoint;
+  begin
+    Pt := Grid.ScreenToClient(Mouse.CursorPos);
+    Result := (Grid.MouseCoord(Pt.X, Pt.Y).Y = 0) and (dgTitles in Grid.Options);
+  end;
+
+begin
+  //if TDBGridAux(Sender).ScreenToClient(Mouse.CursorPos).Y>17 then
+  if not IsOnTitle(TDBGridAux(Sender)) then
+    acViewExecute(acView);
 end;
 
 end.

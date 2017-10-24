@@ -1,13 +1,12 @@
 inherited fmEdVendita: TfmEdVendita
-  Left = 385
-  Top = 122
+  Left = 175
+  Top = 146
   Width = 847
   Height = 660
   Caption = 'Vendita'
   Constraints.MinHeight = 660
   Constraints.MinWidth = 847
   OldCreateOrder = True
-  OnCreate = FormCreate
   OnDestroy = FormDestroy
   hFirstActiveControl = deIdCliente
   PixelsPerInch = 96
@@ -109,11 +108,11 @@ inherited fmEdVendita: TfmEdVendita
       ParentFont = False
     end
     object laTotaleIvatoVen: TLabel
-      Left = 641
+      Left = 569
       Top = 160
-      Width = 59
+      Width = 131
       Height = 20
-      Caption = 'IVATO:'
+      Caption = 'TOTALE IVATO:'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -122,7 +121,7 @@ inherited fmEdVendita: TfmEdVendita
       ParentFont = False
     end
     object laImpostaVen: TLabel
-      Left = 354
+      Left = 295
       Top = 160
       Width = 84
       Height = 20
@@ -135,7 +134,7 @@ inherited fmEdVendita: TfmEdVendita
       ParentFont = False
     end
     object dtDataFattura: TDBEditDateTimePicker
-      Left = 128
+      Left = 112
       Top = 128
       Width = 186
       Height = 28
@@ -156,7 +155,7 @@ inherited fmEdVendita: TfmEdVendita
       AutoApplyEditMask = True
     end
     object dtData: TDBEditDateTimePicker
-      Left = 128
+      Left = 112
       Top = 38
       Width = 186
       Height = 28
@@ -176,7 +175,7 @@ inherited fmEdVendita: TfmEdVendita
       AutoApplyEditMask = True
     end
     object deNumeroFattura: TDBEdit
-      Left = 316
+      Left = 300
       Top = 128
       Width = 186
       Height = 28
@@ -192,9 +191,9 @@ inherited fmEdVendita: TfmEdVendita
       TabOrder = 6
     end
     object deNote: TDBMemo
-      Left = 128
+      Left = 112
       Top = 68
-      Width = 695
+      Width = 710
       Height = 58
       Anchors = [akLeft, akTop, akRight]
       DataField = 'NOTE'
@@ -209,7 +208,7 @@ inherited fmEdVendita: TfmEdVendita
     end
     object deIdCliente: TDBSearch
       Tag = 1000
-      Left = 128
+      Left = 112
       Top = 8
       Width = 95
       Height = 28
@@ -226,9 +225,9 @@ inherited fmEdVendita: TfmEdVendita
       hCmpDes = deCliente
     end
     object deCliente: TEdit
-      Left = 226
+      Left = 210
       Top = 8
-      Width = 597
+      Width = 612
       Height = 28
       Anchors = [akLeft, akTop, akRight]
       Font.Charset = DEFAULT_CHARSET
@@ -262,7 +261,7 @@ inherited fmEdVendita: TfmEdVendita
       ValueUnchecked = '0'
     end
     object deTotaleVen: TDBEdit
-      Left = 128
+      Left = 112
       Top = 158
       Width = 121
       Height = 28
@@ -298,7 +297,7 @@ inherited fmEdVendita: TfmEdVendita
       TabOrder = 9
     end
     object deImpostaVen: TDBEdit
-      Left = 440
+      Left = 381
       Top = 158
       Width = 121
       Height = 28
@@ -359,7 +358,7 @@ inherited fmEdVendita: TfmEdVendita
       ParentFont = False
     end
     object Label1: TLabel
-      Left = 253
+      Left = 237
       Top = 40
       Width = 77
       Height = 20
@@ -372,7 +371,7 @@ inherited fmEdVendita: TfmEdVendita
       ParentFont = False
     end
     object laSconto: TLabel
-      Left = 462
+      Left = 443
       Top = 40
       Width = 78
       Height = 20
@@ -398,7 +397,7 @@ inherited fmEdVendita: TfmEdVendita
       ParentFont = False
     end
     object laCosto: TLabel
-      Left = 8
+      Left = 248
       Top = 70
       Width = 66
       Height = 20
@@ -451,7 +450,7 @@ inherited fmEdVendita: TfmEdVendita
     end
     object laGuadagno: TLabel
       Left = 564
-      Top = 100
+      Top = 130
       Width = 136
       Height = 20
       Caption = 'GUADAGNO (%)'
@@ -463,7 +462,7 @@ inherited fmEdVendita: TfmEdVendita
       ParentFont = False
     end
     object laIVA: TLabel
-      Left = 294
+      Left = 485
       Top = 70
       Width = 36
       Height = 20
@@ -476,11 +475,11 @@ inherited fmEdVendita: TfmEdVendita
       ParentFont = False
     end
     object laTotaleIvato: TLabel
-      Left = 641
-      Top = 70
-      Width = 59
+      Left = 569
+      Top = 100
+      Width = 131
       Height = 20
-      Caption = 'IVATO:'
+      Caption = 'TOTALE IVATO:'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -489,7 +488,7 @@ inherited fmEdVendita: TfmEdVendita
       ParentFont = False
     end
     object laImposta: TLabel
-      Left = 409
+      Left = 616
       Top = 70
       Width = 84
       Height = 20
@@ -503,7 +502,7 @@ inherited fmEdVendita: TfmEdVendita
     end
     object deProdotto: TDBSearch
       Tag = 1004
-      Left = 128
+      Left = 112
       Top = 8
       Width = 95
       Height = 28
@@ -521,9 +520,9 @@ inherited fmEdVendita: TfmEdVendita
       hCmpDes = deDesProdotto
     end
     object deDesProdotto: TEdit
-      Left = 226
+      Left = 210
       Top = 8
-      Width = 597
+      Width = 613
       Height = 28
       Anchors = [akLeft, akTop, akRight]
       Font.Charset = DEFAULT_CHARSET
@@ -536,7 +535,7 @@ inherited fmEdVendita: TfmEdVendita
       TabOrder = 1
     end
     object dePrezzo: TDBEdit
-      Left = 332
+      Left = 316
       Top = 38
       Width = 121
       Height = 28
@@ -551,9 +550,9 @@ inherited fmEdVendita: TfmEdVendita
       TabOrder = 3
     end
     object deSconto: TDBEdit
-      Left = 542
+      Left = 523
       Top = 38
-      Width = 73
+      Width = 75
       Height = 28
       DataField = 'SCONTO'
       DataSource = dmEdVendita.dsMovimenti
@@ -566,7 +565,7 @@ inherited fmEdVendita: TfmEdVendita
       TabOrder = 4
     end
     object deQuantita: TDBEdit
-      Left = 128
+      Left = 112
       Top = 38
       Width = 121
       Height = 28
@@ -581,7 +580,7 @@ inherited fmEdVendita: TfmEdVendita
       TabOrder = 2
     end
     object deCosto: TDBEdit
-      Left = 128
+      Left = 316
       Top = 68
       Width = 121
       Height = 28
@@ -594,7 +593,7 @@ inherited fmEdVendita: TfmEdVendita
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 6
+      TabOrder = 5
     end
     object deTotale: TDBEdit
       Left = 702
@@ -612,10 +611,10 @@ inherited fmEdVendita: TfmEdVendita
       Font.Style = [fsBold]
       ParentFont = False
       ReadOnly = True
-      TabOrder = 5
+      TabOrder = 7
     end
     object dtDataFatturaMov: TDBEditDateTimePicker
-      Left = 128
+      Left = 112
       Top = 98
       Width = 186
       Height = 28
@@ -636,7 +635,7 @@ inherited fmEdVendita: TfmEdVendita
       AutoApplyEditMask = True
     end
     object deNumeroFatturaMov: TDBEdit
-      Left = 316
+      Left = 300
       Top = 98
       Width = 186
       Height = 28
@@ -652,7 +651,7 @@ inherited fmEdVendita: TfmEdVendita
       TabOrder = 12
     end
     object dtDataBollaMov: TDBEditDateTimePicker
-      Left = 128
+      Left = 112
       Top = 128
       Width = 186
       Height = 28
@@ -673,7 +672,7 @@ inherited fmEdVendita: TfmEdVendita
       AutoApplyEditMask = True
     end
     object deNumeroBollaMov: TDBEdit
-      Left = 316
+      Left = 300
       Top = 128
       Width = 186
       Height = 28
@@ -690,7 +689,7 @@ inherited fmEdVendita: TfmEdVendita
     end
     object deGuadagno: TDBEdit
       Left = 702
-      Top = 98
+      Top = 128
       Width = 121
       Height = 28
       TabStop = False
@@ -707,9 +706,9 @@ inherited fmEdVendita: TfmEdVendita
       TabOrder = 10
     end
     object deIVA: TDBEdit
-      Left = 332
+      Left = 523
       Top = 68
-      Width = 73
+      Width = 75
       Height = 28
       DataField = 'IVA'
       DataSource = dmEdVendita.dsMovimenti
@@ -719,11 +718,11 @@ inherited fmEdVendita: TfmEdVendita
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 7
+      TabOrder = 6
     end
     object deTotaleIvato: TDBEdit
       Left = 702
-      Top = 68
+      Top = 98
       Width = 121
       Height = 28
       TabStop = False
@@ -740,7 +739,7 @@ inherited fmEdVendita: TfmEdVendita
       TabOrder = 9
     end
     object deImposta: TDBEdit
-      Left = 495
+      Left = 702
       Top = 68
       Width = 121
       Height = 28

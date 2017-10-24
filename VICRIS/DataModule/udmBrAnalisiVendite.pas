@@ -146,6 +146,66 @@ begin
   end;
 
   dmDsRefresh(cdsAnalisiVendite);
+
+(*
+  qyTotAnalisiVendite.ParamByName('Data_Inizio').AsDate     := hDataIni;
+  qyTotAnalisiVendite.ParamByName('Data_Fine').AsDate       := hDataFin;
+  qyTotAnalisiVendite.ParamByName('Prezzo_Inizio').AsFloat  := hPrezzoIni;
+  qyTotAnalisiVendite.ParamByName('Prezzo_Fine').AsFloat    := hPrezzoFin;
+  qyTotAnalisiVendite.ParamByName('Acquisto_Inizio').AsFloat:= hAcquistoIni;
+  qyTotAnalisiVendite.ParamByName('Acquisto_Fine').AsFloat  := hAcquistoFin;
+
+  qyTotAnalisiVendite.ParamByName('Id_Cliente').Clear;
+  if (qyClientiID_CLIENTE.AsInteger <> -1)         then
+    qyTotAnalisiVendite.ParamByName('Id_Cliente').AsInteger     := qyClientiID_CLIENTE.AsInteger;
+
+  qyTotAnalisiVendite.ParamByName('Id_Mandante').Clear;
+  if (qyMandantiID_MANDANTE.AsInteger <> -1)         then
+    qyTotAnalisiVendite.ParamByName('Id_Mandante').AsInteger    := qyMandantiID_MANDANTE.AsInteger;
+
+  qyTotAnalisiVendite.ParamByName('Id_Submandante').Clear;
+  if (qySubmandantiID_SUBMANDANTE.AsInteger <> -1)         then
+    qyTotAnalisiVendite.ParamByName('Id_Submandante').AsInteger := qySubmandantiID_SUBMANDANTE.AsInteger;
+
+  qyTotAnalisiVendite.ParamByName('Id_Categoria').Clear;
+  if (qyCategoriaID_CATEGORIA.AsInteger <> -1)         then
+    qyTotAnalisiVendite.ParamByName('Id_Categoria').AsInteger := qyCategoriaID_CATEGORIA.AsInteger;
+
+  qyTotAnalisiVendite.ParamByName('Flag_Vicris_Ini').AsString := '0';
+  qyTotAnalisiVendite.ParamByName('Flag_Vicris_Fin').AsString := '1';
+  if FhFlagVicris <> 2 then
+  begin
+    qyTotAnalisiVendite.ParamByName('Flag_Vicris_Ini').AsString := IntToStr(FhFlagVicris);
+    qyTotAnalisiVendite.ParamByName('Flag_Vicris_Fin').AsString := IntToStr(FhFlagVicris);
+  end;
+
+  qyTotAnalisiVendite.ParamByName('Flag_Active_Cli_Ini').AsString := '0';
+  qyTotAnalisiVendite.ParamByName('Flag_Active_Cli_Fin').AsString := '1';
+  if FhFlagAtvCli <> 2 then
+  begin
+    qyTotAnalisiVendite.ParamByName('Flag_Active_Cli_Ini').AsString := IntToStr(FhFlagAtvCli);
+    qyTotAnalisiVendite.ParamByName('Flag_Active_Cli_Fin').AsString := IntToStr(FhFlagAtvCli);
+  end;
+
+  qyTotAnalisiVendite.ParamByName('Flag_Active_Man_Ini').AsString := '0';
+  qyTotAnalisiVendite.ParamByName('Flag_Active_Man_Fin').AsString := '1';
+  if FhFlagAtvMan <> 2 then
+  begin
+    qyTotAnalisiVendite.ParamByName('Flag_Active_Man_Ini').AsString := IntToStr(FhFlagAtvMan);
+    qyTotAnalisiVendite.ParamByName('Flag_Active_Man_Fin').AsString := IntToStr(FhFlagAtvMan);
+  end;
+
+  qyTotAnalisiVendite.ParamByName('Flag_Active_Sub_Ini').AsString := '0';
+  qyTotAnalisiVendite.ParamByName('Flag_Active_Sub_Fin').AsString := '1';
+  if FhFlagAtvSub <> 2 then
+  begin
+    qyTotAnalisiVendite.ParamByName('Flag_Active_Sub_Ini').AsString := IntToStr(FhFlagAtvSub);
+    qyTotAnalisiVendite.ParamByName('Flag_Active_Sub_Fin').AsString := IntToStr(FhFlagAtvSub);
+  end;
+
+  qyTotAnalisiVendite.Filter := qyAnalisiVendite.Filter;
+  dmDsRefresh(qyTotAnalisiVendite);
+*)
 end;
 
 procedure TdmBrAnalisiVendite.FiltersDataChange(Sender: TObject;

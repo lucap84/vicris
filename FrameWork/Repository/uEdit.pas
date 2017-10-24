@@ -57,6 +57,9 @@ type
     procedure acgrDeleteUpdate(Sender: TObject);
     procedure acNumManUpdate(Sender: TObject);
     procedure acNumManExecute(Sender: TObject);
+    procedure FlagActiveClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormPostCreate(Sender: TObject);
   private
     { Private declarations }
     procedure GetDes(ADescriptor : TdmSearch; Sender: Tobject);
@@ -421,6 +424,37 @@ begin
       hdmView   : Self.Caption := Self.Caption + ' - [ Visualizza ]';
     end;
   UpdateControls;
+end;
+
+procedure TfmEdit.FlagActiveClick(Sender: TObject);
+begin
+  if TDBCheckBox(Sender).Checked then
+    TDBCheckBox(Sender).Font.Color := clGreen
+  else
+    TDBCheckBox(Sender).Font.Color := clRed;
+end;
+
+procedure TfmEdit.FormCreate(Sender: TObject);
+var
+  i : integer;
+begin
+  inherited;
+  for i := 0 to Self.ComponentCount - 1 do
+    if (Self.Components[i] is TDBCheckBox)                         and
+       (TDBCheckBox(Self.Components[i]).DataField = 'FLAG_ACTIVE') then
+      TDBCheckBox(Self.Components[i]).OnClick := FlagActiveClick;
+end;
+
+procedure TfmEdit.FormPostCreate(Sender: TObject);
+var
+  i : integer;
+begin
+  inherited;
+  for i := 0 to Self.ComponentCount - 1 do
+    if (Self.Components[i] is TDBCheckBox)                         and
+       (TDBCheckBox(Self.Components[i]).DataField = 'FLAG_ACTIVE') and
+       Assigned(TDBCheckBox(Self.Components[i]).OnClick)           then
+      FlagActiveClick(TDBCheckBox(Self.Components[i]));
 end;
 
 end.

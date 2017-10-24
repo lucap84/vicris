@@ -162,8 +162,8 @@ begin
 end;
 
 procedure TfmBrAnalisiVendite.FormPostCreate(Sender: TObject);
-var
-  i : integer;
+//var
+//  i : integer;
 begin
   inherited;
   if Assigned(hDataModule) then
@@ -186,9 +186,17 @@ begin
   cbSubmandanti.KeyValue := -1;
   cbCategoria.KeyValue   := -1;
 
-  for i := 0 to grBrowse.Columns.Count - 1 do
-    if grBrowse.Columns[i].FieldName = 'IMPORTO_TOTALE' then
-      grBrowse.Columns[i].SummaryMode := smSum;
+//  for i := 0 to grBrowse.Columns.Count - 1 do
+//  begin
+//    grBrowse.Columns[i].SummaryMode := smNone;
+//    if grBrowse.Columns[i].FieldName = 'QUANTITA' then
+//    begin
+//      grBrowse.Columns[i].SummaryMode    := smSum; // --> smNone,smSum,smAvr
+//      grBrowse.Columns[i].FloatFormat    := ffNumber;
+//      grBrowse.Columns[i].FloatPrecision := 25;
+//      grBrowse.Columns[i].FloatDigits    := 2;
+//    end;
+//  end;
 
   FiltersChange(nil);
 end;

@@ -62,7 +62,7 @@ inherited fmEdSubMandante: TfmEdSubMandante
     TabOrder = 1
   end
   object ckFlagActive: TDBCheckBox [3]
-    Left = 296
+    Left = 8
     Top = 43
     Width = 105
     Height = 33

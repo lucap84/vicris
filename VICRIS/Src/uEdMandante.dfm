@@ -586,7 +586,7 @@ inherited fmEdMandante: TfmEdMandante
         Text = 'deDesProvincia'
       end
       object ckFlagActive: TDBCheckBox
-        Left = 312
+        Left = 8
         Top = 403
         Width = 105
         Height = 33

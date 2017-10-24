@@ -3234,7 +3234,7 @@ object fmBrowse: TfmBrowse
       TitleFont.Name = 'MS Sans Serif'
       TitleFont.Style = [fsBold]
       OnDrawColumnCell = grBrowseDrawColumnCell
-      OnDblClick = acViewExecute
+      OnDblClick = grBrowseDblClick
     end
   end
   object alBrowse: TActionList

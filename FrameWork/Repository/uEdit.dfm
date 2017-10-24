@@ -17,6 +17,8 @@ object fmEdit: TfmEdit
   Position = poMainFormCenter
   Visible = True
   OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnPostCreate = FormPostCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnTools: TPanel

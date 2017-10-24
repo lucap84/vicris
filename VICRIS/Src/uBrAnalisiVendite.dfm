@@ -20,7 +20,6 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
     inherited grBrowse: TDBGridAux
       Width = 485
       Height = 435
-      OptionsEx = [dgeEnableSort, dgeLocalFilter, dgeLocalSorting]
       DataSource = dmBrAnalisiVendite.dsAnalisiVendite
     end
     object pnSummary: TPanel
