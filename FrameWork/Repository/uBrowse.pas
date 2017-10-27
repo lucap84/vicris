@@ -8,7 +8,7 @@ uses
   Buttons, udmGlobal, DBClient, Ora, udmDBCore, udmBrowse, udmEdit, uEdit,
   ppProd, ppClass, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
   ppBands, ppCache, ppPrnabl, ppCtrls, ppVar, TXComp, uGlobals, DBGridAux,
-  ExportDS, SME2Cell, SME2XLS, Menus;
+  ExportDS, SME2Cell, SME2XLS, Menus, jpeg;
 
 type
   TfmBrowse = class(TfmRoot)
