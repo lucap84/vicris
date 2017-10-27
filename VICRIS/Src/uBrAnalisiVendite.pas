@@ -8,7 +8,8 @@ uses
   ppCache, ppProd, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE,
   ActnList, Grids, DBGrids, DBGridAux, StdCtrls, Buttons, ExtCtrls, Ora,
   udmBrAnalisiVendite, ComCtrls, uSupportLib, DBCtrls, ExportDS, SME2OLE,
-  Menus, SME2Cell, SME2XLS, udmEdVendita, uEdVendita, Mask;
+  Menus, SME2Cell, SME2XLS, SMEEngine, udmEdVendita, uEdVendita, Mask, DB,
+  jpeg;
 
 type
   TfmBrAnalisiVendite = class(TfmBrowse)
@@ -49,6 +50,38 @@ type
     deSumTotale: TDBEdit;
     deSumQuantita: TDBEdit;
     deAvgPrezzo: TDBEdit;
+    ppShape1: TppShape;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
+    ppDBText4: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText7: TppDBText;
+    ppSummaryBand1: TppSummaryBand;
+    ppLine3: TppLine;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLabel10: TppLabel;
+    ppDBCalc1: TppDBCalc;
+    ppDBCalc2: TppDBCalc;
+    ppDBCalc3: TppDBCalc;
+    shDetail: TppShape;
+    ppLine4: TppLine;
+    ppLine5: TppLine;
+    ppLine6: TppLine;
+    ppLine7: TppLine;
+    ppLine8: TppLine;
+    ppLine9: TppLine;
+    ppLine10: TppLine;
+    ppLine11: TppLine;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FiltersChange(Sender: TObject);
@@ -59,6 +92,7 @@ type
     procedure acInsertUpdate(Sender: TObject);
     procedure acEditUpdate(Sender: TObject);
     procedure acDeleteUpdate(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
   private
     { Private declarations }
   public
@@ -247,6 +281,16 @@ end;
 procedure TfmBrAnalisiVendite.acDeleteUpdate(Sender: TObject);
 begin
   TAction(Sender).Enabled := False;
+end;
+
+procedure TfmBrAnalisiVendite.ppDetailBand1BeforePrint(Sender: TObject);
+begin
+  inherited;
+  with TdmBrAnalisiVendite(hDataModule) do
+    if cdsAnalisiVenditeDES_VICRIS.AsString = 'VICRIS' then
+      shDetail.Brush.Color := clWhite
+    else
+      shDetail.Brush.Color := $00DDDDDD;
 end;
 
 end.

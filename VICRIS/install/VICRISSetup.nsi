@@ -91,10 +91,10 @@ Section /o "File di Oracle" SEC03
 ;SectionIn RO
   SetOutPath "$INSTDIR\Oracle"
   SetOverwrite on
-  File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\orannzsbb10.dll"
-  File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\oraociei10.dll"
-  File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\oci.dll"
-  File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\tnsnames.ora"
+  ;File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\orannzsbb10.dll"
+  ;File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\oraociei10.dll"
+  ;File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\oci.dll"
+  ;File "c:\Software\Delphi\Delphi7\VICRIS\vicris\VICRIS\install\instantclient\tnsnames.ora"
   ; Scrivo le chiavi di registro
   ReadRegStr $0 HKLM "Software\ORACLE" "ORACLE_HOME"
   StrCmp $0 "" 0 +3
