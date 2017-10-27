@@ -151,10 +151,6 @@ begin
             1004 : FhEditFormClass := TfmEdProdotto;
             1005 : FhEditFormClass := TfmEdSubmandante;
             1006 : FhEditFormClass := TfmEdProvincia;
-//            1007 : FhEditFormClass := TfmEdIncarico;
-//            1008 : FhEditFormClass := TfmEdPersona;
-//            1009 : FhEditFormClass := TfmEdRuolo;
-//            1010 : FhEditFormClass := TfmEdUbi;
           end;
           if (not Assigned(FhEditForm)) and
               Assigned(FhEditFormClass) then
@@ -190,11 +186,6 @@ begin
     1004 : Result := dmSearch('Prodotti',           qyPro,    'id_prodotto',    AOp, ATag);
     1005 : Result := dmSearch('Submandanti',        qySubMan, 'id_submandante', AOp, ATag);
     1006 : Result := dmSearch('Province',           qyPrn,    'id_provincia',   AOp, ATag);
-//    1007 : Result := dmSearch('Incarichi',     qyInc, 'cod_inc', AOp, ATag);
-//    1008 : Result := dmSearch('Persone',       qyPer, 'cod_aut', AOp, ATag);
-//    1009 : Result := dmSearch('Ruoli',         qyRol, 'cod_rol;cod_pmr;cod_inc;cod_aut', AOp, ATag);
-//    1010 : Result := dmSearch('Ubicazioni',    qyUbi, 'cod_ubi', AOp, ATag);
-//    1011 : Result := dmSearch('Eventi',        qyEvt, 'cod_evt', AOp, ATag);
   end;
   if AOp = 'S' then
     hSearchResult := Result
@@ -217,6 +208,7 @@ begin
   end;
 
   AQy.Open;
+  AQy.Filtered := False;
   if Assigned(AQy.FindField('Descrizione')) then
     Result := AQy.FieldByName('Descrizione').AsString;
 end;

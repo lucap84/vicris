@@ -81,7 +81,7 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
         '   AND V.FLAG_VICRIS BETWEEN :FLAG_VICRIS_INI AND :FLAG_VICRIS_F' +
         'IN'
       ''
-      ' ORDER BY 1 DESC, 2')
+      ' ORDER BY 2 DESC, 3')
     Left = 32
     Top = 24
     ParamData = <

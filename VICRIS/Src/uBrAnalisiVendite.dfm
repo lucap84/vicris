@@ -786,7 +786,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         TextAlignment = taCentered
         Transparent = True
         mmHeight = 4233
-        mmLeft = 114300
+        mmLeft = 109009
         mmTop = 17727
         mmWidth = 11906
         BandType = 0
@@ -803,9 +803,9 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         TextAlignment = taCentered
         Transparent = True
         mmHeight = 4233
-        mmLeft = 127000
+        mmLeft = 121709
         mmTop = 17727
-        mmWidth = 18521
+        mmWidth = 21167
         BandType = 0
       end
       object ppLabel6: TppLabel
@@ -820,9 +820,9 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         TextAlignment = taCentered
         Transparent = True
         mmHeight = 4233
-        mmLeft = 146315
+        mmLeft = 143669
         mmTop = 17727
-        mmWidth = 18521
+        mmWidth = 21167
         BandType = 0
       end
       object ppLabel7: TppLabel
@@ -855,7 +855,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         mmHeight = 4233
         mmLeft = 44450
         mmTop = 17727
-        mmWidth = 69056
+        mmWidth = 63765
         BandType = 0
       end
     end
@@ -920,7 +920,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         mmHeight = 3598
         mmLeft = 44450
         mmTop = 529
-        mmWidth = 69056
+        mmWidth = 63765
         BandType = 4
       end
       object ppDBText4: TppDBText
@@ -937,7 +937,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         Transparent = True
         DataPipelineName = 'plBrowse'
         mmHeight = 3598
-        mmLeft = 114300
+        mmLeft = 109009
         mmTop = 529
         mmWidth = 11906
         BandType = 4
@@ -956,9 +956,9 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         Transparent = True
         DataPipelineName = 'plBrowse'
         mmHeight = 3598
-        mmLeft = 127000
+        mmLeft = 121709
         mmTop = 529
-        mmWidth = 18521
+        mmWidth = 21167
         BandType = 4
       end
       object ppDBText6: TppDBText
@@ -975,9 +975,9 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         Transparent = True
         DataPipelineName = 'plBrowse'
         mmHeight = 3598
-        mmLeft = 146315
+        mmLeft = 143669
         mmTop = 529
-        mmWidth = 18521
+        mmWidth = 21167
         BandType = 4
       end
       object ppDBText7: TppDBText
@@ -1005,7 +1005,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         mmHeight = 4763
         mmLeft = 19315
         mmTop = 0
-        mmWidth = 12700
+        mmWidth = 265
         BandType = 4
       end
       object ppLine5: TppLine
@@ -1016,7 +1016,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         mmHeight = 4763
         mmLeft = 43921
         mmTop = 0
-        mmWidth = 12700
+        mmWidth = 265
         BandType = 4
       end
       object ppLine6: TppLine
@@ -1025,9 +1025,9 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         Position = lpLeft
         Weight = 0.750000000000000000
         mmHeight = 4763
-        mmLeft = 113771
+        mmLeft = 108479
         mmTop = 0
-        mmWidth = 4498
+        mmWidth = 265
         BandType = 4
       end
       object ppLine7: TppLine
@@ -1036,9 +1036,9 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         Position = lpLeft
         Weight = 0.750000000000000000
         mmHeight = 4763
-        mmLeft = 126471
+        mmLeft = 121179
         mmTop = 0
-        mmWidth = 12700
+        mmWidth = 265
         BandType = 4
       end
       object ppLine8: TppLine
@@ -1047,9 +1047,9 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         Position = lpLeft
         Weight = 0.750000000000000000
         mmHeight = 4763
-        mmLeft = 145786
+        mmLeft = 143140
         mmTop = 0
-        mmWidth = 12700
+        mmWidth = 265
         BandType = 4
       end
       object ppLine9: TppLine
@@ -1060,7 +1060,7 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         mmHeight = 4763
         mmLeft = 165100
         mmTop = 0
-        mmWidth = 12700
+        mmWidth = 265
         BandType = 4
       end
       object ppLine10: TppLine
@@ -1072,17 +1072,6 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         mmLeft = 0
         mmTop = 0
         mmWidth = 12700
-        BandType = 4
-      end
-      object ppLine11: TppLine
-        UserName = 'Line101'
-        ParentHeight = True
-        Position = lpRight
-        Weight = 0.750000000000000000
-        mmHeight = 4763
-        mmLeft = 183092
-        mmTop = 0
-        mmWidth = 6879
         BandType = 4
       end
     end
@@ -1107,10 +1096,11 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 10
+        Font.Size = 9
         Font.Style = [fsBold]
+        TextAlignment = taRightJustified
         Transparent = True
-        mmHeight = 4233
+        mmHeight = 3810
         mmLeft = 1323
         mmTop = 6879
         mmWidth = 26458
@@ -1123,27 +1113,30 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 10
+        Font.Size = 9
         Font.Style = [fsBold]
+        TextAlignment = taRightJustified
         Transparent = True
-        mmHeight = 4233
+        mmHeight = 3810
         mmLeft = 1323
-        mmTop = 11642
+        mmTop = 11377
         mmWidth = 26458
         BandType = 7
       end
       object ppLabel10: TppLabel
         UserName = 'Label10'
+        AutoSize = False
         Caption = 'Prezzo Medio'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 10
+        Font.Size = 9
         Font.Style = [fsBold]
+        TextAlignment = taRightJustified
         Transparent = True
-        mmHeight = 4233
+        mmHeight = 3810
         mmLeft = 1323
-        mmTop = 16404
+        mmTop = 15875
         mmWidth = 26458
         BandType = 7
       end
@@ -1155,15 +1148,15 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 10
+        Font.Size = 9
         Font.Style = []
         TextAlignment = taRightJustified
         Transparent = True
         DataPipelineName = 'plBrowse'
-        mmHeight = 4022
-        mmLeft = 32544
+        mmHeight = 3598
+        mmLeft = 28575
         mmTop = 6879
-        mmWidth = 17198
+        mmWidth = 21167
         BandType = 7
       end
       object ppDBCalc2: TppDBCalc
@@ -1174,15 +1167,15 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 10
+        Font.Size = 9
         Font.Style = []
         TextAlignment = taRightJustified
         Transparent = True
         DataPipelineName = 'plBrowse'
-        mmHeight = 4022
-        mmLeft = 32544
-        mmTop = 11642
-        mmWidth = 17198
+        mmHeight = 3598
+        mmLeft = 28575
+        mmTop = 11377
+        mmWidth = 21167
         BandType = 7
       end
       object ppDBCalc3: TppDBCalc
@@ -1193,17 +1186,150 @@ inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 10
+        Font.Size = 9
         Font.Style = []
         TextAlignment = taRightJustified
         Transparent = True
         DBCalcType = dcAverage
         DataPipelineName = 'plBrowse'
-        mmHeight = 4022
-        mmLeft = 32544
-        mmTop = 16404
-        mmWidth = 17198
+        mmHeight = 3598
+        mmLeft = 28575
+        mmTop = 15875
+        mmWidth = 21167
         BandType = 7
+      end
+    end
+    object grpField: TppGroup
+      BreakName = 'CATEGORIA'
+      DataPipeline = plBrowse
+      OutlineSettings.CreateNode = True
+      ReprintOnSubsequentPage = False
+      UserName = 'grpField'
+      mmNewColumnThreshold = 0
+      mmNewPageThreshold = 0
+      DataPipelineName = 'plBrowse'
+      object grpFieldHead: TppGroupHeaderBand
+        mmBottomOffset = 0
+        mmHeight = 6085
+        mmPrintPosition = 0
+        object ppShape2: TppShape
+          UserName = 'Shape2'
+          Brush.Color = 16113353
+          ParentHeight = True
+          ParentWidth = True
+          mmHeight = 6085
+          mmLeft = 0
+          mmTop = 0
+          mmWidth = 190080
+          BandType = 3
+          GroupNo = 0
+        end
+        object dbGrpField: TppDBText
+          UserName = 'dbGrpField'
+          DataPipeline = plBrowse
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 9
+          Font.Style = [fsBold]
+          Transparent = True
+          DataPipelineName = 'plBrowse'
+          mmHeight = 3810
+          mmLeft = 19844
+          mmTop = 1058
+          mmWidth = 88371
+          BandType = 3
+          GroupNo = 0
+        end
+        object laGrpTitle: TppLabel
+          UserName = 'laGrpTitle'
+          AutoSize = False
+          Caption = 'Totale per'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 9
+          Font.Style = [fsBold]
+          Transparent = True
+          mmHeight = 3810
+          mmLeft = 529
+          mmTop = 1058
+          mmWidth = 18521
+          BandType = 3
+          GroupNo = 0
+        end
+        object ppDBCalc4: TppDBCalc
+          UserName = 'DBCalc4'
+          DataField = 'PREZZO_VENDITA'
+          DataPipeline = plBrowse
+          DisplayFormat = '#,##0.00'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 9
+          Font.Style = [fsBold]
+          ResetGroup = grpField
+          TextAlignment = taRightJustified
+          Transparent = True
+          DBCalcType = dcAverage
+          LookAhead = True
+          DataPipelineName = 'plBrowse'
+          mmHeight = 3810
+          mmLeft = 109009
+          mmTop = 1058
+          mmWidth = 11906
+          BandType = 3
+          GroupNo = 0
+        end
+        object ppDBCalc5: TppDBCalc
+          UserName = 'DBCalc5'
+          DataField = 'QUANTITA'
+          DataPipeline = plBrowse
+          DisplayFormat = '#,##0.00'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 9
+          Font.Style = [fsBold]
+          ResetGroup = grpField
+          TextAlignment = taRightJustified
+          Transparent = True
+          LookAhead = True
+          DataPipelineName = 'plBrowse'
+          mmHeight = 3810
+          mmLeft = 121709
+          mmTop = 1058
+          mmWidth = 21167
+          BandType = 3
+          GroupNo = 0
+        end
+        object ppDBCalc6: TppDBCalc
+          UserName = 'DBCalc6'
+          DataField = 'IMPORTO_TOTALE'
+          DataPipeline = plBrowse
+          DisplayFormat = '#,##0.00'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 9
+          Font.Style = [fsBold]
+          ResetGroup = grpField
+          TextAlignment = taRightJustified
+          Transparent = True
+          LookAhead = True
+          DataPipelineName = 'plBrowse'
+          mmHeight = 3810
+          mmLeft = 143669
+          mmTop = 1058
+          mmWidth = 21167
+          BandType = 3
+          GroupNo = 0
+        end
+      end
+      object grpFieldFoot: TppGroupFooterBand
+        mmBottomOffset = 0
+        mmHeight = 6085
+        mmPrintPosition = 0
       end
     end
   end

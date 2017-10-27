@@ -81,7 +81,15 @@ type
     ppLine8: TppLine;
     ppLine9: TppLine;
     ppLine10: TppLine;
-    ppLine11: TppLine;
+    grpField: TppGroup;
+    grpFieldHead: TppGroupHeaderBand;
+    grpFieldFoot: TppGroupFooterBand;
+    dbGrpField: TppDBText;
+    ppShape2: TppShape;
+    laGrpTitle: TppLabel;
+    ppDBCalc4: TppDBCalc;
+    ppDBCalc5: TppDBCalc;
+    ppDBCalc6: TppDBCalc;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FiltersChange(Sender: TObject);
@@ -93,6 +101,7 @@ type
     procedure acEditUpdate(Sender: TObject);
     procedure acDeleteUpdate(Sender: TObject);
     procedure ppDetailBand1BeforePrint(Sender: TObject);
+    procedure acPrintExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -196,8 +205,6 @@ begin
 end;
 
 procedure TfmBrAnalisiVendite.FormPostCreate(Sender: TObject);
-//var
-//  i : integer;
 begin
   inherited;
   if Assigned(hDataModule) then
@@ -219,18 +226,6 @@ begin
   cbMandanti.KeyValue    := -1;
   cbSubmandanti.KeyValue := -1;
   cbCategoria.KeyValue   := -1;
-
-//  for i := 0 to grBrowse.Columns.Count - 1 do
-//  begin
-//    grBrowse.Columns[i].SummaryMode := smNone;
-//    if grBrowse.Columns[i].FieldName = 'QUANTITA' then
-//    begin
-//      grBrowse.Columns[i].SummaryMode    := smSum; // --> smNone,smSum,smAvr
-//      grBrowse.Columns[i].FloatFormat    := ffNumber;
-//      grBrowse.Columns[i].FloatPrecision := 25;
-//      grBrowse.Columns[i].FloatDigits    := 2;
-//    end;
-//  end;
 
   FiltersChange(nil);
 end;
@@ -275,7 +270,7 @@ end;
 
 procedure TfmBrAnalisiVendite.acEditUpdate(Sender: TObject);
 begin
-  TAction(Sender).Enabled := False;
+  TAction(Sender).Enabled := TdmBrAnalisiVendite(hDataModule).cdsAnalisiVenditeNOME.IsNull;
 end;
 
 procedure TfmBrAnalisiVendite.acDeleteUpdate(Sender: TObject);
@@ -291,6 +286,53 @@ begin
       shDetail.Brush.Color := clWhite
     else
       shDetail.Brush.Color := $00DDDDDD;
+end;
+
+procedure TfmBrAnalisiVendite.acPrintExecute(Sender: TObject);
+var
+  i : integer;
+begin
+  with TdmBrAnalisiVendite(hDataModule) do
+  begin
+    if cdsAnalisiVendite.IndexName <> '' then
+    begin
+      for i := 0 to cdsAnalisiVendite.IndexDefs.Count - 1 do
+        if cdsAnalisiVendite.IndexDefs[i].Name = cdsAnalisiVendite.IndexName then
+        begin
+          if (cdsAnalisiVendite.IndexDefs[i].Fields = 'NOME')        or
+             (cdsAnalisiVendite.IndexDefs[i].Fields = 'PRODOTTO')    or
+             (cdsAnalisiVendite.IndexDefs[i].Fields = 'MANDANTE')    or
+             (cdsAnalisiVendite.IndexDefs[i].Fields = 'SUBMANDANTE') or
+             (cdsAnalisiVendite.IndexDefs[i].Fields = 'PROVINCIA')   or
+             (cdsAnalisiVendite.IndexDefs[i].Fields = 'LOCALITA')    or
+             (cdsAnalisiVendite.IndexDefs[i].Fields = 'CATEGORIA')   then
+          begin
+            grpFieldHead.Visible := True;
+            grpField.BreakName   := cdsAnalisiVendite.IndexDefs[i].Fields;
+            grpField.KeepTogether:= True;
+            dbGrpField.DataField := grpField.BreakName;
+            grpFieldFoot.Visible := True;
+          end
+          else
+          begin
+            grpFieldHead.Visible := False;
+            grpField.KeepTogether:= False;
+            grpField.BreakName   := '';
+            grpFieldFoot.Visible := False;
+          end;
+          Break;
+        end;
+    end
+    else
+    begin
+      grpFieldHead.Visible := False;
+      grpField.KeepTogether:= False;
+      grpField.BreakName   := '';
+      grpFieldFoot.Visible := False;
+    end;
+  end;
+
+  inherited;
 end;
 
 end.
