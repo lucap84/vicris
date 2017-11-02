@@ -1,6 +1,6 @@
 object fmMlSearch: TfmMlSearch
-  Left = 408
-  Top = 209
+  Left = 409
+  Top = 210
   ActiveControl = grSearch
   BorderStyle = bsDialog
   Caption = 'Ricerca'

@@ -1,6 +1,6 @@
 object fmRoot: TfmRoot
-  Left = 575
-  Top = 148
+  Left = 384
+  Top = 141
   Width = 640
   Height = 480
   Caption = 'fmRoot'

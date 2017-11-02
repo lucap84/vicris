@@ -1,6 +1,6 @@
 object fmBrowse: TfmBrowse
-  Left = 347
-  Top = 204
+  Left = 348
+  Top = 205
   Width = 750
   Height = 600
   Caption = 'fmBrowse'

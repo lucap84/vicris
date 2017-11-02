@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, udmGlobal, DB, DBAccess, Ora, DBClient, udmDBCore, udmDBRoot, uGlobals;
+  Dialogs, udmGlobal, DB, DBAccess, Ora, DBClient, udmDBCore, udmDBRoot, uGlobals,
+  DBSearch;
 
 type
   TdmEditClass = class of TdmEdit;
@@ -12,6 +13,7 @@ type
     OraSession: TOraSession;
   private
     FhNumManPrv: boolean;
+    FhCallSender: TDBSearch;
     { Private declarations }
     function getMainSession: TOraSession;
   protected
@@ -25,6 +27,8 @@ type
     procedure dmSetSessionDefault; override;
   public
     { Public declarations }
+    constructor Create(Owner: TComponent); override;
+
     function  dmCommit: boolean; override;
     procedure dmRollBack; override;
 
@@ -38,7 +42,8 @@ type
     procedure SetDmoLck;
     procedure RemoveDmoLck;
 
-    property  hNumManPrv : boolean read FhNumManPrv write FhNumManPrv;
+    property  hNumManPrv  : boolean   read FhNumManPrv  write FhNumManPrv;
+    property  hCallSender : TDBSearch read FhCallSender write FhCallSender;
   end;
 
 var
@@ -140,8 +145,12 @@ begin
           end;
           getMainSession.Commit;
           if hdmState = hdmInsert then
+          begin
             if (hTipAttNum in [hPrgAut, hPrgAutAaa]) and (not FhNumManPrv) then
               MessageDlg('E'' stato inserito il record N° '+NewCod, mtInformation, [mbOK], 0);
+            if Assigned(FhCallSender) then
+              FhCallSender.Text := hDataSet.FieldByName(hKeyFields[hKeyFields.Count - 1]).AsString;
+          end;
           if (hdmState in [hdmEdit, hdmDelete]) then
             RemoveDmoLck;
         end
@@ -260,6 +269,12 @@ function TdmEdit.dmDimNumPrgCustom: boolean;
 begin
   Result := True;
   //do nothing;
+end;
+
+constructor TdmEdit.Create(Owner: TComponent);
+begin
+  inherited;
+  FhCallSender := nil;
 end;
 
 end.

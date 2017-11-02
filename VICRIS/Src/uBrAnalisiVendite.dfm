@@ -1,6 +1,6 @@
 inherited fmBrAnalisiVendite: TfmBrAnalisiVendite
-  Left = 322
-  Top = 199
+  Left = 323
+  Top = 200
   Height = 640
   Caption = 'Analisi Vendite'
   Constraints.MinHeight = 640

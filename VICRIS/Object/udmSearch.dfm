@@ -1,8 +1,8 @@
 object dmSearch: TdmSearch
   OldCreateOrder = False
   OnCreate = dmSearchCreate
-  Left = 526
-  Top = 278
+  Left = 527
+  Top = 279
   Height = 269
   Width = 298
   object OraSearch: TOraSession

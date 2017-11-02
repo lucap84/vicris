@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, DB, DBAccess, Ora, Controls, StdCtrls, DBCtrls, MemDS,
-  uMlSearch, Variants, uGlobals;
+  uMlSearch, Variants, uGlobals, DBSearch;
 
 type
   TdmSearch = class(TDataModule)
@@ -53,10 +53,10 @@ type
     FhSearchResult: Variant;
     FhDesResult: Variant;
     FhDesKey: Variant;
-    function dmSearch(const ACaption: string;  ADataSetSearch: TOraQuery; AFieldNames: string; AOp: String; ATag: integer): Variant;
+    function dmSearch(const ACaption: string;  ADataSetSearch: TOraQuery; AFieldNames: string; AOp: String; ATag: integer; Sender: TDBSearch = nil): Variant;
   public
     { Public declarations }
-    function  dmSearchValue(ATag: integer; AOp: String = 'S'): Variant;
+    function  dmSearchValue(Sender: TDBSearch; ATag: integer; AOp: String = 'S'): Variant;
     function  GetDes(AQy: TOraQuery): variant;
     function  dmConnect: boolean;
     procedure dmDisconnect;
@@ -118,7 +118,7 @@ begin
 end;
 
 function TdmSearch.dmSearch(const ACaption: string;
-  ADataSetSearch: TOraQuery; AFieldNames: string; AOp: String; ATag: integer): Variant;
+  ADataSetSearch: TOraQuery; AFieldNames: string; AOp: String; ATag: integer; Sender: TDBSearch = nil): Variant;
 var
   FhEditForm: TfmEdit;
   FhEditFormClass: TfmEditClass;
@@ -156,6 +156,8 @@ begin
               Assigned(FhEditFormClass) then
           begin
             FhEditForm := FhEditFormClass.Create(nil);
+            if Assigned(Sender) then
+              TdmEdit(FhEditForm.hDataModule).hCallSender := Sender;
             TdmEdit(FhEditForm.hDataModule).dmInsert;
           end;
         end;
@@ -174,18 +176,18 @@ begin
     ADataSetSearch.Params[i].Value := unassigned;
 end;
 
-function TdmSearch.dmSearchValue(ATag: integer; AOp: String = 'S'): Variant;
+function TdmSearch.dmSearchValue(Sender: TDBSearch; ATag: integer; AOp: String = 'S'): Variant;
 begin
   Result := Null;
   case ATag of
     0:;
-    1000 : Result := dmSearch('Clienti',            qyCli,    'id_cliente',     AOp, ATag);
-    1001 : Result := dmSearch('Mandanti',           qyMan,    'id_mandante',    AOp, ATag);
-    1002 : Result := dmSearch('Località',           qyLoc,    'id_localita',    AOp, ATag);
-    1003 : Result := dmSearch('Categorie Prodotto', qyCatPro, 'id_categoria',   AOp, ATag);
-    1004 : Result := dmSearch('Prodotti',           qyPro,    'id_prodotto',    AOp, ATag);
-    1005 : Result := dmSearch('Submandanti',        qySubMan, 'id_submandante', AOp, ATag);
-    1006 : Result := dmSearch('Province',           qyPrn,    'id_provincia',   AOp, ATag);
+    1000 : Result := dmSearch('Clienti',            qyCli,    'id_cliente',     AOp, ATag, Sender);
+    1001 : Result := dmSearch('Mandanti',           qyMan,    'id_mandante',    AOp, ATag, Sender);
+    1002 : Result := dmSearch('Località',           qyLoc,    'id_localita',    AOp, ATag, Sender);
+    1003 : Result := dmSearch('Categorie Prodotto', qyCatPro, 'id_categoria',   AOp, ATag, Sender);
+    1004 : Result := dmSearch('Prodotti',           qyPro,    'id_prodotto',    AOp, ATag, Sender);
+    1005 : Result := dmSearch('Submandanti',        qySubMan, 'id_submandante', AOp, ATag, Sender);
+    1006 : Result := dmSearch('Province',           qyPrn,    'id_provincia',   AOp, ATag, Sender);
   end;
   if AOp = 'S' then
     hSearchResult := Result

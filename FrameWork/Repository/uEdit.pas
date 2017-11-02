@@ -182,7 +182,7 @@ begin
       begin
         if VarIsNull(ADescriptor.hDesKey) then
           ADescriptor.hDesKey := TDBSearch(Sender).Text;
-        Des := ADescriptor.dmSearchValue(TDBSearch(Sender).Tag, 'D');
+        Des := ADescriptor.dmSearchValue(TDBSearch(Sender), TDBSearch(Sender).Tag, 'D');
 
         if Des <> '' then
         begin
@@ -236,7 +236,7 @@ procedure TfmEdit.SearchDlg(Sender: TObject);
     begin
       ASearcher.hDesResult    := null;
       ASearcher.hSearchResult := null;
-      ASearcher.dmSearchValue(TDBSearch(Sender).Tag);
+      ASearcher.dmSearchValue(TDBSearch(Sender), TDBSearch(Sender).Tag);
       if (not VarisNull(ASearcher.hSearchResult)) then
       begin
         if (not Assigned(TDBSearch(Sender).DataSource)) or

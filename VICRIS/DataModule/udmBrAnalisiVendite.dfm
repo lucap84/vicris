@@ -2,8 +2,8 @@ inherited dmBrAnalisiVendite: TdmBrAnalisiVendite
   hDataSet = cdsAnalisiVendite
   hKeyFields.Strings = (
     'id_vendita')
-  Left = 553
-  Top = 278
+  Left = 554
+  Top = 279
   Height = 401
   Width = 384
   object qyAnalisiVendite: TOraQuery
