@@ -89,7 +89,14 @@ implementation
 { TdmBrAnalisiVendite }
 
 procedure TdmBrAnalisiVendite.dmDoFilter;
+var
+  AppIdxFldNames, AppIdxName: String;
 begin
+  AppIdxFldNames := cdsAnalisiVendite.IndexFieldNames;
+  AppIdxName     := cdsAnalisiVendite.IndexName;
+  cdsAnalisiVendite.IndexFieldNames := '';
+  cdsAnalisiVendite.IndexName       := '';
+
   qyAnalisiVendite.ParamByName('Data_Inizio').AsDate     := hDataIni;
   qyAnalisiVendite.ParamByName('Data_Fine').AsDate       := hDataFin;
   qyAnalisiVendite.ParamByName('Prezzo_Inizio').AsFloat  := hPrezzoIni;
@@ -146,6 +153,9 @@ begin
   end;
 
   dmDsRefresh(cdsAnalisiVendite);
+
+  cdsAnalisiVendite.IndexFieldNames := AppIdxFldNames;
+  cdsAnalisiVendite.IndexName       := AppIdxName;
 
 (*
   qyTotAnalisiVendite.ParamByName('Data_Inizio').AsDate     := hDataIni;
