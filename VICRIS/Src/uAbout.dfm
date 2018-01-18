@@ -13,6 +13,7 @@ object fmAbout: TfmAbout
   Font.Style = []
   OldCreateOrder = True
   Position = poScreenCenter
+  OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
